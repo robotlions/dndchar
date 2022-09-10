@@ -32,8 +32,12 @@ function App() {
   </div>
 </div>
         <div className="row">
-          <div className="col-12">
+          <div className="col-4">
             <NewScores selectedRace={selectedRace}/>
+          </div>
+          <div className="col-4">
+          </div>
+          <div className="col-4">
           </div>
         </div>
       </div>
