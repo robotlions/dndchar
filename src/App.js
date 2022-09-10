@@ -9,6 +9,7 @@ import { NewScores } from "./Components/AbilityScores";
 function App() {
   const [selectedRace, setSelectedRace] = useState("Human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
+  const [con, setCon] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
   const [hitPoints, setHitPoints] = useState(0);
@@ -37,14 +38,14 @@ function App() {
           </p>
         </div>
         <div className="col-2"></div>
-        <div className="col-2">Hit Points</div>
+        <div className="col-2"><p>Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} /></p></div>
         <div className="col-2"></div>
         <div className="col-2"></div>
         <div className="col-2"></div>
       </div>
       <div className="row">
         <div className="col-4">
-          <NewScores selectedRace={selectedRace} />
+          <NewScores setCon={setCon} selectedRace={selectedRace} />
         </div>
         <div className="col-4"></div>
         <div className="col-4"></div>

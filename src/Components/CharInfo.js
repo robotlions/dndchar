@@ -3,6 +3,11 @@ import "../App.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
+
+function rando(min, max) {
+  return Math.floor(Math.random() * max) + min;
+}
+
 export const CharName = (props) => {
   const [thisState, setThisState] = useState("");
   const [editing, setEditing] = useState(true);
@@ -75,9 +80,31 @@ export const HitPoints = (props) => {
 
     const [thisState, setThisState] = useState(0);
 
+    function calculateModifier(abil){
+      return -5 + Math.floor(1*(abil/2))
+    }
+
+    const hitDice ={
+      Sorcerer: 4,
+      Wizard: 4,
+      Bard: 6,
+      Rogue: 6,
+      Cleric: 8,
+      Druid: 8,
+      Monk: 8,
+      Ranger: 8,
+      Fighter: 10,
+      Paladin: 10,
+      Barbarian: 12
+
+    }
+    const hpDice = hitDice[props.selectedClass]
+    const mod = calculateModifier(props.con);
+    const printHP = (rando(1, hpDice)+mod)*props.level
+
     return(
         <div>
-            Hit points
+            {printHP}
         </div>
     )
 }

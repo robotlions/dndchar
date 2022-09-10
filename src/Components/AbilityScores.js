@@ -20,11 +20,13 @@ function calculateModifier(abil){
 export const NewScores = (props) => {
   useEffect(() => {
     if (newRoll == true) {
+      let conRoll=(roll());
       setStr(roll());
       setInt(roll());
       setWis(roll());
       setDex(roll());
-      setCon(roll());
+      setCon(conRoll);
+      props.setCon(conRoll);
       setChr(roll());
       setNewRoll(false);
     }
