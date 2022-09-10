@@ -38,7 +38,7 @@ function App() {
           </p>
         </div>
         <div className="col-2"></div>
-        <div className="col-2"><p>Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} /></p></div>
+        <div className="col-2"><p>Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} selectedRace={selectedRace}/></p></div>
         <div className="col-2"></div>
         <div className="col-2"></div>
         <div className="col-2"></div>

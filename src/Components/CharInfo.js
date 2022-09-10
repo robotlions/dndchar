@@ -2,6 +2,7 @@ import { useState } from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import * as RaceBonuses from "../Races/AbilBonuses";
 
 
 function rando(min, max) {
@@ -54,8 +55,8 @@ export const Level = (props) => {
     }
   };
 
-  const levelInput = 
-  <InputGroup className="mb-3" id="level">
+  const levelInput = (
+    <InputGroup className="mb-3" id="level">
       <Form.Control
         type="text"
         placeHolder={1}
@@ -66,45 +67,54 @@ export const Level = (props) => {
         onKeyDown={handleKeyDown}
       />
     </InputGroup>
-
-    const levelDisplay = <button className="nameDisplay" onClick={() => setEditing(true)}>{thisState}</button>
-
-  return (
-    <div>
-    {editing==true ? levelInput : levelDisplay}
-    </div>
   );
+
+  const levelDisplay = (
+    <button className="nameDisplay" onClick={() => setEditing(true)}>
+      {thisState}
+    </button>
+  );
+
+  return <div>{editing == true ? levelInput : levelDisplay}</div>;
 };
 
 export const HitPoints = (props) => {
+  
+  function calculateModifier(abil) {
+    return -5 + Math.floor(1 * (abil / 2));
+  }
 
-    const [thisState, setThisState] = useState(0);
+  const hitDice = {
+    Sorcerer: 4,
+    Wizard: 4,
+    Bard: 6,
+    Rogue: 6,
+    Cleric: 8,
+    Druid: 8,
+    Monk: 8,
+    Ranger: 8,
+    Fighter: 10,
+    Paladin: 10,
+    Barbarian: 12,
+  };
 
-    function calculateModifier(abil){
-      return -5 + Math.floor(1*(abil/2))
+  const racialBonus = RaceBonuses[props.selectedRace];
+
+
+  const hpDice = hitDice[props.selectedClass];
+  const mod = calculateModifier(props.con+racialBonus.bonusCon);
+
+  let total = 0;
+  for (let i = 1; i <= props.level; i++) {
+    if(i==1){
+      total=parseInt(total)+hpDice+mod
     }
-
-    const hitDice ={
-      Sorcerer: 4,
-      Wizard: 4,
-      Bard: 6,
-      Rogue: 6,
-      Cleric: 8,
-      Druid: 8,
-      Monk: 8,
-      Ranger: 8,
-      Fighter: 10,
-      Paladin: 10,
-      Barbarian: 12
-
+    else{
+    total = parseInt(total)+parseInt(rando(1, hpDice)+mod)
     }
-    const hpDice = hitDice[props.selectedClass]
-    const mod = calculateModifier(props.con);
-    const printHP = (rando(1, hpDice)+mod)*props.level
+  }
 
-    return(
-        <div>
-            {printHP}
-        </div>
-    )
-}
+  const printHP = total;
+
+  return <div>{printHP}</div>;
+};
