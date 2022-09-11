@@ -13,6 +13,8 @@ function roll() {
     .reduce((a, b) => a + b, 0);
 }
 
+
+
 function calculateModifier(abil){
   return -5 + Math.floor(1*(abil/2))
 }
@@ -20,13 +22,15 @@ function calculateModifier(abil){
 export const NewScores = (props) => {
   useEffect(() => {
     if (newRoll === true) {
-      let conRoll=(roll());
+      let conRoll=roll();
+      let dexRoll=roll();
       setStr(roll());
       setInt(roll());
       setWis(roll());
-      setDex(roll());
+      setDex(dexRoll);
       setCon(conRoll);
       props.setCon(conRoll);
+      props.setDex(dexRoll);
       setChr(roll());
       setNewRoll(false);
     }
@@ -41,8 +45,18 @@ export const NewScores = (props) => {
   const [chr, setChr] = useState(0);
 
 
-  const rerollButton = <Button onClick={() => setNewRoll(true)}>Reroll</Button>;
+  const rerollButton = <Button onClick={() => rollButton()}>Roll Dice</Button>;
   const racialBonus = RaceBonuses[props.selectedRace];
+
+  function rollButton(){
+    if(props.selectedRace=="Select Race"){
+      return alert("Please select a race first")
+    }
+    else{
+      setNewRoll(true)
+    }
+  }
+
 
   return (
     <div>

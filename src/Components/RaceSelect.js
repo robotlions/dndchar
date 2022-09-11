@@ -6,7 +6,7 @@ import { DropdownButton } from "react-bootstrap";
 
  export const RaceSelectDropdown = (props) => {
   
-    const [thisState, setThisState] = useState("Human");
+    const [thisState, setThisState] = useState("Select Race");
   
   return(
     <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setSelectedRace(eventKey)}}>

@@ -10,6 +10,7 @@ function App() {
   const [selectedRace, setSelectedRace] = useState("Human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(0);
+  const [dex, setDex] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
 
@@ -37,14 +38,17 @@ function App() {
           
         </div>
         <div className="col-2"></div>
-        <div className="col-2">Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
+        <div className="col-2">Hit Points
+        <CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
         <div className="col-2"></div>
-        <div className="col-2"></div>
+        <div className="col-2">Armor Class
+        <CharInfo.ArmorClass dex={dex} selectedRace={selectedRace}/>
+        </div>
         <div className="col-2"></div>
       </div>
       <div className="row">
         <div className="col-4">
-          <NewScores setCon={setCon} selectedRace={selectedRace} />
+          <NewScores setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
         <div className="col-4"></div>
         <div className="col-4"></div>

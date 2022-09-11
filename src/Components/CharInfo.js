@@ -4,9 +4,14 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import * as RaceBonuses from "../Races/AbilBonuses";
 import * as ClassTables from "../Classes/ClassTables";
+import * as RaceTables from "../Races/RaceTables";
 
 function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
+}
+
+function calculateModifier(abil) {
+  return -5 + Math.floor(1 * (abil / 2));
 }
 
 export const CharName = (props) => {
@@ -79,16 +84,14 @@ export const Level = (props) => {
 };
 
 export const HitPoints = (props) => {
-  function calculateModifier(abil) {
-    return -5 + Math.floor(1 * (abil / 2));
-  }
-
+  // function calculateModifier(abil) {
+  //   return -5 + Math.floor(1 * (abil / 2));
+  // }
 
   const racialBonus = RaceBonuses[props.selectedRace];
   const hpDice = ClassTables.hitDice[props.selectedClass];
   const mod = calculateModifier(props.con + racialBonus.bonusCon);
   const [printHP, setPrintHP] = useState(1);
-
 
   useEffect(() => {
     let loading = true;
@@ -108,6 +111,13 @@ export const HitPoints = (props) => {
     };
   }, [props.level, hpDice, mod]);
 
-
   return <div>{printHP}</div>;
+};
+
+export const ArmorClass = (props) => {
+  const dexModifier = calculateModifier(props.dex);
+  const sizeModifier = RaceTables.sizeModifier[props.selectedRace].ac;
+  // const printAC = 10 + props.armorBonus + props.shieldBonus + props.dexModifier + props.sizeModifier
+  const printAC = 10 + sizeModifier + dexModifier;
+  return <div>{printAC}</div>;
 };
