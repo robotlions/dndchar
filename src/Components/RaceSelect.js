@@ -1,23 +1,24 @@
 import {useState} from 'react';
 import Dropdown from 'react-bootstrap/Dropdown'
 import { DropdownButton } from "react-bootstrap";
+import { RaceInfo } from '../Races/RaceTables';
 
 
 
  export const RaceSelectDropdown = (props) => {
   
-    const [thisState, setThisState] = useState("Select Race");
+    const [thisState, setThisState] = useState("select");
   
   return(
     <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setSelectedRace(eventKey)}}>
-    <DropdownButton title={thisState}>
-      <Dropdown.Item eventKey="Human">Human</Dropdown.Item>
-      <Dropdown.Item eventKey="Dwarf">Dwarf</Dropdown.Item>
-      <Dropdown.Item eventKey="Elf">Elf</Dropdown.Item>
-      <Dropdown.Item eventKey="Gnome">Gnome</Dropdown.Item>
-      <Dropdown.Item eventKey="HalfElf">Half-elf</Dropdown.Item>
-      <Dropdown.Item eventKey="HalfOrc">Half-orc</Dropdown.Item>
-      <Dropdown.Item eventKey="Halfling">Halfling</Dropdown.Item>
+    <DropdownButton title={RaceInfo[thisState].raceName}>
+      <Dropdown.Item eventKey="human">Human</Dropdown.Item>
+      <Dropdown.Item eventKey="dwarf">Dwarf</Dropdown.Item>
+      <Dropdown.Item eventKey="elf">Elf</Dropdown.Item>
+      <Dropdown.Item eventKey="gnome">Gnome</Dropdown.Item>
+      <Dropdown.Item eventKey="halfElf">Half-elf</Dropdown.Item>
+      <Dropdown.Item eventKey="halfOrc">Half-orc</Dropdown.Item>
+      <Dropdown.Item eventKey="halfling">Halfling</Dropdown.Item>
     </DropdownButton>
     </Dropdown>
   )

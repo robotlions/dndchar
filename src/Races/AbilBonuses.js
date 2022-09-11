@@ -1,4 +1,4 @@
-export const Human = {
+export const human = {
 
     bonusStr: 0,
     bonusInt: 0,
@@ -8,7 +8,7 @@ export const Human = {
     bonusChr: 0
 }
 
-export const Dwarf = {
+export const dwarf = {
 
     bonusStr: 0,
     bonusInt: 0,
@@ -18,7 +18,7 @@ export const Dwarf = {
     bonusChr: -2
 }
 
-export const Elf = {
+export const elf = {
 
     bonusStr: 0,
     bonusInt: 0,
@@ -28,7 +28,7 @@ export const Elf = {
     bonusChr: 0
 }
 
-export const Gnome = {
+export const gnome = {
 
     bonusStr: -2,
     bonusInt: 0,
@@ -38,7 +38,7 @@ export const Gnome = {
     bonusChr: 0
 }
 
-export const HalfElf = {
+export const halfElf = {
 
     bonusStr: 0,
     bonusInt: 0,
@@ -48,7 +48,7 @@ export const HalfElf = {
     bonusChr: 0
 }
 
-export const HalfOrc = {
+export const halfOrc = {
 
     bonusStr: 0,
     bonusInt: 0,
@@ -58,7 +58,7 @@ export const HalfOrc = {
     bonusChr: -2
 }
 
-export const Halfling = {
+export const halfling = {
 
     bonusStr: -2,
     bonusInt: 0,
@@ -68,7 +68,7 @@ export const Halfling = {
     bonusChr: 0
 }
 
-export const Select = {
+export const select = {
 
     bonusStr: 0,
     bonusInt: 0,

@@ -7,7 +7,7 @@ import * as CharInfo from "./Components/CharInfo";
 import { NewScores } from "./Components/AbilityScores";
 
 function App() {
-  const [selectedRace, setSelectedRace] = useState("Select");
+  const [selectedRace, setSelectedRace] = useState("select");
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(0);
   const [dex, setDex] = useState(0);

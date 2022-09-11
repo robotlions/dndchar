@@ -1,42 +1,76 @@
 export const sizeModifier = {
-  Human: {
+  human: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
-  Dwarf: {
+  dwarf: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
-  Elf: {
+  elf: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
-  Gnome: {
+  gnome: {
     ac: 1,
     attack: 1,
     hide: 4,
   },
-  HalfElf: {
+  halfElf: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
-  HalfOrc: {
+  halfOrc: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
-  Halfling: {
+  halfling: {
     ac: 1,
     attack: 1,
     hide: 4,
   },
-  Select: {
+  select: {
     ac: 0,
     attack: 0,
     hide: 0,
   },
 };
+
+export const RaceInfo = {
+  human: {
+    raceName: "Human",
+    size: "medium"
+  },
+  dwarf: {
+    raceName: "Dwarf",
+    size: "medium"
+  },
+  elf: {
+    raceName: "Elf",
+    size: "medium"
+  },
+  gnome: {
+    raceName: "Gnome",
+    size: "small"
+  },
+  halfElf: {
+    raceName: "Half-elf",
+    size: "medium"
+  },
+  halfOrc: {
+    raceName: "Half-orc",
+    size: "medium"
+  },
+  halfling:{
+    raceName: "Halfling",
+    size: "small"
+  },
+  select: {
+    raceName: "Select Race",
+  }
+}
