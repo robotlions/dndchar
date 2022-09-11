@@ -12,7 +12,6 @@ function App() {
   const [con, setCon] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
-  const [hitPoints, setHitPoints] = useState(0);
 
   return (
     <div className="container">
@@ -32,13 +31,13 @@ function App() {
       </div>
       <div className="row">
         <div className="col-2">
-          <p>
+          
             Level
             <CharInfo.Level setLevel={setLevel} />
-          </p>
+          
         </div>
         <div className="col-2"></div>
-        <div className="col-2"><p>Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} selectedRace={selectedRace}/></p></div>
+        <div className="col-2">Hit Points<CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
         <div className="col-2"></div>
         <div className="col-2"></div>
         <div className="col-2"></div>

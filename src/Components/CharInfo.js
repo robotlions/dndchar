@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import * as RaceBonuses from "../Races/AbilBonuses";
-
+import * as ClassTables from "../Classes/ClassTables";
 
 function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
@@ -42,7 +42,7 @@ export const CharName = (props) => {
     </button>
   );
 
-  return <div>{editing == true ? nameInput : nameDisplay}</div>;
+  return <div>{editing === true ? nameInput : nameDisplay}</div>;
 };
 
 export const Level = (props) => {
@@ -59,7 +59,7 @@ export const Level = (props) => {
     <InputGroup className="mb-3" id="level">
       <Form.Control
         type="text"
-        placeHolder={1}
+        placeholder={1}
         onChange={(e) => {
           setThisState(e.target.value);
           props.setLevel(e.target.value);
@@ -75,46 +75,39 @@ export const Level = (props) => {
     </button>
   );
 
-  return <div>{editing == true ? levelInput : levelDisplay}</div>;
+  return <div>{editing === true ? levelInput : levelDisplay}</div>;
 };
 
 export const HitPoints = (props) => {
-  
   function calculateModifier(abil) {
     return -5 + Math.floor(1 * (abil / 2));
   }
 
-  const hitDice = {
-    Sorcerer: 4,
-    Wizard: 4,
-    Bard: 6,
-    Rogue: 6,
-    Cleric: 8,
-    Druid: 8,
-    Monk: 8,
-    Ranger: 8,
-    Fighter: 10,
-    Paladin: 10,
-    Barbarian: 12,
-  };
 
   const racialBonus = RaceBonuses[props.selectedRace];
+  const hpDice = ClassTables.hitDice[props.selectedClass];
+  const mod = calculateModifier(props.con + racialBonus.bonusCon);
+  const [printHP, setPrintHP] = useState(1);
 
 
-  const hpDice = hitDice[props.selectedClass];
-  const mod = calculateModifier(props.con+racialBonus.bonusCon);
-
-  let total = 0;
-  for (let i = 1; i <= props.level; i++) {
-    if(i==1){
-      total=parseInt(total)+hpDice+mod
+  useEffect(() => {
+    let loading = true;
+    if (loading === true) {
+      let total = 0;
+      for (let i = 1; i <= props.level; i++) {
+        if (i === 1) {
+          total = parseInt(total) + hpDice + mod;
+        } else {
+          total = parseInt(total) + parseInt(rando(1, hpDice) + mod);
+        }
+      }
+      setPrintHP(total);
     }
-    else{
-    total = parseInt(total)+parseInt(rando(1, hpDice)+mod)
-    }
-  }
+    return () => {
+      loading = false;
+    };
+  }, [props.level, hpDice, mod]);
 
-  const printHP = total;
 
   return <div>{printHP}</div>;
 };
