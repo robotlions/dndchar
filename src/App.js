@@ -7,7 +7,7 @@ import * as CharInfo from "./Components/CharInfo";
 import { NewScores } from "./Components/AbilityScores";
 
 function App() {
-  const [selectedRace, setSelectedRace] = useState("Human");
+  const [selectedRace, setSelectedRace] = useState("Select");
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(0);
   const [dex, setDex] = useState(0);
@@ -23,11 +23,9 @@ function App() {
         </div>
         <div className="col-4">
           <RaceSelectDropdown setSelectedRace={setSelectedRace} />
-          <p>Race: {selectedRace}</p>
         </div>
         <div className="col-4">
           <ClassSelectDropdown setSelectedClass={setSelectedClass} />
-          <p>Class: {selectedClass}</p>
         </div>
       </div>
       <div className="row">

@@ -67,3 +67,13 @@ export const Halfling = {
     bonusCon: 2,
     bonusChr: 0
 }
+
+export const Select = {
+
+    bonusStr: 0,
+    bonusInt: 0,
+    bonusWis: 0,
+    bonusDex: 0,
+    bonusCon: 0,
+    bonusChr: 0
+}

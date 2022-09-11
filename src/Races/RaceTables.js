@@ -34,4 +34,9 @@ export const sizeModifier = {
     attack: 1,
     hide: 4,
   },
+  Select: {
+    ac: 0,
+    attack: 0,
+    hide: 0,
+  },
 };
