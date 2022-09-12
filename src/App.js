@@ -4,6 +4,7 @@ import { useState } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
+import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
 
 function App() {
@@ -50,6 +51,11 @@ function App() {
         </div>
         <div className="col-4"></div>
         <div className="col-4"></div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          <Inventory.Armor />
+        </div>
       </div>
     </div>
   );

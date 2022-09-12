@@ -49,7 +49,7 @@ export const NewScores = (props) => {
   const racialBonus = RaceBonuses[props.selectedRace];
 
   function rollButton(){
-    if(props.selectedRace==="Select"){
+    if(props.selectedRace==="select"){
       return alert("Please select a race first")
     }
     else{
