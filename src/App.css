@@ -3,6 +3,11 @@ table{
   text-align: center;
 }
 
+.listFrame{
+  border: solid black 1px;
+  text-align: center;
+}
+
 .nameDisplay{
   width:100%;
   text-align: left;

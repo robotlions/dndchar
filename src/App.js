@@ -14,6 +14,7 @@ function App() {
   const [dex, setDex] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
+  const [totalGold, setTotalGold] = useState(0);
 
   return (
     <div className="container">
@@ -51,6 +52,12 @@ function App() {
         </div>
         <div className="col-4"></div>
         <div className="col-4"></div>
+      </div>
+      <div className="row">
+        <div className="col-12">
+          Silver: <Inventory.StartingGold setTotalGold={setTotalGold} selectedClass={selectedClass}/>
+        
+        </div>
       </div>
       <div className="row">
         <div className="col-12">
