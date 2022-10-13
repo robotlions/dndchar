@@ -26,18 +26,18 @@ export const ArmorTable = {
 
 export const ShieldTable = {
   buckler: {
-    shieldName: "Buckler",
+    armorName: "Buckler",
     cost: 150,
-    shieldBonus: 1,
+    armorBonus: 1,
     maxDexBonus: null,
     armorCheck: -1,
     spellFail: 5,
     weight: 5,
   },
   lightWood: {
-    shieldName: "Shield, light wooden",
+    armorName: "Shield, light wooden",
     cost: 30,
-    shieldBonus: 1,
+    armorBonus: 1,
     maxDexBonus: null,
     armorCheck: -1,
     spellFail: 5,

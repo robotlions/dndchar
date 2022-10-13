@@ -104,10 +104,37 @@ export const Armor = (props) => {
         <p>{item[1].armorCheck}</p>
       </div>
       <div className="col-1">
-        <Button variant="primary"
+        <Button variant="success"
           onClick={() => addItem(item[1])}
         >
-          Add
+          Buy
+        </Button>
+      </div>
+    </div>
+  ));
+
+  const shieldDisplay = Object.entries(ShieldTable).map((item, index) => (
+    <div key={index} className="row">
+      <div className="col-2">
+        <p>{item[1].armorName}</p>
+      </div>
+      <div className="col-1">
+        <p>{item[1].cost}</p>
+      </div>
+      <div className="col-2">
+        <p>{item[1].armorBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item[1].maxDexBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item[1].armorCheck}</p>
+      </div>
+      <div className="col-1">
+        <Button variant="success"
+          onClick={() => addItem(item[1])}
+        >
+          Buy
         </Button>
       </div>
     </div>
@@ -148,7 +175,7 @@ export const Armor = (props) => {
       <div>Total Armor Cost: {armorCost()}</div>
 
       <Button variant="primary" onClick={handleShow}>
-        Add Armor
+        Buy Armor and Shields
       </Button>
 
       <Modal show={show} onHide={handleClose}>
@@ -173,7 +200,10 @@ export const Armor = (props) => {
               <p>Armor Check</p>
             </div>
           </div>
+          <h3>Armor</h3>
           {armorDisplay}
+          <h3>Shields</h3>
+          {shieldDisplay}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
@@ -219,7 +249,7 @@ export const StartingSilver = (props) => {
     <>
       {props.totalSilver === 0 ? (
         <Button variant="primary" onClick={() => genSilver()}>
-          Generate Money
+          Roll Starting Money
         </Button>
       ) : (
         <Button

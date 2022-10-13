@@ -47,7 +47,7 @@ function App() {
         <div className="col-2"></div>
         <div className="col-2">Armor Class
         <CharInfo.ArmorClass setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
-        <p>{baseAC - armorBonusTotal}</p>
+        <p>{baseAC + armorBonusTotal}</p>
         </div>
         <div className="col-2"></div>
       </div>

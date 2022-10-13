@@ -45,7 +45,7 @@ export const NewScores = (props) => {
   const [chr, setChr] = useState(0);
 
 
-  const rerollButton = <Button onClick={() => rollButton()}>Roll Dice</Button>;
+  const rerollButton = <Button variant="secondary" onClick={() => rollButton()}>Roll Abilities</Button>;
   const racialBonus = RaceBonuses[props.selectedRace];
 
   function rollButton(){
@@ -145,7 +145,7 @@ export const NewScores = (props) => {
         </tr>
         </tbody>
       </table>
-      <p>{rerollButton}</p>
+      <p style={{textAlign: "center", marginTop: 10}}>{rerollButton}</p>
     </div>
   );
 };
