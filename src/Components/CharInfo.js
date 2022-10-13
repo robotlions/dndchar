@@ -119,5 +119,5 @@ export const ArmorClass = (props) => {
   const sizeModifier = RaceTables.sizeModifier[props.selectedRace].ac;
   // const printAC = 10 + props.armorBonus + props.shieldBonus + props.dexModifier + props.sizeModifier
   const printAC = 10 + sizeModifier + dexModifier;
-  return <div>{printAC}</div>;
+  return props.setBaseAC(printAC);
 };

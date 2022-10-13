@@ -17,6 +17,8 @@ function App() {
   const [totalSilver, setTotalSilver] = useState(0);
   const [updated, setUpdated] = useState(false);
   const [armorMoney, setArmorMoney] = useState(0);
+  const [armorBonusTotal, setArmorBonusTotal] = useState(0);
+  const [baseAC, setBaseAC] = useState(0)
 
   return (
     <div className="container">
@@ -44,7 +46,8 @@ function App() {
         <CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
         <div className="col-2"></div>
         <div className="col-2">Armor Class
-        <CharInfo.ArmorClass dex={dex} selectedRace={selectedRace}/>
+        <CharInfo.ArmorClass setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
+        <p>{baseAC - armorBonusTotal}</p>
         </div>
         <div className="col-2"></div>
       </div>
@@ -63,7 +66,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col-12">
-          <Inventory.Armor totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
+          <Inventory.Armor setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
       </div>
     </div>

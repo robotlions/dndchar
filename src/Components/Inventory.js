@@ -64,7 +64,7 @@ export const Armor = (props) => {
         <p>{item.weight}</p>
       </div>
       <div className="col-1">
-        <button onClick={() => {armorArray.splice(index, 1);props.setArmorMoney(armorCost())}}>Remove</button>
+        <button onClick={() => {armorArray.splice(index, 1);props.setArmorMoney(armorCost());props.setArmorBonusTotal(armorBonusTotal())}}>Remove</button>
       </div>
     </div>
   ));
@@ -73,6 +73,7 @@ export const Armor = (props) => {
     if(item.cost < props.totalSilver){
     armorArray.push(item);
     props.setArmorMoney(armorCost());
+    props.setArmorBonusTotal(armorBonusTotal());
     }
     else{
       alert("Not enough money, chump!")
@@ -193,6 +194,10 @@ function armorCost() {
   return armorArray.reduce((a, b) => a + b.cost, 0);
 }
 
+function armorBonusTotal(){
+  return armorArray.reduce((a,b) => a + b.armorBonus, 0);
+}
+
 export const StartingSilver = (props) => {
   function genSilver() {
     let rolledGold = 0;
@@ -226,11 +231,11 @@ export const StartingSilver = (props) => {
   );
 };
 
-export const SilverTotal = (props) => {
-  const [thisState, setThisState] = useState(props.updated);
+// export const SilverTotal = (props) => {
+//   const [thisState, setThisState] = useState(props.updated);
 
-  const gen = genSilver(props.selectedClass);
-  const totalArmorCost = armorCost();
+//   const gen = genSilver(props.selectedClass);
+//   const totalArmorCost = armorCost();
 
-  return gen - totalArmorCost;
-};
+//   return gen - totalArmorCost;
+// };
