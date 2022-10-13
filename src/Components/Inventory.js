@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArmorTable } from "../Equipment/ArmorTable";
 import { ShieldTable } from "../Equipment/ArmorTable";
 import Button from "react-bootstrap/Button";
@@ -185,10 +185,22 @@ export const StartingSilver = (props) => {
     return props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100;
   }
 
-  return <p>{genSilver()}</p>;
+  return (genSilver());
 };
 
 export const TotalSilver = (props) => {
+
+  const [thisState, setThisState] = useState(true)
+
+  // useEffect(()=>{
+  //   setThisState(!thisState);
+  //   console.log("bop");
+  // })
+
+
   const startingSilver = <StartingSilver selectedClass={props.selectedClass} />;
+  const armorSilver = <ArmorCost />
+
+
   return startingSilver;
 };
