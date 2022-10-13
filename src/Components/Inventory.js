@@ -64,10 +64,16 @@ export const Armor = (props) => {
         <p>{item.weight}</p>
       </div>
       <div className="col-1">
-        <button onClick={() => {armorArray.splice(index, 1);props.setArmorMoney(armorCost());props.setArmorBonusTotal(armorBonusTotal())}}>Remove</button>
+        <Button variant="primary" onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </div>
   ));
+
+  function removeItem(index){
+    armorArray.splice(index, 1);
+    props.setArmorMoney(armorCost());
+    props.setArmorBonusTotal(armorBonusTotal())
+  }
 
   function addItem(item){
     if(item.cost < props.totalSilver){
