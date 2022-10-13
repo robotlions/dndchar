@@ -8,13 +8,23 @@ function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
 }
 
+  const dObj = {
+    Barbarian: 4,
+    Bard: 4,
+    Cleric: 5,
+    Druid: 2,
+    Fighter: 6,
+    Monk: 5,
+    Paladin: 6,
+    Ranger: 6,
+    Rogue: 5,
+    Sorcerer: 3,
+    Wizard: 3,
+  };
+
 let armorArray = [];
 
-export const ArmorCost = (props) => {
-  const totalArmorCost = armorArray.reduce((a, b) => a + b.cost, 0);
 
-  return totalArmorCost;
-};
 
 export const Armor = (props) => {
   const [show, setShow] = useState(false);
@@ -79,7 +89,7 @@ export const Armor = (props) => {
         <p>{item[1].armorCheck}</p>
       </div>
       <div className="col-1">
-        <button onClick={() => armorArray.push(item[1])}>Add</button>
+        <button onClick={() => {armorArray.push(item[1]); props.setArmorMoney(armorCost())}}>Add</button>
       </div>
     </div>
   ));
@@ -117,7 +127,7 @@ export const Armor = (props) => {
       </div>
       <div>{purchasedArmor}</div>
       <div>
-        Total Armor Cost: <ArmorCost />
+        Total Armor Cost: {armorCost()}
       </div>
 
       <Button variant="primary" onClick={handleShow}>
@@ -161,46 +171,46 @@ export const Armor = (props) => {
   );
 };
 
-export const StartingSilver = (props) => {
-  const dObj = {
-    Barbarian: 4,
-    Bard: 4,
-    Cleric: 5,
-    Druid: 2,
-    Fighter: 6,
-    Monk: 5,
-    Paladin: 6,
-    Ranger: 6,
-    Rogue: 5,
-    Sorcerer: 3,
-    Wizard: 3,
-  };
 
-  function genSilver() {
+function genSilver(props){
+  let rolledGold = 0;
+  for (let i = 0; i < dObj[props]; i++) {
+    rolledGold = rolledGold + rando(1, 4);
+  }
+  return (props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100);
+}
+
+function armorCost(){
+  return armorArray.reduce((a, b) => a + b.cost, 0);
+};
+
+export const StartingSilver = (props) => {
+  
+  function genSilver(){
     let rolledGold = 0;
-    let startGold = 0;
     for (let i = 0; i < dObj[props.selectedClass]; i++) {
       rolledGold = rolledGold + rando(1, 4);
     }
-    return props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100;
+    return (props.selectedClass == "Monk" ? props.setTotalSilver(rolledGold * 10) : props.setTotalSilver(rolledGold * 100));
   }
 
-  return (genSilver());
-};
-
-export const TotalSilver = (props) => {
-
-  const [thisState, setThisState] = useState(true)
-
-  // useEffect(()=>{
-  //   setThisState(!thisState);
-  //   console.log("bop");
-  // })
+  return(
+<>
+<button onClick={()=>genSilver()}>Generate Money
+  </button>
+  </>
+  )
+}
 
 
-  const startingSilver = <StartingSilver selectedClass={props.selectedClass} />;
-  const armorSilver = <ArmorCost />
+export const SilverTotal = (props)=>{
 
+  const [thisState, setThisState] = useState(props.updated)
 
-  return startingSilver;
-};
+const gen = genSilver(props.selectedClass);
+const totalArmorCost = armorCost();
+
+  return(
+gen-totalArmorCost
+  );
+}

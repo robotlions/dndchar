@@ -14,7 +14,9 @@ function App() {
   const [dex, setDex] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
-  const [totalGold, setTotalGold] = useState(0);
+  const [totalSilver, setTotalSilver] = useState(0);
+  const [updated, setUpdated] = useState(false);
+  const [armorMoney, setArmorMoney] = useState(0);
 
   return (
     <div className="container">
@@ -56,12 +58,16 @@ function App() {
       <div className="row">
         <div className="col-12">
           {/* Silver: <Inventory.StartingSilver setTotalGold={setTotalGold} selectedClass={selectedClass}/> */}
-        Silver: <Inventory.TotalSilver selectedClass={selectedClass}/>
+        {/* Silver: <Inventory.TotalSilver selectedClass={selectedClass}/> */}
+        {/* Silver: <Inventory.GenSilver selectedClass={selectedClass}/> */}
+        <Inventory.StartingSilver selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
+        {/* Silver: <Inventory.SilverTotal updated={updated} selectedClass={selectedClass}/> */}
+        Silver: {totalSilver - armorMoney}
         </div>
       </div>
       <div className="row">
         <div className="col-12">
-          <Inventory.Armor />
+          <Inventory.Armor setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
       </div>
     </div>
