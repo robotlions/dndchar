@@ -57,12 +57,8 @@ function App() {
       </div>
       <div className="row">
         <div className="col-12">
-          {/* Silver: <Inventory.StartingSilver setTotalGold={setTotalGold} selectedClass={selectedClass}/> */}
-        {/* Silver: <Inventory.TotalSilver selectedClass={selectedClass}/> */}
-        {/* Silver: <Inventory.GenSilver selectedClass={selectedClass}/> */}
-        <Inventory.StartingSilver selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
-        {/* Silver: <Inventory.SilverTotal updated={updated} selectedClass={selectedClass}/> */}
-        Silver: {totalSilver - armorMoney}
+        <Inventory.StartingSilver setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
+        <p>Silver: {totalSilver - armorMoney}</p>
         </div>
       </div>
       <div className="row">

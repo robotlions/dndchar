@@ -8,23 +8,21 @@ function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
 }
 
-  const dObj = {
-    Barbarian: 4,
-    Bard: 4,
-    Cleric: 5,
-    Druid: 2,
-    Fighter: 6,
-    Monk: 5,
-    Paladin: 6,
-    Ranger: 6,
-    Rogue: 5,
-    Sorcerer: 3,
-    Wizard: 3,
-  };
+const dObj = {
+  Barbarian: 4,
+  Bard: 4,
+  Cleric: 5,
+  Druid: 2,
+  Fighter: 6,
+  Monk: 5,
+  Paladin: 6,
+  Ranger: 6,
+  Rogue: 5,
+  Sorcerer: 3,
+  Wizard: 3,
+};
 
 let armorArray = [];
-
-
 
 export const Armor = (props) => {
   const [show, setShow] = useState(false);
@@ -66,7 +64,7 @@ export const Armor = (props) => {
         <p>{item.weight}</p>
       </div>
       <div className="col-1">
-        <button onClick={() => alert("add remove function")}>Remove</button>
+        <button onClick={() => {armorArray.splice(index, 1);props.setArmorMoney(armorCost())}}>Remove</button>
       </div>
     </div>
   ));
@@ -89,7 +87,14 @@ export const Armor = (props) => {
         <p>{item[1].armorCheck}</p>
       </div>
       <div className="col-1">
-        <button onClick={() => {armorArray.push(item[1]); props.setArmorMoney(armorCost())}}>Add</button>
+        <button
+          onClick={() => {
+            armorArray.push(item[1]);
+            props.setArmorMoney(armorCost());
+          }}
+        >
+          Add
+        </button>
       </div>
     </div>
   ));
@@ -126,9 +131,7 @@ export const Armor = (props) => {
         </div>
       </div>
       <div>{purchasedArmor}</div>
-      <div>
-        Total Armor Cost: {armorCost()}
-      </div>
+      <div>Total Armor Cost: {armorCost()}</div>
 
       <Button variant="primary" onClick={handleShow}>
         Add Armor
@@ -171,46 +174,56 @@ export const Armor = (props) => {
   );
 };
 
-
-function genSilver(props){
+function genSilver(props) {
   let rolledGold = 0;
   for (let i = 0; i < dObj[props]; i++) {
     rolledGold = rolledGold + rando(1, 4);
   }
-  return (props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100);
+  return props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100;
 }
 
-function armorCost(){
+function armorCost() {
   return armorArray.reduce((a, b) => a + b.cost, 0);
-};
+}
 
 export const StartingSilver = (props) => {
-  
-  function genSilver(){
+  function genSilver() {
     let rolledGold = 0;
     for (let i = 0; i < dObj[props.selectedClass]; i++) {
       rolledGold = rolledGold + rando(1, 4);
     }
-    return (props.selectedClass == "Monk" ? props.setTotalSilver(rolledGold * 10) : props.setTotalSilver(rolledGold * 100));
+    return props.selectedClass == "Monk"
+      ? props.setTotalSilver(rolledGold * 10)
+      : props.setTotalSilver(rolledGold * 100);
   }
 
-  return(
-<>
-<button onClick={()=>genSilver()}>Generate Money
-  </button>
-  </>
-  )
-}
-
-
-export const SilverTotal = (props)=>{
-
-  const [thisState, setThisState] = useState(props.updated)
-
-const gen = genSilver(props.selectedClass);
-const totalArmorCost = armorCost();
-
-  return(
-gen-totalArmorCost
+  return (
+    <>
+      {props.totalSilver === 0 ? (
+        <Button variant="primary" onClick={() => genSilver()}>
+          Generate Money
+        </Button>
+      ) : (
+        <Button
+          variant="primary"
+          onClick={() => {
+            props.setTotalSilver(0);
+            props.setArmorMoney(0);
+            armorArray = [];
+          }}
+        >
+          Reset money and inventory
+        </Button>
+      )}
+    </>
   );
-}
+};
+
+export const SilverTotal = (props) => {
+  const [thisState, setThisState] = useState(props.updated);
+
+  const gen = genSilver(props.selectedClass);
+  const totalArmorCost = armorCost();
+
+  return gen - totalArmorCost;
+};
