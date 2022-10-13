@@ -8,18 +8,23 @@ function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
 }
 
+let armorArray = [];
 
+export const ArmorCost = (props) => {
+  const totalArmorCost = armorArray.reduce((a, b) => a + b.cost, 0);
 
+  return totalArmorCost;
+};
 
-export const Armor = () => {
+export const Armor = (props) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [armorArray, setArmorArray] = useState([]);
+  // const [armorArray, setArmorArray] = useState([]);
 
-  const totalArmorCost = armorArray.reduce((a, b) => a + b.cost, 0);
+  // const totalArmorCost = armorArray.reduce((a, b) => a + b.cost, 0);
 
   const purchasedArmor = armorArray.map((item, index) => (
     <div key={index} className="row">
@@ -111,7 +116,9 @@ export const Armor = () => {
         </div>
       </div>
       <div>{purchasedArmor}</div>
-      <div>Total Armor Cost: {totalArmorCost}</div>
+      <div>
+        Total Armor Cost: <ArmorCost />
+      </div>
 
       <Button variant="primary" onClick={handleShow}>
         Add Armor
@@ -154,7 +161,7 @@ export const Armor = () => {
   );
 };
 
-export const StartingGold = (props) => {
+export const StartingSilver = (props) => {
   const dObj = {
     Barbarian: 4,
     Bard: 4,
@@ -169,7 +176,7 @@ export const StartingGold = (props) => {
     Wizard: 3,
   };
 
-  function genGold() {
+  function genSilver() {
     let rolledGold = 0;
     let startGold = 0;
     for (let i = 0; i < dObj[props.selectedClass]; i++) {
@@ -178,5 +185,10 @@ export const StartingGold = (props) => {
     return props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100;
   }
 
-  return <p>{genGold()}</p>;
+  return <p>{genSilver()}</p>;
+};
+
+export const TotalSilver = (props) => {
+  const startingSilver = <StartingSilver selectedClass={props.selectedClass} />;
+  return startingSilver;
 };

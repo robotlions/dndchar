@@ -55,7 +55,8 @@ function App() {
       </div>
       <div className="row">
         <div className="col-12">
-          Silver: <Inventory.StartingGold setTotalGold={setTotalGold} selectedClass={selectedClass}/>
+          {/* Silver: <Inventory.StartingSilver setTotalGold={setTotalGold} selectedClass={selectedClass}/> */}
+        Silver: <Inventory.TotalSilver selectedClass={selectedClass}/>
         </div>
       </div>
       <div className="row">
