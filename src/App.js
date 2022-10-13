@@ -63,7 +63,7 @@ function App() {
       </div>
       <div className="row">
         <div className="col-12">
-          <Inventory.Armor setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
+          <Inventory.Armor totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
       </div>
     </div>

@@ -69,6 +69,16 @@ export const Armor = (props) => {
     </div>
   ));
 
+  function addItem(item){
+    if(item.cost < props.totalSilver){
+    armorArray.push(item);
+    props.setArmorMoney(armorCost());
+    }
+    else{
+      alert("Not enough money, chump!")
+    }
+  }
+
   const armorDisplay = Object.entries(ArmorTable).map((item, index) => (
     <div key={index} className="row">
       <div className="col-2">
@@ -87,14 +97,11 @@ export const Armor = (props) => {
         <p>{item[1].armorCheck}</p>
       </div>
       <div className="col-1">
-        <button
-          onClick={() => {
-            armorArray.push(item[1]);
-            props.setArmorMoney(armorCost());
-          }}
+        <Button variant="primary"
+          onClick={() => addItem(item[1])}
         >
           Add
-        </button>
+        </Button>
       </div>
     </div>
   ));
@@ -165,9 +172,9 @@ export const Armor = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
