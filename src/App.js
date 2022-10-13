@@ -56,7 +56,6 @@ function App() {
       <div className="row">
         <div className="col-12">
           Silver: <Inventory.StartingGold setTotalGold={setTotalGold} selectedClass={selectedClass}/>
-        
         </div>
       </div>
       <div className="row">

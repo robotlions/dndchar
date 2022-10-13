@@ -10,6 +10,7 @@ function rando(min, max) {
 
 
 
+
 export const Armor = () => {
   const [show, setShow] = useState(false);
 
@@ -18,41 +19,42 @@ export const Armor = () => {
 
   const [armorArray, setArmorArray] = useState([]);
 
- const purchasedArmor = armorArray.map((item, index) => 
- 
- <div className="row">
-    <div className="col-2 listFrame">
-      <p>{item.armorName}</p>
+  const totalArmorCost = armorArray.reduce((a, b) => a + b.cost, 0);
+
+  const purchasedArmor = armorArray.map((item, index) => (
+    <div key={index} className="row">
+      <div className="col-2 listFrame">
+        <p>{item.armorName}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.cost}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.armorBonus}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.maxDexBonus}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.armorCheck}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.spellFail}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.speed30}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.speed20}</p>
+      </div>
+      <div className="col-1 listFrame">
+        <p>{item.weight}</p>
+      </div>
+      <div className="col-1">
+        <button onClick={() => alert("add remove function")}>Remove</button>
+      </div>
     </div>
-    <div className="col-1 listFrame">
-      <p>{item.cost}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.armorBonus}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.maxDexBonus}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.armorCheck}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.spellFail}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.speed30}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.speed20}</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>{item.weight}</p>
-    </div>
-    <div className="col-1">
-      <button onClick={()=>alert("add remove function")}>Remove</button>
-    </div>
-  </div>
- )
+  ));
 
   const armorDisplay = Object.entries(ArmorTable).map((item, index) => (
     <div key={index} className="row">
@@ -72,47 +74,44 @@ export const Armor = () => {
         <p>{item[1].armorCheck}</p>
       </div>
       <div className="col-1">
-        <button onClick={()=>armorArray.push(item[1])}>Add</button>
+        <button onClick={() => armorArray.push(item[1])}>Add</button>
       </div>
     </div>
   ));
 
-
-
-
   return (
     <>
-    <div className="row">
-    <div className="col-2 listFrame">
-      <p>Armor</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Cost</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Armor Bonus</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Max Dex Bonus</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Armor Check</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Spell Fail</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Speed (30ft)</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Speed (20ft)</p>
-    </div>
-    <div className="col-1 listFrame">
-      <p>Weight</p>
-    </div>
-  </div>
-  <div>{purchasedArmor}</div>
-
+      <div className="row">
+        <div className="col-2 listFrame">
+          <p>Armor</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Cost</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Armor Bonus</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Max Dex Bonus</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Armor Check</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Spell Fail</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Speed (30ft)</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Speed (20ft)</p>
+        </div>
+        <div className="col-1 listFrame">
+          <p>Weight</p>
+        </div>
+      </div>
+      <div>{purchasedArmor}</div>
+      <div>Total Armor Cost: {totalArmorCost}</div>
 
       <Button variant="primary" onClick={handleShow}>
         Add Armor
@@ -139,7 +138,6 @@ export const Armor = () => {
             <div className="col-2">
               <p>Armor Check</p>
             </div>
-            
           </div>
           {armorDisplay}
         </Modal.Body>
@@ -180,8 +178,5 @@ export const StartingGold = (props) => {
     return props.selectedClass == "Monk" ? rolledGold * 10 : rolledGold * 100;
   }
 
-  return (
-   <p>{genGold()}</p>
-  )
-  ;
+  return <p>{genGold()}</p>;
 };

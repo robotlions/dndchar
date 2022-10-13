@@ -1,7 +1,7 @@
 export const ArmorTable = {
   padded: {
     armorName: "Padded",
-    cost: 5,
+    cost: 50,
     armorBonus: 1,
     maxDexBonus: 8,
     armorCheck: 0,
@@ -12,7 +12,7 @@ export const ArmorTable = {
   },
   leather:{
     armorName: "Leather",
-    cost: 10,
+    cost: 100,
     armorBonus: 2,
     maxDexBonus: 6,
     armorCheck: 0,
@@ -27,7 +27,7 @@ export const ArmorTable = {
 export const ShieldTable = {
   buckler: {
     shieldName: "Buckler",
-    cost: 15,
+    cost: 150,
     shieldBonus: 1,
     maxDexBonus: null,
     armorCheck: -1,
@@ -36,7 +36,7 @@ export const ShieldTable = {
   },
   lightWood: {
     shieldName: "Shield, light wooden",
-    cost: 3,
+    cost: 30,
     shieldBonus: 1,
     maxDexBonus: null,
     armorCheck: -1,
