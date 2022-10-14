@@ -18,19 +18,20 @@ function App() {
   const [updated, setUpdated] = useState(false);
   const [armorMoney, setArmorMoney] = useState(0);
   const [armorBonusTotal, setArmorBonusTotal] = useState(0);
-  const [baseAC, setBaseAC] = useState(0)
+  const [baseAC, setBaseAC] = useState(0);
+  const [weaponsMoney, setWeaponsMoney] = useState(0);
 
   return (
-    <div className="container">
+    <div style={{marginBottom: 100}} className="container">
       <div className="row">
-        <div className="col-4">
+        <div className="col-4-md">
           Character Name
           <CharInfo.CharName setCharName={setCharName} />
         </div>
-        <div className="col-4">
+        <div className="col-4-md">
           <RaceSelectDropdown setSelectedRace={setSelectedRace} />
         </div>
-        <div className="col-4">
+        <div className="col-4-md">
           <ClassSelectDropdown setSelectedClass={setSelectedClass} />
         </div>
       </div>
@@ -52,21 +53,27 @@ function App() {
         <div className="col-2"></div>
       </div>
       <div className="row">
-        <div className="col-4">
+        <div className="col-4-md">
           <NewScores setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
-        <div className="col-4"></div>
-        <div className="col-4"></div>
+        <div className="col-4-md"></div>
+        <div className="col-4-md"></div>
       </div>
       <div className="row">
-        <div className="col-12">
+        <div className="col-12-md">
         <Inventory.StartingSilver setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
-        <p>Silver: {totalSilver - armorMoney}</p>
+        <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
         </div>
       </div>
       <div className="row">
         <div className="col-12">
-          <Inventory.Armor setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
+          <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
+        </div>
+        </div>
+        <br/>
+        <div className="row">
+        <div className="col-12">
+          <Inventory.WeaponsMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
       </div>
     </div>

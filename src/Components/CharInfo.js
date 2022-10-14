@@ -35,9 +35,8 @@ export const CharName = (props) => {
         }}
         onKeyDown={handleKeyDown}
       />
-      <Form.Text className="text-muted">
-        Dumb, made-up fantasy type name like "Ravinor" or some crap like that.
-      </Form.Text>
+      {/* <Form.Text className="text-muted">
+      </Form.Text> */}
     </InputGroup>
   );
 
