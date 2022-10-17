@@ -12,6 +12,7 @@ function App() {
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(0);
   const [dex, setDex] = useState(0);
+  const [wis, setWis] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
   const [totalSilver, setTotalSilver] = useState(0);
@@ -24,22 +25,23 @@ function App() {
   return (
     <div style={{marginBottom: 100}} className="container">
       <div className="row">
-        <div className="col-4-md">
-          Character Name
+        <div className="col-md-4">
           <CharInfo.CharName setCharName={setCharName} />
         </div>
-        <div className="col-4-md">
+        <div className="col-md-4">
           <RaceSelectDropdown setSelectedRace={setSelectedRace} />
         </div>
-        <div className="col-4-md">
+        <div className="col-md-4">
           <ClassSelectDropdown setSelectedClass={setSelectedClass} />
         </div>
       </div>
-      <div className="row">
+      <div style={{textAlign: "center"}}className="row">
         <div className="col-2">
-          
+          {/* the disabled component allows for changing the level, but it's deactivated for now because
+          I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
             Level
-            <CharInfo.Level setLevel={setLevel} />
+            {/* <CharInfo.Level setLevel={setLevel} /> */}
+            <p>1</p>
           
         </div>
         <div className="col-2"></div>
@@ -53,27 +55,30 @@ function App() {
         <div className="col-2"></div>
       </div>
       <div className="row">
-        <div className="col-4-md">
-          <NewScores setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
+        <div className="col-md-4">
+          <NewScores setWis ={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
-        <div className="col-4-md"></div>
-        <div className="col-4-md"></div>
+        <div className="col-md-4">
+          <CharInfo.SavingThrows level={level} selectedClass={selectedClass} dex={dex} con={con} wis={wis}/>
+        </div>
+        <div className="col-md-4"></div>
+
       </div>
       <div className="row">
-        <div className="col-12-md">
-        <Inventory.StartingSilver setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
+        <div className="col-md-12">
+        <Inventory.StartingSilver setWeaponsMoney={setWeaponsMoney} setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
         <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
         </div>
       </div>
       <div className="row">
-        <div className="col-12">
+        <div className="col-md-12">
           <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
         </div>
         <br/>
         <div className="row">
-        <div className="col-12">
-          <Inventory.WeaponsMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
+        <div className="col-md-12">
+          <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
         </div>
       </div>
     </div>

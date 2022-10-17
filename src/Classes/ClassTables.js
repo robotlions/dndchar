@@ -11,3 +11,5 @@ export const hitDice = {
     Paladin: 10,
     Barbarian: 12,
   };
+
+  

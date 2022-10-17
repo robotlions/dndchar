@@ -5,6 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import * as RaceBonuses from "../Races/AbilBonuses";
 import * as ClassTables from "../Classes/ClassTables";
 import * as RaceTables from "../Races/RaceTables";
+import * as SavingThrowTables from "../Classes/SavingThrowsTables";
 
 function rando(min, max) {
   return Math.floor(Math.random() * max) + min;
@@ -28,6 +29,7 @@ export const CharName = (props) => {
     <InputGroup className="mb-3" id="charName">
       <Form.Control
         type="text"
+        placeholder="Character Name"
         //   placeholder={thisState != "" ? thisState : "Character Name"}
         onChange={(e) => {
           setThisState(e.target.value);
@@ -120,3 +122,19 @@ export const ArmorClass = (props) => {
   const printAC = 10 + sizeModifier + dexModifier;
   return props.setBaseAC(printAC);
 };
+
+export const SavingThrows = (props) => {
+
+const fortSave = SavingThrowTables[props.selectedClass][props.level].f + calculateModifier(props.con)
+const reflexSave = SavingThrowTables[props.selectedClass][props.level].r + calculateModifier(props.dex);
+const willSave = SavingThrowTables[props.selectedClass][props.level].w + calculateModifier(props.wis);
+
+  return(
+    <div style={{textAlign: "center"}}>
+      <h5>Saving Throws</h5>
+    <p>Fortitude: {fortSave}</p>
+    <p>Reflex: {reflexSave}</p>
+    <p>Will: {willSave}</p>
+    </div>
+  )
+}
