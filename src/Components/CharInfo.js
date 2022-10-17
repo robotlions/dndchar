@@ -131,10 +131,24 @@ const willSave = SavingThrowTables[props.selectedClass][props.level].w + calcula
 
   return(
     <div style={{textAlign: "center"}}>
-      <h5>Saving Throws</h5>
-    <p>Fortitude: {fortSave}</p>
-    <p>Reflex: {reflexSave}</p>
-    <p>Will: {willSave}</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Saving Throws</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Fortitude: {fortSave}</td>
+          </tr>
+          <tr>
+            <td>Reflex: {reflexSave}</td>
+          </tr>
+          <tr>
+            <td>Will: {willSave}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   )
 }
