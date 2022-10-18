@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Dropdown from 'react-bootstrap/Dropdown'
+import { DropdownButton } from "react-bootstrap";
 import * as RaceBonuses from "../Races/AbilBonuses";
 import * as ClassTables from "../Classes/ClassTables";
 import * as RaceTables from "../Races/RaceTables";
@@ -152,3 +154,25 @@ const willSave = SavingThrowTables[props.selectedClass][props.level].w + calcula
     </div>
   )
 }
+
+export const AlignmentSelect = (props) => {
+
+  
+    const [thisState, setThisState] = useState("Lawful Good");
+  
+  return(
+    <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setAlignment(eventKey)}}>
+    <DropdownButton variant="secondary" title={thisState}>
+      <Dropdown.Item eventKey="Lawful Good">Lawful Good</Dropdown.Item>
+      <Dropdown.Item eventKey="Neutral Good">Neutral Good</Dropdown.Item>
+      <Dropdown.Item eventKey="Chaotic Good">Chaotic Good</Dropdown.Item>
+      <Dropdown.Item eventKey="Lawful Neutral">Lawful Neutral</Dropdown.Item>
+      <Dropdown.Item eventKey="True Neutral">True Neutral</Dropdown.Item>
+      <Dropdown.Item eventKey="Chaotic Neutral">Chaotic Neutral</Dropdown.Item>
+      <Dropdown.Item eventKey="Lawful Evil">Lawful Evil</Dropdown.Item>
+      <Dropdown.Item eventKey="Neutral Evil">Neutral Evil</Dropdown.Item>
+      <Dropdown.Item eventKey="Chaotic Evil">ChaoticEvil</Dropdown.Item>
+    </DropdownButton>
+    </Dropdown>
+  )
+  }

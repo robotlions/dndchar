@@ -6,6 +6,7 @@ import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
 import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
+import { SkillList } from "./Components/Skills";
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("select");
@@ -21,6 +22,7 @@ function App() {
   const [armorBonusTotal, setArmorBonusTotal] = useState(0);
   const [baseAC, setBaseAC] = useState(0);
   const [weaponsMoney, setWeaponsMoney] = useState(0);
+  const [alignment, setAlignment] = useState("Lawful Good");
 
   return (
     <div style={{marginBottom: 100}} className="container">
@@ -28,11 +30,14 @@ function App() {
         <div className="col-md-4">
           <CharInfo.CharName setCharName={setCharName} />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3">
           <RaceSelectDropdown setSelectedRace={setSelectedRace} />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-3">
           <ClassSelectDropdown setSelectedClass={setSelectedClass} />
+        </div>
+        <div className="col-md-2">
+          <CharInfo.AlignmentSelect setAlignment={setAlignment} />
         </div>
       </div>
       <div style={{textAlign: "center"}}className="row">
@@ -79,6 +84,12 @@ function App() {
         <div className="row">
         <div className="col-md-12">
           <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
+        </div>
+      </div>
+      <br/>
+        <div className="row">
+        <div className="col-md-12">
+          <SkillList />
         </div>
       </div>
     </div>
