@@ -6,7 +6,8 @@ import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
 import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
-import { SkillList } from "./Components/Skills";
+// import { SkillList } from "./Components/Skills";
+import * as Skills from "./Components/Skills";
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("select");
@@ -89,7 +90,8 @@ function App() {
       <br/>
         <div className="row">
         <div className="col-md-12">
-          <SkillList />
+          <Skills.SkillList />
+          <Skills.SkillSelect />
         </div>
       </div>
     </div>
