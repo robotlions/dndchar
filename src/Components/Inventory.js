@@ -154,6 +154,7 @@ export const ArmorMain = (props) => {
   return (
     <>
       <div className="row">
+        <h4>Armor</h4>
         <div className="col-2 listFrame">
           <p>Armor</p>
         </div>
@@ -316,6 +317,7 @@ export const WeaponsMain = (props) => {
   return (
     <>
       <div className="row">
+        <h4>Weapons</h4>
         <div className="col-2 listFrame">
           <p>Weapon</p>
         </div>
@@ -401,6 +403,7 @@ export const StartingSilver = (props) => {
 
   return (
     <>
+    <h4>Money</h4>
       {props.totalSilver === 0 ? (
         <Button variant="primary" onClick={() => genSilver()}>
           Roll Starting Money

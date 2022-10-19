@@ -1,3 +1,6 @@
+import {useState} from 'react';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import { skillTables } from "../Classes/Skills/SkillsTables"
 
 
@@ -9,7 +12,12 @@ export const SkillList = (props) => {
     )
 }
 
-export const SkillSelect = (props) => {
+export const SkillsMain = (props) => {
+
+    const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
     const skillDisplay = Object.values(skillTables).map((item, index) => 
     <div class="form-check">
@@ -20,7 +28,30 @@ export const SkillSelect = (props) => {
 </div>
     )
 
-    return(
-        skillDisplay
+    return(<>
+<h4>Skills</h4>
+<Button variant="primary" onClick={handleShow}>
+        Select Skills
+      </Button>
+
+        <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Armor</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="row">
+            {skillDisplay}
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          {/* <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button> */}
+        </Modal.Footer>
+      </Modal>
+      </>
     )
 }

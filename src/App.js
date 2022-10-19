@@ -71,11 +71,14 @@ function App() {
 
       </div>
       <div className="row">
-        <div className="col-md-12">
+          <div className="col-md-3">
         <Inventory.StartingSilver setWeaponsMoney={setWeaponsMoney} setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
+        </div>
+        <div className="col-md-3">
         <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
         </div>
-      </div>
+        <div className="col-md-6"></div>
+        </div>
       <div className="row">
         <div className="col-md-12">
           <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
@@ -90,8 +93,7 @@ function App() {
       <br/>
         <div className="row">
         <div className="col-md-12">
-          <Skills.SkillList />
-          <Skills.SkillSelect />
+          <Skills.SkillsMain />
         </div>
       </div>
     </div>
