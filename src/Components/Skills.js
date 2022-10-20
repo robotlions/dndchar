@@ -25,6 +25,15 @@ export const SkillList = (props) => {
   return <p>Skill list</p>;
 };
 
+export const SkillEntry = (props) => {
+
+  const [skillRank, setSkillRank] = useState(0);
+
+  return(
+  <div><Button onClick={()=>{setSkillRank(skillRank+1);props.setSkillPoints(props.skillPoints-1)}}>+</Button>{skillRank}<Button onClick={()=>setSkillRank(skillRank-1)}>-</Button>{props.item.skillName}</div>
+  );
+};
+
 
 
 export const SkillsMain = (props) => {
@@ -32,8 +41,14 @@ export const SkillsMain = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [totalNumSkills, setTotalNumSkills] = useState(0);
-  // const [skillPoints, setSkillPoints] = useState(classSkillPoints[props.selectedClass] + calculateModifier(props.int)
-  // );
+  const [skillPoints, setSkillPoints] = useState(classSkillPoints[props.selectedClass] + calculateModifier(props.int)
+  );
+
+  // let skillPoints = classSkillPoints[props.selectedClass] + calculateModifier(props.int)
+
+  useEffect(()=>{
+    setSkillPoints(classSkillPoints[props.selectedClass] + calculateModifier(props.int))
+  }, [props.int, props.selectedClass])
 
   function handleChange(event){
     if (event.target.checked==true){
@@ -45,25 +60,28 @@ export const SkillsMain = (props) => {
   }
 
 
+  const skillDisplay = Object.values(skillTables).map((item, index) => (
+    
+    <SkillEntry item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+  ));
   
 
-  const skillDisplay = Object.values(skillTables).map((item, index) => (
-    <div key={index} className="form-check">
-      <input
-        // onClick={() => setTotalNumSkills(totalNumSkills+1)}
-        onChange={(event)=>handleChange(event)}
-        className="form-check-input"
-        type="checkbox"
-        value=""
-        id={item.skillName}
-      />
-      <label className="form-check-label" htmlFor="flexCheckDefault">
-        {item.skillName}
-      </label>
+  // const skillDisplay = Object.values(skillTables).map((item, index) => (
+  //   <div key={index} className="form-check">
+  //     <input
+  //       // onClick={() => setTotalNumSkills(totalNumSkills+1)}
+  //       onChange={(event)=>handleChange(event)}
+  //       className="form-check-input"
+  //       type="checkbox"
+  //       value=""
+  //       id={item.skillName}
+  //     />
+  //     <label className="form-check-label" htmlFor="flexCheckDefault">
+  //       {item.skillName}
+  //     </label>
       
-    </div>
-  ));
-  let skillPoints = classSkillPoints[props.selectedClass] + calculateModifier(props.int)
+  //   </div>
+  // ));
 
   return (
     <>
