@@ -21,16 +21,39 @@ function calculateModifier(abil){
   return -5 + Math.floor(1*(abil/2))
 }
 
-export const SkillList = (props) => {
-  return <p>Skill list</p>;
-};
+
 
 export const SkillEntry = (props) => {
+
+  let classSkill = props.item[props.selectedClass];
+  console.log(classSkill);
+
+  function addSkillRank(){
+    if(classSkill==true){
+    setSkillRank(skillRank+1);
+    props.setSkillPoints(props.skillPoints-1)
+    }
+    else{
+      setSkillRank(skillRank+1);
+      props.setSkillPoints(props.skillPoints-2)
+    }
+  }
+
+  function subtractSkillRank(){
+    if(classSkill==true){
+      setSkillRank(skillRank-1);
+      props.setSkillPoints(props.skillPoints+1)
+      }
+      else{
+        setSkillRank(skillRank-1);
+        props.setSkillPoints(props.skillPoints+2)
+      }
+  }
 
   const [skillRank, setSkillRank] = useState(0);
 
   return(
-  <div><Button onClick={()=>{setSkillRank(skillRank+1);props.setSkillPoints(props.skillPoints-1)}}>+</Button>{skillRank}<Button onClick={()=>setSkillRank(skillRank-1)}>-</Button>{props.item.skillName}</div>
+  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName}</div>
   );
 };
 
@@ -44,10 +67,9 @@ export const SkillsMain = (props) => {
   const [skillPoints, setSkillPoints] = useState(classSkillPoints[props.selectedClass] + calculateModifier(props.int)
   );
 
-  // let skillPoints = classSkillPoints[props.selectedClass] + calculateModifier(props.int)
 
   useEffect(()=>{
-    setSkillPoints(classSkillPoints[props.selectedClass] + calculateModifier(props.int))
+    setSkillPoints(4*(classSkillPoints[props.selectedClass] + calculateModifier(props.int)))
   }, [props.int, props.selectedClass])
 
   function handleChange(event){
@@ -62,7 +84,7 @@ export const SkillsMain = (props) => {
 
   const skillDisplay = Object.values(skillTables).map((item, index) => (
     
-    <SkillEntry item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
   ));
   
 
