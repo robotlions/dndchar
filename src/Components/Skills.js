@@ -28,8 +28,16 @@ export const SkillEntry = (props) => {
   let classSkill = props.item[props.selectedClass];
   console.log(classSkill);
 
+  const classSkillDisplay = classSkill===true ? "C" : "cc"
+
   function addSkillRank(){
-    if(classSkill==true){
+    if(props.skillPoints === 0){
+      return alert("Not enough skill points")
+    }
+    if(props.skillPoints <= -1){
+      return alert("Not enough skill points. Did you remember to roll your character's abilities?")
+    }
+    if(classSkill===true){
     setSkillRank(skillRank+1);
     props.setSkillPoints(props.skillPoints-1)
     }
@@ -40,7 +48,10 @@ export const SkillEntry = (props) => {
   }
 
   function subtractSkillRank(){
-    if(classSkill==true){
+    if(skillRank===0){
+      return alert("This skill can't go any lower.")
+    }
+    if(classSkill===true){
       setSkillRank(skillRank-1);
       props.setSkillPoints(props.skillPoints+1)
       }
@@ -53,7 +64,7 @@ export const SkillEntry = (props) => {
   const [skillRank, setSkillRank] = useState(0);
 
   return(
-  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName}</div>
+  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName} - {classSkillDisplay} </div>
   );
 };
 
@@ -72,43 +83,23 @@ export const SkillsMain = (props) => {
     setSkillPoints(4*(classSkillPoints[props.selectedClass] + calculateModifier(props.int)))
   }, [props.int, props.selectedClass])
 
-  function handleChange(event){
-    if (event.target.checked==true){
-      setTotalNumSkills(totalNumSkills+1)
-    }
-    else{
-      setTotalNumSkills(totalNumSkills-1)
-    }
-  }
-
+  
 
   const skillDisplay = Object.values(skillTables).map((item, index) => (
-    
-    <SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div style={{marginLeft: 10, marginRight: 10}}><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+</div>
   ));
   
 
-  // const skillDisplay = Object.values(skillTables).map((item, index) => (
-  //   <div key={index} className="form-check">
-  //     <input
-  //       // onClick={() => setTotalNumSkills(totalNumSkills+1)}
-  //       onChange={(event)=>handleChange(event)}
-  //       className="form-check-input"
-  //       type="checkbox"
-  //       value=""
-  //       id={item.skillName}
-  //     />
-  //     <label className="form-check-label" htmlFor="flexCheckDefault">
-  //       {item.skillName}
-  //     </label>
-      
-  //   </div>
-  // ));
+
 
   return (
     <>
       <h4>Skills</h4>
-      <div className="row">{skillDisplay}</div>
+      <em>C = Class skill(1 skill point)</em><br/>
+      <em>cc = Cross-class skill(2 skill points)</em>
+      <br/><br/>
+      <div className="d-flex flex-row">{skillDisplay}</div>
           <div>Total: {totalNumSkills}</div>
           <div>Skill Points: {skillPoints}</div>
       <Button variant="primary" onClick={handleShow}>
