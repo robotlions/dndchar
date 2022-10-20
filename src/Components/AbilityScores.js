@@ -25,15 +25,17 @@ export const NewScores = (props) => {
       let conRoll=roll();
       let dexRoll=roll();
       let wisRoll=roll();
+      let intRoll=roll();
       setStr(roll());
-      setInt(roll());
+      setInt(intRoll);
       setWis(wisRoll);
       setDex(dexRoll);
       setCon(conRoll);
+      setChr(roll());
+      props.setInt(intRoll);
       props.setCon(conRoll);
       props.setDex(dexRoll);
       props.setWis(wisRoll);
-      setChr(roll());
       setNewRoll(false);
     }
   });

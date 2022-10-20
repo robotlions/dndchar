@@ -15,6 +15,7 @@ function App() {
   const [con, setCon] = useState(0);
   const [dex, setDex] = useState(0);
   const [wis, setWis] = useState(0);
+  const [int, setInt] = useState(0);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
   const [totalSilver, setTotalSilver] = useState(0);
@@ -55,14 +56,14 @@ function App() {
         <CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
         <div className="col-2"></div>
         <div className="col-2">Armor Class
-        <CharInfo.ArmorClass setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
-        <p>{baseAC + armorBonusTotal}</p>
+        <CharInfo.ArmorClass armorBonusTotal={armorBonusTotal} setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
+        {/* <p>{baseAC + armorBonusTotal}</p> */}
         </div>
         <div className="col-2"></div>
       </div>
       <div className="row">
         <div className="col-md-4">
-          <NewScores setWis ={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
+          <NewScores setInt={setInt} setWis={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
         <div className="col-md-4">
           <CharInfo.SavingThrows level={level} selectedClass={selectedClass} dex={dex} con={con} wis={wis}/>
@@ -94,7 +95,7 @@ function App() {
       <br/>
         <div className="row">
         <div className="col-md-12">
-          <Skills.SkillsMain />
+          <Skills.SkillsMain int={int} selectedClass={selectedClass}/>
         </div>
       </div>
     </div>
