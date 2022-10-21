@@ -8,6 +8,9 @@ import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
 // import { SkillList } from "./Components/Skills";
 import * as Skills from "./Components/Skills";
+//  704 562 6318
+import { TopNav } from "./Components/NavBar";
+
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("select");
@@ -28,6 +31,7 @@ function App() {
 
   return (
     <div style={{marginBottom: 100}} className="container">
+      <TopNav />
       <div className="row">
         <div className="col-md-4">
           <CharInfo.CharName setCharName={setCharName} />

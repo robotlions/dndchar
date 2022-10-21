@@ -63,7 +63,7 @@ export const SkillEntry = (props) => {
   const [skillRank, setSkillRank] = useState(0);
 
   return(
-  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName}</div>
+  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button> {skillRank} <Button variant="light" onClick={()=>subtractSkillRank()}>-</Button> {props.item.skillName}</div>
   );
 };
 
@@ -71,9 +71,9 @@ export const SkillEntry = (props) => {
 
 export const SkillsMain = (props) => {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const [totalNumSkills, setTotalNumSkills] = useState(0);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  // const [totalNumSkills, setTotalNumSkills] = useState(0);
   const [skillPoints, setSkillPoints] = useState(classSkillPoints[props.selectedClass] + calculateModifier(props.int)
   );
 
@@ -85,11 +85,6 @@ export const SkillsMain = (props) => {
   }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus])
 
   
-
-  const skillDisplay = Object.values(skillTables).map((item, index) => (
-    <div className="col-2"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
-</div>
-  ));
 
   const skillDisplayClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===true).map((item, index) => (
     <div key={index} className="col-3"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
@@ -110,7 +105,7 @@ export const SkillsMain = (props) => {
       <h6>Cross-Class Skills - <em>2 points</em></h6>
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
 
-          <div>Total: {totalNumSkills}</div>
+          {/* <div>Total: {totalNumSkills}</div> */}
           <div>Skill Points: {skillPoints}</div>
       {/* <Button variant="primary" onClick={handleShow}>
         Select Skills

@@ -1,3 +1,7 @@
+/* .container{
+  font-family: fantasy;
+} */
+
 table{
   width: 100%;
   text-align: center;
@@ -19,4 +23,9 @@ table{
 
 .totalScore{
   background-color: aquamarine;
+}
+
+.btn{
+  box-shadow: 2px 2px 2px lightgray;
+  /* border-radius: 5px!important; */
 }
