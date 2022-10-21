@@ -182,6 +182,7 @@ export const ArmorMain = (props) => {
         <div className="col-1 listFrame">
           <p>Weight</p>
         </div>
+        
       </div>
       <div>{purchasedArmor}</div>
       <div>Total Armor Cost: {armorCost()}</div>
@@ -396,7 +397,7 @@ export const StartingSilver = (props) => {
     for (let i = 0; i < dObj[props.selectedClass]; i++) {
       rolledGold = rolledGold + rando(1, 4);
     }
-    return props.selectedClass == "Monk"
+    return props.selectedClass === "Monk"
       ? props.setTotalSilver(rolledGold * 10)
       : props.setTotalSilver(rolledGold * 100);
   }
