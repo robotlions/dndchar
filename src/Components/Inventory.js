@@ -190,7 +190,7 @@ export const ArmorMain = (props) => {
         Buy Armor and Shields
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Armor</Modal.Title>
         </Modal.Header>
@@ -350,7 +350,7 @@ export const WeaponsMain = (props) => {
         Buy Weapons
       </Button>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Add Armor</Modal.Title>
         </Modal.Header>

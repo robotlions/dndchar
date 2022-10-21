@@ -95,7 +95,7 @@ function App() {
       <br/>
         <div className="row">
         <div className="col-md-12">
-          <Skills.SkillsMain int={int} selectedClass={selectedClass}/>
+          <Skills.SkillsMain int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
         </div>
       </div>
     </div>

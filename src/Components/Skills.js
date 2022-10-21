@@ -26,7 +26,6 @@ function calculateModifier(abil){
 export const SkillEntry = (props) => {
 
   let classSkill = props.item[props.selectedClass];
-  console.log(classSkill);
 
   const classSkillDisplay = classSkill===true ? "C" : "cc"
 
@@ -78,15 +77,17 @@ export const SkillsMain = (props) => {
   const [skillPoints, setSkillPoints] = useState(classSkillPoints[props.selectedClass] + calculateModifier(props.int)
   );
 
+  let raceSkillBonus = props.selectedRace === "human" ? 4 : 0;
+
 
   useEffect(()=>{
-    setSkillPoints(4*(classSkillPoints[props.selectedClass] + calculateModifier(props.int)))
-  }, [props.int, props.selectedClass])
+    setSkillPoints(4*(classSkillPoints[props.selectedClass] + calculateModifier(props.int))+raceSkillBonus)
+  }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus])
 
   
 
   const skillDisplay = Object.values(skillTables).map((item, index) => (
-    <div style={{marginLeft: 10, marginRight: 10}}><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div className="col-md"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
   

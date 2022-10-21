@@ -62,6 +62,22 @@ climb: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
+},
+concentraion: {
+    skillName: "Concentration",
+    ability: "Con",
+    untrained: true,
+    Barbarian: false,
+    Bard: true,
+    Cleric: true,
+    Druid: true,
+    Fighter: false,
+    Monk: true,
+    Paladain: true,
+    Ranger: true,
+    Rogue: false,
+    Sorcerer: true,
+    Wizard: true,
 }
 
 }
