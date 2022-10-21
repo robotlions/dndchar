@@ -6,10 +6,9 @@ import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
 import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
-// import { SkillList } from "./Components/Skills";
 import * as Skills from "./Components/Skills";
-//  704 562 6318
 import { TopNav } from "./Components/NavBar";
+import  {Accordion}  from "react-bootstrap";
 
 
 function App() {
@@ -75,7 +74,12 @@ function App() {
         <div className="col-md-4"></div>
 
       </div>
-      <div className="row">
+      <br/>
+      <Accordion>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header>Money - {totalSilver - armorMoney - weaponsMoney} silver</Accordion.Header>
+        <Accordion.Body>
+        <div className="row">
           <div className="col-md-3">
         <Inventory.StartingSilver setWeaponsMoney={setWeaponsMoney} setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
         </div>
@@ -84,22 +88,38 @@ function App() {
         </div>
         <div className="col-md-6"></div>
         </div>
-        <br/>
-      <div className="row">
-        <div className="col-md-12">
-          <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
-        </div>
-        </div>
-        <br/>
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header>Armor</Accordion.Header>
+        <Accordion.Body>
+        <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
+        
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="2">
+        <Accordion.Header>Weapons</Accordion.Header>
+        <Accordion.Body>
+        <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
+        
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header>Skills</Accordion.Header>
+        <Accordion.Body>
+        <Skills.SkillsMain int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
+        
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="4">
+        <Accordion.Header>Spells</Accordion.Header>
+        <Accordion.Body>
+        stuff here
+        </Accordion.Body>
+      </Accordion.Item>
+    </Accordion>
         <div className="row">
         <div className="col-md-12">
-          <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
-        </div>
-      </div>
-      <br/>
-        <div className="row">
-        <div className="col-md-12">
-          <Skills.SkillsMain int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
         </div>
       </div>
     </div>
