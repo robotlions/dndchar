@@ -63,7 +63,7 @@ export const SkillEntry = (props) => {
   const [skillRank, setSkillRank] = useState(0);
 
   return(
-  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName} - {classSkillDisplay} </div>
+  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button>{skillRank}<Button variant="light" onClick={()=>subtractSkillRank()}>-</Button>{props.item.skillName}</div>
   );
 };
 
@@ -87,23 +87,32 @@ export const SkillsMain = (props) => {
   
 
   const skillDisplay = Object.values(skillTables).map((item, index) => (
-    <div className="col-md"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div className="col-2"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+</div>
+  ));
+
+  const skillDisplayClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===true).map((item, index) => (
+    <div key={index} className="col-3"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
   
-
+  const skillDisplayCrossClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===false).map((item, index) => (
+    <div key={index} className="col-3"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+</div>
+  ));
 
 
   return (
     <>
       <h4>Skills</h4>
-      <em>C = Class skill(1 skill point)</em><br/>
-      <em>cc = Cross-class skill(2 skill points)</em>
-      <br/><br/>
-      <div className="d-flex flex-row">{skillDisplay}</div>
+      <h6>Class Skills - <em>1 point</em></h6>
+      <div className="d-flex flex-row flex-wrap">{skillDisplayClass}</div>
+      <h6>Cross-Class Skills - <em>2 points</em></h6>
+      <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
+
           <div>Total: {totalNumSkills}</div>
           <div>Skill Points: {skillPoints}</div>
-      <Button variant="primary" onClick={handleShow}>
+      {/* <Button variant="primary" onClick={handleShow}>
         Select Skills
       </Button>
 
@@ -120,11 +129,9 @@ export const SkillsMain = (props) => {
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
+         
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </>
   );
 };
