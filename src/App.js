@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
@@ -31,8 +31,12 @@ function App() {
   const [alignment, setAlignment] = useState("Lawful Good");
   const [hp, setHP] = useState(0);
   const [armorArray, setArmorArray] = useState([]);
+  const [weaponArray, setWeaponArray] = useState([]);
+  const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
+
+
 
   return (
     <div style={{ marginBottom: 100 }} className="container">
@@ -45,23 +49,22 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>{nameCheck}</h5>
-              <p>
+              <p style={{fontWeight:"bold"}}>
                 {alignment}{" "}
                 {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}{" "}
                 {selectedClass}
-              </p>
-              <p>
+             </p>
+              <div>
                 <span style={{ fontWeight: "bold" }}>Level: </span>
-                {level}
-              </p>
-              <p>
+                <span style={{marginRight:10}}>{level}</span>
+             
+              
                 <span style={{ fontWeight: "bold" }}>Hit Points: </span>
-                {hp}
-              </p>
-              <p>
+                <span style={{marginRight:10}}>{hp}</span>
+             
                 <span style={{ fontWeight: "bold" }}>Armor Class: </span>
                 {ac}
-              </p>
+              </div>
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -118,7 +121,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Abilities and Saves</h5>
-              <p>
+              <div>
                 <span style={{ fontWeight: "bold" }}>Str </span>
                 {str} <span style={{ fontWeight: "bold" }}>Int </span>
                 {int} <span style={{ fontWeight: "bold" }}>Wis </span>
@@ -126,7 +129,7 @@ function App() {
                 {dex} <span style={{ fontWeight: "bold" }}>Con </span>
                 {con} <span style={{ fontWeight: "bold" }}>Chr </span>
                 {chr}
-              </p>
+              </div>
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -158,7 +161,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Money</h5>
-              <p>{totalSilver - armorMoney - weaponsMoney} silver</p>
+              <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -194,6 +197,8 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Weapons</h5>
+              {weaponArray.map((item, index)=> <div key={index}><p style={{fontWeight: "bold"}}>{item.weaponName} - <span style={{fontWeight: "normal"}}>Damage: {item.dmgS}/{item.dmgM}</span></p></div>)}
+
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -202,6 +207,7 @@ function App() {
               setWeaponsMoney={setWeaponsMoney}
               updated={updated}
               setUpdated={setUpdated}
+              setWeaponArray={setWeaponArray}
             />
           </Accordion.Body>
         </Accordion.Item>
@@ -209,6 +215,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Skills</h5>
+              {learnedSkillsArray.map((item, index)=><div key={index}>{item.skillName}</div>)}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -217,10 +224,19 @@ function App() {
               int={int}
               selectedRace={selectedRace}
               selectedClass={selectedClass}
+              setLearnedSkillsArray={setLearnedSkillsArray}
             />
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="6">
+          <Accordion.Header>
+            <div className="accTitle">
+              <h5>Feats</h5>
+            </div>
+          </Accordion.Header>
+          <Accordion.Body>stuff here</Accordion.Body>
+        </Accordion.Item>
+        <Accordion.Item eventKey="7">
           <Accordion.Header>
             <div className="accTitle">
               <h5>Spells</h5>

@@ -307,7 +307,9 @@ export const WeaponsMain = (props) => {
     </div>
   ));
 
-  
+  useEffect(()=>{
+    props.setWeaponArray(weaponArray)
+  }, [weaponArray])
 
   return (
     <>
