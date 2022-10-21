@@ -12,26 +12,44 @@ import  {Accordion}  from "react-bootstrap";
 
 
 function App() {
-  const [selectedRace, setSelectedRace] = useState("select");
+  const [selectedRace, setSelectedRace] = useState("human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
-  const [con, setCon] = useState(0);
-  const [dex, setDex] = useState(0);
-  const [wis, setWis] = useState(0);
-  const [int, setInt] = useState(0);
+  const [con, setCon] = useState(10);
+  const [dex, setDex] = useState(10);
+  const [wis, setWis] = useState(10);
+  const [int, setInt] = useState(10);
+  const [str, setStr] = useState(10);
+const [chr, setChr] = useState(10);
   const [charName, setCharName] = useState("");
   const [level, setLevel] = useState(1);
   const [totalSilver, setTotalSilver] = useState(0);
   const [updated, setUpdated] = useState(false);
   const [armorMoney, setArmorMoney] = useState(0);
+  const [ac, setAC] = useState(10);
   const [armorBonusTotal, setArmorBonusTotal] = useState(0);
   const [baseAC, setBaseAC] = useState(0);
   const [weaponsMoney, setWeaponsMoney] = useState(0);
   const [alignment, setAlignment] = useState("Lawful Good");
+  const [hp, setHP] = useState(0);
+
+  const nameCheck = charName != "" ? charName : "CHARACTER NAME"
 
   return (
     <div style={{marginBottom: 100}} className="container">
       <TopNav />
-      <div className="row">
+      
+      
+      <br/>
+      <Accordion defaultActiveKey={['0']} alwaysOpen>
+      <Accordion.Item eventKey="0">
+        <Accordion.Header><div className="accTitle"><h5>{nameCheck}</h5>
+        <p>{alignment} {selectedRace.charAt(0).toUpperCase()+selectedRace.slice(1)}  {selectedClass}</p>
+        <p>Level {level}</p>
+        <p>Hit Points: {hp}</p>
+        <p>Armor Class: {ac}</p>
+        </div></Accordion.Header>
+        <Accordion.Body>
+        <div className="row">
         <div className="col-md-4">
           <CharInfo.CharName setCharName={setCharName} />
         </div>
@@ -56,17 +74,21 @@ function App() {
         </div>
         <div className="col-2"></div>
         <div className="col-2">Hit Points
-        <CharInfo.HitPoints level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
+        <CharInfo.HitPoints setHP={setHP} level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
         <div className="col-2"></div>
         <div className="col-2">Armor Class
-        <CharInfo.ArmorClass armorBonusTotal={armorBonusTotal} setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
-        {/* <p>{baseAC + armorBonusTotal}</p> */}
+        <CharInfo.ArmorClass setAC={setAC} armorBonusTotal={armorBonusTotal} setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
         </div>
         <div className="col-2"></div>
       </div>
-      <div className="row">
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="1">
+        <Accordion.Header><div className="accTitle"><h5>Abilities and Saves</h5><p>STR-{str} INT-{int} WIS-{wis} DEX-{dex} CON-{con} CHR-{chr}</p></div></Accordion.Header>
+        <Accordion.Body>
+        <div className="row">
         <div className="col-md-4">
-          <NewScores setInt={setInt} setWis={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
+          <NewScores setStr={setStr} setChr={setChr} setInt={setInt} setWis={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
         <div className="col-md-4">
           <CharInfo.SavingThrows level={level} selectedClass={selectedClass} dex={dex} con={con} wis={wis}/>
@@ -74,10 +96,10 @@ function App() {
         <div className="col-md-4"></div>
 
       </div>
-      <br/>
-      <Accordion>
-      <Accordion.Item eventKey="0">
-        <Accordion.Header>Money - {totalSilver - armorMoney - weaponsMoney} silver</Accordion.Header>
+        </Accordion.Body>
+      </Accordion.Item>
+      <Accordion.Item eventKey="2">
+        <Accordion.Header><div className="accTitle"><h5>Money</h5><p>{totalSilver - armorMoney - weaponsMoney} silver</p></div></Accordion.Header>
         <Accordion.Body>
         <div className="row">
           <div className="col-md-3">
@@ -90,29 +112,29 @@ function App() {
         </div>
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="1">
-        <Accordion.Header>Armor</Accordion.Header>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header><div className="accTitle"><h5>Armor</h5></div></Accordion.Header>
         <Accordion.Body>
         <Inventory.ArmorMain setArmorBonusTotal={setArmorBonusTotal} totalSilver={totalSilver} setArmorMoney={setArmorMoney} updated={updated} setUpdated={setUpdated}/>
         
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="2">
-        <Accordion.Header>Weapons</Accordion.Header>
+      <Accordion.Item eventKey="3">
+        <Accordion.Header><div className="accTitle"><h5>Weapons</h5></div></Accordion.Header>
         <Accordion.Body>
         <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>
         
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="3">
-        <Accordion.Header>Skills</Accordion.Header>
+      <Accordion.Item eventKey="5">
+        <Accordion.Header><div className="accTitle"><h5>Skills</h5></div></Accordion.Header>
         <Accordion.Body>
         <Skills.SkillsMain int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
         
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="4">
-        <Accordion.Header>Spells</Accordion.Header>
+      <Accordion.Item eventKey="6">
+        <Accordion.Header><div className="accTitle"><h5>Spells</h5></div></Accordion.Header>
         <Accordion.Body>
         stuff here
         </Accordion.Body>

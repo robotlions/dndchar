@@ -7,7 +7,7 @@ import { RaceInfo } from '../Races/RaceTables';
 
  export const RaceSelectDropdown = (props) => {
   
-    const [thisState, setThisState] = useState("select");
+    const [thisState, setThisState] = useState("human");
   
   return(
     <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setSelectedRace(eventKey)}}>

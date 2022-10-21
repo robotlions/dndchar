@@ -26,12 +26,16 @@ export const NewScores = (props) => {
       let dexRoll=roll();
       let wisRoll=roll();
       let intRoll=roll();
-      setStr(roll());
+      let chrRoll=roll();
+      let strRoll=roll();
+      setStr(strRoll);
       setInt(intRoll);
       setWis(wisRoll);
       setDex(dexRoll);
       setCon(conRoll);
-      setChr(roll());
+      setChr(chrRoll);
+      props.setStr(strRoll);
+      props.setChr(chrRoll);
       props.setInt(intRoll);
       props.setCon(conRoll);
       props.setDex(dexRoll);
@@ -41,12 +45,12 @@ export const NewScores = (props) => {
   });
 
   const [newRoll, setNewRoll] = useState(false);
-  const [str, setStr] = useState(0);
-  const [int, setInt] = useState(0);
-  const [wis, setWis] = useState(0);
-  const [con, setCon] = useState(0);
-  const [dex, setDex] = useState(0);
-  const [chr, setChr] = useState(0);
+  const [str, setStr] = useState(10);
+  const [int, setInt] = useState(10);
+  const [wis, setWis] = useState(10);
+  const [con, setCon] = useState(10);
+  const [dex, setDex] = useState(10);
+  const [chr, setChr] = useState(10);
 
 
   const rerollButton = <Button variant="secondary" onClick={() => rollButton()}>Roll Abilities</Button>;

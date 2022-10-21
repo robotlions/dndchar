@@ -107,7 +107,7 @@ export const HitPoints = (props) => {
           total = parseInt(total) + parseInt(rando(1, hpDice) + mod);
         }
       }
-      setPrintHP(total);
+      setPrintHP(total);props.setHP(total);
     }
     return () => {
       loading = false;
@@ -123,7 +123,7 @@ export const ArmorClass = (props) => {
   // const printAC = 10 + props.armorBonus + props.shieldBonus + props.dexModifier + props.sizeModifier
   const printAC = 10 + sizeModifier + dexModifier + props.armorBonusTotal;
   return (
-    <p>{printAC}</p>
+    <p>{props.setAC(printAC)}{printAC}</p>
   );
 };
 
