@@ -22,6 +22,8 @@ function calculateModifier(abil){
 
 let learnedSkills=[];
 
+
+
 export const SkillEntry = (props) => {
 
 
@@ -29,22 +31,21 @@ export const SkillEntry = (props) => {
   const [skillRank, setSkillRank] = useState(0);
 
   
-
   function addSkillRank(){
     if(skillRank===0){
       learnedSkills.push(props.item);
-      props.setLearnedSkillsArray(learnedSkills);
+      props.triggerArray();
     }
    
-
+  
     if(classSkill===true && skillRank === props.level+3){
       return(alert("This skill is maxed out."))
     }
-
+  
     if(classSkill===false && skillRank === props.level+1){
       return(alert("This skill is maxed out."))
     }
-
+  
     if(props.skillPoints === 0){
       return alert("Not enough skill points")
     }
@@ -60,6 +61,7 @@ export const SkillEntry = (props) => {
       props.setSkillPoints(props.skillPoints-2)
     }
   }
+  
 
   function subtractSkillRank(){
     
@@ -98,13 +100,19 @@ export const SkillsMain = (props) => {
     setSkillPoints(4*(classSkillPoints[props.selectedClass] + calculateModifier(props.int))+raceSkillBonus)
   }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus])
 
+  useEffect(()=>{
+    props.setSkillPoints(skillPoints)
+  },[skillPoints])
   // useEffect(()=>{
   //   props.setLearnedSkillsArray(learnedSkills);
   // }, [learnedSkills])
   
+  function triggerArray(){
+    props.setLearnedSkillsArray(learnedSkills);
+  }
 
   const skillDisplayClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===true).map((item, index) => (
-    <div key={index} className="col-3"><SkillEntry setLearnedSkillsArray={props.setLearnedSkillsArray} level={props.level} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div key={index} className="col-3"><SkillEntry triggerArray={triggerArray} level={props.level} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
   

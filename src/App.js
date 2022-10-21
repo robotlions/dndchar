@@ -33,10 +33,13 @@ function App() {
   const [armorArray, setArmorArray] = useState([]);
   const [weaponArray, setWeaponArray] = useState([]);
   const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
+  const [skillPoints, setSkillPoints] = useState([]);
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
 
-
+useEffect(()=>{
+  setUpdated(!updated)
+},[setLearnedSkillsArray, learnedSkillsArray])
 
   return (
     <div style={{ marginBottom: 100 }} className="container">
@@ -225,6 +228,7 @@ function App() {
               selectedRace={selectedRace}
               selectedClass={selectedClass}
               setLearnedSkillsArray={setLearnedSkillsArray}
+              setSkillPoints={setSkillPoints}
             />
           </Accordion.Body>
         </Accordion.Item>
