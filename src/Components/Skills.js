@@ -99,10 +99,9 @@ export const SkillsMain = (props) => {
 
   return (
     <>
-      <h4>Skills</h4>
-      <h6>Class Skills - <em>1 point</em></h6>
+      <h5>Class Skills - <em>1 point</em></h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayClass}</div>
-      <h6>Cross-Class Skills - <em>2 points</em></h6>
+      <h5>Cross-Class Skills - <em>2 points</em></h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
 
           {/* <div>Total: {totalNumSkills}</div> */}

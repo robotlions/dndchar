@@ -40,7 +40,8 @@ const [chr, setChr] = useState(10);
       
       
       <br/>
-      <Accordion defaultActiveKey={['0']} alwaysOpen>
+      {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
+      <Accordion alwaysOpen>
       <Accordion.Item eventKey="0">
         <Accordion.Header><div className="accTitle"><h5>{nameCheck}</h5>
         <p>{alignment} {selectedRace.charAt(0).toUpperCase()+selectedRace.slice(1)}  {selectedClass}</p>
@@ -49,22 +50,22 @@ const [chr, setChr] = useState(10);
         <p><span style={{fontWeight: "bold"}}>Armor Class: </span>{ac}</p>
         </div></Accordion.Header>
         <Accordion.Body>
-        <div className="row">
-        <div className="col-md-4">
+        <div className="row justify-content-evenly">
+        <div className="col-md-6">
           <CharInfo.CharName setCharName={setCharName} />
         </div>
-        <div className="col-md-3">
+        <div className="col">
           <RaceSelectDropdown setSelectedRace={setSelectedRace} />
         </div>
-        <div className="col-md-3">
+        <div className="col">
           <ClassSelectDropdown setSelectedClass={setSelectedClass} />
         </div>
-        <div className="col-md-2">
+        <div className="col">
           <CharInfo.AlignmentSelect setAlignment={setAlignment} />
         </div>
       </div>
-      <div style={{textAlign: "center"}}className="row">
-        <div className="col-2">
+      <div style={{textAlign: "center"}} className="row justify-content-evenly">
+        <div className="col">
           {/* the disabled component allows for changing the level, but it's deactivated for now because
           I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
             Level
@@ -72,14 +73,11 @@ const [chr, setChr] = useState(10);
             <p>1</p>
           
         </div>
-        <div className="col-2"></div>
-        <div className="col-2">Hit Points
+        <div className="col">Hit Points
         <CharInfo.HitPoints setHP={setHP} level={level} selectedClass={selectedClass} con={con} setCon={setCon} selectedRace={selectedRace}/></div>
-        <div className="col-2"></div>
-        <div className="col-2">Armor Class
+        <div className="col">Armor Class
         <CharInfo.ArmorClass setAC={setAC} armorBonusTotal={armorBonusTotal} setBaseAC={setBaseAC} dex={dex} selectedRace={selectedRace}/>
         </div>
-        <div className="col-2"></div>
       </div>
         </Accordion.Body>
       </Accordion.Item>
@@ -88,14 +86,13 @@ const [chr, setChr] = useState(10);
         <p><span style={{fontWeight: "bold"}}>Str </span>{str} <span style={{fontWeight: "bold"}}>Int </span>{int} <span style={{fontWeight: "bold"}}>Wis </span>{wis} <span style={{fontWeight: "bold"}}>Dex </span>{dex} <span style={{fontWeight: "bold"}}>Con </span>{con} <span style={{fontWeight: "bold"}}>Chr </span>{chr}</p>
         </div></Accordion.Header>
         <Accordion.Body>
-        <div className="row">
-        <div className="col-md-4">
+        <div className="row justify-content-evenly">
+        <div className="col">
           <NewScores setStr={setStr} setChr={setChr} setInt={setInt} setWis={setWis} setDex={setDex} setCon={setCon} selectedRace={selectedRace} />
         </div>
-        <div className="col-md-4">
+        <div className="col">
           <CharInfo.SavingThrows level={level} selectedClass={selectedClass} dex={dex} con={con} wis={wis}/>
         </div>
-        <div className="col-md-4"></div>
 
       </div>
         </Accordion.Body>
@@ -114,7 +111,7 @@ const [chr, setChr] = useState(10);
         
         </Accordion.Body>
       </Accordion.Item>
-      <Accordion.Item eventKey="3">
+      <Accordion.Item eventKey="4">
         <Accordion.Header><div className="accTitle"><h5>Weapons</h5></div></Accordion.Header>
         <Accordion.Body>
         <Inventory.WeaponsMain totalSilver={totalSilver} setWeaponsMoney={setWeaponsMoney} updated={updated} setUpdated={setUpdated}/>

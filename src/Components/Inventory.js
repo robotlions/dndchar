@@ -69,7 +69,7 @@ export const ArmorMain = (props) => {
         <p>Speed 20': {item.speed20}</p>
       </div>
       <div className="col">
-        <Button variant="primary" onClick={() => removeItem(index)}>Remove</Button>
+        <Button variant="warning" onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </div>
   ));
@@ -181,7 +181,7 @@ export const ArmorMain = (props) => {
       <div>{purchasedArmor}</div>
       {/* <div>Total Armor Cost: {armorCost()}</div> */}
 
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" onClick={handleShow}>
         Buy Armor and Shields
       </Button>
 
@@ -254,7 +254,7 @@ export const WeaponsMain = (props) => {
       </div>
       
       <div className="col">
-        <Button variant="primary" onClick={() => removeItem(index)}>Remove</Button>
+        <Button variant="warning" onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </div>
   ));
@@ -335,7 +335,7 @@ export const WeaponsMain = (props) => {
       <div>{purchasedWeapons}</div>
       {/* <div>Total Weapon Cost: {weaponCost()}</div> */}
 
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" onClick={handleShow}>
         Buy Weapons
       </Button>
 
@@ -393,12 +393,12 @@ export const StartingSilver = (props) => {
   return (
     <>
       {props.totalSilver === 0 ? (
-        <Button variant="primary" onClick={() => genSilver()}>
+        <Button variant="secondary" onClick={() => genSilver()}>
           Roll Starting Money
         </Button>
       ) : (
         <Button
-          variant="primary"
+          variant="secondary"
           onClick={() => {
             props.setTotalSilver(0);
             props.setArmorMoney(0);
