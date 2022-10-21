@@ -44,9 +44,9 @@ const [chr, setChr] = useState(10);
       <Accordion.Item eventKey="0">
         <Accordion.Header><div className="accTitle"><h5>{nameCheck}</h5>
         <p>{alignment} {selectedRace.charAt(0).toUpperCase()+selectedRace.slice(1)}  {selectedClass}</p>
-        <p>Level {level}</p>
-        <p>Hit Points: {hp}</p>
-        <p>Armor Class: {ac}</p>
+        <p><span style={{fontWeight: "bold"}}>Level: </span>{level}</p>
+        <p><span style={{fontWeight: "bold"}}>Hit Points: </span>{hp}</p>
+        <p><span style={{fontWeight: "bold"}}>Armor Class: </span>{ac}</p>
         </div></Accordion.Header>
         <Accordion.Body>
         <div className="row">
@@ -84,7 +84,9 @@ const [chr, setChr] = useState(10);
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="1">
-        <Accordion.Header><div className="accTitle"><h5>Abilities and Saves</h5><p>STR-{str} INT-{int} WIS-{wis} DEX-{dex} CON-{con} CHR-{chr}</p></div></Accordion.Header>
+        <Accordion.Header><div className="accTitle"><h5>Abilities and Saves</h5>
+        <p><span style={{fontWeight: "bold"}}>Str </span>{str} <span style={{fontWeight: "bold"}}>Int </span>{int} <span style={{fontWeight: "bold"}}>Wis </span>{wis} <span style={{fontWeight: "bold"}}>Dex </span>{dex} <span style={{fontWeight: "bold"}}>Con </span>{con} <span style={{fontWeight: "bold"}}>Chr </span>{chr}</p>
+        </div></Accordion.Header>
         <Accordion.Body>
         <div className="row">
         <div className="col-md-4">
@@ -101,15 +103,8 @@ const [chr, setChr] = useState(10);
       <Accordion.Item eventKey="2">
         <Accordion.Header><div className="accTitle"><h5>Money</h5><p>{totalSilver - armorMoney - weaponsMoney} silver</p></div></Accordion.Header>
         <Accordion.Body>
-        <div className="row">
-          <div className="col-md-3">
-        <Inventory.StartingSilver setWeaponsMoney={setWeaponsMoney} setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
-        </div>
-        <div className="col-md-3">
         <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
-        </div>
-        <div className="col-md-6"></div>
-        </div>
+        <Inventory.StartingSilver setWeaponsMoney={setWeaponsMoney} setArmorMoney={setArmorMoney} totalSilver={totalSilver} selectedClass={selectedClass} setTotalSilver={setTotalSilver} />
         </Accordion.Body>
       </Accordion.Item>
       <Accordion.Item eventKey="3">

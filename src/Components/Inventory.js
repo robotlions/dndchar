@@ -47,34 +47,28 @@ export const ArmorMain = (props) => {
 
   const purchasedArmor = armorArray.map((item, index) => (
     <div key={index} className="row">
-      <div className="col-2 listFrame">
-        <p>{item.armorName}</p>
+      <div className="col">
+        <p style={{fontWeight: "bold"}}>{item.armorName}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.cost}</p>
+      <div className="col">
+        <p>Armor Bonus: {item.armorBonus}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.armorBonus}</p>
+      <div className="col">
+        <p>Max Dex Bonus: {item.maxDexBonus}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.maxDexBonus}</p>
+      <div className="col">
+        <p>Armor Check: {item.armorCheck}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.armorCheck}</p>
+      <div className="col">
+        <p>Spell Fail: {item.spellFail}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.spellFail}</p>
+      <div className="col">
+        <p>Speed 30': {item.speed30}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.speed30}</p>
+      <div className="col">
+        <p>Speed 20': {item.speed20}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.speed20}</p>
-      </div>
-      <div className="col-1 listFrame">
-        <p>{item.weight}</p>
-      </div>
-      <div className="col-1">
+      <div className="col">
         <Button variant="primary" onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </div>
@@ -153,7 +147,7 @@ export const ArmorMain = (props) => {
 
   return (
     <>
-      <div className="row">
+      {/* <div className="row">
         <h4>Armor</h4>
         <div className="col-2 listFrame">
           <p>Armor</p>
@@ -183,9 +177,9 @@ export const ArmorMain = (props) => {
           <p>Weight</p>
         </div>
         
-      </div>
+      </div> */}
       <div>{purchasedArmor}</div>
-      <div>Total Armor Cost: {armorCost()}</div>
+      {/* <div>Total Armor Cost: {armorCost()}</div> */}
 
       <Button variant="primary" onClick={handleShow}>
         Buy Armor and Shields
@@ -240,32 +234,26 @@ export const WeaponsMain = (props) => {
 
   const purchasedWeapons = weaponArray.map((item, index) => (
     <div key={index} className="row">
-      <div className="col-2 listFrame">
-        <p>{item.weaponName}</p>
+      <div className="col">
+        <p style={{fontWeight: "bold"}}>{item.weaponName}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.cost}</p>
+      <div className="col">
+        <p>Damage, Small: {item.dmgS}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.dmgS}</p>
+      <div className="col">
+        <p>Damage, Medium: {item.dmgM}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.dmgM}</p>
+      <div className="col">
+        <p>Critical: {item.critical}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.critical}</p>
+      <div className="col">
+        <p>Range: {item.range}</p>
       </div>
-      <div className="col-1 listFrame">
-        <p>{item.range}</p>
-      </div>
-      <div className="col-1 listFrame">
-        <p>{item.weight}</p>
-      </div>
-      <div className="col-1 listFrame">
-        <p>{item.type}</p>
+      <div className="col">
+        <p>Type: {item.type}</p>
       </div>
       
-      <div className="col-1">
+      <div className="col">
         <Button variant="primary" onClick={() => removeItem(index)}>Remove</Button>
       </div>
     </div>
@@ -317,7 +305,7 @@ export const WeaponsMain = (props) => {
 
   return (
     <>
-      <div className="row">
+      {/* <div className="row">
         <h4>Weapons</h4>
         <div className="col-2 listFrame">
           <p>Weapon</p>
@@ -343,9 +331,9 @@ export const WeaponsMain = (props) => {
         <div className="col-1 listFrame">
           <p>Type</p>
         </div>
-      </div>
+      </div> */}
       <div>{purchasedWeapons}</div>
-      <div>Total Weapon Cost: {weaponCost()}</div>
+      {/* <div>Total Weapon Cost: {weaponCost()}</div> */}
 
       <Button variant="primary" onClick={handleShow}>
         Buy Weapons
@@ -404,7 +392,6 @@ export const StartingSilver = (props) => {
 
   return (
     <>
-    <h4>Money</h4>
       {props.totalSilver === 0 ? (
         <Button variant="primary" onClick={() => genSilver()}>
           Roll Starting Money
