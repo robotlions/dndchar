@@ -145,6 +145,11 @@ export const ArmorMain = (props) => {
     </div>
   ));
 
+useEffect(()=>{ 
+  props.setArmorArray(armorArray)
+}, [armorArray]);
+  
+
   return (
     <>
       {/* <div className="row">
@@ -179,6 +184,7 @@ export const ArmorMain = (props) => {
         
       </div> */}
       <div>{purchasedArmor}</div>
+      {/* {props.setArmorArray(armorArray)} */}
       {/* <div>Total Armor Cost: {armorCost()}</div> */}
 
       <Button variant="secondary" onClick={handleShow}>

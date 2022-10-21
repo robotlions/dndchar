@@ -1,6 +1,6 @@
 export const ArmorTable = {
   padded: {
-    armorName: "Padded",
+    armorName: "Padded Armor",
     cost: 50,
     armorBonus: 1,
     maxDexBonus: 8,
@@ -11,7 +11,7 @@ export const ArmorTable = {
     weight: 10,
   },
   leather:{
-    armorName: "Leather",
+    armorName: "Leather Armor",
     cost: 100,
     armorBonus: 2,
     maxDexBonus: 6,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../App.css";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import Dropdown from 'react-bootstrap/Dropdown'
+import Dropdown from "react-bootstrap/Dropdown";
 import { DropdownButton } from "react-bootstrap";
 import * as RaceBonuses from "../Races/AbilBonuses";
 import * as ClassTables from "../Classes/ClassTables";
@@ -107,7 +107,8 @@ export const HitPoints = (props) => {
           total = parseInt(total) + parseInt(rando(1, hpDice) + mod);
         }
       }
-      setPrintHP(total);props.setHP(total);
+      setPrintHP(total);
+      props.setHP(total);
     }
     return () => {
       loading = false;
@@ -122,19 +123,25 @@ export const ArmorClass = (props) => {
   const sizeModifier = RaceTables.sizeModifier[props.selectedRace].ac;
   // const printAC = 10 + props.armorBonus + props.shieldBonus + props.dexModifier + props.sizeModifier
   const printAC = 10 + sizeModifier + dexModifier + props.armorBonusTotal;
-  return (
-    <p>{props.setAC(printAC)}{printAC}</p>
-  );
+  useEffect(() => {
+    props.setAC(printAC);
+  }, [printAC]);
+  return <p>{printAC}</p>;
 };
 
 export const SavingThrows = (props) => {
+  const fortSave =
+    SavingThrowTables[props.selectedClass][props.level].f +
+    calculateModifier(props.con);
+  const reflexSave =
+    SavingThrowTables[props.selectedClass][props.level].r +
+    calculateModifier(props.dex);
+  const willSave =
+    SavingThrowTables[props.selectedClass][props.level].w +
+    calculateModifier(props.wis);
 
-const fortSave = SavingThrowTables[props.selectedClass][props.level].f + calculateModifier(props.con)
-const reflexSave = SavingThrowTables[props.selectedClass][props.level].r + calculateModifier(props.dex);
-const willSave = SavingThrowTables[props.selectedClass][props.level].w + calculateModifier(props.wis);
-
-  return(
-    <div style={{textAlign: "center"}}>
+  return (
+    <div style={{ textAlign: "center" }}>
       <table>
         <thead>
           <tr>
@@ -154,27 +161,32 @@ const willSave = SavingThrowTables[props.selectedClass][props.level].w + calcula
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
 export const AlignmentSelect = (props) => {
+  const [thisState, setThisState] = useState("Lawful Good");
 
-  
-    const [thisState, setThisState] = useState("Lawful Good");
-  
-  return(
-    <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setAlignment(eventKey)}}>
-    <DropdownButton variant="secondary" title={thisState}>
-      <Dropdown.Item eventKey="Lawful Good">Lawful Good</Dropdown.Item>
-      <Dropdown.Item eventKey="Neutral Good">Neutral Good</Dropdown.Item>
-      <Dropdown.Item eventKey="Chaotic Good">Chaotic Good</Dropdown.Item>
-      <Dropdown.Item eventKey="Lawful Neutral">Lawful Neutral</Dropdown.Item>
-      <Dropdown.Item eventKey="True Neutral">True Neutral</Dropdown.Item>
-      <Dropdown.Item eventKey="Chaotic Neutral">Chaotic Neutral</Dropdown.Item>
-      <Dropdown.Item eventKey="Lawful Evil">Lawful Evil</Dropdown.Item>
-      <Dropdown.Item eventKey="Neutral Evil">Neutral Evil</Dropdown.Item>
-      <Dropdown.Item eventKey="Chaotic Evil">ChaoticEvil</Dropdown.Item>
-    </DropdownButton>
+  return (
+    <Dropdown
+      onSelect={(eventKey) => {
+        setThisState(eventKey);
+        props.setAlignment(eventKey);
+      }}
+    >
+      <DropdownButton variant="secondary" title={thisState}>
+        <Dropdown.Item eventKey="Lawful Good">Lawful Good</Dropdown.Item>
+        <Dropdown.Item eventKey="Neutral Good">Neutral Good</Dropdown.Item>
+        <Dropdown.Item eventKey="Chaotic Good">Chaotic Good</Dropdown.Item>
+        <Dropdown.Item eventKey="Lawful Neutral">Lawful Neutral</Dropdown.Item>
+        <Dropdown.Item eventKey="True Neutral">True Neutral</Dropdown.Item>
+        <Dropdown.Item eventKey="Chaotic Neutral">
+          Chaotic Neutral
+        </Dropdown.Item>
+        <Dropdown.Item eventKey="Lawful Evil">Lawful Evil</Dropdown.Item>
+        <Dropdown.Item eventKey="Neutral Evil">Neutral Evil</Dropdown.Item>
+        <Dropdown.Item eventKey="Chaotic Evil">ChaoticEvil</Dropdown.Item>
+      </DropdownButton>
     </Dropdown>
-  )
-  }
+  );
+};
