@@ -26,10 +26,20 @@ function calculateModifier(abil){
 export const SkillEntry = (props) => {
 
   let classSkill = props.item[props.selectedClass];
+  const [skillRank, setSkillRank] = useState(0);
+
 
   const classSkillDisplay = classSkill===true ? "C" : "cc"
 
   function addSkillRank(){
+    if(classSkill===true && skillRank === props.level+3){
+      return(alert("This skill is maxed out."))
+    }
+
+    if(classSkill===false && skillRank === props.level+1){
+      return(alert("This skill is maxed out."))
+    }
+
     if(props.skillPoints === 0){
       return alert("Not enough skill points")
     }
@@ -60,7 +70,6 @@ export const SkillEntry = (props) => {
       }
   }
 
-  const [skillRank, setSkillRank] = useState(0);
 
   return(
   <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button> {skillRank} <Button variant="light" onClick={()=>subtractSkillRank()}>-</Button> {props.item.skillName}</div>
@@ -87,12 +96,12 @@ export const SkillsMain = (props) => {
   
 
   const skillDisplayClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===true).map((item, index) => (
-    <div key={index} className="col-3"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div key={index} className="col-3"><SkillEntry level={props.level} key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
   
   const skillDisplayCrossClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===false).map((item, index) => (
-    <div key={index} className="col-3"><SkillEntry key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div key={index} className="col-3"><SkillEntry level={props.level} key={index} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
 

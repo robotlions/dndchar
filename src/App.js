@@ -121,7 +121,7 @@ const [chr, setChr] = useState(10);
       <Accordion.Item eventKey="5">
         <Accordion.Header><div className="accTitle"><h5>Skills</h5></div></Accordion.Header>
         <Accordion.Body>
-        <Skills.SkillsMain int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
+        <Skills.SkillsMain level={level} int={int} selectedRace={selectedRace} selectedClass={selectedClass}/>
         
         </Accordion.Body>
       </Accordion.Item>
