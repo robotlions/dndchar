@@ -37,9 +37,9 @@ function App() {
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
 
-useEffect(()=>{
-  setUpdated(!updated)
-},[setLearnedSkillsArray, learnedSkillsArray])
+  useEffect(() => {
+    setUpdated(!updated);
+  }, [setLearnedSkillsArray, learnedSkillsArray]);
 
   return (
     <div style={{ marginBottom: 100 }} className="container">
@@ -52,19 +52,18 @@ useEffect(()=>{
           <Accordion.Header>
             <div className="accTitle">
               <h5>{nameCheck}</h5>
-              <p style={{fontWeight:"bold"}}>
+              <p style={{ fontWeight: "bold" }}>
                 {alignment}{" "}
                 {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}{" "}
                 {selectedClass}
-             </p>
+              </p>
               <div>
                 <span style={{ fontWeight: "bold" }}>Level: </span>
-                <span style={{marginRight:10}}>{level}</span>
-             
-              
+                <span style={{ marginRight: 10 }}>{level}</span>
+
                 <span style={{ fontWeight: "bold" }}>Hit Points: </span>
-                <span style={{marginRight:10}}>{hp}</span>
-             
+                <span style={{ marginRight: 10 }}>{hp}</span>
+
                 <span style={{ fontWeight: "bold" }}>Armor Class: </span>
                 {ac}
               </div>
@@ -164,7 +163,7 @@ useEffect(()=>{
           <Accordion.Header>
             <div className="accTitle">
               <h5>Money</h5>
-              <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
+              {totalSilver>0&&<div>{totalSilver - armorMoney - weaponsMoney} silver</div>}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -182,7 +181,16 @@ useEffect(()=>{
           <Accordion.Header>
             <div className="accTitle">
               <h5>Armor</h5>
-              {armorArray.map((item, index)=> <div key={index}><p style={{fontWeight: "bold"}}>{item.armorName} - <span style={{fontWeight: "normal"}}>Armor Bonus: {item.armorBonus}</span></p></div>)}
+              {armorArray.map((item, index) => (
+                <div key={index}>
+                  <p style={{ fontWeight: "bold" }}>
+                    {item.armorName} -{" "}
+                    <span style={{ fontWeight: "normal" }}>
+                      Armor Bonus: {item.armorBonus}
+                    </span>
+                  </p>
+                </div>
+              ))}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -200,8 +208,16 @@ useEffect(()=>{
           <Accordion.Header>
             <div className="accTitle">
               <h5>Weapons</h5>
-              {weaponArray.map((item, index)=> <div key={index}><p style={{fontWeight: "bold"}}>{item.weaponName} - <span style={{fontWeight: "normal"}}>Damage: {item.dmgS}/{item.dmgM}</span></p></div>)}
-
+              {weaponArray.map((item, index) => (
+                <div key={index}>
+                  <p style={{ fontWeight: "bold" }}>
+                    {item.weaponName} -{" "}
+                    <span style={{ fontWeight: "normal" }}>
+                      Damage: {item.dmgS}/{item.dmgM}
+                    </span>
+                  </p>
+                </div>
+              ))}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -218,7 +234,31 @@ useEffect(()=>{
           <Accordion.Header>
             <div className="accTitle">
               <h5>Skills</h5>
-              {learnedSkillsArray.map((item, index)=><div key={index}>{item.skillName}</div>)}
+
+              {learnedSkillsArray.length > 0 && (
+                <div>
+                  <div>
+                    <span>
+                      <em>Class</em>
+                    </span>
+                    {learnedSkillsArray
+                      .filter((item) => item[selectedClass] === true)
+                      .map((item, index) => (
+                        <span key={index}> - {item.skillName}</span>
+                      ))}
+                  </div>
+                  <div>
+                    <span>
+                      <em>Cross-class</em>
+                    </span>
+                    {learnedSkillsArray
+                      .filter((item) => item[selectedClass] === false)
+                      .map((item, index) => (
+                        <span key={index}> - {item.skillName}</span>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
           </Accordion.Header>
           <Accordion.Body>

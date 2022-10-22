@@ -117,7 +117,7 @@ export const SkillsMain = (props) => {
   ));
   
   const skillDisplayCrossClass = Object.values(skillTables).filter((item)=>item[props.selectedClass]===false).map((item, index) => (
-    <div key={index} className="col-3"><SkillEntry level={props.level} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
+    <div key={index} className="col-3"><SkillEntry triggerArray={triggerArray} level={props.level} selectedClass={props.selectedClass} item={item} skillPoints={skillPoints} setSkillPoints={setSkillPoints}/>
 </div>
   ));
 
