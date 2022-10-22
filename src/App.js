@@ -34,6 +34,7 @@ function App() {
   const [weaponArray, setWeaponArray] = useState([]);
   const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
   const [skillPoints, setSkillPoints] = useState([]);
+  const [rolled, setRolled] = useState(false);
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
 
@@ -123,7 +124,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Abilities and Saves</h5>
-              <div>
+              {rolled===true && <div>
                 <span style={{ fontWeight: "bold" }}>Str </span>
                 {str} <span style={{ fontWeight: "bold" }}>Int </span>
                 {int} <span style={{ fontWeight: "bold" }}>Wis </span>
@@ -131,7 +132,7 @@ function App() {
                 {dex} <span style={{ fontWeight: "bold" }}>Con </span>
                 {con} <span style={{ fontWeight: "bold" }}>Chr </span>
                 {chr}
-              </div>
+              </div>}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -145,6 +146,7 @@ function App() {
                   setDex={setDex}
                   setCon={setCon}
                   selectedRace={selectedRace}
+                  setRolled={setRolled}
                 />
               </div>
               <div className="col">

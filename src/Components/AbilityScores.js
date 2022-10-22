@@ -61,7 +61,8 @@ export const NewScores = (props) => {
       return alert("Please select a race first")
     }
     else{
-      setNewRoll(true)
+      setNewRoll(true);
+      props.setRolled(true);
     }
   }
 
