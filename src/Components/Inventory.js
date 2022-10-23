@@ -91,7 +91,9 @@ export const ArmorMain = (props) => {
     }
   }
 
-  const armorDisplayLight = Object.values(ArmorTable).filter((item)=>item.cat==="light").map((item, index) => (
+  function armorDisplay(filter){
+    return(
+   Object.values(ArmorTable).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="row">
       <div className="col-2">
         <p>{item.armorName}</p>
@@ -116,61 +118,9 @@ export const ArmorMain = (props) => {
         </Button>
       </div>
     </div>
-  ));
+  )))};
 
-  const armorDisplayMedium = Object.values(ArmorTable).filter((item)=>item.cat==="medium").map((item, index) => (
-    <div key={index} className="row">
-      <div className="col-2">
-        <p>{item.armorName}</p>
-      </div>
-      <div className="col-1">
-        <p>{item.cost}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.armorBonus}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.maxDexBonus}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.armorCheck}</p>
-      </div>
-      <div className="col-1">
-        <Button variant="success"
-          onClick={() => addItem(item)}
-        >
-          Buy
-        </Button>
-      </div>
-    </div>
-  ));
-
-  const armorDisplayHeavy = Object.values(ArmorTable).filter((item)=>item.cat==="heavy").map((item, index) => (
-    <div key={index} className="row">
-      <div className="col-2">
-        <p>{item.armorName}</p>
-      </div>
-      <div className="col-1">
-        <p>{item.cost}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.armorBonus}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.maxDexBonus}</p>
-      </div>
-      <div className="col-2">
-        <p>{item.armorCheck}</p>
-      </div>
-      <div className="col-1">
-        <Button variant="success"
-          onClick={() => addItem(item)}
-        >
-          Buy
-        </Button>
-      </div>
-    </div>
-  ));
+  
 
   const shieldDisplay = Object.values(ShieldTable).map((item, index) => (
     <div key={index} className="row">
@@ -201,7 +151,7 @@ export const ArmorMain = (props) => {
 
 useEffect(()=>{ 
   props.setArmorArray(armorArray)
-}, []);
+});
   
 
   return (
@@ -269,11 +219,11 @@ useEffect(()=>{
           </div>
           <h5>Armor</h5>
           <h6>Light Armor</h6>
-          {armorDisplayLight}
+          {armorDisplay("light")}
           <h6>Medium Armor</h6>
-          {armorDisplayMedium}
+          {armorDisplay("medium")}
           <h6>Heavy Armor</h6>
-          {armorDisplayHeavy}
+          {armorDisplay("heavy")}
           <h5>Shields</h5>
           {shieldDisplay}
         </Modal.Body>
@@ -368,7 +318,7 @@ export const WeaponsMain = (props) => {
 
   useEffect(()=>{
     props.setWeaponArray(weaponArray)
-  }, [])
+  })
 
   return (
     <>
