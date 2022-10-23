@@ -217,12 +217,11 @@ useEffect(()=>{
               <p>Armor Check</p>
             </div>
           </div>
-          <h5>Armor</h5>
-          <h6>Light Armor</h6>
+          <h5>Light Armor</h5>
           {armorDisplay("light")}
-          <h6>Medium Armor</h6>
+          <h5>Medium Armor</h5>
           {armorDisplay("medium")}
-          <h6>Heavy Armor</h6>
+          <h5>Heavy Armor</h5>
           {armorDisplay("heavy")}
           <h5>Shields</h5>
           {shieldDisplay}
@@ -289,32 +288,34 @@ export const WeaponsMain = (props) => {
     }
   }
 
-  const weaponDisplay = Object.entries(WeaponTables.simpleWeapons).map((item, index) => (
+  function weaponDisplay(filter){
+return(
+   Object.values(WeaponTables.weaponsList).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="row">
       <div className="col-2">
-        <p>{item[1].weaponName}</p>
+        <p>{item.weaponName}</p>
       </div>
       <div className="col-1">
-        <p>{item[1].cost}</p>
+        <p>{item.cost}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].dmgS}</p>
+        <p>{item.dmgS}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].dmgM}</p>
+        <p>{item.dmgM}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].range}</p>
+        <p>{item.range}</p>
       </div>
       <div className="col-1">
         <Button variant="success"
-          onClick={() => addItem(item[1])}
+          onClick={() => addItem(item)}
         >
           Buy
         </Button>
       </div>
     </div>
-  ));
+  )))};
 
   useEffect(()=>{
     props.setWeaponArray(weaponArray)
@@ -378,7 +379,10 @@ export const WeaponsMain = (props) => {
               <p>Range</p>
             </div>
           </div>
-          {weaponDisplay}
+          <h5>Simple Weapons</h5>
+          {weaponDisplay("simple")}
+          <h5>Martial Weapons</h5>
+          {weaponDisplay("martial")}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

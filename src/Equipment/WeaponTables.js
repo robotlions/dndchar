@@ -1,4 +1,4 @@
-export const simpleWeapons = {
+export const weaponsList = {
     gauntlet:{
         weaponName: "Gauntlet",
         cost: 20,
@@ -8,6 +8,7 @@ export const simpleWeapons = {
         range: null,
         weight: 1,
         type: "B",
+        cat: "simple"
     },
     dagger:{
         weaponName: "Dagger",
@@ -18,7 +19,21 @@ export const simpleWeapons = {
         range: 10,
         weight: 1,
         type: "P or S",
+        cat: "simple"
+    },
+
+    swordShort:{
+        weaponName: "Sword, short",
+        cost: 100,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "19-20/x2",
+        range: null,
+        weight: 2,
+        type: "P",
+        cat: "martial",
     }
+
 }
 
 export const martialWeapons = {
@@ -30,6 +45,7 @@ export const martialWeapons = {
         critical: "19-20/x2",
         range: null,
         weight: 2,
-        type: "P"
+        type: "P",
+        cat: "martial",
     }
 }
