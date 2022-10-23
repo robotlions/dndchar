@@ -23,7 +23,7 @@ export const FeatsMain = (props) => {
   }
 
   const featDisplay = Object.values(featsTable).map((item, index) => (
-    <div key={index} className="form-check">
+    <div key={index} className="form-check col-3">
       <input
         className="form-check-input"
         type="checkbox"
@@ -31,10 +31,10 @@ export const FeatsMain = (props) => {
         onChange={(event) => handleCheck(event, item)}
       />
       <label className="form-check-label" htmlFor="flexCheckDefault">
-        {item.featName}
+        {item.featName} {item.pre ? <p><em>Prerequisite: {item.pre}</em></p> : null}
       </label>
     </div>
   ));
 
-  return featDisplay;
+  return <div className="d-flex flex-row flex-wrap">{featDisplay}</div>;
 };
