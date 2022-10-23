@@ -32,20 +32,8 @@ export const weaponsList = {
         weight: 2,
         type: "P",
         cat: "martial",
-    }
+    },
+    
 
 }
 
-export const martialWeapons = {
-    swordShort:{
-        weaponName: "Sword, short",
-        cost: 100,
-        dmgS: "1d4",
-        dmgM: "1d6",
-        critical: "19-20/x2",
-        range: null,
-        weight: 2,
-        type: "P",
-        cat: "martial",
-    }
-}
