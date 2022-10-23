@@ -9,6 +9,7 @@ import { NewScores } from "./Components/AbilityScores";
 import * as Skills from "./Components/Skills";
 import { TopNav } from "./Components/NavBar";
 import { Accordion } from "react-bootstrap";
+import * as Feats from "./Components/Feats";
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
@@ -35,6 +36,11 @@ function App() {
   const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
   const [skillPoints, setSkillPoints] = useState([]);
   const [rolled, setRolled] = useState(false);
+const [featArray, setFeatArray] = useState([]);
+const [featSlots, setFeatSlots] = useState(0);
+
+
+
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
 
@@ -278,9 +284,13 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Feats</h5>
+              {featArray.map((item, index)=><div key={index}>{item.featName}</div>)}
             </div>
           </Accordion.Header>
-          <Accordion.Body>stuff here</Accordion.Body>
+          <Accordion.Body>
+                        <Feats.FeatsMain featsSlots={featSlots} setFeatSlots={setFeatSlots} setFeatArray={setFeatArray}/>
+
+          </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="7">
           <Accordion.Header>
