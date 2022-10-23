@@ -91,26 +91,26 @@ export const ArmorMain = (props) => {
     }
   }
 
-  const armorDisplay = Object.entries(ArmorTable).map((item, index) => (
+  const armorDisplayLight = Object.values(ArmorTable).filter((item)=>item.cat==="light").map((item, index) => (
     <div key={index} className="row">
       <div className="col-2">
-        <p>{item[1].armorName}</p>
+        <p>{item.armorName}</p>
       </div>
       <div className="col-1">
-        <p>{item[1].cost}</p>
+        <p>{item.cost}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].armorBonus}</p>
+        <p>{item.armorBonus}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].maxDexBonus}</p>
+        <p>{item.maxDexBonus}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].armorCheck}</p>
+        <p>{item.armorCheck}</p>
       </div>
       <div className="col-1">
         <Button variant="success"
-          onClick={() => addItem(item[1])}
+          onClick={() => addItem(item)}
         >
           Buy
         </Button>
@@ -118,26 +118,80 @@ export const ArmorMain = (props) => {
     </div>
   ));
 
-  const shieldDisplay = Object.entries(ShieldTable).map((item, index) => (
+  const armorDisplayMedium = Object.values(ArmorTable).filter((item)=>item.cat==="medium").map((item, index) => (
     <div key={index} className="row">
       <div className="col-2">
-        <p>{item[1].armorName}</p>
+        <p>{item.armorName}</p>
       </div>
       <div className="col-1">
-        <p>{item[1].cost}</p>
+        <p>{item.cost}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].armorBonus}</p>
+        <p>{item.armorBonus}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].maxDexBonus}</p>
+        <p>{item.maxDexBonus}</p>
       </div>
       <div className="col-2">
-        <p>{item[1].armorCheck}</p>
+        <p>{item.armorCheck}</p>
       </div>
       <div className="col-1">
         <Button variant="success"
-          onClick={() => addItem(item[1])}
+          onClick={() => addItem(item)}
+        >
+          Buy
+        </Button>
+      </div>
+    </div>
+  ));
+
+  const armorDisplayHeavy = Object.values(ArmorTable).filter((item)=>item.cat==="heavy").map((item, index) => (
+    <div key={index} className="row">
+      <div className="col-2">
+        <p>{item.armorName}</p>
+      </div>
+      <div className="col-1">
+        <p>{item.cost}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.armorBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.maxDexBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.armorCheck}</p>
+      </div>
+      <div className="col-1">
+        <Button variant="success"
+          onClick={() => addItem(item)}
+        >
+          Buy
+        </Button>
+      </div>
+    </div>
+  ));
+
+  const shieldDisplay = Object.values(ShieldTable).map((item, index) => (
+    <div key={index} className="row">
+      <div className="col-2">
+        <p>{item.armorName}</p>
+      </div>
+      <div className="col-1">
+        <p>{item.cost}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.armorBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.maxDexBonus}</p>
+      </div>
+      <div className="col-2">
+        <p>{item.armorCheck}</p>
+      </div>
+      <div className="col-1">
+        <Button variant="success"
+          onClick={() => addItem(item)}
         >
           Buy
         </Button>
@@ -147,7 +201,7 @@ export const ArmorMain = (props) => {
 
 useEffect(()=>{ 
   props.setArmorArray(armorArray)
-}, [armorArray]);
+}, []);
   
 
   return (
@@ -214,7 +268,12 @@ useEffect(()=>{
             </div>
           </div>
           <h5>Armor</h5>
-          {armorDisplay}
+          <h6>Light Armor</h6>
+          {armorDisplayLight}
+          <h6>Medium Armor</h6>
+          {armorDisplayMedium}
+          <h6>Heavy Armor</h6>
+          {armorDisplayHeavy}
           <h5>Shields</h5>
           {shieldDisplay}
         </Modal.Body>
@@ -309,7 +368,7 @@ export const WeaponsMain = (props) => {
 
   useEffect(()=>{
     props.setWeaponArray(weaponArray)
-  }, [weaponArray])
+  }, [])
 
   return (
     <>

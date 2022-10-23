@@ -1,6 +1,6 @@
 export const ArmorTable = {
   padded: {
-    armorName: "Padded Armor",
+    armorName: "Padded",
     cost: 50,
     armorBonus: 1,
     maxDexBonus: 8,
@@ -9,9 +9,10 @@ export const ArmorTable = {
     speed30: 30,
     speed20: 20,
     weight: 10,
+    cat: "light"
   },
   leather:{
-    armorName: "Leather Armor",
+    armorName: "Leather",
     cost: 100,
     armorBonus: 2,
     maxDexBonus: 6,
@@ -19,9 +20,131 @@ export const ArmorTable = {
     spellFail: 10,
     speed30: 30,
     speed20: 20,
-    weight: 15
+    weight: 15,
+    cat: "light"
 
-  }
+  },
+  studdedLeather:{
+    armorName: "Studded Leather",
+    cost: 250,
+    armorBonus: 3,
+    maxDexBonus: 5,
+    armorCheck: -1,
+    spellFail: 10,
+    speed30: 30,
+    speed20: 20,
+    weight: 15,
+    cat: "light",
+  },
+
+  chainShirt:{
+    armorName: "Chain Shirt",
+    cost: 1000,
+    armorBonus: 4,
+    maxDexBonus: 4,
+    armorCheck: -2,
+    spellFail: 20,
+    speed30: 30,
+    speed20: 20,
+    weight: 25,
+    cat: "light",
+  },
+  hide:{
+    armorName: "Hide",
+    cost: 150,
+    armorBonus: 3,
+    maxDexBonus: 4,
+    armorCheck: -3,
+    spellFail: 20,
+    speed30: 20,
+    speed20: 15,
+    weight: 25,
+    cat: "medium"
+  },
+  scale:{
+    armorName: "Scale Mail",
+    cost: 500,
+    armorBonus: 4,
+    maxDexBonus: 3,
+    armorCheck: -4,
+    spellFail: 25,
+    speed30: 20,
+    speed20: 15,
+    weight: 30,
+    cat: "medium"
+  },
+  chainMail:{
+    armorName: "Chainmail",
+    cost: 1500,
+    armorBonus: 5,
+    maxDexBonus: 2,
+    armorCheck: -5,
+    spellFail: 30,
+    speed30: 20,
+    speed20: 15,
+    weight: 40,
+    cat: "medium"
+  },
+  breastPlate:{
+    armorName: "Breastplate",
+    cost: 2000,
+    armorBonus: 5,
+    maxDexBonus: 3,
+    armorCheck: -4,
+    spellFail: 25,
+    speed30: 20,
+    speed20: 15,
+    weight: 30,
+    cat: "medium"
+  },
+  splintMail:{
+    armorName: "Splint Mail",
+    cost: 2000,
+    armorBonus: 6,
+    maxDexBonus: 0,
+    armorCheck: -7,
+    spellFail: 40,
+    speed30: 20,
+    speed20: 15,
+    weight: 45,
+    cat: "heavy"
+  },
+  bandedMail:{
+    armorName: "Banded Mail",
+    cost: 2500,
+    armorBonus: 6,
+    maxDexBonus: 1,
+    armorCheck: -6,
+    spellFail: 35,
+    speed30: 20,
+    speed20: 15,
+    weight: 35,
+    cat: "heavy"
+  },
+  halfPlate:{
+    armorName: "Half Plate",
+    cost: 6000,
+    armorBonus: 7,
+    maxDexBonus: 0,
+    armorCheck: -7,
+    spellFail: 40,
+    speed30: 20,
+    speed20: 15,
+    weight: 50,
+    cat: "heavy"
+  },
+  fullPlate:{
+    armorName: "Full Plate",
+    cost: 15000,
+    armorBonus: 8,
+    maxDexBonus: 1,
+    armorCheck: -6,
+    spellFail: 35,
+    speed30: 20,
+    speed20: 15,
+    weight: 50,
+    cat: "heavy"
+  },
 };
 
 export const ShieldTable = {
@@ -42,5 +165,41 @@ export const ShieldTable = {
     armorCheck: -1,
     spellFail: 5,
     weight: 5,
+  },
+  lightSteel: {
+    armorName: "Shield, light steel",
+    cost: 90,
+    armorBonus: 1,
+    maxDexBonus: null,
+    armorCheck: -1,
+    spellFail: 5,
+    weight: 6,
+  },
+  heavyWood: {
+    armorName: "Shield, heavy wooden",
+    cost: 70,
+    armorBonus: 2,
+    maxDexBonus: null,
+    armorCheck: -2,
+    spellFail: 15,
+    weight: 10,
+  },
+  heavySteel: {
+    armorName: "Shield, heavy steel",
+    cost: 200,
+    armorBonus: 2,
+    maxDexBonus: null,
+    armorCheck: -2,
+    spellFail: 15,
+    weight: 15,
+  },
+  tower: {
+    armorName: "Shield, tower",
+    cost: 300,
+    armorBonus: 4,
+    maxDexBonus: 2,
+    armorCheck: -10,
+    spellFail: 50,
+    weight: 45,
   },
 };
