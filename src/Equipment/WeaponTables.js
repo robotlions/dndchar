@@ -214,6 +214,90 @@ export const weaponsList = {
         cat: "simple"
     },
 
+    axeThrowing:{
+        weaponName: "Axe, throwing",
+        cost: 80,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: 10,
+        weight: 2,
+        type: "S",
+        cat: "martial",
+    },
+
+    hammerLight:{
+        weaponName: "Hammer, light",
+        cost: 10,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x2",
+        range: 20,
+        weight: 2,
+        type: "B",
+        cat: "martial",
+    },
+
+    handAxe:{
+        weaponName: "Handaxe",
+        cost: 60,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x3",
+        range: null,
+        weight: 3,
+        type: "S",
+        cat: "martial",
+    },
+
+    kukri:{
+        weaponName: "Kukri",
+        cost: 80,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "18-20/x2",
+        range: null,
+        weight: 2,
+        type: "S",
+        cat: "martial",
+    },
+
+    pickLight:{
+        weaponName: "Pick, light",
+        cost: 40,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x4",
+        range: null,
+        weight: 3,
+        type: "P",
+        cat: "martial",
+    },
+
+    sap:{
+        weaponName: "Sap",
+        cost: 10,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: null,
+        weight: 2,
+        type: "B",
+        cat: "martial",
+    },
+
+    shieldLight:{
+        weaponName: "Shield, light",
+        cost: null,
+        dmgS: "1d2",
+        dmgM: "1d3",
+        critical: "x2",
+        range: null,
+        weight: "special",
+        type: "B",
+        cat: "martial",
+    },
+
     swordShort:{
         weaponName: "Sword, short",
         cost: 100,
