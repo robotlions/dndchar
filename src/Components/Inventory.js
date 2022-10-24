@@ -383,6 +383,10 @@ return(
           {weaponDisplay("simple")}
           <h5>Martial Weapons</h5>
           {weaponDisplay("martial")}
+          <h5>Exotic Weapons</h5>
+          {weaponDisplay("exotic")}
+          <h5>Ammunition</h5>
+          {weaponDisplay("ammunition")}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
