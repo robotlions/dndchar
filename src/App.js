@@ -36,17 +36,33 @@ function App() {
   const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
   const [skillPoints, setSkillPoints] = useState([]);
   const [rolled, setRolled] = useState(false);
-const [featArray, setFeatArray] = useState([]);
-const [featSlots, setFeatSlots] = useState(0);
-
-
-
+  const [featArray, setFeatArray] = useState([]);
+  const [featSlots, setFeatSlots] = useState(0);
 
   const nameCheck = charName != "" ? charName : "CHARACTER NAME";
 
   useEffect(() => {
     setUpdated(!updated);
   }, [setLearnedSkillsArray, learnedSkillsArray]);
+
+  function weaponHeaderDisplay(){
+    let counts = {};
+    weaponArray.forEach(function (x) {
+      counts[x.weaponName] = (counts[x.weaponName] || 0) + 1;
+    });
+    let weaponSet = [...new Set(weaponArray)]
+
+    return (weaponSet.map((item, index) => (
+      <div key={index}>
+        <p style={{ fontWeight: "bold" }}>
+          {counts[item.weaponName] > 1 && counts[item.weaponName]} {item.weaponName} -{" "}
+          <span style={{ fontWeight: "normal" }}>
+            Damage: {item.dmgS}/{item.dmgM}
+          </span>
+        </p>
+      </div>
+    )));
+  };
 
   return (
     <div style={{ marginBottom: 100 }} className="container">
@@ -130,15 +146,17 @@ const [featSlots, setFeatSlots] = useState(0);
           <Accordion.Header>
             <div className="accTitle">
               <h5>Abilities and Saves</h5>
-              {rolled===true && <div>
-                <span style={{ fontWeight: "bold" }}>Str </span>
-                {str} <span style={{ fontWeight: "bold" }}>Int </span>
-                {int} <span style={{ fontWeight: "bold" }}>Wis </span>
-                {wis} <span style={{ fontWeight: "bold" }}>Dex </span>
-                {dex} <span style={{ fontWeight: "bold" }}>Con </span>
-                {con} <span style={{ fontWeight: "bold" }}>Chr </span>
-                {chr}
-              </div>}
+              {rolled === true && (
+                <div>
+                  <span style={{ fontWeight: "bold" }}>Str </span>
+                  {str} <span style={{ fontWeight: "bold" }}>Int </span>
+                  {int} <span style={{ fontWeight: "bold" }}>Wis </span>
+                  {wis} <span style={{ fontWeight: "bold" }}>Dex </span>
+                  {dex} <span style={{ fontWeight: "bold" }}>Con </span>
+                  {con} <span style={{ fontWeight: "bold" }}>Chr </span>
+                  {chr}
+                </div>
+              )}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -171,7 +189,9 @@ const [featSlots, setFeatSlots] = useState(0);
           <Accordion.Header>
             <div className="accTitle">
               <h5>Money</h5>
-              {totalSilver>0&&<div>{totalSilver - armorMoney - weaponsMoney} silver</div>}
+              {totalSilver > 0 && (
+                <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
+              )}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -216,7 +236,7 @@ const [featSlots, setFeatSlots] = useState(0);
           <Accordion.Header>
             <div className="accTitle">
               <h5>Weapons</h5>
-              {weaponArray.map((item, index) => (
+              {/* {weaponArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
                     {item.weaponName} -{" "}
@@ -225,7 +245,8 @@ const [featSlots, setFeatSlots] = useState(0);
                     </span>
                   </p>
                 </div>
-              ))}
+              ))} */}
+              {weaponHeaderDisplay()}
             </div>
           </Accordion.Header>
           <Accordion.Body>
@@ -284,12 +305,17 @@ const [featSlots, setFeatSlots] = useState(0);
           <Accordion.Header>
             <div className="accTitle">
               <h5>Feats</h5>
-              {featArray.map((item, index)=><div key={index}>{item.featName}</div>)}
+              {featArray.map((item, index) => (
+                <div key={index}>{item.featName}</div>
+              ))}
             </div>
           </Accordion.Header>
           <Accordion.Body>
-                        <Feats.FeatsMain featsSlots={featSlots} setFeatSlots={setFeatSlots} setFeatArray={setFeatArray}/>
-
+            <Feats.FeatsMain
+              featsSlots={featSlots}
+              setFeatSlots={setFeatSlots}
+              setFeatArray={setFeatArray}
+            />
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="7">
