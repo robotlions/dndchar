@@ -11,7 +11,7 @@ export const FeatsMain = (props) => {
 
   useEffect(()=>{
     props.setFeatSlots(featSlots-1)
-}, [featSlots]);
+}, [featSlots, props]);
 
   function handleCheck(event, item) {
     if (event.target.checked === true) {
@@ -19,6 +19,12 @@ export const FeatsMain = (props) => {
     props.setFeatArray(featArray)
 
       setFeatSlots(featSlots-1)
+    }
+    if (event.target.checked === false){
+      let i = featArray.indexOf(item);
+      featArray.splice(i, 1);
+      props.setFeatArray(featArray)
+      setFeatSlots(featSlots+1);
     }
   }
 

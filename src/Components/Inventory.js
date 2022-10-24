@@ -151,7 +151,7 @@ export const ArmorMain = (props) => {
 
 useEffect(()=>{ 
   props.setArmorArray(armorArray)
-}, [armorArray]);
+}, [props]);
   
 
   return (
@@ -319,7 +319,7 @@ return(
 
   useEffect(()=>{
     props.setWeaponArray(weaponArray)
-  },[weaponArray])
+  },[props])
 
   return (
     <>

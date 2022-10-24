@@ -30,6 +30,8 @@ export const SkillEntry = (props) => {
   let classSkill = props.item[props.selectedClass];
   const [skillRank, setSkillRank] = useState(0);
 
+
+
   
   function addSkillRank(){
     if(skillRank===0){
@@ -64,6 +66,12 @@ export const SkillEntry = (props) => {
   
 
   function subtractSkillRank(){
+
+    if(skillRank===1){
+      let i = learnedSkills.indexOf(props.item);
+      learnedSkills.splice(i, 1);
+      props.triggerArray();
+    }
     
     if(skillRank===0){
       return alert("This skill can't go any lower.")
@@ -81,7 +89,7 @@ export const SkillEntry = (props) => {
   
 
   return(
-  <div><Button variant="light" onClick={()=>addSkillRank()}>+</Button> {skillRank} <Button variant="light" onClick={()=>subtractSkillRank()}>-</Button> {props.item.skillName}</div>
+  <div><Button variant="light" onClick={()=>subtractSkillRank()}>-</Button> {skillRank} <Button variant="light" onClick={()=>addSkillRank()}>+</Button> {props.item.skillName}</div>
   );
 };
 
@@ -102,7 +110,7 @@ export const SkillsMain = (props) => {
 
   useEffect(()=>{
     props.setSkillPoints(skillPoints)
-  },[skillPoints])
+  },[skillPoints, props])
   // useEffect(()=>{
   //   props.setLearnedSkillsArray(learnedSkills);
   // }, [learnedSkills])
