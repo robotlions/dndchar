@@ -22,6 +22,198 @@ export const weaponsList = {
         cat: "simple"
     },
 
+    daggerPunching:{
+        weaponName: "Dagger, punching",
+        cost: 20,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x3",
+        range: null,
+        weight: 1,
+        type: "P",
+        cat: "simple"
+    },
+
+    gauntletSpiked:{
+        weaponName: "Gauntlet, spiked",
+        cost: 50,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x2",
+        range: null,
+        weight: 1,
+        type: "P",
+        cat: "simple"
+    },
+
+    maceLight:{
+        weaponName: "Mace, light",
+        cost: 50,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: null,
+        weight: 4,
+        type: "B",
+        cat: "simple"
+    },
+
+    sickle:{
+        weaponName: "Sickle",
+        cost: 60,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: null,
+        weight: 2,
+        type: "S",
+        cat: "simple"
+    },
+
+    club:{
+        weaponName: "Club",
+        cost: 0,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: 10,
+        weight: 3,
+        type: "B",
+        cat: "simple"
+    },
+
+    maceHeavy:{
+        weaponName: "Mace, heavy",
+        cost: 120,
+        dmgS: "1d6",
+        dmgM: "1d8",
+        critical: "x2",
+        range: null,
+        weight: 8,
+        type: "B",
+        cat: "simple"
+    },
+
+    morningstar:{
+        weaponName: "Morningstar",
+        cost: 80,
+        dmgS: "1d6",
+        dmgM: "1d8",
+        critical: "x2",
+        range: null,
+        weight: 6,
+        type: "B and P",
+        cat: "simple"
+    },
+
+    shortspear:{
+        weaponName: "Shortspear",
+        cost: 10,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: 20,
+        weight: 3,
+        type: "P",
+        cat: "simple"
+    },
+
+    longspear:{
+        weaponName: "Longspear",
+        cost: 50,
+        dmgS: "1d6",
+        dmgM: "1d8",
+        critical: "x3",
+        range: null,
+        weight: 9,
+        type: "P",
+        cat: "simple"
+    },
+
+    quarterstaff:{
+        weaponName: "Quarterstaff",
+        cost: 0,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: null,
+        weight: 4,
+        type: "B",
+        cat: "simple"
+    },
+
+    spear:{
+        weaponName: "Spear",
+        cost: 20,
+        dmgS: "1d6",
+        dmgM: "1d8",
+        critical: "x3",
+        range: 20,
+        weight: 6,
+        type: "P",
+        cat: "simple"
+    },
+
+    crossbowHeavy:{
+        weaponName: "Crossbow, heavy",
+        cost: 500,
+        dmgS: "1d8",
+        dmgM: "1d10",
+        critical: "19-20/x2",
+        range: 120,
+        weight: 8,
+        type: "P",
+        cat: "simple"
+    },
+
+    crossbowLight:{
+        weaponName: "Crossbow, light",
+        cost: 350,
+        dmgS: "1d6",
+        dmgM: "1d8",
+        critical: "19-20/x2",
+        range: 80,
+        weight: 4,
+        type: "P",
+        cat: "simple"
+    },
+
+    dart:{
+        weaponName: "Dart",
+        cost: 50,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x2",
+        range: 20,
+        weight: .5,
+        type: "P",
+        cat: "simple"
+    },
+
+    javelin:{
+        weaponName: "Javelin",
+        cost: 10,
+        dmgS: "1d4",
+        dmgM: "1d6",
+        critical: "x2",
+        range: 30,
+        weight: 2,
+        type: "p",
+        cat: "simple"
+    },
+
+    sling:{
+        weaponName: "Sling",
+        cost: 0,
+        dmgS: "1d3",
+        dmgM: "1d4",
+        critical: "x2",
+        range: 50,
+        weight: 0,
+        type: "B",
+        cat: "simple"
+    },
+
     swordShort:{
         weaponName: "Sword, short",
         cost: 100,
