@@ -45,24 +45,44 @@ function App() {
     setUpdated(!updated);
   }, [setLearnedSkillsArray, learnedSkillsArray]);
 
-  function weaponHeaderDisplay(){
+  function weaponHeaderDisplay() {
     let counts = {};
     weaponArray.forEach(function (x) {
       counts[x.weaponName] = (counts[x.weaponName] || 0) + 1;
     });
-    let weaponSet = [...new Set(weaponArray)]
+    let weaponSet = [...new Set(weaponArray)];
 
-    return (weaponSet.map((item, index) => (
+    return weaponSet.map((item, index) => (
       <div key={index}>
         <p style={{ fontWeight: "bold" }}>
-          {counts[item.weaponName] > 1 && counts[item.weaponName]} {item.weaponName} -{" "}
+          {counts[item.weaponName] > 1 && counts[item.weaponName]}{" "}
+          {item.weaponName} -{" "}
           <span style={{ fontWeight: "normal" }}>
             Damage: {item.dmgS}/{item.dmgM}
           </span>
         </p>
       </div>
-    )));
-  };
+    ));
+  }
+
+  function armorHeaderDisplay() {
+    let counts = {};
+    armorArray.forEach(function (x) {
+      counts[x.armorName] = (counts[x.armorName] || 0) + 1;
+    });
+    let armorSet = [...new Set(armorArray)];
+
+    return armorSet.map((item, index) => (
+      <div key={index}>
+        <p style={{ fontWeight: "bold" }}>
+        {counts[item.armorName] > 1 && counts[item.armorName]} {item.armorName} -{" "}
+          <span style={{ fontWeight: "normal" }}>
+            Armor Bonus: {item.armorBonus}
+          </span>
+        </p>
+      </div>
+    ));
+  }
 
   return (
     <div style={{ marginBottom: 100 }} className="container">
@@ -209,7 +229,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h5>Armor</h5>
-              {armorArray.map((item, index) => (
+              {/* {armorArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
                     {item.armorName} -{" "}
@@ -218,7 +238,8 @@ function App() {
                     </span>
                   </p>
                 </div>
-              ))}
+              ))} */}
+              {armorHeaderDisplay()}
             </div>
           </Accordion.Header>
           <Accordion.Body>
