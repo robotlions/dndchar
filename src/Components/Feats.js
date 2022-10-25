@@ -49,5 +49,11 @@ export const FeatsMain = (props) => {
     <h5>General Feats</h5>
   <div className="d-flex flex-row flex-wrap">
     {featDisplay("general")}</div>
+    <h5>Item Creation Feats</h5>
+  <div className="d-flex flex-row flex-wrap">
+    {featDisplay("item")}</div>
+    <h5>Metamagic Feats</h5>
+  <div className="d-flex flex-row flex-wrap">
+    {featDisplay("metamagic")}</div>
     </div>
 )};
