@@ -95,10 +95,21 @@ export const HitPoints = (props) => {
   const hpDice = ClassTables.hitDice[props.selectedClass];
   const mod = calculateModifier(props.con + racialBonus.bonusCon);
   const [printHP, setPrintHP] = useState(1);
+  const [toughnessBonus, setToughnessBonus] = useState(0);
+
+useEffect(()=>{
+  if(props.featArray.some(item => item.featName === "Toughness")){
+    setToughnessBonus(3);
+  }
+  else{
+    setToughnessBonus(0);
+  }
+}, [props, props.featArray]);
 
   useEffect(() => {
     let loading = true;
     if (loading === true) {
+     
       let total = 0;
       for (let i = 1; i <= props.level; i++) {
         if (i === 1) {
@@ -107,13 +118,13 @@ export const HitPoints = (props) => {
           total = parseInt(total) + parseInt(rando(1, hpDice) + mod);
         }
       }
-      setPrintHP(total);
-      props.setHP(total);
+      setPrintHP(total+toughnessBonus);
+      props.setHP(total+toughnessBonus);
     }
     return () => {
       loading = false;
     };
-  }, [props.level, hpDice, mod]);
+  }, [props.level, hpDice, mod, props.featArray, props, toughnessBonus]);
 
   return <div>{printHP}</div>;
 };
@@ -125,7 +136,7 @@ export const ArmorClass = (props) => {
   const printAC = 10 + sizeModifier + dexModifier + props.armorBonusTotal;
   useEffect(() => {
     props.setAC(printAC);
-  }, [printAC]);
+  }, [printAC, props]);
   return <p>{printAC}</p>;
 };
 

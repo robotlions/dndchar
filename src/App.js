@@ -39,7 +39,7 @@ function App() {
   const [featArray, setFeatArray] = useState([]);
   const [featSlots, setFeatSlots] = useState(0);
 
-  const nameCheck = charName != "" ? charName : "CHARACTER NAME";
+  const nameCheck = charName !== "" ? charName : "CHARACTER NAME";
 
   useEffect(() => {
     setUpdated(!updated);
@@ -147,6 +147,7 @@ function App() {
                   con={con}
                   setCon={setCon}
                   selectedRace={selectedRace}
+                  featArray={featArray}
                 />
               </div>
               <div className="col">
