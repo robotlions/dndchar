@@ -28,7 +28,9 @@ export const FeatsMain = (props) => {
     }
   }
 
-  const featDisplay = Object.values(featsTable).map((item, index) => (
+  function featDisplay(filter){
+    return(
+    Object.values(featsTable).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="form-check col-4">
       <input
         className="form-check-input"
@@ -40,7 +42,12 @@ export const FeatsMain = (props) => {
         <span style={{fontWeight:"bold"}}>{item.featName}<br/></span><span style={{fontSize: "small"}}> {item.effect}</span>{item.pre ? <p style={{fontSize: "small"}}><em>Prerequisite: {item.pre}</em></p> : null}
       </label>
     </div>
-  ));
+  )))};
 
-  return <div className="d-flex flex-row flex-wrap">{featDisplay}</div>;
-};
+  return (
+  <div>
+    <h5>General Feats</h5>
+  <div className="d-flex flex-row flex-wrap">
+    {featDisplay("general")}</div>
+    </div>
+)};
