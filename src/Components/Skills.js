@@ -77,15 +77,16 @@ export const SkillEntry = (props) => {
   }
 
   return (
-    <div>
+    <div style={{fontSize: "small"}}>
       <Button variant="light" onClick={() => addSkillRank()}>
         +
       </Button>{" "}
       {skillRank}{" "}
       <Button variant="light" onClick={() => subtractSkillRank()}>
         -
-      </Button>{" "}
+      </Button>{" "}<em>
       {props.item.skillName}
+      </em>
     </div>
   );
 };
@@ -119,7 +120,7 @@ export const SkillsMain = (props) => {
   const skillDisplayClass = Object.values(skillTables)
     .filter((item) => item[props.selectedClass] === true)
     .map((item, index) => (
-      <div key={index} className="col-3">
+      <div key={index} className="col-4">
         <SkillEntry
           triggerArray={triggerArray}
           level={props.level}
@@ -134,7 +135,7 @@ export const SkillsMain = (props) => {
   const skillDisplayCrossClass = Object.values(skillTables)
     .filter((item) => item[props.selectedClass] === false)
     .map((item, index) => (
-      <div key={index} className="col-3">
+      <div key={index} className="col-4">
         <SkillEntry
           triggerArray={triggerArray}
           level={props.level}

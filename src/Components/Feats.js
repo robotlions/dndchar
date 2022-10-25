@@ -30,7 +30,7 @@ export const FeatsMain = (props) => {
 
   function featDisplay(filter){
     return(
-    Object.values(featsTable).filter((item)=>item.cat===filter).map((item, index) => (
+    Object.values(featsTable).sort((a,b)=>a.featName.localeCompare(b.featName)).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="form-check col-4">
       <input
         className="form-check-input"
