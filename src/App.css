@@ -1,6 +1,14 @@
-/* .container{
-  font-family: fantasy;
-} */
+@font-face{
+  font-family: gotham-book; src: url(../public/assets/fonts/Gotham-Book.ttf);
+  }
+
+
+.container{
+  font-family: gotham-book, sans-serif;
+}
+
+
+
 
 table{
   width: 100%;
