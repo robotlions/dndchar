@@ -35,6 +35,8 @@ const dObj = {
   Wizard: 3,
 };
 
+
+
 let armorArray = [];
 let weaponArray = [];
 
@@ -80,25 +82,53 @@ export const ArmorMain = (props) => {
     props.setArmorBonusTotal(armorBonusTotal())
   }
 
-  function addItem(item){
-    if(item.cost < props.totalSilver){
-    armorArray.push(item);
-    props.setArmorMoney(armorCost());
-    props.setArmorBonusTotal(armorBonusTotal());
-    }
-    else{
-      alert("Not enough money, chump!")
-    }
+  // function addItem(item){
+  //   if(item.cost < props.totalSilver){
+  //   armorArray.push(item);
+  //   props.setArmorMoney(armorCost());
+  //   props.setArmorBonusTotal(armorBonusTotal());
+  //   }
+  //   else{
+  //     alert("Not enough money, chump!")
+  //   }
+  // }
+
+  function handleCheck(event, item){
+    if (event.target.checked === true) {
+      if(item.cost < props.totalSilver){
+        armorArray.push(item);
+        props.setArmorMoney(armorCost());
+        props.setArmorBonusTotal(armorBonusTotal());
+        }
+        else{
+          alert("Not enough money, chump!")
+          event.target.checked = false;
+        }
   }
+  if(event.target.checked===false){
+    let i = armorArray.indexOf(item);
+    armorArray.splice(i, 1);
+    props.setArmorMoney(armorCost());
+    props.setArmorBonusTotal(armorBonusTotal())
+  }
+}
 
   function armorDisplay(filter){
     return(
    Object.values(ArmorTable).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="row">
-      <div className="col-2">
+      <div className="col-1">
+      <input
+        className="form-check-input"
+        type="checkbox"
+        value={item.featName}
+        onChange={(event) => handleCheck(event, item)}
+      />
+      </div>
+      <div className="col-3">
         <p>{item.armorName}</p>
       </div>
-      <div className="col-1">
+      <div className="col-2">
         <p>{item.cost}</p>
       </div>
       <div className="col-2">
@@ -110,13 +140,13 @@ export const ArmorMain = (props) => {
       <div className="col-2">
         <p>{item.armorCheck}</p>
       </div>
-      <div className="col-1">
+      {/* <div className="col-1">
         <Button variant="success"
           onClick={() => addItem(item)}
         >
           Buy
         </Button>
-      </div>
+      </div> */}
     </div>
   )))};
 
@@ -124,10 +154,18 @@ export const ArmorMain = (props) => {
 
   const shieldDisplay = Object.values(ShieldTable).map((item, index) => (
     <div key={index} className="row">
-      <div className="col-2">
+      <div className="col-1">
+      <input
+        className="form-check-input"
+        type="checkbox"
+        value={item.featName}
+        onChange={(event) => handleCheck(event, item)}
+      />
+      </div>
+      <div className="col-3">
         <p>{item.armorName}</p>
       </div>
-      <div className="col-1">
+      <div className="col-2">
         <p>{item.cost}</p>
       </div>
       <div className="col-2">
@@ -139,13 +177,13 @@ export const ArmorMain = (props) => {
       <div className="col-2">
         <p>{item.armorCheck}</p>
       </div>
-      <div className="col-1">
+      {/* <div className="col-1">
         <Button variant="success"
           onClick={() => addItem(item)}
         >
           Buy
         </Button>
-      </div>
+      </div> */}
     </div>
   ));
 
@@ -201,10 +239,13 @@ useEffect(()=>{
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <div className="col-2">
+          <div className="col-1">
+              
+            </div>
+            <div className="col-3">
               <p>Armor</p>
             </div>
-            <div className="col-1">
+            <div className="col-2">
               <p>Cost</p>
             </div>
             <div className="col-2">
@@ -245,6 +286,23 @@ export const WeaponsMain = (props) => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  function handleCheck(event, item){
+    if (event.target.checked === true) {
+      if(item.cost < props.totalSilver){
+        weaponArray.push(item);
+        props.setWeaponsMoney(weaponCost());
+        }
+        else{
+          alert("Not enough money, chump!")
+          event.target.checked = false;
+        }
+  }
+  if(event.target.checked===false){
+    let i = weaponArray.indexOf(item);
+    weaponArray.splice(i, 1);
+    props.setWeaponsMoney(weaponCost());
+  }
+  }
 
   const purchasedWeapons = weaponArray.map((item, index) => (
     <div key={index} className="row">
@@ -278,24 +336,32 @@ export const WeaponsMain = (props) => {
     props.setWeaponsMoney(weaponCost());
   }
 
-  function addItem(item){
-    if(item.cost < props.totalSilver){
-    weaponArray.push(item);
-    props.setWeaponsMoney(weaponCost());
-    }
-    else{
-      alert("Not enough money, chump!")
-    }
-  }
+  // function addItem(item){
+  //   if(item.cost < props.totalSilver){
+  //   weaponArray.push(item);
+  //   props.setWeaponsMoney(weaponCost());
+  //   }
+  //   else{
+  //     alert("Not enough money, chump!")
+  //   }
+  // }
 
   function weaponDisplay(filter){
 return(
    Object.values(WeaponTables.weaponsList).filter((item)=>item.cat===filter).map((item, index) => (
     <div key={index} className="row">
-      <div className="col-2">
+      <div className="col-1">
+      <input
+        className="form-check-input"
+        type="checkbox"
+        value={item.featName}
+        onChange={(event) => handleCheck(event, item)}
+      />
+      </div>
+      <div className="col-3">
         <p>{item.weaponName}</p>
       </div>
-      <div className="col-1">
+      <div className="col-2">
         <p>{item.cost}</p>
       </div>
       <div className="col-2">
@@ -307,13 +373,13 @@ return(
       <div className="col-2">
         <p>{item.range}</p>
       </div>
-      <div className="col-1">
+      {/* <div className="col-1">
         <Button variant="success"
           onClick={() => addItem(item)}
         >
           Buy
         </Button>
-      </div>
+      </div> */}
     </div>
   )))};
 
@@ -363,10 +429,13 @@ return(
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <div className="col-2">
+          <div className="col-1">
+              
+            </div>
+            <div className="col-3">
               <p>Weapon</p>
             </div>
-            <div className="col-1">
+            <div className="col-2">
               <p>Cost</p>
             </div>
             <div className="col-2">
