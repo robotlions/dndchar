@@ -110,6 +110,7 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
+          <h5><em>This is a work in progress. Some features are not yet functional.</em></h5>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
