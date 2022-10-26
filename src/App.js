@@ -251,6 +251,7 @@ function App() {
               updated={updated}
               setUpdated={setUpdated}
               setArmorArray={setArmorArray}
+              weaponsMoney={weaponsMoney}
             />
           </Accordion.Body>
         </Accordion.Item>
@@ -278,6 +279,7 @@ function App() {
               updated={updated}
               setUpdated={setUpdated}
               setWeaponArray={setWeaponArray}
+              armorMoney={armorMoney}
             />
           </Accordion.Body>
         </Accordion.Item>

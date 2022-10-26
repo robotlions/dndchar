@@ -194,40 +194,9 @@ useEffect(()=>{
 
   return (
     <>
-      {/* <div className="row">
-        <h4>Armor</h4>
-        <div className="col-2 listFrame">
-          <p>Armor</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Cost</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Armor Bonus</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Max Dex Bonus</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Armor Check</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Spell Fail</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Speed (30ft)</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Speed (20ft)</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Weight</p>
-        </div>
-        
-      </div> */}
+     
       <div>{purchasedArmor}</div>
-      {/* {props.setArmorArray(armorArray)} */}
-      {/* <div>Total Armor Cost: {armorCost()}</div> */}
+     
 
       <Button variant="secondary" onClick={handleShow}>
         Buy Armor and Shields
@@ -239,6 +208,7 @@ useEffect(()=>{
         </Modal.Header>
         <Modal.Body>
           <div className="row">
+            <div>Silver: {props.totalSilver-props.weaponsMoney-armorCost()}</div>
           <div className="col-1">
               
             </div>
@@ -271,9 +241,7 @@ useEffect(()=>{
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
+         
         </Modal.Footer>
       </Modal>
     </>
@@ -389,35 +357,9 @@ return(
 
   return (
     <>
-      {/* <div className="row">
-        <h4>Weapons</h4>
-        <div className="col-2 listFrame">
-          <p>Weapon</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Cost</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Damage Small</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Damage Medium</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Critical</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Range</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Weight</p>
-        </div>
-        <div className="col-1 listFrame">
-          <p>Type</p>
-        </div>
-      </div> */}
+     
       <div>{purchasedWeapons}</div>
-      {/* <div>Total Weapon Cost: {weaponCost()}</div> */}
+     
 
       <Button variant="secondary" onClick={handleShow}>
         Buy Weapons
@@ -425,10 +367,11 @@ return(
 
       <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Armor</Modal.Title>
+          <Modal.Title>Add Weapons</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <div className="row">
+            <div>Silver: {props.totalSilver-props.armorMoney-weaponCost()}</div>
           <div className="col-1">
               
             </div>
@@ -461,9 +404,7 @@ return(
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
+         
         </Modal.Footer>
       </Modal>
     </>
