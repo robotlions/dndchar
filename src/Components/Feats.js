@@ -6,14 +6,13 @@ let featArray = [];
 export const FeatsMain = (props) => {
   const [featSlots, setFeatSlots] = useState(1);
 
-  // const humanCheck = props.selectedRace==='human' ? 1 : 0
 
   useEffect(() => {
     if (props.selectedRace === "human") {
-      setFeatSlots(featSlots + 1);
+      setFeatSlots(2-featArray.length);
     } else {
       if (featSlots > 0) {
-        setFeatSlots(featSlots - 1);
+        setFeatSlots(1-featArray.length);
       }
     }
   }, [props.selectedRace]);
@@ -26,21 +25,25 @@ export const FeatsMain = (props) => {
     props.setFeatSlots(featSlots);
   }, [featSlots, props]);
 
+
   function handleCheck(event, item) {
     if (event.target.checked === true) {
-      if(featArray.length===maxFeats){
+      if(featSlots<=0){
         return(event.target.checked=false,alert("Your feats are maxed out"))
       }
       featArray.push(item);
       props.setFeatArray(featArray);
 
-      setFeatSlots(featSlots - 1);
+      // setFeatSlots(featSlots - 1);
+      setFeatSlots(maxFeats - featArray.length);
     }
     if (event.target.checked === false) {
       let i = featArray.indexOf(item);
       featArray.splice(i, 1);
       props.setFeatArray(featArray);
-      setFeatSlots(featSlots + 1);
+      // setFeatSlots(featSlots + 1);
+      setFeatSlots(maxFeats - featArray.length);
+
     }
   }
 
