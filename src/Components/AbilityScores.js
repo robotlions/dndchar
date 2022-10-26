@@ -82,7 +82,8 @@ export const NewScores = (props) => {
         <tbody>
         <tr>
           <td>STR</td>
-          <td>{str}</td>
+          {props.munchkinMode===true ? <td><input placeholder={str}></input></td> :
+          <td>{str}</td>}
           <td>
             {racialBonus.bonusStr <= 0
               ? racialBonus.bonusStr

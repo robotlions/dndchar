@@ -39,6 +39,7 @@ function App() {
   const [featArray, setFeatArray] = useState([]);
   const [featSlots, setFeatSlots] = useState(0);
   const [fontThemeFantasy, setFontThemeFantasy] = useState(false);
+  const [munchkinMode, setMunchkinMode] = useState(false);
 
   const nameCheck = charName !== "" ? charName : "CHARACTER NAME";
 
@@ -87,7 +88,7 @@ function App() {
 
   return (
     <div style={{ marginBottom: 100 }} className={fontThemeFantasy===false ? "container font-standard" : "container font-fantasy"}>
-      <TopNav setFontThemeFantasy={setFontThemeFantasy}/>
+      <TopNav setFontThemeFantasy={setFontThemeFantasy} setMunchkinMode={setMunchkinMode}/>
 
       <br />
       {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
@@ -193,6 +194,7 @@ function App() {
                   setCon={setCon}
                   selectedRace={selectedRace}
                   setRolled={setRolled}
+                  munchkinMode={munchkinMode}
                 />
               </div>
               <div className="col">
@@ -340,6 +342,7 @@ function App() {
               featsSlots={featSlots}
               setFeatSlots={setFeatSlots}
               setFeatArray={setFeatArray}
+              selectedRace={selectedRace}
             />
           </Accordion.Body>
         </Accordion.Item>
