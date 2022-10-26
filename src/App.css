@@ -1,5 +1,5 @@
 @font-face{
-  font-family: gotham-book; src: url(../public/assets/fonts/Gotham-Book.ttf);
+  font-family: gotham-book; src: url(../public/assets/fonts/Gotham-Book.otf);
   }
 
 
@@ -7,7 +7,9 @@
   font-family: gotham-book, sans-serif;
 }
 
-
+/* .container{
+  font-family: fantasy
+} */
 
 
 table{
