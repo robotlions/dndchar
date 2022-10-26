@@ -1,10 +1,17 @@
 @font-face{
   font-family: gotham-book; src: url(../public/assets/fonts/Gotham-Book.otf);
   }
+  @font-face{
+    font-family: eagle-lake; src: url(../public/assets/fonts/EagleLake-Regular.ttf);
+    }
 
 
-.container{
+.font-standard{
   font-family: gotham-book, sans-serif;
+}
+
+.font-fantasy{
+  font-family: eagle-lake, fantasy, sans-serif;
 }
 
 /* .container{

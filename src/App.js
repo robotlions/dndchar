@@ -38,6 +38,7 @@ function App() {
   const [rolled, setRolled] = useState(false);
   const [featArray, setFeatArray] = useState([]);
   const [featSlots, setFeatSlots] = useState(0);
+  const [fontThemeFantasy, setFontThemeFantasy] = useState(false);
 
   const nameCheck = charName !== "" ? charName : "CHARACTER NAME";
 
@@ -85,8 +86,8 @@ function App() {
   }
 
   return (
-    <div style={{ marginBottom: 100 }} className="container">
-      <TopNav />
+    <div style={{ marginBottom: 100 }} className={fontThemeFantasy===false ? "container font-standard" : "container font-fantasy"}>
+      <TopNav setFontThemeFantasy={setFontThemeFantasy}/>
 
       <br />
       {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
@@ -94,7 +95,7 @@ function App() {
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>{nameCheck}</h5>
+              <h2>{nameCheck}</h2>
               <p style={{ fontWeight: "bold" }}>
                 {alignment}{" "}
                 {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}{" "}
@@ -166,7 +167,7 @@ function App() {
         <Accordion.Item eventKey="1">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Abilities and Saves</h5>
+              <h2>Abilities and Saves</h2>
               {rolled === true && (
                 <div>
                   <span style={{ fontWeight: "bold" }}>Str </span>
@@ -209,7 +210,7 @@ function App() {
         <Accordion.Item eventKey="2">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Money</h5>
+              <h2>Money</h2>
               {totalSilver > 0 && (
                 <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
               )}
@@ -229,7 +230,7 @@ function App() {
         <Accordion.Item eventKey="3">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Armor</h5>
+              <h2>Armor</h2>
               {/* {armorArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -258,7 +259,7 @@ function App() {
         <Accordion.Item eventKey="4">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Weapons</h5>
+              <h2>Weapons</h2>
               {/* {weaponArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -286,7 +287,7 @@ function App() {
         <Accordion.Item eventKey="5">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Skills</h5>
+              <h2>Skills</h2>
 
               {learnedSkillsArray.length > 0 && (
                 <div>
@@ -328,7 +329,7 @@ function App() {
         <Accordion.Item eventKey="6">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Feats</h5>
+              <h2>Feats</h2>
               {featArray.map((item, index) => (
                 <div key={index}>{item.featName}</div>
               ))}
@@ -345,14 +346,15 @@ function App() {
         <Accordion.Item eventKey="7">
           <Accordion.Header>
             <div className="accTitle">
-              <h5>Spells</h5>
+              <h2>Spells</h2>
             </div>
           </Accordion.Header>
           <Accordion.Body>stuff here</Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <div className="row">
-        <div className="col-md-12"></div>
+        <div className="col-md-12">
+        </div>
       </div>
     </div>
   );
