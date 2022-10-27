@@ -149,6 +149,8 @@ export const SkillsMain = (props) => {
 
   return (
     <>
+      <div>Skill Points: {skillPoints}</div>
+
       <h5>
         Class Skills - <em>1 point</em>
       </h5>
@@ -158,7 +160,6 @@ export const SkillsMain = (props) => {
       </h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
 
-      <div>Skill Points: {skillPoints}</div>
     </>
   );
 };

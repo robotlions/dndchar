@@ -9,7 +9,7 @@ import { DropdownButton } from "react-bootstrap";
     const [thisState, setThisState] = useState("Fighter");
   
   return(
-    <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setSelectedClass(eventKey)}}>
+    <Dropdown onSelect={(eventKey) => {setThisState(eventKey); props.setBasicEdited(true); props.setSelectedClass(eventKey)}}>
     <DropdownButton variant="secondary" title={thisState}>
       <Dropdown.Item eventKey="Barbarian">Barbarian</Dropdown.Item>
       <Dropdown.Item eventKey="Bard">Bard</Dropdown.Item>

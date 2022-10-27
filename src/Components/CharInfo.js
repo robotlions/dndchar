@@ -24,6 +24,7 @@ export const CharName = (props) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       setEditing(false);
+      props.setBasicEdited(true);
     }
   };
 
@@ -38,6 +39,7 @@ export const CharName = (props) => {
           props.setCharName(e.target.value);
         }}
         onKeyDown={handleKeyDown}
+        
       />
       {/* <Form.Text className="text-muted">
       </Form.Text> */}
@@ -183,6 +185,7 @@ export const AlignmentSelect = (props) => {
       onSelect={(eventKey) => {
         setThisState(eventKey);
         props.setAlignment(eventKey);
+        props.setBasicEdited(true);
       }}
     >
       <DropdownButton variant="secondary" title={thisState}>

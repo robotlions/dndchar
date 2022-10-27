@@ -20,7 +20,7 @@ function App() {
   const [int, setInt] = useState(10);
   const [str, setStr] = useState(10);
   const [chr, setChr] = useState(10);
-  const [charName, setCharName] = useState("");
+  const [charName, setCharName] = useState("Basic Info");
   const [level, setLevel] = useState(1);
   const [totalSilver, setTotalSilver] = useState(0);
   const [updated, setUpdated] = useState(false);
@@ -40,8 +40,9 @@ function App() {
   const [featSlots, setFeatSlots] = useState(0);
   const [fontThemeFantasy, setFontThemeFantasy] = useState(false);
   const [munchkinMode, setMunchkinMode] = useState(false);
+  const [basicEdited, setBasicEdited] = useState(false);
 
-  const nameCheck = charName !== "" ? charName : "CHARACTER NAME";
+  const nameCheck = charName !== "" ? charName : "Basic Info";
 
   useEffect(() => {
     setUpdated(!updated);
@@ -93,10 +94,12 @@ function App() {
       <br />
       {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
       <Accordion alwaysOpen>
-        <Accordion.Item eventKey="0">
+        <Accordion.Item onClick={()=>{if(charName != "Basic Info"){setBasicEdited(true)}}} eventKey="0">
           <Accordion.Header>
             <div className="accTitle">
               <h2>{nameCheck}</h2>
+              {basicEdited===true &&
+              <div>
               <p style={{ fontWeight: "bold" }}>
                 {alignment}{" "}
                 {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}{" "}
@@ -112,21 +115,21 @@ function App() {
                 <span style={{ fontWeight: "bold" }}>Armor Class: </span>
                 {ac}
               </div>
-            </div>
+            </div>}</div>
           </Accordion.Header>
           <Accordion.Body>
             <div className="row justify-content-evenly">
               <div className="col-md-6">
-                <CharInfo.CharName setCharName={setCharName} />
+                <CharInfo.CharName basicEdited={basicEdited} setBasicEdited={setBasicEdited} setCharName={setCharName} />
               </div>
               <div className="col">
-                <RaceSelectDropdown setSelectedRace={setSelectedRace} />
+                <RaceSelectDropdown setBasicEdited={setBasicEdited} setSelectedRace={setSelectedRace} />
               </div>
               <div className="col">
-                <ClassSelectDropdown setSelectedClass={setSelectedClass} />
+                <ClassSelectDropdown setBasicEdited={setBasicEdited} setSelectedClass={setSelectedClass} />
               </div>
               <div className="col">
-                <CharInfo.AlignmentSelect setAlignment={setAlignment} />
+                <CharInfo.AlignmentSelect setBasicEdited={setBasicEdited} setAlignment={setAlignment} />
               </div>
             </div>
             <div
