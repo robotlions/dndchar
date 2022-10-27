@@ -10,6 +10,7 @@ import * as Skills from "./Components/Skills";
 import { TopNav } from "./Components/NavBar";
 import { Accordion } from "react-bootstrap";
 import * as Feats from "./Components/Feats";
+import * as Spells from "./Components/Spells";
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
@@ -41,6 +42,7 @@ function App() {
   const [fontThemeFantasy, setFontThemeFantasy] = useState(false);
   const [munchkinMode, setMunchkinMode] = useState(false);
   const [basicEdited, setBasicEdited] = useState(false);
+  const [spellCaster, setSpellCaster] = useState(false);
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
 
@@ -86,6 +88,12 @@ function App() {
       </div>
     ));
   }
+
+  useEffect(()=>{
+    if(selectedClass==="Wizard" || selectedClass==="Bard"){
+      setSpellCaster(true);
+    }
+  }, [selectedClass]);
 
   return (
     <div style={{ marginBottom: 100 }} className={fontThemeFantasy===false ? "container font-standard" : "container font-fantasy"}>
@@ -355,7 +363,11 @@ function App() {
               <h2>Spells</h2>
             </div>
           </Accordion.Header>
-          <Accordion.Body>stuff here</Accordion.Body>
+          <Accordion.Body>
+           {spellCaster===true ?
+            <Spells.SpellsMain level={level} selectedClass={selectedClass}/> 
+            : "No spells"}
+            </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <div className="row">
