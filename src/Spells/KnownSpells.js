@@ -20,14 +20,6 @@ export const Bard = {
     }
 }
 
-export const Fighter = {
-    1:{
-        0:null,
-        1:null,
-        2:null,
-        3:null,
-    }
-}
 
 export const Paladin = {
     1:{

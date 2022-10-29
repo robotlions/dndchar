@@ -34,6 +34,7 @@ function App() {
   const [hp, setHP] = useState(0);
   const [armorArray, setArmorArray] = useState([]);
   const [weaponArray, setWeaponArray] = useState([]);
+  const [spellArray, setSpellArray] = useState([]);
   const [learnedSkillsArray, setLearnedSkillsArray] = useState([]);
   const [skillPoints, setSkillPoints] = useState([]);
   const [rolled, setRolled] = useState(false);
@@ -48,7 +49,7 @@ function App() {
 
   useEffect(() => {
     setUpdated(!updated);
-  }, [setLearnedSkillsArray, learnedSkillsArray]);
+  }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
 
   function weaponHeaderDisplay() {
     let counts = {};
@@ -102,7 +103,7 @@ function App() {
       <br />
       {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
       <Accordion alwaysOpen>
-        <Accordion.Item onClick={()=>{if(charName != "Basic Info"){setBasicEdited(true)}}} eventKey="0">
+        <Accordion.Item onClick={()=>{if(charName !== "Basic Info"){setBasicEdited(true)}}} eventKey="0">
           <Accordion.Header>
             <div className="accTitle">
               <h2>{nameCheck}</h2>
@@ -361,11 +362,12 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h2>Spells</h2>
+              {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)}
             </div>
           </Accordion.Header>
           <Accordion.Body>
            {spellCaster===true ?
-            <Spells.SpellsMain level={level} selectedClass={selectedClass}/> 
+            <Spells.SpellsMain level={level} updated={updated} setUpdated={setUpdated} selectedClass={selectedClass} setSpellArray={setSpellArray} int={int} wis={wis}/> 
             : "No spells"}
             </Accordion.Body>
         </Accordion.Item>

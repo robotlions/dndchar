@@ -2,18 +2,29 @@ import * as SpellLists from "../Spells/SpellLists";
 import * as KnownSpells from "../Spells/KnownSpells";
 import { useEffect, useState } from "react";
 
+let spArray = [];
+
+
+
+
 export const SpellListing = (props) => {
    /* eslint-disable no-eval */
-  function handleCheck(event, item) {
+
+   function handleCheck(event, item) {
+
     let func = eval(`props.setLevel${item.level}`);
     let tar = eval(`props.level${item.level}`);
-
+  
     if (event.target.checked === true) {
       if (tar === 0) {
         return (event.preventDefault(),
         alert("No more spell slots"));
       }
-      func(tar - 1);
+      func(tar - 1)
+      spArray.push(item);
+      props.triggerUpdate();
+      
+  
     }
     if (event.target.checked === false) {
       func(tar + 1);
@@ -62,6 +73,11 @@ export const SpellsMain = (props) => {
     let input = eval(key);
     input(value);
   }
+  
+  function triggerUpdate(){
+    props.setSpellArray(spArray);
+    props.setUpdated(!props.updated);
+  }
 
   useEffect(() => {
     Object.entries(
@@ -104,6 +120,7 @@ export const SpellsMain = (props) => {
           setLevel9={setLevel9}
           selectedClass={props.selectedClass}
           level={props.level}
+          triggerUpdate={triggerUpdate}
         />
       </div>
     </div>
