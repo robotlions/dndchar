@@ -106,7 +106,7 @@ useEffect(()=>{
   else{
     setToughnessBonus(0);
   }
-}, [props, props.featArray]);
+}, [props.featArray]);
 
   useEffect(() => {
     let loading = true;

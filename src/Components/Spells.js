@@ -84,7 +84,7 @@ export const SpellsMain = (props) => {
     Object.entries(
       KnownSpells[props.selectedClass][props.level]
     ).map(([key, value], index) => vbl(`setLevel${key}`, value));
-  }, []);
+  }, [props.level, props.selectedClass]);
 
   return (
     <div>

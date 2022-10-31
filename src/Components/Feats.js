@@ -15,7 +15,7 @@ export const FeatsMain = (props) => {
         setFeatSlots(1-featArray.length);
       }
     }
-  }, [props.selectedRace]);
+  }, [props.selectedRace, featSlots]);
 
   const maxFeats = props.selectedRace==='human' ? 2 : 1
 

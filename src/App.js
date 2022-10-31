@@ -47,9 +47,9 @@ function App() {
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
 
-  useEffect(() => {
-    setUpdated(!updated);
-  }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
+  // useEffect(() => {
+  //   setUpdated(!updated);
+  // }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
 
   function weaponHeaderDisplay() {
     let counts = {};
