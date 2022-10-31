@@ -20,10 +20,11 @@ export const SpellListing = (props) => {
         return (event.preventDefault(),
         alert("No more spell slots"));
       }
-      func(tar - 1)
+      else{
+      func(tar - 1);
       spArray.push(item);
       props.triggerUpdate();
-      
+      }
   
     }
     if (event.target.checked === false) {
@@ -83,7 +84,7 @@ export const SpellsMain = (props) => {
     Object.entries(
       KnownSpells[props.selectedClass][props.level]
     ).map(([key, value], index) => vbl(`setLevel${key}`, value));
-  }, [props]);
+  }, []);
 
   return (
     <div>
