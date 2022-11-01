@@ -60,9 +60,35 @@ export const SpellListing = (props) => {
   <div className="d-flex flex-row flex-wrap">
     {displayList(0)}
  </div>
- <h6>Level 1</h6>
+ 
+ {displayList(1).length > 0 && <><h6>Level 1</h6>
  <div className="d-flex flex-row flex-wrap">
-  {displayList(1)}</div></div>);
+  {displayList(1)}</div></>}
+  {displayList(2).length > 0 && <><h6>Level 2</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(2)}</div></>}
+  {displayList(3).length > 0 && <><h6>Level 3</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(3)}</div></>}
+  {displayList(4).length > 0 && <><h6>Level 4</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(4)}</div></>}
+  {displayList(5).length > 0 && <><h6>Level 5</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(5)}</div></>}
+  {displayList(6).length > 0 && <><h6>Level 6</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(6)}</div></>}
+  {displayList(7).length > 0 && <><h6>Level 7</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(7)}</div></>}
+  {displayList(8).length > 0 && <><h6>Level 8</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(8)}</div></>}
+  {displayList(9).length > 0 && <><h6>Level 9</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(9)}</div></>}
+  </div>);
 };
 
 export const SpellsMain = (props) => {
