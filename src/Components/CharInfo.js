@@ -28,6 +28,8 @@ export const CharName = (props) => {
     }
   };
 
+
+
   const nameInput = (
     <InputGroup className="mb-3" id="charName">
       <Form.Control
@@ -65,19 +67,60 @@ export const Level = (props) => {
     }
   };
 
-  const levelInput = (
-    <InputGroup className="mb-3" id="level">
-      <Form.Control
-        type="text"
-        placeholder={1}
-        onChange={(e) => {
-          setThisState(e.target.value);
-          props.setLevel(e.target.value);
-        }}
-        onKeyDown={handleKeyDown}
-      />
-    </InputGroup>
-  );
+  // const levelInput = (
+  //   <InputGroup className="mb-3" id="level">
+  //     <Form.Control
+  //       type="text"
+  //       placeholder={1}
+  //       onChange={(e) => {
+          
+        
+  //         setThisState(e.target.value);
+  //         props.setLevel(e.target.value);
+          
+  //       }}
+  //       onKeyDown={handleKeyDown}
+  //     />
+  //   </InputGroup>
+  // );
+
+
+
+const levelInput = <Dropdown
+      onSelect={(eventKey) => {
+        setThisState(eventKey);
+        props.setLevel(eventKey);
+        props.setBasicEdited(true);
+      }}
+    >
+      <DropdownButton variant="secondary" title={thisState}>
+        <Dropdown.Item eventKey={1}>1</Dropdown.Item>
+        <Dropdown.Item eventKey={2}>2</Dropdown.Item>
+        <Dropdown.Item eventKey={3}>3</Dropdown.Item>
+        <Dropdown.Item eventKey={4}>4</Dropdown.Item>
+        <Dropdown.Item eventKey={5}>5</Dropdown.Item>
+        <Dropdown.Item eventKey={6}>6</Dropdown.Item>
+        <Dropdown.Item eventKey={7}>7</Dropdown.Item>
+        <Dropdown.Item eventKey={8}>8</Dropdown.Item>
+        <Dropdown.Item eventKey={9}>9</Dropdown.Item>
+        <Dropdown.Item eventKey={10}>10</Dropdown.Item>
+        <Dropdown.Item eventKey={11}>11</Dropdown.Item>
+        <Dropdown.Item eventKey={12}>12</Dropdown.Item>
+        <Dropdown.Item eventKey={13}>13</Dropdown.Item>
+        <Dropdown.Item eventKey={14}>14</Dropdown.Item>
+        <Dropdown.Item eventKey={15}>15</Dropdown.Item>
+        <Dropdown.Item eventKey={16}>16</Dropdown.Item>
+        <Dropdown.Item eventKey={17}>17</Dropdown.Item>
+        <Dropdown.Item eventKey={18}>18</Dropdown.Item>
+        <Dropdown.Item eventKey={19}>19</Dropdown.Item>
+        <Dropdown.Item eventKey={20}>20</Dropdown.Item>
+
+      </DropdownButton>
+    </Dropdown>
+
+
+
+
 
   const levelDisplay = (
     <button className="nameDisplay" onClick={() => setEditing(true)}>
