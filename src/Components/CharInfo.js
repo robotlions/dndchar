@@ -61,11 +61,11 @@ export const Level = (props) => {
   const [thisState, setThisState] = useState(1);
   const [editing, setEditing] = useState(true);
 
-  const handleKeyDown = (event) => {
-    if (event.key === "Enter") {
-      setEditing(false);
-    }
-  };
+  // const handleKeyDown = (event) => {
+  //   if (event.key === "Enter") {
+  //     setEditing(false);
+  //   }
+  // };
 
   // const levelInput = (
   //   <InputGroup className="mb-3" id="level">
@@ -169,7 +169,7 @@ useEffect(()=>{
     return () => {
       loading = false;
     };
-  }, [props.level, hpDice, mod, props.featArray, props, toughnessBonus]);
+  }, [props.level, hpDice, mod, props.featArray, toughnessBonus]);
 
   return <div>{printHP}</div>;
 };
