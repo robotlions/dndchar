@@ -307,5 +307,353 @@ export const Bardlist = {
       spellName: "Whispering Wind",
       level: 2,
     },
+    blink: {
+      spellName: "Blink",
+      level: 3,
+    },
+    charmMonster: {
+      spellName: "Charm Monster",
+      level: 3,
+    },
+    clairaudienceClairvoyance: {
+      spellName: "Clairaudience/Clairvoyance",
+      level: 3,
+    },
+    confusion: {
+      spellName: "Confusion",
+      level: 3,
+    },
+    crushingDespair: {
+      spellName: "Crushing Despair",
+      level: 3,
+    },
+    cureSeriousWounds: {
+      spellName: "Cure Serious Wounds",
+      level: 3,
+    },
+    daylight: {
+      spellName: "Daylight",
+      level: 3,
+    },
+    deepSlumber: {
+      spellName: "Deep Slumber",
+      level: 3,
+    },
+    dispelMagic: {
+      spellName: "Dispel Magic",
+      level: 3,
+    },
+    displacement: {
+      spellName: "Displacement",
+      level: 3,
+    },
+    fear: {
+      spellName: "Fear",
+      level: 3,
+    },
+    gaseousForm: {
+      spellName: "Gaseous Form",
+      level: 3,
+    },
+    geasLesser: {
+      spellName: "Geas, Lesser",
+      level: 3,
+    },
+    glibness: {
+      spellName: "Glibness",
+      level: 3,
+    },
+    goodHope: {
+      spellName: "Good Hope",
+      level: 3,
+    },
+    haste: {
+      spellName: "Haste",
+      level: 3,
+    },
+    illusoryScript: {
+      spellName: "Illusory Script",
+      level: 3,
+    },
+    invisibiltySphere: {
+      spellName: "Invisibility Sphere",
+      level: 3,
+    },
+    leomundsTinyHut: {
+      spellName: "Leomund's Tiny Hut",
+      level: 3,
+    },
+    majorImage: {
+      spellName: "Major Image",
+      level: 3,
+    },
+    phantomSteed: {
+      spellName: "Phantom Steed",
+      level: 3,
+    },
+    removeCurse: {
+      spellName: "Remove Curse",
+      level: 3,
+    },
+    scrying: {
+      spellName: "Scrying",
+      level: 3,
+    },
+    sculptSound: {
+      spellName: "Sculpt Sound",
+      level: 3,
+    },
+    secretPage: {
+      spellName: "Secret Page",
+      level: 3,
+    },
+    seeInivisibility: {
+      spellName: "See Invisibility",
+      level: 3,
+    },
+    sepiaSnakeSigil: {
+      spellName: "Sepia Snake Sigil",
+      level: 3,
+    },
+    slow: {
+      spellName: "Slow",
+      level: 3,
+    },
+    speakWithAnimals: {
+      spellName: "Speak with Animals",
+      level: 3,
+    },
+    summonMonsterIII: {
+      spellName: "Summon Monster III",
+      level: 3,
+    },
+    breakEnchantment: {
+      spellName: "Break Enchantment",
+      level: 4,
+    },
+    cureCriticalWounds: {
+      spellName: "Cure Critical Wounds",
+      level: 4,
+    },
+    detectScrying: {
+      spellName: "Detect Scrying",
+      level: 4,
+    },
+    dimensionDoor: {
+      spellName: "Dimension Door",
+      level: 4,
+    },
+    dominatePerson: {
+      spellName: "Dominate Person",
+      level: 4,
+    },
+    freedomOfMovement: {
+      spellName: "Freedom of Movement",
+      level: 4,
+    },
+    hallucinatoryTerrain: {
+      spellName: "Hallucinatory Terrain",
+      level: 4,
+    },
+    holdMonster: {
+      spellName: "Hold Monster",
+      level: 4,
+    },
+    invisibilityGreater: {
+      spellName: "Invisibility, Greater",
+      level: 4,
+    },
+    legendLore: {
+      spellName: "Legend Lore",
+      level: 4,
+    },
+    leomundsSecureShelter: {
+      spellName: "Leomund's Secure Shelter",
+      level: 4,
+    },
+    locateCreature: {
+      spellName: "Locate Creature",
+      level: 4,
+    },
+    modifyMemory: {
+      spellName: "Modify Memory",
+      level: 4,
+    },
+    neutralizePoison: {
+      spellName: "Neutralize Poison",
+      level: 4,
+    },
+    rainbowPattern: {
+      spellName: "Rainbow Pattern",
+      level: 4,
+    },
+    repelVermin: {
+      spellName: "Repel Vermin",
+      level: 4,
+    },
+    shadowConjuration: {
+      spellName: "Shadow Conjuration",
+      level: 4,
+    },
+    shout: {
+      spellName: "Shout",
+      level: 4,
+    },
+    speakWithPlants: {
+      spellName: "Speak with Plants",
+      level: 4,
+    },
+    summonMonsterIV: {
+      spellName: "Summon Monster IV",
+      level: 4,
+    },
+    zoneOfSilence: {
+      spellName: "Zone of Silence",
+      level: 4,
+    },
+    cureLightWoundsMass: {
+      spellName: "Cure Light Wounds, Mass",
+      level: 5,
+    },
+    dispelMagicGreater: {
+      spellName: "Dispel Magic, Greater",
+      level: 5,
+    },
+    dream: {
+      spellName: "Dream",
+      level: 5,
+    },
+    falseVision: {
+      spellName: "False Vision",
+      level: 5,
+    },
+    heroismGreater: {
+      spellName: "Heroism, Greater",
+      level: 5,
+    },
+    mindFog: {
+      spellName: "Mind Fog",
+      level: 5,
+    },
+    mirageArcana: {
+      spellName: "Mirage Arcana",
+      level: 5,
+    },
+    mislead: {
+      spellName: "Mislead",
+      level: 5,
+    },
+    nightmare: {
+      spellName: "Nightmare",
+      level: 5,
+    },
+    persistentImage: {
+      spellName: "Persistent Image",
+      level: 5,
+    },
+    seeming: {
+      spellName: "Seeming",
+      level: 5,
+    },
+    shadowEvocation: {
+      spellName: "Shadow Evocation",
+      level: 5,
+    },
+    shadowWalk: {
+      spellName: "Shadow Walk",
+      level: 5,
+    },
+    songOfDiscord: {
+      spellName: "Song of Discord",
+      level: 5,
+    },
+    suggestionMass: {
+      spellName: "Suggestion, Mass",
+      level: 5,
+    },
+    summonMonsterV: {
+      spellName: "Summon Monster V",
+      level: 5,
+    },
+    analyzeDweomer: {
+      spellName: "Analyze Dweomer",
+      level: 6,
+    },
+    animateObjects: {
+      spellName: "Animate Objects",
+      level: 6,
+    },
+    catsGraceMass: {
+      spellName: "Cat's Grace, Mass",
+      level: 6,
+    },
+    charmMonsterMass: {
+      spellName: "Charm Monster, Mass",
+      level: 6,
+    },
+    cureModerateWoundsMass: {
+      spellName: "Cure Moderate Wounds, Mass",
+      level: 6,
+    },
+    eaglesSplenderMass: {
+      spellName: "Eagle's Splendor, Mass",
+      level: 6,
+    },
+    eyebite: {
+      spellName: "Eyebite",
+      level: 6,
+    },
+    findThePath: {
+      spellName: "Find the Path",
+      level: 6,
+    },
+    foxsCunningMass: {
+      spellName: "Fox's Cunning, Mass",
+      level: 6,
+    },
+    geasQuest: {
+      spellName: "Geas/Quest",
+      level: 6,
+    },
+    heroesFeast: {
+      spellName: "Heroes' Feast",
+      level: 6,
+    },
+    ottosIrresistibleDance: {
+      spellName: "Otto's Irresistible Dance",
+      level: 6,
+    },
+    permanentImage: {
+      spellName: "Permanent Image",
+      level: 6,
+    },
+    programmedImage: {
+      spellName: "Programmed Image",
+      level: 6,
+    },
+    projectImage: {
+      spellName: "Project Image",
+      level: 6,
+    },
+    scryingGreater: {
+      spellName: "Scrying, Greater",
+      level: 6,
+    },
+    shoutGreater: {
+      spellName: "Shout, Greater",
+      level: 6,
+    },
+    summonMonsterVI: {
+      spellName: "Summon Monster VI",
+      level: 6,
+    },
+    sympatheticVibration: {
+      spellName: "Sympathetic Vibration",
+      level: 6,
+    },
+    veil: {
+      spellName: "Veil",
+      level: 6,
+    },
 
 };

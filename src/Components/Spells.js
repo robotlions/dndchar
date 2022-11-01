@@ -10,6 +10,7 @@ let spArray = [];
 export const SpellListing = (props) => {
    /* eslint-disable no-eval */
 
+
    function handleCheck(event, item) {
 
     let func = eval(`props.setLevel${item.level}`);
@@ -31,6 +32,8 @@ export const SpellListing = (props) => {
       func(tar + 1);
     }
   }
+
+  
 
   let lvlCheck = KnownSpells[props.selectedClass][props.level];
   let spellObject = SpellLists[props.selectedClass];
