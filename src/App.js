@@ -368,7 +368,7 @@ function App() {
           <Accordion.Body>
            {spellCaster===true ?
             <Spells.SpellsMain level={level} updated={updated} setUpdated={setUpdated} selectedClass={selectedClass} setSpellArray={setSpellArray} int={int} wis={wis}/> 
-            : "No spells"}
+            : `${selectedClass} is not a spellcasting class.`}
             </Accordion.Body>
         </Accordion.Item>
       </Accordion>

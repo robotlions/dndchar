@@ -303,3 +303,19 @@ export const Paladin = {
     4: 3,
   },
 };
+
+export const Wizard = {
+  1: {
+    0: 20,
+    1: 4,
+    2: null,
+    3: null,
+    4: null,
+    5: null,
+    6: null,
+    7: null,
+    8: null,
+    9: null
+  }
+
+};
