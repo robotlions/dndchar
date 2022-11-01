@@ -34,8 +34,9 @@ export const SpellListing = (props) => {
 
   let lvlCheck = KnownSpells[props.selectedClass][props.level];
   let spellObject = SpellLists[props.selectedClass];
-  const displayList = Object.values(spellObject)
+  function displayList(lvlFilter){ return( Object.values(spellObject)
     .filter((item) => lvlCheck[item.level] > 0)
+    .filter((item)=>item.level===lvlFilter)
     .map((item, index) => (
       <div key={index} className="form-check col-4">
         <input
@@ -52,9 +53,16 @@ export const SpellListing = (props) => {
           {item.spellName}
         </label>
       </div>
-    ));
+    )))};
 
-  return displayList;
+  return (
+  <div><h6>Level 0</h6>
+  <div className="d-flex flex-row flex-wrap">
+    {displayList(0)}
+ </div>
+ <h6>Level 1</h6>
+ <div className="d-flex flex-row flex-wrap">
+  {displayList(1)}</div></div>);
 };
 
 export const SpellsMain = (props) => {
@@ -69,7 +77,7 @@ export const SpellsMain = (props) => {
   const [level8, setLevel8] = useState(null);
   const [level9, setLevel9] = useState(null);
 
-  function vbl(key, value) {
+  function setSpellSlotsInState(key, value) {
      /* eslint-disable no-eval */
     let input = eval(key);
     input(value);
@@ -83,7 +91,7 @@ export const SpellsMain = (props) => {
   useEffect(() => {
     Object.entries(
       KnownSpells[props.selectedClass][props.level]
-    ).map(([key, value], index) => vbl(`setLevel${key}`, value));
+    ).map(([key, value], index) => setSpellSlotsInState(`setLevel${key}`, value));
   }, [props.level, props.selectedClass]);
 
   return (
@@ -97,7 +105,7 @@ export const SpellsMain = (props) => {
         {level6 && `Level 6: ${level6}`} {level7 && `Level 7: ${level7}`}{" "}
         {level8 && `Level 8: ${level8}`} {level9 && `Level 9: ${level9}`}
       </p>
-      <div className="d-flex flex-row flex-wrap">
+      <div>
         <SpellListing
           level0={level0}
           setLevel0={setLevel0}
