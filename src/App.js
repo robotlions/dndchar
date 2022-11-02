@@ -362,7 +362,7 @@ function App() {
           <Accordion.Header>
             <div className="accTitle">
               <h2>Spells</h2>
-              {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)}
+              {/* {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)} */}
             </div>
           </Accordion.Header>
           <Accordion.Body>
