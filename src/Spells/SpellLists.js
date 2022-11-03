@@ -13,3 +13,4 @@ export const Fighter = {
 export const Bard = Bardlist;
 export const Paladin = PaladinList;
 export const Wizard = WizardSorcererList;
+export const Sorcerer = WizardSorcererList;
