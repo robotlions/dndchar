@@ -949,4 +949,784 @@ stoneShape: {
     level: 4,
     school: "Trans",
 },
+breakEnchantment: {
+    spellName: "Break Enchantment",
+    level: 5,
+    school: "Abjur",
+},
+dismissal: {
+    spellName: "Dismissal",
+    level: 5,
+    school: "Abjur",
+},
+mordenkainensPrivateSanctum: {
+    spellName: "Mordenkainen's Private Sanctum",
+    level: 5,
+    school: "Abjur",
+},
+cloudkill: {
+    spellName: "Cloudkill",
+    level: 5,
+    school: "Conj",
+},
+leomundsSecretChest: {
+    spellName: "Leomund's Secret Chest",
+    level: 5,
+    school: "Conj",
+},
+majorCreation: {
+    spellName: "Major Creation",
+    level: 5,
+    school: "Conj",
+},
+mordenkainensFaithfulHound: {
+    spellName: "Mordenkainen's Faithful Hound",
+    level: 5,
+    school: "Conj",
+},
+planarBindingLesser: {
+    spellName: "Planar Binding, Lesser",
+    level: 5,
+    school: "Conj",
+},
+summonMonsterV: {
+    spellName: "Summon Monster V",
+    level: 5,
+    school: "Conj",
+},
+teleport: {
+    spellName: "Teleport",
+    level: 5,
+    school: "Conj",
+},
+wallOfStone: {
+    spellName: "Wall of Stone",
+    level: 5,
+    school: "Conj",
+},
+contactOtherPlane: {
+    spellName: "Contact Other Plane",
+    level: 5,
+    school: "Div",
+},
+pryingEyes: {
+    spellName: "Prying Eyes",
+    level: 5,
+    school: "Div",
+},
+rarysTelepathicBond: {
+    spellName: "Rary's Telepathic Bond",
+    level: 5,
+    school: "Div",
+},
+dominatePerson: {
+    spellName: "Dominate Person",
+    level: 5,
+    school: "Ench",
+},
+feeblemind: {
+    spellName: "Feeblemind",
+    level: 5,
+    school: "Ench",
+},
+holdMonster: {
+    spellName: "Hold Monster",
+    level: 5,
+    school: "Ench",
+},
+mindFog: {
+    spellName: "Mind Fog",
+    level: 5,
+    school: "Ench",
+},
+symbolOfSleep: {
+    spellName: "Symbol of Sleep",
+    level: 5,
+    school: "Ench",
+},
+bigsbysInterposingHand: {
+    spellName: "Bigsby's Interposing Hand",
+    level: 5,
+    school: "Evoc",
+},
+coneOfCold: {
+    spellName: "Cone of Cold",
+    level: 5,
+    school: "Evoc",
+},
+sending: {
+    spellName: "Sending",
+    level: 5,
+    school: "Evoc",
+},
+wallOfForce: {
+    spellName: "Wall of Force",
+    level: 5,
+    school: "Evoc",
+},
+dream: {
+    spellName: "Dream",
+    level: 5,
+    school: "Illus",
+},
+falseVision: {
+    spellName: "False Vision",
+    level: 5,
+    school: "Illus",
+},
+mirageArcana: {
+    spellName: "Mirage Arcana",
+    level: 5,
+    school: "Illus",
+},
+nightmare: {
+    spellName: "Nightmare",
+    level: 5,
+    school: "Illus",
+},
+persistentImage: {
+    spellName: "Persistent Image",
+    level: 5,
+    school: "Illus",
+},
+seeming: {
+    spellName: "Seeming",
+    level: 5,
+    school: "Illus",
+},
+shadowEvocation: {
+    spellName: "Shadow Evocation",
+    level: 5,
+    school: "Illus",
+},
+blight: {
+    spellName: "Blight",
+    level: 5,
+    school: "Necro",
+},
+magicJar: {
+    spellName: "Magic Jar",
+    level: 5,
+    school: "Necro",
+},
+symbolOfPain: {
+    spellName: "Symbol of Pain",
+    level: 5,
+    school: "Necro",
+},
+wavesOfFatigue: {
+    spellName: "Waves of Fatigue",
+    level: 5,
+    school: "Necro",
+},
+animalGrowth: {
+    spellName: "Animal Growth",
+    level: 5,
+    school: "Trans",
+},
+balefulPolymorph: {
+    spellName: "Baleful Polymorph",
+    level: 5,
+    school: "Trans",
+},
+fabricate: {
+    spellName: "Fabricate",
+    level: 5,
+    school: "Trans",
+},
+overlandFlight: {
+    spellName: "Overland Flight",
+    level: 5,
+    school: "Trans",
+},
+passwall: {
+    spellName: "Passwall",
+    level: 5,
+    school: "Trans",
+},
+telekinesis: {
+    spellName: "Telekinesis",
+    level: 5,
+    school: "Trans",
+},
+transmuteMudToRock: {
+    spellName: "Transmute Mud to Rock",
+    level: 5,
+    school: "Trans",
+},
+transmuteRockToMud: {
+    spellName: "Transmute Rock to Mud",
+    level: 5,
+    school: "Trans",
+},
+permanency: {
+    spellName: "Permanency",
+    level: 5,
+    school: "Univ",
+},
+antimagicField: {
+    spellName: "Antimagic Field",
+    level: 6,
+    school: "Abjur",
+},
+dispelMagicGreater: {
+    spellName: "Dispel Magic, Greater",
+    level: 6,
+    school: "Abjur",
+},
+globeOfInvulnerability: {
+    spellName: "Globe of Invulnerability",
+    level: 6,
+    school: "Abjur",
+},
+guardsAndWards: {
+    spellName: "Guards and Wards",
+    level: 6,
+    school: "Abjur",
+},
+repulsion: {
+    spellName: "Repulsion",
+    level: 6,
+    school: "Abjur",
+},
+acidFog: {
+    spellName: "Acid Fog",
+    level: 6,
+    school: "Conj",
+},
+planarBinding: {
+    spellName: "Planar Binding",
+    level: 6,
+    school: "Conj",
+},
+summonMonsterVI: {
+    spellName: "Summon Monster VI",
+    level: 6,
+    school: "Conj",
+},
+wallOfIron: {
+    spellName: "Wall of Iron",
+    level: 6,
+    school: "Conj",
+},
+analyzeDweomer: {
+    spellName: "Analyze Dweomer",
+    level: 6,
+    school: "Div",
+},
+legendLore: {
+    spellName: "Legend Lore",
+    level: 6,
+    school: "Div",
+},
+trueSeeing: {
+    spellName: "True Seeing",
+    level: 6,
+    school: "Div",
+},
+geasQuest: {
+    spellName: "Geas/ Quest",
+    level: 6,
+    school: "Ench",
+},
+heroismGreater: {
+    spellName: "Heroism, Greater",
+    level: 6,
+    school: "Ench",
+},
+suggestionMass: {
+    spellName: "Suggestion, Mass",
+    level: 6,
+    school: "Ench",
+},
+symbolOfPersuasion: {
+    spellName: "Symbol of Persuasion",
+    level: 6,
+    school: "Ench",
+},
+bigsbysForcefulHand: {
+    spellName: "Bigsby's Forceful Hand",
+    level: 6,
+    school: "Evoc",
+},
+chainLightning: {
+    spellName: "Chain Lightning",
+    level: 6,
+    school: "Evoc",
+},
+contingency: {
+    spellName: "Contingency",
+    level: 6,
+    school: "Evoc",
+},
+otilukesFreezingSphere: {
+    spellName: "Otiluke's Freezing Sphere",
+    level: 6,
+    school: "Evoc",
+},
+mislead: {
+    spellName: "Mislead",
+    level: 6,
+    school: "Illus",
+},
+permanentImage: {
+    spellName: "Permanent Image",
+    level: 6,
+    school: "Illus",
+},
+programmedImage: {
+    spellName: "Programmed Image",
+    level: 6,
+    school: "Illus",
+},
+shadowWalk: {
+    spellName: "Shadow Walk",
+    level: 6,
+    school: "Illus",
+},
+veil: {
+    spellName: "Veil",
+    level: 6,
+    school: "Illus",
+},
+circleOfDeath: {
+    spellName: "Circle of Death",
+    level: 6,
+    school: "Necro",
+},
+createUndead: {
+    spellName: "Create Undead",
+    level: 6,
+    school: "Necro",
+},
+eyebite: {
+    spellName: "Eyebite",
+    level: 6,
+    school: "Necro",
+},
+symbolOfFear: {
+    spellName: "Symbol of Fear",
+    level: 6,
+    school: "Necro",
+},
+undeathToDeath: {
+    spellName: "Undeath to Death",
+    level: 6,
+    school: "Necro",
+},
+bearsEnduranceMass: {
+    spellName: "Bear's Endurance, Mass",
+    level: 6,
+    school: "Trans",
+},
+bullsStrengthMass: {
+    spellName: "Bull's Strength, Mass",
+    level: 6,
+    school: "Trans",
+},
+catsGraceMass: {
+    spellName: "Cat's Grace, Mass",
+    level: 6,
+    school: "Trans",
+},
+controlWater: {
+    spellName: "Control Water",
+    level: 6,
+    school: "Trans",
+},
+disintegrate: {
+    spellName: "Disintegrate",
+    level: 6,
+    school: "Trans",
+},
+eaglesSplendorMass: {
+    spellName: "Eagle's Splendor, Mass",
+    level: 6,
+    school: "Trans",
+},
+fleshToStone: {
+    spellName: "Flesh to Stone",
+    level: 6,
+    school: "Trans",
+},
+foxsCunningMass: {
+    spellName: "Fox's Cunning, Mass",
+    level: 6,
+    school: "Trans",
+},
+mordenkainensLucubration: {
+    spellName: "Mordenkainen's Lucubration",
+    level: 6,
+    school: "Trans",
+},
+moveEarth: {
+    spellName: "Move Earth",
+    level: 6,
+    school: "Trans",
+},
+owlsWisdomMass: {
+    spellName: "Owl's Wisdom, Mass",
+    level: 6,
+    school: "Trans",
+},
+stoneToFlesh: {
+    spellName: "Stone to Flesh",
+    level: 6,
+    school: "Trans",
+},
+tensersTransformation: {
+    spellName: "Tenser's Transformation",
+    level: 6,
+    school: "Trans",
+},
+banishment: {
+    spellName: "Banishment",
+    level: 7,
+    school: "Abjur",
+},
+sequester: {
+    spellName: "Sequester",
+    level: 7,
+    school: "Abjur",
+},
+spellTurning: {
+    spellName: "Spell Turning",
+    level: 7,
+    school: "Abjur",
+},
+drawmijsInstantSummons: {
+    spellName: "Drawmij's Instant Summons",
+    level: 7,
+    school: "Conj",
+},
+mordenkainensMagnificentMansion: {
+    spellName: "Mordenkainen's Magnificent Mansion",
+    level: 7,
+    school: "Conj",
+},
+phaseDoor: {
+    spellName: "Phase Door",
+    level: 7,
+    school: "Conj",
+},
+planeShift: {
+    spellName: "Plane Shift",
+    level: 7,
+    school: "Conj",
+},
+summonMonsterVII: {
+    spellName: "Summon Monster VII",
+    level: 7,
+    school: "Conj",
+},
+teleportGreater: {
+    spellName: "Teleport, Greater",
+    level: 7,
+    school: "Conj",
+},
+teleportObject: {
+    spellName: "Teleport Object",
+    level: 7,
+    school: "Conj",
+},
+arcaneSightGreater: {
+    spellName: "Arcane Sight, Greater",
+    level: 7,
+    school: "Div",
+},
+scryingGreater: {
+    spellName: "Scrying, Greater",
+    level: 7,
+    school: "Div",
+},
+vision: {
+    spellName: "Vision",
+    level: 7,
+    school: "Div",
+},
+holdPersonMass: {
+    spellName: "Hold Person, Mass",
+    level: 7,
+    school: "Ench",
+},
+insanity: {
+    spellName: "Insanity",
+    level: 7,
+    school: "Ench",
+},
+powerWordBlind: {
+    spellName: "Power Word Blind",
+    level: 7,
+    school: "Ench",
+},
+symbolOfStunning: {
+    spellName: "Symbol of Stunning",
+    level: 7,
+    school: "Ench",
+},
+bigsbysGraspingHand: {
+    spellName: "Bigsby's Grasping Hand",
+    level: 7,
+    school: "Evoc",
+},
+delayedBlastFireball: {
+    spellName: "Delayed Blast Fireball",
+    level: 7,
+    school: "Evoc",
+},
+forcecage: {
+    spellName: "Forcecage",
+    level: 7,
+    school: "Evoc",
+},
+mordenkainensSword: {
+    spellName: "Mordenkainen's Sword",
+    level: 7,
+    school: "Evoc",
+},
+prismaticSpray: {
+    spellName: "Prismatic Spray",
+    level: 7,
+    school: "Evoc",
+},
+invisibilityMass: {
+    spellName: "Invisibility, Mass",
+    level: 7,
+    school: "Illus",
+},
+projectImage: {
+    spellName: "Project Image",
+    level: 7,
+    school: "Illus",
+},
+shadowConjurationGreater: {
+    spellName: "Shadow Conjuration, Greater",
+    level: 7,
+    school: "Illus",
+},
+simulacrum: {
+    spellName: "Simulacrum",
+    level: 7,
+    school: "Illus",
+},
+controlUndead: {
+    spellName: "Control Undead",
+    level: 7,
+    school: "Necro",
+},
+fingerOfDeath: {
+    spellName: "Finger of Death",
+    level: 7,
+    school: "Necro",
+},
+symbolOfWeakness: {
+    spellName: "Symbol of Weakness",
+    level: 7,
+    school: "Necro",
+},
+wavesOfExhaustion: {
+    spellName: "Waves of Exhaustion",
+    level: 7,
+    school: "Necro",
+},
+controlWeather: {
+    spellName: "Control Weather",
+    level: 7,
+    school: "Trans",
+},
+etherealJaunt: {
+    spellName: "Ethereal Jaunt",
+    level: 7,
+    school: "Trans",
+},
+reverseGravity: {
+    spellName: "Revers Gravity",
+    level: 7,
+    school: "Trans",
+},
+statue: {
+    spellName: "Statue",
+    level: 7,
+    school: "Trans",
+},
+limitedWish: {
+    spellName: "Limited Wish",
+    level: 7,
+    school: "Univ",
+},
+dimensionalLock: {
+    spellName: "Dimensional Lock",
+    level: 8,
+    school: "Abjur",
+},
+mindBlank: {
+    spellName: "Mind Blank",
+    level: 8,
+    school: "Abjur",
+},
+prismaticWall: {
+    spellName: "Prismatic Wall",
+    level: 8,
+    school: "Abjur",
+},
+protectionFromSpells: {
+    spellName: "Protection from Spells",
+    level: 8,
+    school: "Abjur",
+},
+incendiaryCloud: {
+    spellName: "Incendiary Cloud",
+    level: 8,
+    school: "Conj",
+},
+maze: {
+    spellName: "Maze",
+    level: 8,
+    school: "Conj",
+},
+planarBindingGreater: {
+    spellName: "Planar Binding, Greater",
+    level: 8,
+    school: "Conj",
+},
+summonMonsterVIII: {
+    spellName: "Summon Monster VIII",
+    level: 8,
+    school: "Conj",
+},
+trapTheSoul: {
+    spellName: "Trap the Soul",
+    level: 8,
+    school: "Conj",
+},
+discernLocation: {
+    spellName: "Discern Location",
+    level: 8,
+    school: "Div",
+},
+momentOfPrescience: {
+    spellName: "Moment of Prescience",
+    level: 8,
+    school: "Div",
+},
+pryingEyesGreater: {
+    spellName: "Prying Eyes, Greater",
+    level: 8,
+    school: "Div",
+},
+antipathy: {
+    spellName: "Antipathy",
+    level: 8,
+    school: "Ench",
+},
+binding: {
+    spellName: "Binding",
+    level: 8,
+    school: "Ench",
+},
+charmMonsterMass: {
+    spellName: "Charm Monster, Mass",
+    level: 8,
+    school: "Ench",
+},
+demand: {
+    spellName: "Demand",
+    level: 8,
+    school: "Ench",
+},
+ottosIrresistibleDance: {
+    spellName: "Otto's Irresistible Dance",
+    level: 8,
+    school: "Ench",
+},
+powerWordStun: {
+    spellName: "Power Word Stun",
+    level: 8,
+    school: "Ench",
+},
+symbolOfInsanity: {
+    spellName: "Symbol of Insanity",
+    level: 8,
+    school: "Ench",
+},
+sympathy: {
+    spellName: "Sympathy",
+    level: 8,
+    school: "Ench",
+},
+bigsbysClenchedFist: {
+    spellName: "Bigsby's Clenched Fist",
+    level: 8,
+    school: "Evoc",
+},
+otilukesTelekineticSphere: {
+    spellName: "Otiluke's Telekinetic Sphere",
+    level: 8,
+    school: "Evoc",
+},
+polarRay: {
+    spellName: "Polar Ray",
+    level: 8,
+    school: "Evoc",
+},
+shoutGreater: {
+    spellName: "Shout, Greater",
+    level: 8,
+    school: "Evoc",
+},
+sunburst: {
+    spellName: "Sunburst",
+    level: 8,
+    school: "Evoc",
+},
+scintillatingPattern: {
+    spellName: "Scintillating Pattern",
+    level: 8,
+    school: "Illus",
+},
+screen: {
+    spellName: "Screen",
+    level: 8,
+    school: "Illus",
+},
+shadowEvocationGreater: {
+    spellName: "Shadow Evocation, Greater",
+    level: 8,
+    school: "Illus",
+},
+clone: {
+    spellName: "Clone",
+    level: 8,
+    school: "Necro",
+},
+createGreaterUndead: {
+    spellName: "Create Greater Undead",
+    level: 8,
+    school: "Necro",
+},
+horridWilting: {
+    spellName: "Horrid Wilting",
+    level: 8,
+    school: "Necro",
+},
+symbolOfDeath: {
+    spellName: "Symbol of Death",
+    level: 8,
+    school: "Necro",
+},
+ironBody: {
+    spellName: "Iron Body",
+    level: 8,
+    school: "Trans",
+},
+polymorphAnyObject: {
+    spellName: "Polymorph Any Object",
+    level: 8,
+    school: "Trans",
+},
+temporalStasis: {
+    spellName: "Temporal Stasis",
+    level: 8,
+    school: "Trans",
+},
 };
