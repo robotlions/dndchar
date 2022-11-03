@@ -1729,4 +1729,124 @@ temporalStasis: {
     level: 8,
     school: "Trans",
 },
+freedom: {
+    spellName: "Freedom",
+    level: 9,
+    school: "Abjur",
+},
+imprisonment: {
+    spellName: "Imprisonment",
+    level: 9,
+    school: "Abjur",
+},
+mordenkainensDisjunction: {
+    spellName: "Mordenkainen's Disjunction",
+    level: 9,
+    school: "Abjur",
+},
+prismaticSphere: {
+    spellName: "Prismatic Sphere",
+    level: 9,
+    school: "Abjur",
+},
+gate: {
+    spellName: "Gate",
+    level: 9,
+    school: "Conj",
+},
+refuge: {
+    spellName: "Refuge",
+    level: 9,
+    school: "Conj",
+},
+summonMonsterIX: {
+    spellName: "Summon Monster IX",
+    level: 9,
+    school: "Conj",
+},
+teleportationCircle: {
+    spellName: "Teleportation Circle",
+    level: 9,
+    school: "Conj",
+},
+foresight: {
+    spellName: "Foresight",
+    level: 9,
+    school: "Div",
+},
+dominateMonster: {
+    spellName: "Dominate Monster",
+    level: 9,
+    school: "Ench",
+},
+holdMonsterMass: {
+    spellName: "Hold Monster, Mass",
+    level: 9,
+    school: "Ench",
+},
+powerWordKill: {
+    spellName: "Power Word Kill",
+    level: 9,
+    school: "Ench",
+},
+bigsbysCrushingHand: {
+    spellName: "Bigsby's Crushing Hand",
+    level: 9,
+    school: "Ench",
+},
+meteorSwarm: {
+    spellName: "Meteor Swarm",
+    level: 9,
+    school: "Ench",
+},
+shades: {
+    spellName: "Shades",
+    level: 9,
+    school: "Illus",
+},
+weird: {
+    spellName: "Weird",
+    level: 9,
+    school: "Illus",
+},
+astralProjection: {
+    spellName: "Astral Projection",
+    level: 9,
+    school: "Necro",
+},
+energyDrain: {
+    spellName: "Energy Drain",
+    level: 9,
+    school: "Necro",
+},
+soulBind: {
+    spellName: "Soul Bind",
+    level: 9,
+    school: "Necro",
+},
+wailOfTheBanshee: {
+    spellName: "Wail of the Banshee",
+    level: 9,
+    school: "Necro",
+},
+etherealness: {
+    spellName: "Etheralness",
+    level: 9,
+    school: "Trans",
+},
+shapechange: {
+    spellName: "Shapechange",
+    level: 9,
+    school: "Trans",
+},
+timeStop: {
+    spellName: "Time Stop",
+    level: 9,
+    school: "Trans",
+},
+wish: {
+    spellName: "Wish",
+    level: 9,
+    school: "Univ",
+},
 };
