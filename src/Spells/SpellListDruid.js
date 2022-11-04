@@ -311,8 +311,8 @@ export const DruidList = {
         spellName: "Stone Shape",
         level: 3
     },
-    summonNaturesAllyII:{
-        spellName: "Summon Nature's Ally II",
+    summonNaturesAllyIII:{
+        spellName: "Summon Nature's Ally III",
         level: 3
     },
     waterBreathing:{
@@ -339,8 +339,8 @@ export const DruidList = {
         spellName: "Command Plants",
         level: 4
     },
-    controlWeather:{
-        spellName: "Control Weather",
+    controlWater:{
+        spellName: "Control Water",
         level: 4
     },
     cureSeriousWounds:{
@@ -467,4 +467,193 @@ export const DruidList = {
         spellName: "Wall of Thorns",
         level: 5
     },
+    antilifeShell:{
+        spellName: "Antilife Shell",
+        level: 6
+    },
+    bearsEnduranceMass:{
+        spellName: "Bear's Endurance, Mass",
+        level: 6
+    },
+    bullsStrengthMass:{
+        spellName: "Bull's Strength, Mass",
+        level: 6
+    },
+    catsGraceMass:{
+        spellName: "Cat's Grace, Mass",
+        level: 6
+    },
+    cureLightWoundsMass:{
+        spellName: "Cure Light Wounds, Mass",
+        level: 6
+    },
+    dispelMagicGreater:{
+        spellName: "Dispel Magic, Greater",
+        level: 6
+    },
+    findThePath:{
+        spellName: "Find the Path",
+        level: 6
+    },
+    fireSeeds:{
+        spellName: "Fire Seeds",
+        level: 6
+    },
+    ironwood:{
+        spellName: "Ironwood",
+        level: 6
+    },
+    liveoak:{
+        spellName: "Liveoak",
+        level: 6
+    },
+    moveEarth:{
+        spellName: "Move Earth",
+        level: 6
+    },
+    owlsWisdomMass:{
+        spellName: "Owl's Wisdom, Mass",
+        level: 6
+    },
+    repelWood:{
+        spellName: "Repel Wood",
+        level: 6
+    },
+    animatePlants:{
+        spellName: "Animate Plants",
+        level: 7
+    },
+    changestaff:{
+        spellName: "Changestaff",
+        level: 7
+    },
+    controlWeather:{
+        spellName: "Control Weather",
+        level: 7
+    },
+    creepingDoom:{
+        spellName: "Creeping Doom",
+        level: 7
+    },
+    cureModerateWoundsMass:{
+        spellName: "Cure Moderate Wounds, Mass",
+        level: 7
+    },
+    fireStorm:{
+        spellName: "Fire Storm",
+        level: 7
+    },
+    heal:{
+        spellName: "Heal",
+        level: 7
+    },
+    scryingGreater:{
+        spellName: "Scrying, Greater",
+        level: 7
+    },
+    summonNaturesAllyVII:{
+        spellName: "Summon Nature's Ally VII",
+        level: 7
+    },
+    sunbeam:{
+        spellName: "Sunbeam",
+        level: 7
+    },
+    transmuteMetalToWood:{
+        spellName: "Transmute Metal to Wood",
+        level: 7
+    },
+    trueSeeing:{
+        spellName: "True Seeing",
+        level: 7
+    },
+    windWalk:{
+        spellName: "Wind Walk",
+        level: 7
+    },
+    animalShapes:{
+        spellName: "Animal Shapes",
+        level: 8
+    },
+    controlPlants:{
+        spellName: "Control Plants",
+        level: 8
+    },
+    cureSeriousWoundsMass:{
+        spellName: "Cure Serious Wounds, Mass",
+        level: 8
+    },
+    earthquake:{
+        spellName: "Earthquake",
+        level: 8
+    },
+    fingerOfDeath:{
+        spellName: "Finger of Death",
+        level: 8
+    },
+    repelMetalOrStone:{
+        spellName: "Repel Metal or Stone",
+        level: 8
+    },
+    reverseGravity:{
+        spellName: "Reverse Gravity",
+        level: 8
+    },
+    summonNaturesAllyVIII:{
+        spellName: "Summon Nature's Ally VIII",
+        level: 8
+    },
+    sunburst:{
+        spellName: "Sunburst",
+        level: 8
+    },
+    whirlwind:{
+        spellName: "Whirlwind",
+        level: 8
+    },
+    wordOfRecall:{
+        spellName: "Word of Recall",
+        level: 8
+    },
+    antipathy:{
+        spellName: "Antipathy",
+        level: 9
+    },
+    cureCriticalWoundsMass:{
+        spellName: "Cure Critical Wounds, Mass",
+        level: 9
+    },
+    elementalSwarm:{
+        spellName: "Elemental Swarm",
+        level: 9
+    },
+    foresight:{
+        spellName: "Foresight",
+        level: 9
+    },
+    regenerate:{
+        spellName: "Regenerate",
+        level: 9
+    },
+    shambler:{
+        spellName: "Shambler",
+        level: 9
+    },
+    shapechange:{
+        spellName: "Shapechange",
+        level: 9
+    },
+    stormOfVengeance:{
+        spellName: "Storm of Vengeance",
+        level: 9
+    },
+    summonNaturesAllyIX:{
+        spellName: "Summon Nature's Ally IX",
+        level: 9
+    },
+    sympathy:{
+        spellName: "Sympathy",
+        level: 9
+    },
+
 };
