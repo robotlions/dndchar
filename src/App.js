@@ -91,7 +91,7 @@ function App() {
   }
 
   useEffect(()=>{
-    if(selectedClass==="Wizard" || selectedClass==="Bard" || selectedClass==="Paladin" || selectedClass==="Sorcerer"){
+    if(selectedClass==="Wizard" || selectedClass==="Bard" || selectedClass==="Paladin" || selectedClass==="Sorcerer" || selectedClass==="Druid"){
       setSpellCaster(true);
     }
   }, [selectedClass]);

@@ -687,4 +687,188 @@ export const ClericList = {
         spellName: "Word of Recall",
         level: 6
     },
+    blasphemy:{
+        spellName: "Blasphemy",
+        level: 7
+    },
+    controlWeather:{
+        spellName: "Control Weather",
+        level: 7
+    },
+    cureSeriousWoundMass:{
+        spellName: "Cure Serious Wounds, Mass",
+        level: 7
+    },
+    destruction:{
+        spellName: "Destruction",
+        level: 7
+    },
+    dictum:{
+        spellName: "Dictum",
+        level: 7
+    },
+    etherealJaunt:{
+        spellName: "Ethereal Jaunt",
+        level: 7
+    },
+    holyWord:{
+        spellName: "Holy Word",
+        level: 7
+    },
+    inflictSeriousWoundsMass:{
+        spellName: "Inflict Serious Wounds, Mass",
+        level: 7
+    },
+    refuge:{
+        spellName: "Refuge",
+        level: 7
+    },
+    regenerate:{
+        spellName: "Regenerate",
+        level: 7
+    },
+    repulsion:{
+        spellName: "Repulsion",
+        level: 7
+    },
+    restorationGreater:{
+        spellName: "Restoration, Greater",
+        level: 7
+    },
+    resurrection:{
+        spellName: "Resurrection",
+        level: 7
+    },
+    scryingGreater:{
+        spellName: "Scrying, Greater",
+        level: 7
+    },
+    summonMonsterVII:{
+        spellName: "Summon Monster VII",
+        level: 7
+    },
+    symbolOfStunning:{
+        spellName: "Symbol of Stunning",
+        level: 7
+    },
+    symbolOfWeakness:{
+        spellName: "Symbol of Weakness",
+        level: 7
+    },
+    wordOfChaos:{
+        spellName: "Word of Chaos",
+        level: 7
+    },
+    antimagicField:{
+        spellName: "Antimagic Field",
+        level: 8
+    },
+    cloakOfChaos:{
+        spellName: "Cloak of Chaos",
+        level: 8
+    },
+    createGreaterUndead:{
+        spellName: "Create Greater Undead",
+        level: 8
+    },
+    cureCriticalWoundMass:{
+        spellName: "Cure Critical Wounds, Mass",
+        level: 8
+    },
+    dimensionalLock:{
+        spellName: "Dimensional Lock",
+        level: 8
+    },
+    discernLocation:{
+        spellName: "Discern Location",
+        level: 8
+    },
+    earthquake:{
+        spellName: "Earthquake",
+        level: 8
+    },
+    fireStorm:{
+        spellName: "Fire Storm",
+        level: 8
+    },
+    holyAura:{
+        spellName: "Holy Aura",
+        level: 8
+    },
+    inflictCriticalWoundsMass:{
+        spellName: "Inflict Critical Wounds, Mass",
+        level: 8
+    },
+    planarAllyGreater:{
+        spellName: "Planar Ally, Greater",
+        level: 8
+    },
+    shieldOfLaw:{
+        spellName: "Shield of Law",
+        level: 8
+    },
+    spellImmunityGreater:{
+        spellName: "Spell Immunity, Greater",
+        level: 8
+    },
+    summonMonsterVIII:{
+        spellName: "Summon Monster VIII",
+        level: 8
+    },
+    symbolOfDeath:{
+        spellName: "Symbol of Death",
+        level: 8
+    },
+    symbolOfInsanity:{
+        spellName: "Symbol of Insanity",
+        level: 8
+    },
+    unholyAura:{
+        spellName: "Unholy Aura",
+        level: 8
+    },
+    astralProjection:{
+        spellName: "Astral Projection",
+        level: 9
+    },
+    energyDrain:{
+        spellName: "Energy Drain",
+        level: 9
+    },
+    etherealness:{
+        spellName: "Etherealness",
+        level: 9
+    },
+    gate:{
+        spellName: "Gate",
+        level: 9
+    },
+    healMass:{
+        spellName: "Heal, Mass",
+        level: 9
+    },
+    implosion:{
+        spellName: "Implosion",
+        level: 9
+    },
+    miracle:{
+        spellName: "Miracle",
+        level: 9
+    },
+    soulBind:{
+        spellName: "Soul Bind",
+        level: 9
+    },
+    stormOfVengeance:{
+        spellName: "Storm of Vengeance",
+        level: 9
+    },
+    summonMonsterIX:{
+        spellName: "Summon Monster IX",
+        level: 9
+    },
+    trueResurrection:{
+        spellName: "True Resurrection",
+        level: 9
+    },
 };
