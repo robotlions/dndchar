@@ -81,7 +81,8 @@ function App() {
     return armorSet.map((item, index) => (
       <div key={index}>
         <p style={{ fontWeight: "bold" }}>
-        {counts[item.armorName] > 1 && counts[item.armorName]} {item.armorName} -{" "}
+          {counts[item.armorName] > 1 && counts[item.armorName]}{" "}
+          {item.armorName} -{" "}
           <span style={{ fontWeight: "normal" }}>
             Armor Bonus: {item.armorBonus}
           </span>
@@ -90,55 +91,96 @@ function App() {
     ));
   }
 
-  useEffect(()=>{
-    if(selectedClass==="Wizard" || selectedClass==="Bard" || selectedClass==="Paladin" || selectedClass==="Sorcerer" || selectedClass==="Druid"){
+  useEffect(() => {
+    if (
+      selectedClass === "Wizard" ||
+      selectedClass === "Bard" ||
+      selectedClass === "Paladin" ||
+      selectedClass === "Sorcerer" ||
+      selectedClass === "Druid" ||
+      selectedClass === "Ranger" ||
+      selectedClass === "Cleric"
+    ) {
       setSpellCaster(true);
     }
   }, [selectedClass]);
 
   return (
-    <div style={{ marginBottom: 100 }} className={fontThemeFantasy===false ? "container font-standard" : "container font-fantasy"}>
-      <TopNav setFontThemeFantasy={setFontThemeFantasy} setMunchkinMode={setMunchkinMode}/>
+    <div
+      style={{ marginBottom: 100 }}
+      className={
+        fontThemeFantasy === false
+          ? "container font-standard"
+          : "container font-fantasy"
+      }
+    >
+      <TopNav
+        setFontThemeFantasy={setFontThemeFantasy}
+        setMunchkinMode={setMunchkinMode}
+      />
 
       <br />
       {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
       <Accordion alwaysOpen>
-        <Accordion.Item onClick={()=>{if(charName !== "Basic Info"){setBasicEdited(true)}}} eventKey="0">
+        <Accordion.Item
+          onClick={() => {
+            if (charName !== "Basic Info") {
+              setBasicEdited(true);
+            }
+          }}
+          eventKey="0"
+        >
           <Accordion.Header>
             <div className="accTitle">
               <h2>{nameCheck}</h2>
-              {basicEdited===true &&
-              <div>
-              <p style={{ fontWeight: "bold" }}>
-                {alignment}{" "}
-                {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}{" "}
-                {selectedClass}
-              </p>
-              <div>
-                <span style={{ fontWeight: "bold" }}>Level: </span>
-                <span style={{ marginRight: 10 }}>{level}</span>
+              {basicEdited === true && (
+                <div>
+                  <p style={{ fontWeight: "bold" }}>
+                    {alignment}{" "}
+                    {selectedRace.charAt(0).toUpperCase() +
+                      selectedRace.slice(1)}{" "}
+                    {selectedClass}
+                  </p>
+                  <div>
+                    <span style={{ fontWeight: "bold" }}>Level: </span>
+                    <span style={{ marginRight: 10 }}>{level}</span>
 
-                <span style={{ fontWeight: "bold" }}>Hit Points: </span>
-                <span style={{ marginRight: 10 }}>{hp}</span>
+                    <span style={{ fontWeight: "bold" }}>Hit Points: </span>
+                    <span style={{ marginRight: 10 }}>{hp}</span>
 
-                <span style={{ fontWeight: "bold" }}>Armor Class: </span>
-                {ac}
-              </div>
-            </div>}</div>
+                    <span style={{ fontWeight: "bold" }}>Armor Class: </span>
+                    {ac}
+                  </div>
+                </div>
+              )}
+            </div>
           </Accordion.Header>
           <Accordion.Body>
             <div className="row justify-content-evenly">
               <div className="col-md-6">
-                <CharInfo.CharName basicEdited={basicEdited} setBasicEdited={setBasicEdited} setCharName={setCharName} />
+                <CharInfo.CharName
+                  basicEdited={basicEdited}
+                  setBasicEdited={setBasicEdited}
+                  setCharName={setCharName}
+                />
               </div>
               <div className="col">
-                <RaceSelectDropdown setBasicEdited={setBasicEdited} setSelectedRace={setSelectedRace} />
+                <RaceSelectDropdown
+                  setBasicEdited={setBasicEdited}
+                  setSelectedRace={setSelectedRace}
+                />
               </div>
               <div className="col">
-                <ClassSelectDropdown setBasicEdited={setBasicEdited} setSelectedClass={setSelectedClass} />
+                <ClassSelectDropdown
+                  setBasicEdited={setBasicEdited}
+                  setSelectedClass={setSelectedClass}
+                />
               </div>
               <div className="col">
-                <CharInfo.AlignmentSelect setBasicEdited={setBasicEdited} setAlignment={setAlignment} />
+                <CharInfo.AlignmentSelect
+                  setBasicEdited={setBasicEdited}
+                  setAlignment={setAlignment}
+                />
               </div>
             </div>
             <div
@@ -149,7 +191,10 @@ function App() {
                 {/* the disabled component allows for changing the level, but it's deactivated for now because
           I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
                 Level
-                <CharInfo.Level setBasicEdited={setBasicEdited} setLevel={setLevel} />
+                <CharInfo.Level
+                  setBasicEdited={setBasicEdited}
+                  setLevel={setLevel}
+                />
                 {/* <p>1</p> */}
               </div>
               <div className="col">
@@ -366,15 +411,24 @@ function App() {
             </div>
           </Accordion.Header>
           <Accordion.Body>
-           {spellCaster===true ?
-            <Spells.SpellsMain level={level} updated={updated} setUpdated={setUpdated} selectedClass={selectedClass} setSpellArray={setSpellArray} int={int} wis={wis}/> 
-            : `${selectedClass} is not a spellcasting class.`}
-            </Accordion.Body>
+            {spellCaster === true ? (
+              <Spells.SpellsMain
+                level={level}
+                updated={updated}
+                setUpdated={setUpdated}
+                selectedClass={selectedClass}
+                setSpellArray={setSpellArray}
+                int={int}
+                wis={wis}
+              />
+            ) : (
+              `${selectedClass} is not a spellcasting class.`
+            )}
+          </Accordion.Body>
         </Accordion.Item>
       </Accordion>
       <div className="row">
-        <div className="col-md-12">
-        </div>
+        <div className="col-md-12"></div>
       </div>
     </div>
   );
