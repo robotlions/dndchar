@@ -103,7 +103,12 @@ function App() {
     ) {
       setSpellCaster(true);
     }
+    else{
+      setSpellCaster(false);
+    }
   }, [selectedClass]);
+
+
 
   return (
     <div
@@ -420,6 +425,7 @@ function App() {
                 setSpellArray={setSpellArray}
                 int={int}
                 wis={wis}
+                spellCaster={spellCaster}
               />
             ) : (
               `${selectedClass} is not a spellcasting class.`

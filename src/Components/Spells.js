@@ -59,6 +59,7 @@ export const SpellListing = (props) => {
     )))};
 
   return (
+    
   <div><h6>Level 0</h6>
   <div className="d-flex flex-row flex-wrap">
     {displayList(0)}
@@ -91,7 +92,8 @@ export const SpellListing = (props) => {
   {displayList(9).length > 0 && <><h6>Level 9</h6>
  <div className="d-flex flex-row flex-wrap">
   {displayList(9)}</div></>}
-  </div>);
+  </div>
+  );
 };
 
 export const SpellsMain = (props) => {
@@ -118,10 +120,13 @@ export const SpellsMain = (props) => {
   }
 
   useEffect(() => {
+    if(props.spellCaster===true){
     Object.entries(
       KnownSpells[props.selectedClass][props.level]
     ).map(([key, value], index) => setSpellSlotsInState(`setLevel${key}`, value));
-  }, [props.level, props.selectedClass]);
+  }}, [props.level, props.selectedClass, props.spellCaster]);
+
+
 
   return (
     <div>
@@ -159,8 +164,9 @@ export const SpellsMain = (props) => {
           selectedClass={props.selectedClass}
           level={props.level}
           triggerUpdate={triggerUpdate}
+          spellCaster={props.spellCaster}
         />
       </div>
-    </div>
+    </div> 
   );
 };
