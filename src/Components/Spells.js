@@ -120,7 +120,8 @@ export const SpellsMain = (props) => {
   }
 
   useEffect(() => {
-    if(props.spellCaster===true){
+   if(props.selectedClass !== "Barbarian" && props.selectedClass !== "Monk" && props.selectedClass !== "Rogue" && props.selectedClass !== "Fighter"){
+    
     Object.entries(
       KnownSpells[props.selectedClass][props.level]
     ).map(([key, value], index) => setSpellSlotsInState(`setLevel${key}`, value));
@@ -140,6 +141,7 @@ export const SpellsMain = (props) => {
         {level8 && `Level 8: ${level8}`} {level9 && `Level 9: ${level9}`}
       </p>
       <div>
+       { props.selectedClass !== "Barbarian" && props.selectedClass !== "Barbarian" && props.selectedClass !== "Monk" && props.selectedClass !== "Rogue" && props.selectedClass !== "Fighter" &&
         <SpellListing
           level0={level0}
           setLevel0={setLevel0}
@@ -165,7 +167,7 @@ export const SpellsMain = (props) => {
           level={props.level}
           triggerUpdate={triggerUpdate}
           spellCaster={props.spellCaster}
-        />
+        />}
       </div>
     </div> 
   );

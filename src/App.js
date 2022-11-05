@@ -51,6 +51,24 @@ function App() {
   //   setUpdated(!updated);
   // }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
 
+  useEffect(() => {
+    if (
+      selectedClass === "Wizard" ||
+      selectedClass === "Bard" ||
+      selectedClass === "Paladin" ||
+      selectedClass === "Sorcerer" ||
+      selectedClass === "Druid" ||
+      selectedClass === "Ranger" ||
+      selectedClass === "Cleric"
+    ) {
+      setSpellCaster(true);
+    }
+    else
+    {
+      setSpellCaster(false);
+    }
+  }, [selectedClass]);
+
   function weaponHeaderDisplay() {
     let counts = {};
     weaponArray.forEach(function (x) {
@@ -91,22 +109,7 @@ function App() {
     ));
   }
 
-  useEffect(() => {
-    if (
-      selectedClass === "Wizard" ||
-      selectedClass === "Bard" ||
-      selectedClass === "Paladin" ||
-      selectedClass === "Sorcerer" ||
-      selectedClass === "Druid" ||
-      selectedClass === "Ranger" ||
-      selectedClass === "Cleric"
-    ) {
-      setSpellCaster(true);
-    }
-    else{
-      setSpellCaster(false);
-    }
-  }, [selectedClass]);
+  
 
 
 
@@ -425,7 +428,7 @@ function App() {
                 setSpellArray={setSpellArray}
                 int={int}
                 wis={wis}
-                spellCaster={spellCaster}
+                // spellCaster={spellCaster}
               />
             ) : (
               `${selectedClass} is not a spellcasting class.`
