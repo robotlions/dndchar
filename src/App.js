@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
@@ -11,6 +11,11 @@ import { TopNav } from "./Components/NavBar";
 import { Accordion } from "react-bootstrap";
 import * as Feats from "./Components/Feats";
 import * as Spells from "./Components/Spells";
+import ReactToPrint, { PrintContextConsumer } from "react-to-print";
+import {ComponentToPrint} from './Components/ComponentToPrint';
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
@@ -44,9 +49,16 @@ function App() {
   const [munchkinMode, setMunchkinMode] = useState(false);
   const [basicEdited, setBasicEdited] = useState(false);
   const [spellCaster, setSpellCaster] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const ref = useRef();
+
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
 
+  
   // useEffect(() => {
   //   setUpdated(!updated);
   // }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
@@ -114,6 +126,7 @@ function App() {
 
 
   return (
+    <>
     <div
       style={{ marginBottom: 100 }}
       className={
@@ -437,9 +450,48 @@ function App() {
         </Accordion.Item>
       </Accordion>
       <div className="row">
-        <div className="col-md-12"></div>
+        <div className="col-md-12">
+        <Button onClick={handleShow}>View and Print Character</Button>
+
+        </div>
       </div>
     </div>
+
+
+    <Modal
+            show={show} onHide={handleClose}
+          >
+             <Modal.Header closeButton>
+          <Modal.Title>Print Character</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+            <div>
+              <ComponentToPrint ref={ref} />
+              <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
+                <PrintContextConsumer>
+                  {({ handlePrint }) => (
+                    <Button onClick={handlePrint}>Print</Button>
+                  )}
+                </PrintContextConsumer>
+              </ReactToPrint>
+            </div>
+            {/* <p className="headingName">Genre: <span className="modalString">{generatedGenre}</span></p>
+    <p className="headingName">Theme: <span className="modalString">{generatedTheme}</span></p>
+    <p className="headingName">Character: <span className="modalString">{generatedCharacter}</span></p>
+    <p className="headingName">Word Count: <span className="modalString">{generatedWordCount}</span></p> */}
+            <Button
+              onClick={
+                handleClose
+              }
+            >
+              Close
+            </Button>
+            </Modal.Body>
+          </Modal>
+
+
+
+    </>
   );
 }
 
