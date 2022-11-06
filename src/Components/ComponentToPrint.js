@@ -7,6 +7,8 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         <p>Name: {props.charName}</p>
         <p>Class: {props.selectedClass}</p>
         <p>Race: {props.selectedRace}</p>
+        <p>Alignment: {props.alignment}</p>
+        <p>Hit Points: {props.hp}</p>
         <p>Level: {props.level}</p>
         <p>Str: {props.str}</p>
         <p>Dex: {props.dex}</p>
@@ -14,6 +16,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         <p>Int: {props.int}</p>
         <p>Wis: {props.wis}</p>
         <p>Chr: {props.chr}</p>
+        <p>Silver: {props.silver}</p>
       </div>
     );
   });

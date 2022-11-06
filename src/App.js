@@ -465,6 +465,9 @@ function App() {
               dex={dex}
               con={con}
               chr={chr}
+              alignment={alignment}
+              hp={hp}
+              silver={totalSilver-weaponsMoney-armorMoney}
             />
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>
