@@ -447,7 +447,7 @@ function App() {
         </div>
       </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Print Character</Modal.Title>
         </Modal.Header>
