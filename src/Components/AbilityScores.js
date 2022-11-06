@@ -94,30 +94,6 @@ export const NewScores = (props) => {
           <td>{calculateModifier(str+racialBonus.bonusStr)}</td>
         </tr>
         <tr>
-          <td>INT</td>
-          <td>{int}</td>
-          <td>
-            {racialBonus.bonusInt <= 0
-              ? racialBonus.bonusInt
-              : racialBonus.bonusInt}
-          </td>
-          <td className="totalScore">{int + racialBonus.bonusInt}</td>
-
-          <td>{calculateModifier(int+racialBonus.bonusInt)}</td>
-        </tr>
-        <tr>
-          <td>WIS</td>
-          <td>{wis}</td>
-          <td>
-            {racialBonus.bonusWis <= 0
-              ? racialBonus.bonusWis
-              : racialBonus.bonusWis}
-          </td>
-          <td className="totalScore">{wis + racialBonus.bonusWis}</td>
-
-          <td>{calculateModifier(wis+racialBonus.bonusWis)}</td>
-        </tr>
-        <tr>
           <td>DEX</td>
           <td>{dex}</td>
           <td>
@@ -141,6 +117,31 @@ export const NewScores = (props) => {
 
           <td>{calculateModifier(con+racialBonus.bonusCon)}</td>
         </tr>
+        <tr>
+          <td>INT</td>
+          <td>{int}</td>
+          <td>
+            {racialBonus.bonusInt <= 0
+              ? racialBonus.bonusInt
+              : racialBonus.bonusInt}
+          </td>
+          <td className="totalScore">{int + racialBonus.bonusInt}</td>
+
+          <td>{calculateModifier(int+racialBonus.bonusInt)}</td>
+        </tr>
+        <tr>
+          <td>WIS</td>
+          <td>{wis}</td>
+          <td>
+            {racialBonus.bonusWis <= 0
+              ? racialBonus.bonusWis
+              : racialBonus.bonusWis}
+          </td>
+          <td className="totalScore">{wis + racialBonus.bonusWis}</td>
+
+          <td>{calculateModifier(wis+racialBonus.bonusWis)}</td>
+        </tr>
+        
         <tr>
           <td>CHR</td>
           <td>{chr}</td>

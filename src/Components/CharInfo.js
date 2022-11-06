@@ -61,28 +61,6 @@ export const Level = (props) => {
   const [thisState, setThisState] = useState(1);
   const [editing, setEditing] = useState(true);
 
-  // const handleKeyDown = (event) => {
-  //   if (event.key === "Enter") {
-  //     setEditing(false);
-  //   }
-  // };
-
-  // const levelInput = (
-  //   <InputGroup className="mb-3" id="level">
-  //     <Form.Control
-  //       type="text"
-  //       placeholder={1}
-  //       onChange={(e) => {
-          
-        
-  //         setThisState(e.target.value);
-  //         props.setLevel(e.target.value);
-          
-  //       }}
-  //       onKeyDown={handleKeyDown}
-  //     />
-  //   </InputGroup>
-  // );
 
 
 
