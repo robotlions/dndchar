@@ -126,19 +126,19 @@ export const ArmorMain = (props) => {
       />
       </div>
       <div className="col-3">
-        <p>{item.armorName}</p>
+        {item.armorName}
       </div>
       <div className="col-2">
-        <p>{item.cost}</p>
+        {item.cost}
       </div>
       <div className="col-2">
-        <p>{item.armorBonus}</p>
+        {item.armorBonus}
       </div>
       <div className="col-2">
-        <p>{item.maxDexBonus}</p>
+        {item.maxDexBonus}
       </div>
       <div className="col-2">
-        <p>{item.armorCheck}</p>
+        {item.armorCheck}
       </div>
       {/* <div className="col-1">
         <Button variant="success"
@@ -163,19 +163,19 @@ export const ArmorMain = (props) => {
       />
       </div>
       <div className="col-3">
-        <p>{item.armorName}</p>
+        {item.armorName}
       </div>
       <div className="col-2">
-        <p>{item.cost}</p>
+        {item.cost}
       </div>
       <div className="col-2">
-        <p>{item.armorBonus}</p>
+        {item.armorBonus}
       </div>
       <div className="col-2">
-        <p>{item.maxDexBonus}</p>
+        {item.maxDexBonus}
       </div>
       <div className="col-2">
-        <p>{item.armorCheck}</p>
+        {item.armorCheck}
       </div>
       {/* <div className="col-1">
         <Button variant="success"
@@ -327,19 +327,19 @@ return(
       />
       </div>
       <div className="col-3">
-        <p>{item.weaponName}</p>
+        {item.weaponName}
       </div>
       <div className="col-2">
-        <p>{item.cost}</p>
+        {item.cost}
       </div>
       <div className="col-2">
-        <p>{item.dmgS}</p>
+        {item.dmgS}
       </div>
       <div className="col-2">
-        <p>{item.dmgM}</p>
+        {item.dmgM}
       </div>
       <div className="col-2">
-        <p>{item.range}</p>
+        {item.range}
       </div>
       {/* <div className="col-1">
         <Button variant="success"
