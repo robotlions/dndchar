@@ -1,6 +1,7 @@
 import React, { forwardRef } from "react";
 import dndLogo from "../images/dndLogo.png";
 import * as RaceBonuses from "../Races/AbilBonuses";
+import * as CharInfo from './CharInfo';
 
 export const ComponentToPrint = forwardRef((props, ref) => {
   function calculateModifier(abil) {
@@ -88,7 +89,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         >
           <img
             alt="vintage d&d logo"
-            style={{ maxWidth: "65%" }}
+            style={{ maxWidth: "40%" }}
             src={dndLogo}
           ></img>
           <h4 style={{ marginTop: 10 }}>Character Record Sheet</h4>
@@ -104,6 +105,8 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         <div className="col-4">Hit Points: {props.hp}</div>
         <div className="col-4">Level: {props.level}</div>
       </div>
+      <div className="row">
+        <div className="col-6">
       <table>
         <thead>
           <tr>
@@ -196,6 +199,17 @@ export const ComponentToPrint = forwardRef((props, ref) => {
             <span style={{ fontSize: 20 }}>Silver:</span> {props.silver}
           </p>
         </div>
+      </div>
+      </div>
+      <div className="col-6">
+      <CharInfo.SavingThrows
+                    level={props.level}
+                    selectedClass={props.selectedClass}
+                    dex={props.dex}
+                    con={props.con}
+                    wis={props.wis}
+                  />
+      </div>
       </div>
       <div className="row">
         <h5>Armor</h5>
