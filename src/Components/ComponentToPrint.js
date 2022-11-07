@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import dndLogo from "../images/dnd35Logo.png";
+import dndLogo from "../images/dndLogo.png";
 import * as RaceBonuses from "../Races/AbilBonuses";
 
 export const ComponentToPrint = forwardRef((props, ref) => {
@@ -82,7 +82,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
     <div className="container" ref={ref}>
       <div className="row">
         <div className="col-12" style={{ textAlign: "center", marginBottom:20, paddingTop: 50 }}>
-          <img style={{ maxWidth: "65%" }} src={dndLogo}></img>
+          <img alt="vintage d&d logo" style={{ maxWidth: "65%" }} src={dndLogo}></img>
           <h4 style={{marginTop:10}}>Character Record Sheet</h4>
         </div>
       </div>

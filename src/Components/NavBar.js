@@ -4,7 +4,8 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useEffect, useState } from "react";
+import {useState } from "react";
+import dndModLogo from "../images/dndModLogo.png";
 
 export const TopNav = (props) => {
   const [show, setShow] = useState(false);
@@ -20,14 +21,14 @@ export const TopNav = (props) => {
     }
   }
 
-  function handleMunchkinSwitch(event) {
-    if (event.target.checked === true) {
-      props.setMunchkinMode(true);
-      alert("Munchkin mode under construction");
-    } else {
-      props.setMunchkinMode(false);
-    }
-  }
+  // function handleMunchkinSwitch(event) {
+  //   if (event.target.checked === true) {
+  //     props.setMunchkinMode(true);
+  //     alert("Munchkin mode under construction");
+  //   } else {
+  //     props.setMunchkinMode(false);
+  //   }
+  // }
 
   const fontCheck = props.fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
 
@@ -36,15 +37,16 @@ export const TopNav = (props) => {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand
-            style={{ paddingLeft: 10, whiteSpace: "normal" }}
+            style={{ textAlign: "center", whiteSpace: "normal" }}
             href="#home"
           >
+            <img alt="modern dnd logo" src={dndModLogo} style={{maxWidth:"30%"}}></img>
             <h3 style={{ fontFamily: fontCheck }}>
-              D&D 3.5 Character Generator
+              3.5 Edition<br/>Character Generator
             </h3>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
+          <Navbar.Toggle className="ms-auto" aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse   style={{textAlign: "right"}} id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link onClick={() => handleShow()}>About</Nav.Link>
               <Nav.Link href="https://www.robotlions.com" target="_blank">

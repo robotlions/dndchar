@@ -49,13 +49,13 @@ function App() {
   const [basicEdited, setBasicEdited] = useState(false);
   const [spellCaster, setSpellCaster] = useState(false);
   const [show, setShow] = useState(false);
-  const [fullscreen, setFullscreen] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const ref = useRef();
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
+  const fontCheck = fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
 
   // useEffect(() => {
   //   setUpdated(!updated);
@@ -146,7 +146,7 @@ function App() {
           >
             <Accordion.Header>
               <div className="accTitle">
-                <h2>{nameCheck}</h2>
+                <h2 style={{fontFamily: fontCheck}}>{nameCheck}</h2>
                 {basicEdited === true && (
                   <div>
                     <p style={{ fontWeight: "bold" }}>
@@ -239,7 +239,7 @@ function App() {
           <Accordion.Item eventKey="1">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Abilities and Saves</h2>
+              <h2 style={{fontFamily: fontCheck}}>Abilities and Saves</h2>
                 {rolled === true && (
                   <div>
                     <span style={{ fontWeight: "bold" }}>Str </span>
@@ -283,7 +283,7 @@ function App() {
           <Accordion.Item eventKey="2">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Money</h2>
+              <h2 style={{fontFamily: fontCheck}}>Money</h2>
                 {totalSilver > 0 && (
                   <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
                 )}
@@ -303,7 +303,7 @@ function App() {
           <Accordion.Item eventKey="3">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Armor</h2>
+              <h2 style={{fontFamily: fontCheck}}>Armor</h2>
                 {/* {armorArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -332,7 +332,7 @@ function App() {
           <Accordion.Item eventKey="4">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Weapons</h2>
+              <h2 style={{fontFamily: fontCheck}}>Weapons</h2>
                 {/* {weaponArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -360,7 +360,7 @@ function App() {
           <Accordion.Item eventKey="5">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Skills</h2>
+              <h2 style={{fontFamily: fontCheck}}>Skills</h2>
 
                 {learnedSkillsArray.length > 0 && (
                   <div>
@@ -402,7 +402,7 @@ function App() {
           <Accordion.Item eventKey="6">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Feats</h2>
+              <h2 style={{fontFamily: fontCheck}}>Feats</h2>
                 {featArray.map((item, index) => (
                   <div key={index}>{item.featName}</div>
                 ))}
@@ -420,7 +420,7 @@ function App() {
           <Accordion.Item eventKey="7">
             <Accordion.Header>
               <div className="accTitle">
-                <h2>Spells</h2>
+              <h2 style={{fontFamily: fontCheck}}>Spells</h2>
                 {/* {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)} */}
               </div>
             </Accordion.Header>
