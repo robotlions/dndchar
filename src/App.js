@@ -127,6 +127,7 @@ function App() {
         }
       >
         <TopNav
+        fontThemeFantasy={fontThemeFantasy}
           setFontThemeFantasy={setFontThemeFantasy}
           setMunchkinMode={setMunchkinMode}
         />
@@ -440,9 +441,9 @@ function App() {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        <div className="row">
+        <div className="row" style={{textAlign:"center", marginTop: 20}}>
           <div className="col-md-12">
-            <Button onClick={handleShow}>View and Print Character</Button>
+            <Button variant="secondary" onClick={handleShow}>View and Print Character</Button>
           </div>
         </div>
       </div>
