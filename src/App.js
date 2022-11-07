@@ -474,6 +474,7 @@ function App() {
               weaponArray={weaponArray}
               learnedSkillsArray={learnedSkillsArray}
               featArray={featArray}
+              spellArray={spellArray}
             />
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>

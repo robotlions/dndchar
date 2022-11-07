@@ -252,6 +252,11 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                   <div key={index}>{item.featName}</div>
                 ))}
       </div>
+      <div className="row">
+        <h5>Spell</h5>
+        {props.spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)}
+
+      </div>
     </div>
   );
 });
