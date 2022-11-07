@@ -472,6 +472,7 @@ function App() {
               silver={totalSilver-weaponsMoney-armorMoney}
               armorArray={armorArray}
               weaponArray={weaponArray}
+              learnedSkillsArray={learnedSkillsArray}
             />
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>

@@ -3,7 +3,6 @@ import dndLogo from "../images/dndLogo.png";
 import * as RaceBonuses from "../Races/AbilBonuses";
 
 export const ComponentToPrint = forwardRef((props, ref) => {
-  
   function calculateModifier(abil) {
     return -5 + Math.floor(1 * (abil / 2));
   }
@@ -17,33 +16,34 @@ export const ComponentToPrint = forwardRef((props, ref) => {
 
     return armorSet.map((item, index) => (
       <div className="row" key={index}>
-          <div className="col">
+        <div className="col">
+          <p style={{ fontWeight: "bold" }}>
+            {counts[item.armorName] > 1 && counts[item.armorName]}{" "}
+            {item.armorName}
+          </p>
+        </div>
 
-        <p style={{ fontWeight: "bold" }}>
-          {counts[item.armorName] > 1 && counts[item.armorName]}{" "}
-          {item.armorName}</p></div>
-      
-      <div className="col">
-        <p>Armor Bonus: {item.armorBonus}</p>
-      </div>
-      <div className="col">
-        <p>Max Dex Bonus: {item.maxDexBonus}</p>
-      </div>
-      <div className="col">
-        <p>Armor Check: {item.armorCheck}</p>
-      </div>
-      <div className="col">
-        <p>Spell Fail: {item.spellFail}</p>
-      </div>
-      <div className="col">
-        <p>Speed 30': {item.speed30}</p>
-      </div>
-      <div className="col">
-        <p>Speed 20': {item.speed20}</p>
-      </div>
+        <div className="col">
+          <p>Armor Bonus: {item.armorBonus}</p>
+        </div>
+        <div className="col">
+          <p>Max Dex Bonus: {item.maxDexBonus}</p>
+        </div>
+        <div className="col">
+          <p>Armor Check: {item.armorCheck}</p>
+        </div>
+        <div className="col">
+          <p>Spell Fail: {item.spellFail}</p>
+        </div>
+        <div className="col">
+          <p>Speed 30': {item.speed30}</p>
+        </div>
+        <div className="col">
+          <p>Speed 20': {item.speed20}</p>
+        </div>
       </div>
     ));
-  };
+  }
 
   function weaponHeaderDisplay() {
     let counts = {};
@@ -56,34 +56,42 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       <div className="row" key={index}>
         <div className="col" style={{ fontWeight: "bold" }}>
           {counts[item.weaponName] > 1 && counts[item.weaponName]}{" "}
-          {item.weaponName}</div>
-          <div className="col">
-        <p>Damage, Small: {item.dmgS}</p>
-      </div>
-      <div className="col">
-        <p>Damage, Medium: {item.dmgM}</p>
-      </div>
-      <div className="col">
-        <p>Critical: {item.critical}</p>
-      </div>
-      <div className="col">
-        <p>Range: {item.range}</p>
-      </div>
-      <div className="col">
-        <p>Type: {item.type}</p>
-      </div>
+          {item.weaponName}
+        </div>
+        <div className="col">
+          <p>Damage, Small: {item.dmgS}</p>
+        </div>
+        <div className="col">
+          <p>Damage, Medium: {item.dmgM}</p>
+        </div>
+        <div className="col">
+          <p>Critical: {item.critical}</p>
+        </div>
+        <div className="col">
+          <p>Range: {item.range}</p>
+        </div>
+        <div className="col">
+          <p>Type: {item.type}</p>
+        </div>
       </div>
     ));
-  };
+  }
 
   const racialBonus = RaceBonuses[props.selectedRace];
 
   return (
     <div className="container" ref={ref}>
       <div className="row">
-        <div className="col-12" style={{ textAlign: "center", marginBottom:20, paddingTop: 50 }}>
-          <img alt="vintage d&d logo" style={{ maxWidth: "65%" }} src={dndLogo}></img>
-          <h4 style={{marginTop:10}}>Character Record Sheet</h4>
+        <div
+          className="col-12"
+          style={{ textAlign: "center", marginBottom: 20, paddingTop: 50 }}
+        >
+          <img
+            alt="vintage d&d logo"
+            style={{ maxWidth: "65%" }}
+            src={dndLogo}
+          ></img>
+          <h4 style={{ marginTop: 10 }}>Character Record Sheet</h4>
         </div>
       </div>
       <div className="row">
@@ -91,7 +99,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         <div className="col-4">Class: {props.selectedClass}</div>
         <div className="col-4">Race: {props.selectedRace}</div>
       </div>
-      <div className="row" style={{marginBottom: 20}}>
+      <div className="row" style={{ marginBottom: 20 }}>
         <div className="col-4">Alignment: {props.alignment}</div>
         <div className="col-4">Hit Points: {props.hp}</div>
         <div className="col-4">Level: {props.level}</div>
@@ -182,9 +190,12 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </tr>
         </tbody>
       </table>
-      <div className="row" style={{marginTop: 10}}>
+      <div className="row" style={{ marginTop: 10 }}>
         <div className="col">
-      <p><span style={{fontSize: 20}}>Silver:</span> {props.silver}</p></div>
+          <p>
+            <span style={{ fontSize: 20 }}>Silver:</span> {props.silver}
+          </p>
+        </div>
       </div>
       <div className="row">
         <h5>Armor</h5>
@@ -193,6 +204,33 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       <div className="row">
         <h5>Weapons</h5>
         {weaponHeaderDisplay()}
+      </div>
+      <div className="row">
+        <h5>Skills</h5>
+        {props.learnedSkillsArray.length > 0 && (
+          <div>
+            <div>
+              <span>
+                <em>Class</em>
+              </span>
+              {props.learnedSkillsArray
+                .filter((item) => item[props.selectedClass] === true)
+                .map((item, index) => (
+                  <span key={index}> - {item.skillName}</span>
+                ))}
+            </div>
+            <div>
+              <span>
+                <em>Cross-class</em>
+              </span>
+              {props.learnedSkillsArray
+                .filter((item) => item[props.selectedClass] === false)
+                .map((item, index) => (
+                  <span key={index}> - {item.skillName}</span>
+                ))}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
