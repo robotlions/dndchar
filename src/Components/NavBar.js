@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const TopNav = (props) => {
   const [show, setShow] = useState(false);
@@ -29,12 +29,20 @@ export const TopNav = (props) => {
     }
   }
 
+  const fontCheck = props.fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
 
   return (
     <>
       <Navbar bg="light" expand="lg">
         <Container>
-          <Navbar.Brand style={{paddingLeft: 10, whiteSpace: "normal"}}href="#home"><h3 style={{fontFamily: "gotham-black" }}>D&D 3.5 Character Generator</h3></Navbar.Brand>
+          <Navbar.Brand
+            style={{ paddingLeft: 10, whiteSpace: "normal" }}
+            href="#home"
+          >
+            <h3 style={{ fontFamily: fontCheck }}>
+              D&D 3.5 Character Generator
+            </h3>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
@@ -42,7 +50,7 @@ export const TopNav = (props) => {
               <Nav.Link href="https://www.robotlions.com" target="_blank">
                 robotlions.com
               </Nav.Link>
-              
+
               <NavDropdown title="Options" id="basic-nav-dropdown">
                 {/* <NavDropdown.Item href="#action/3.1">
                   <div className="form-check form-switch">
@@ -111,7 +119,11 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
-          <h5><em>This is a work in progress. Some features are not yet functional.</em></h5>
+          <h5>
+            <em>
+              This is a work in progress. Some features are not yet functional.
+            </em>
+          </h5>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

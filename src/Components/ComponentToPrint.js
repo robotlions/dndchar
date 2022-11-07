@@ -1,19 +1,89 @@
 import React, { forwardRef } from "react";
-import dndLogo from "../images/dndLogo.png";
+import dndLogo from "../images/dnd35Logo.png";
 import * as RaceBonuses from "../Races/AbilBonuses";
 
 export const ComponentToPrint = forwardRef((props, ref) => {
+  
   function calculateModifier(abil) {
     return -5 + Math.floor(1 * (abil / 2));
   }
+
+  function armorHeaderDisplay() {
+    let counts = {};
+    props.armorArray.forEach(function (x) {
+      counts[x.armorName] = (counts[x.armorName] || 0) + 1;
+    });
+    let armorSet = [...new Set(props.armorArray)];
+
+    return armorSet.map((item, index) => (
+      <div className="row" key={index}>
+          <div className="col">
+
+        <p style={{ fontWeight: "bold" }}>
+          {counts[item.armorName] > 1 && counts[item.armorName]}{" "}
+          {item.armorName}</p></div>
+      
+      <div className="col">
+        <p>Armor Bonus: {item.armorBonus}</p>
+      </div>
+      <div className="col">
+        <p>Max Dex Bonus: {item.maxDexBonus}</p>
+      </div>
+      <div className="col">
+        <p>Armor Check: {item.armorCheck}</p>
+      </div>
+      <div className="col">
+        <p>Spell Fail: {item.spellFail}</p>
+      </div>
+      <div className="col">
+        <p>Speed 30': {item.speed30}</p>
+      </div>
+      <div className="col">
+        <p>Speed 20': {item.speed20}</p>
+      </div>
+      </div>
+    ));
+  };
+
+  function weaponHeaderDisplay() {
+    let counts = {};
+    props.weaponArray.forEach(function (x) {
+      counts[x.weaponName] = (counts[x.weaponName] || 0) + 1;
+    });
+    let weaponSet = [...new Set(props.weaponArray)];
+
+    return weaponSet.map((item, index) => (
+      <div className="row" key={index}>
+        <div className="col" style={{ fontWeight: "bold" }}>
+          {counts[item.weaponName] > 1 && counts[item.weaponName]}{" "}
+          {item.weaponName}</div>
+          <div className="col">
+        <p>Damage, Small: {item.dmgS}</p>
+      </div>
+      <div className="col">
+        <p>Damage, Medium: {item.dmgM}</p>
+      </div>
+      <div className="col">
+        <p>Critical: {item.critical}</p>
+      </div>
+      <div className="col">
+        <p>Range: {item.range}</p>
+      </div>
+      <div className="col">
+        <p>Type: {item.type}</p>
+      </div>
+      </div>
+    ));
+  };
 
   const racialBonus = RaceBonuses[props.selectedRace];
 
   return (
     <div className="container" ref={ref}>
       <div className="row">
-        <div className="col-12" style={{ textAlign: "center" }}>
-          <img style={{ maxWidth: "80%" }} src={dndLogo}></img>
+        <div className="col-12" style={{ textAlign: "center", marginBottom:20, paddingTop: 50 }}>
+          <img style={{ maxWidth: "65%" }} src={dndLogo}></img>
+          <h4 style={{marginTop:10}}>Character Record Sheet</h4>
         </div>
       </div>
       <div className="row">
@@ -112,7 +182,17 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </tr>
         </tbody>
       </table>
+      <div className="row">
       <p>Silver: {props.silver}</p>
+      </div>
+      <div className="row">
+        <h5>Armor</h5>
+        {armorHeaderDisplay()}
+      </div>
+      <div className="row">
+        <h5>Weapons</h5>
+        {weaponHeaderDisplay()}
+      </div>
     </div>
   );
 });

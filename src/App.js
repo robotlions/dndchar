@@ -469,6 +469,8 @@ function App() {
               alignment={alignment}
               hp={hp}
               silver={totalSilver-weaponsMoney-armorMoney}
+              armorArray={armorArray}
+              weaponArray={weaponArray}
             />
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>
