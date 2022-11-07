@@ -49,6 +49,7 @@ function App() {
   const [basicEdited, setBasicEdited] = useState(false);
   const [spellCaster, setSpellCaster] = useState(false);
   const [show, setShow] = useState(false);
+  const [fullscreen, setFullscreen] = useState(true);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -448,7 +449,7 @@ function App() {
         </div>
       </div>
 
-      <Modal size="lg" show={show} onHide={handleClose}>
+      <Modal size="xl" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Print Character</Modal.Title>
         </Modal.Header>

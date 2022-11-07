@@ -182,8 +182,9 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </tr>
         </tbody>
       </table>
-      <div className="row">
-      <p>Silver: {props.silver}</p>
+      <div className="row" style={{marginTop: 10}}>
+        <div className="col">
+      <p><span style={{fontSize: 20}}>Silver:</span> {props.silver}</p></div>
       </div>
       <div className="row">
         <h5>Armor</h5>
