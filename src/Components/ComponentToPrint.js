@@ -252,9 +252,9 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                   <div key={index}>{item.featName}</div>
                 ))}
       </div>
-      <div className="row">
+      <div className="row d-flex flex-row flex-wrap">
         <h5>Spell</h5>
-        {props.spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)}
+        {props.spellArray.map((item, index)=><div className="col-4" key={index}>{item.spellName}</div>)}
 
       </div>
     </div>
