@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import ReactGA from 'react-ga';
 import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
@@ -15,6 +16,9 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+
+const TRACKING_ID = "G-XFYYE6YFJB"
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
