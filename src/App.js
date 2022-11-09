@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactGA from 'react-ga4';
+import ReactGA from "react-ga4";
 import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
@@ -16,8 +16,7 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-
-
+import { BaseAttack } from "./Components/BaseAttack";
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
@@ -58,9 +57,9 @@ function App() {
   const ref = useRef();
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
-  const fontCheck = fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
+  const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
 
-  const TRACKING_ID = "G-XFYYE6YFJB"
+  const TRACKING_ID = "G-XFYYE6YFJB";
   ReactGA.initialize(TRACKING_ID);
 
   // useEffect(() => {
@@ -134,7 +133,7 @@ function App() {
         }
       >
         <TopNav
-        fontThemeFantasy={fontThemeFantasy}
+          fontThemeFantasy={fontThemeFantasy}
           setFontThemeFantasy={setFontThemeFantasy}
           setMunchkinMode={setMunchkinMode}
         />
@@ -152,7 +151,7 @@ function App() {
           >
             <Accordion.Header>
               <div className="accTitle">
-                <h2 style={{fontFamily: fontCheck}}>{nameCheck}</h2>
+                <h2 style={{ fontFamily: fontCheck }}>{nameCheck}</h2>
                 {basicEdited === true && (
                   <div>
                     <p style={{ fontWeight: "bold" }}>
@@ -245,7 +244,7 @@ function App() {
           <Accordion.Item eventKey="1">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Abilities and Saves</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Abilities and Saves</h2>
                 {rolled === true && (
                   <div>
                     <span style={{ fontWeight: "bold" }}>Str </span>
@@ -283,13 +282,20 @@ function App() {
                     wis={wis}
                   />
                 </div>
+                <div className="col">
+                  <BaseAttack
+                    str={str}
+                    level={level}
+                    selectedClass={selectedClass}
+                  />
+                </div>
               </div>
             </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Money</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Money</h2>
                 {totalSilver > 0 && (
                   <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
                 )}
@@ -309,7 +315,7 @@ function App() {
           <Accordion.Item eventKey="3">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Armor</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Armor</h2>
                 {/* {armorArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -338,7 +344,7 @@ function App() {
           <Accordion.Item eventKey="4">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Weapons</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Weapons</h2>
                 {/* {weaponArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
@@ -366,7 +372,7 @@ function App() {
           <Accordion.Item eventKey="5">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Skills</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Skills</h2>
 
                 {learnedSkillsArray.length > 0 && (
                   <div>
@@ -408,7 +414,7 @@ function App() {
           <Accordion.Item eventKey="6">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Feats</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Feats</h2>
                 {featArray.map((item, index) => (
                   <div key={index}>{item.featName}</div>
                 ))}
@@ -427,7 +433,7 @@ function App() {
           <Accordion.Item eventKey="7">
             <Accordion.Header>
               <div className="accTitle">
-              <h2 style={{fontFamily: fontCheck}}>Spells</h2>
+                <h2 style={{ fontFamily: fontCheck }}>Spells</h2>
                 {/* {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)} */}
               </div>
             </Accordion.Header>
@@ -449,9 +455,11 @@ function App() {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-        <div className="row" style={{textAlign:"center", marginTop: 20}}>
+        <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
           <div className="col-md-12">
-            <Button variant="secondary" onClick={handleShow}>View and Print Character</Button>
+            <Button variant="secondary" onClick={handleShow}>
+              View and Print Character
+            </Button>
           </div>
         </div>
       </div>
@@ -476,7 +484,7 @@ function App() {
               chr={chr}
               alignment={alignment}
               hp={hp}
-              silver={totalSilver-weaponsMoney-armorMoney}
+              silver={totalSilver - weaponsMoney - armorMoney}
               armorArray={armorArray}
               weaponArray={weaponArray}
               learnedSkillsArray={learnedSkillsArray}
