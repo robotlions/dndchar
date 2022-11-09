@@ -49,11 +49,17 @@ export const SkillEntry = (props) => {
       );
     }
     if (classSkill === true) {
+      let iOfA = learnedSkills.indexOf(props.item);
+
       setSkillRank(skillRank + 1);
       props.setSkillPoints(props.skillPoints - 1);
+      learnedSkills[iOfA].skillLevel = skillRank + 1;
     } else {
+      let iOfA = learnedSkills.indexOf(props.item);
+
       setSkillRank(skillRank + 1);
       props.setSkillPoints(props.skillPoints - 2);
+      learnedSkills[iOfA].skillLevel = skillRank + 1;
     }
   }
 
@@ -68,25 +74,30 @@ export const SkillEntry = (props) => {
       return alert("This skill can't go any lower.");
     }
     if (classSkill === true) {
+      let iOfA = learnedSkills.indexOf(props.item);
+
       setSkillRank(skillRank - 1);
       props.setSkillPoints(props.skillPoints + 1);
+      learnedSkills[iOfA].skillLevel = skillRank - 1;
     } else {
+      let iOfA = learnedSkills.indexOf(props.item);
+
       setSkillRank(skillRank - 1);
       props.setSkillPoints(props.skillPoints + 2);
+      learnedSkills[iOfA].skillLevel = skillRank - 1;
     }
   }
 
   return (
-    <div style={{fontSize: "small"}}>
+    <div style={{ fontSize: "small" }}>
       <Button variant="light" onClick={() => addSkillRank()}>
         +
       </Button>{" "}
       {skillRank}{" "}
       <Button variant="light" onClick={() => subtractSkillRank()}>
         -
-      </Button>{" "}<em>
-      {props.item.skillName}
-      </em>
+      </Button>{" "}
+      <em>{props.item.skillName}</em>
     </div>
   );
 };
@@ -159,7 +170,6 @@ export const SkillsMain = (props) => {
         Cross-Class Skills - <em>2 points</em>
       </h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
-
     </>
   );
 };

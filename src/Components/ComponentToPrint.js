@@ -80,6 +80,8 @@ export const ComponentToPrint = forwardRef((props, ref) => {
 
   const racialBonus = RaceBonuses[props.selectedRace];
 
+  console.log(props.learnedSkillsArray)
+
   return (
     <div className="container" ref={ref}>
       <div className="row">
@@ -230,7 +232,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
               {props.learnedSkillsArray
                 .filter((item) => item[props.selectedClass] === true)
                 .map((item, index) => (
-                  <span key={index}> - {item.skillName}</span>
+                  <span key={index}> - {item.skillName} ({item.skillLevel})</span>
                 ))}
             </div>
             <div>
@@ -240,7 +242,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
               {props.learnedSkillsArray
                 .filter((item) => item[props.selectedClass] === false)
                 .map((item, index) => (
-                  <span key={index}> - {item.skillName}</span>
+                  <span key={index}> - {item.skillName} ({item.skillLevel})</span>
                 ))}
             </div>
           </div>
@@ -253,7 +255,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                 ))}
       </div>
       <div className="row d-flex flex-row flex-wrap">
-        <h5>Spell</h5>
+        <h5>Spells</h5>
         {props.spellArray.map((item, index)=><div className="col-4" key={index}>{item.spellName}</div>)}
 
       </div>
