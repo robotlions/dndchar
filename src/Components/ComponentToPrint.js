@@ -5,6 +5,7 @@ import * as CharInfo from './CharInfo';
 import { RaceInfo } from "../Races/RaceTables";
 import * as SpellLists from "../Spells/SpellLists";
 import * as KnownSpells from "../Spells/KnownSpells";
+import { BaseAttack } from "./BaseAttack";
 
 export const ComponentToPrint = forwardRef((props, ref) => {
   function calculateModifier(abil) {
@@ -83,16 +84,101 @@ export const ComponentToPrint = forwardRef((props, ref) => {
 
   const racialBonus = RaceBonuses[props.selectedRace];
 
-
-  let lvlCheck = KnownSpells[props.selectedClass][props.level];
   function displayList(lvlFilter) {
+
+    if (
+      props.selectedClass !== "Barbarian" &&
+      props.selectedClass !== "Monk" &&
+      props.selectedClass !== "Rogue" &&
+      props.selectedClass !== "Fighter"
+    ) {
+    let lvlCheck = KnownSpells[props.selectedClass][props.level];
+
     return props.spellArray
       .filter((item) => lvlCheck[item.level] > 0)
       .filter((item) => item.level === lvlFilter)
       .map((item, index) => (
         <div key={index} className="col-2">{item.spellName}</div>
       ));
-  }
+  }};
+
+  function showSpells() { 
+
+  
+
+  if (
+    props.selectedClass !== "Barbarian" &&
+    props.selectedClass !== "Monk" &&
+    props.selectedClass !== "Rogue" &&
+    props.selectedClass !== "Fighter"
+  ) {
+    return(
+
+  <div>
+      {displayList(0).length > 0 && (
+        <>
+      <h6>Level 0</h6>
+      <div className="d-flex flex-row flex-wrap">{displayList(0)}</div>
+      </>
+      )}
+      {displayList(1).length > 0 && (
+        <>
+          <h6>Level 1</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(1)}</div>
+        </>
+      )}
+      {displayList(2).length > 0 && (
+        <>
+          <h6>Level 2</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(2)}</div>
+        </>
+      )}
+      {displayList(3).length > 0 && (
+        <>
+          <h6>Level 3</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(3)}</div>
+        </>
+      )}
+      {displayList(4).length > 0 && (
+        <>
+          <h6>Level 4</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(4)}</div>
+        </>
+      )}
+      {displayList(5).length > 0 && (
+        <>
+          <h6>Level 5</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(5)}</div>
+        </>
+      )}
+      {displayList(6).length > 0 && (
+        <>
+          <h6>Level 6</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(6)}</div>
+        </>
+      )}
+      {displayList(7).length > 0 && (
+        <>
+          <h6>Level 7</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(7)}</div>
+        </>
+      )}
+      {displayList(8).length > 0 && (
+        <>
+          <h6>Level 8</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(8)}</div>
+        </>
+      )}
+      {displayList(9).length > 0 && (
+        <>
+          <h6>Level 9</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(9)}</div>
+        </>
+      )}
+    </div>);
+  }};
+
+  
 
   return (
     <div className="container" ref={ref}>
@@ -215,7 +301,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
         </div>
       </div>
       </div>
-      <div className="col-6">
+      <div className="col-3">
       <CharInfo.SavingThrows
                     level={props.level}
                     selectedClass={props.selectedClass}
@@ -223,6 +309,9 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                     con={props.con}
                     wis={props.wis}
                   />
+      </div>
+      <div className="col-3">
+      blah
       </div>
       </div>
       <div className="row">
@@ -269,65 +358,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
 
       <div className="row d-flex flex-row flex-wrap">
         <h5>Spells</h5>
-      <div>
-      <h6>Level 0</h6>
-      <div className="d-flex flex-row flex-wrap">{displayList(0)}</div>
-
-      {displayList(1).length > 0 && (
-        <>
-          <h6>Level 1</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(1)}</div>
-        </>
-      )}
-      {displayList(2).length > 0 && (
-        <>
-          <h6>Level 2</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(2)}</div>
-        </>
-      )}
-      {displayList(3).length > 0 && (
-        <>
-          <h6>Level 3</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(3)}</div>
-        </>
-      )}
-      {displayList(4).length > 0 && (
-        <>
-          <h6>Level 4</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(4)}</div>
-        </>
-      )}
-      {displayList(5).length > 0 && (
-        <>
-          <h6>Level 5</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(5)}</div>
-        </>
-      )}
-      {displayList(6).length > 0 && (
-        <>
-          <h6>Level 6</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(6)}</div>
-        </>
-      )}
-      {displayList(7).length > 0 && (
-        <>
-          <h6>Level 7</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(7)}</div>
-        </>
-      )}
-      {displayList(8).length > 0 && (
-        <>
-          <h6>Level 8</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(8)}</div>
-        </>
-      )}
-      {displayList(9).length > 0 && (
-        <>
-          <h6>Level 9</h6>
-          <div className="d-flex flex-row flex-wrap">{displayList(9)}</div>
-        </>
-      )}
-    </div>
+      {showSpells()}
     </div>
     </div>
   );
