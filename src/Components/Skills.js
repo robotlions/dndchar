@@ -112,10 +112,10 @@ export const SkillsMain = (props) => {
   useEffect(() => {
     setSkillPoints(
       4 *
-        (classSkillPoints[props.selectedClass] + calculateModifier(props.int)) +
+        ((classSkillPoints[props.selectedClass] + calculateModifier(props.int))*props.level) +
         raceSkillBonus
     );
-  }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus]);
+  }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus, props.level]);
 
   useEffect(() => {
     props.setSkillPoints(skillPoints);
