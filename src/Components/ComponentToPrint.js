@@ -2,6 +2,9 @@ import React, { forwardRef } from "react";
 import dndLogo from "../images/dndLogo.png";
 import * as RaceBonuses from "../Races/AbilBonuses";
 import * as CharInfo from './CharInfo';
+import { RaceInfo } from "../Races/RaceTables";
+import * as SpellLists from "../Spells/SpellLists";
+import * as KnownSpells from "../Spells/KnownSpells";
 
 export const ComponentToPrint = forwardRef((props, ref) => {
   function calculateModifier(abil) {
@@ -80,7 +83,16 @@ export const ComponentToPrint = forwardRef((props, ref) => {
 
   const racialBonus = RaceBonuses[props.selectedRace];
 
-  console.log(props.learnedSkillsArray)
+
+  let lvlCheck = KnownSpells[props.selectedClass][props.level];
+  function displayList(lvlFilter) {
+    return props.spellArray
+      .filter((item) => lvlCheck[item.level] > 0)
+      .filter((item) => item.level === lvlFilter)
+      .map((item, index) => (
+        <div key={index} className="col-2">{item.spellName}</div>
+      ));
+  }
 
   return (
     <div className="container" ref={ref}>
@@ -100,7 +112,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       <div className="row">
         <div className="col-4">Name: {props.charName}</div>
         <div className="col-4">Class: {props.selectedClass}</div>
-        <div className="col-4">Race: {props.selectedRace}</div>
+        <div className="col-4">Race: {RaceInfo[props.selectedRace].raceName}</div>
       </div>
       <div className="row" style={{ marginBottom: 20 }}>
         <div className="col-4">Alignment: {props.alignment}</div>
@@ -254,11 +266,69 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                   <div key={index}>{item.featName}</div>
                 ))}
       </div>
+
       <div className="row d-flex flex-row flex-wrap">
         <h5>Spells</h5>
-        {props.spellArray.map((item, index)=><div className="col-4" key={index}>{item.spellName}</div>)}
+      <div>
+      <h6>Level 0</h6>
+      <div className="d-flex flex-row flex-wrap">{displayList(0)}</div>
 
-      </div>
+      {displayList(1).length > 0 && (
+        <>
+          <h6>Level 1</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(1)}</div>
+        </>
+      )}
+      {displayList(2).length > 0 && (
+        <>
+          <h6>Level 2</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(2)}</div>
+        </>
+      )}
+      {displayList(3).length > 0 && (
+        <>
+          <h6>Level 3</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(3)}</div>
+        </>
+      )}
+      {displayList(4).length > 0 && (
+        <>
+          <h6>Level 4</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(4)}</div>
+        </>
+      )}
+      {displayList(5).length > 0 && (
+        <>
+          <h6>Level 5</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(5)}</div>
+        </>
+      )}
+      {displayList(6).length > 0 && (
+        <>
+          <h6>Level 6</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(6)}</div>
+        </>
+      )}
+      {displayList(7).length > 0 && (
+        <>
+          <h6>Level 7</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(7)}</div>
+        </>
+      )}
+      {displayList(8).length > 0 && (
+        <>
+          <h6>Level 8</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(8)}</div>
+        </>
+      )}
+      {displayList(9).length > 0 && (
+        <>
+          <h6>Level 9</h6>
+          <div className="d-flex flex-row flex-wrap">{displayList(9)}</div>
+        </>
+      )}
+    </div>
+    </div>
     </div>
   );
 });

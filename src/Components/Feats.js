@@ -19,7 +19,7 @@ export const FeatsMain = (props) => {
   }, [props.selectedRace, featSlots, props.level]);
 
 
-  const maxFeats = props.selectedRace==='human' ? 2 : 1
+  const maxFeats = props.selectedRace==='human' ? 2+lvlCheck : 1+lvlCheck
 
   //right now you can game the system by maxing out your feats, then changing the race to something else then back to human to get an extra slot
 
