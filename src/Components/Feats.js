@@ -5,17 +5,19 @@ let featArray = [];
 
 export const FeatsMain = (props) => {
   const [featSlots, setFeatSlots] = useState(1);
+  let lvlCheck = Math.floor(props.level/3);
 
 
   useEffect(() => {
     if (props.selectedRace === "human") {
-      setFeatSlots(2-featArray.length);
+      setFeatSlots(2+lvlCheck-featArray.length);
     } else {
       if (featSlots > 0) {
-        setFeatSlots(1-featArray.length);
+        setFeatSlots(1+lvlCheck-featArray.length);
       }
     }
-  }, [props.selectedRace, featSlots]);
+  }, [props.selectedRace, featSlots, props.level]);
+
 
   const maxFeats = props.selectedRace==='human' ? 2 : 1
 

@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
 import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
@@ -17,8 +17,7 @@ import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 
-const TRACKING_ID = "G-XFYYE6YFJB"
-ReactGA.initialize(TRACKING_ID);
+
 
 function App() {
   const [selectedRace, setSelectedRace] = useState("human");
@@ -60,6 +59,9 @@ function App() {
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
+
+  const TRACKING_ID = "G-XFYYE6YFJB"
+  ReactGA.initialize(TRACKING_ID);
 
   // useEffect(() => {
   //   setUpdated(!updated);
@@ -418,6 +420,7 @@ function App() {
                 setFeatSlots={setFeatSlots}
                 setFeatArray={setFeatArray}
                 selectedRace={selectedRace}
+                level={level}
               />
             </Accordion.Body>
           </Accordion.Item>
