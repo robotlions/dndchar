@@ -88,6 +88,7 @@ export const SkillEntry = (props) => {
     }
   }
 
+
   return (
     <div style={{ fontSize: "small" }}>
       <Button variant="light" onClick={() => addSkillRank()}>

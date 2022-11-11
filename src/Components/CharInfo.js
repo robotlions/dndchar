@@ -67,7 +67,7 @@ export const Level = (props) => {
 const levelInput = <Dropdown
       onSelect={(eventKey) => {
         setThisState(eventKey);
-        props.setLevel(eventKey);
+        props.setLevel(parseInt(eventKey));
         props.setBasicEdited(true);
       }}
     >
