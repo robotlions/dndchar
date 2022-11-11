@@ -4,6 +4,10 @@ import { useEffect, useState } from "react";
 
 let spArray = [];
 
+function calculateModifier(abil){
+  return -5 + Math.floor(1*(abil/2))
+}
+
 export const SpellListing = (props) => {
   /* eslint-disable no-eval */
 
@@ -124,6 +128,7 @@ export const SpellsMain = (props) => {
   const [level7, setLevel7] = useState(null);
   const [level8, setLevel8] = useState(null);
   const [level9, setLevel9] = useState(null);
+  const [intMod, setIntMod] = useState(0);
 
   function setSpellSlotsInState(key, value) {
     /* eslint-disable no-eval */
@@ -136,7 +141,10 @@ export const SpellsMain = (props) => {
     props.setUpdated(!props.updated);
   }
 
+
   useEffect(() => {
+    let mod = calculateModifier(props.int);
+    setIntMod(mod);
     if (
       props.selectedClass !== "Barbarian" &&
       props.selectedClass !== "Monk" &&
@@ -146,10 +154,10 @@ export const SpellsMain = (props) => {
       Object.entries(
         KnownSpells[props.selectedClass][props.level]
       ).map(([key, value], index) =>
-        setSpellSlotsInState(`setLevel${key}`, value)
+        value != null && setSpellSlotsInState(`setLevel${key}`, value+mod)
       );
     }
-  }, [props.level, props.selectedClass]);
+  }, [props.level, props.selectedClass, props.int]);
 
   return (
     <div>
