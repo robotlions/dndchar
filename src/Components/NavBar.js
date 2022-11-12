@@ -21,14 +21,14 @@ export const TopNav = (props) => {
     }
   }
 
-  // function handleMunchkinSwitch(event) {
-  //   if (event.target.checked === true) {
-  //     props.setMunchkinMode(true);
-  //     alert("Munchkin mode under construction");
-  //   } else {
-  //     props.setMunchkinMode(false);
-  //   }
-  // }
+  function handleMunchkinSwitch(event) {
+    if (event.target.checked === true) {
+      props.setMunchkinMode(true);
+      alert("Munchkin Mode allows you to manually set the level, money and ability scores. Warning: this generator is meant for level one characters. At higher levels, things get unreliable.");
+    } else {
+      props.setMunchkinMode(false);
+    }
+  }
 
   const fontCheck = props.fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
 
@@ -54,7 +54,7 @@ export const TopNav = (props) => {
               </Nav.Link>
 
               <NavDropdown title="Options" id="basic-nav-dropdown">
-                {/* <NavDropdown.Item href="#action/3.1">
+                <NavDropdown.Item href="#action/3.1">
                   <div className="form-check form-switch">
                     <input
                       className="form-check-input"
@@ -70,7 +70,7 @@ export const TopNav = (props) => {
                       Munchkin Mode
                     </label>
                   </div>
-                </NavDropdown.Item> */}
+                </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   <div className="form-check form-switch">
                     <input

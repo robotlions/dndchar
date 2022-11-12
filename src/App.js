@@ -210,11 +210,10 @@ function App() {
                   {/* the disabled component allows for changing the level, but it's deactivated for now because
           I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
                   Level
-                  <CharInfo.Level
+                  {munchkinMode===true ? <CharInfo.Level
                     setBasicEdited={setBasicEdited}
                     setLevel={setLevel}
-                  />
-                  {/* <p>1</p> */}
+                  /> : <p>1</p>}
                 </div>
                 <div className="col">
                   Hit Points
@@ -309,6 +308,7 @@ function App() {
                 totalSilver={totalSilver}
                 selectedClass={selectedClass}
                 setTotalSilver={setTotalSilver}
+                munchkinMode={munchkinMode}
               />
             </Accordion.Body>
           </Accordion.Item>

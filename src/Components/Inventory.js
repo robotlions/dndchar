@@ -425,9 +425,34 @@ export const StartingSilver = (props) => {
       : props.setTotalSilver(rolledGold * 100);
   }
 
+  const normalMoney = props.totalSilver === 0 ? (
+    <Button variant="secondary" onClick={() => genSilver()}>
+      Roll Starting Money
+    </Button>
+  ) : (
+    <Button
+      variant="secondary"
+      onClick={() => {
+        props.setTotalSilver(0);
+        props.setArmorMoney(0);
+        props.setWeaponsMoney(0);
+        armorArray = [];
+        weaponArray = [];
+      }}
+    >
+      Reset money and inventory
+    </Button>
+  );
+
+if(props.munchkinMode===true){
+  props.setTotalSilver(1000000)
+};
+
+
   return (
     <>
-      {props.totalSilver === 0 ? (
+    {!props.munchkinMode && normalMoney}
+      {/* {props.totalSilver === 0 ? (
         <Button variant="secondary" onClick={() => genSilver()}>
           Roll Starting Money
         </Button>
@@ -444,7 +469,7 @@ export const StartingSilver = (props) => {
         >
           Reset money and inventory
         </Button>
-      )}
+      )} */}
     </>
   );
 };

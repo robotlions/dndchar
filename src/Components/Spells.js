@@ -128,7 +128,6 @@ export const SpellsMain = (props) => {
   const [level7, setLevel7] = useState(null);
   const [level8, setLevel8] = useState(null);
   const [level9, setLevel9] = useState(null);
-  const [intMod, setIntMod] = useState(0);
 
   function setSpellSlotsInState(key, value) {
     /* eslint-disable no-eval */
@@ -144,7 +143,6 @@ export const SpellsMain = (props) => {
 
   useEffect(() => {
     let mod = calculateModifier(props.int);
-    setIntMod(mod);
     if (
       props.selectedClass !== "Barbarian" &&
       props.selectedClass !== "Monk" &&

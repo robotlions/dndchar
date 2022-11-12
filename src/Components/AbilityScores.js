@@ -66,6 +66,8 @@ export const NewScores = (props) => {
     }
   }
 
+  
+
 
   return (
     <div>
@@ -82,7 +84,7 @@ export const NewScores = (props) => {
         <tbody>
         <tr>
           <td>STR</td>
-          {props.munchkinMode===true ? <td><input placeholder={str}></input></td> :
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setStr(parseInt(e.target.value));props.setStr(parseInt(e.target.value))}} placeholder={str || 0}></input></td> :
           <td>{str}</td>}
           <td>
             {racialBonus.bonusStr <= 0
@@ -95,7 +97,8 @@ export const NewScores = (props) => {
         </tr>
         <tr>
           <td>DEX</td>
-          <td>{dex}</td>
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setDex(parseInt(e.target.value));props.setDex(parseInt(e.target.value))}} placeholder={dex}></input></td> :
+<td>{dex}</td>}
           <td>
             {racialBonus.bonusDex <= 0
               ? racialBonus.bonusDex
@@ -107,7 +110,8 @@ export const NewScores = (props) => {
         </tr>
         <tr>
           <td>CON</td>
-          <td>{con}</td>
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setCon(parseInt(e.target.value));props.setCon(parseInt(e.target.value))}} placeholder={con || 0}></input></td> :
+          <td>{con}</td>}
           <td>
             {racialBonus.bonusCon <= 0
               ? racialBonus.bonusCon
@@ -119,7 +123,8 @@ export const NewScores = (props) => {
         </tr>
         <tr>
           <td>INT</td>
-          <td>{int}</td>
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setInt(parseInt(e.target.value));props.setInt(parseInt(e.target.value))}} placeholder={int || 0}></input></td> :
+          <td>{int}</td>}
           <td>
             {racialBonus.bonusInt <= 0
               ? racialBonus.bonusInt
@@ -131,7 +136,8 @@ export const NewScores = (props) => {
         </tr>
         <tr>
           <td>WIS</td>
-          <td>{wis}</td>
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setWis(parseInt(e.target.value));props.setWis(parseInt(e.target.value))}} placeholder={wis || 0}></input></td> :
+          <td>{wis}</td>}
           <td>
             {racialBonus.bonusWis <= 0
               ? racialBonus.bonusWis
@@ -144,7 +150,8 @@ export const NewScores = (props) => {
         
         <tr>
           <td>CHR</td>
-          <td>{chr}</td>
+          {props.munchkinMode===true ? <td><input className="attInput" onChange={(e)=>{setChr(parseInt(e.target.value));props.setChr(parseInt(e.target.value))}} placeholder={chr || 0}></input></td> :
+          <td>{chr}</td>}
           <td>
             {racialBonus.bonusChr <= 0
               ? racialBonus.bonusChr

@@ -38,6 +38,11 @@ table {
   
 } */
 
+.attInput{
+  text-align: center;
+  width: 3rem;
+}
+
 .listFrame {
   border: solid black 1px;
   text-align: center;
