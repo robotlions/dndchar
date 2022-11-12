@@ -51,6 +51,7 @@ function App() {
   const [basicEdited, setBasicEdited] = useState(false);
   const [spellCaster, setSpellCaster] = useState(false);
   const [show, setShow] = useState(false);
+  const [baseAttack, setBaseAttack] = useState(0);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -286,6 +287,7 @@ function App() {
                     str={str}
                     level={level}
                     selectedClass={selectedClass}
+                    setBaseAttack={setBaseAttack}
                   />
                 </div>
               </div>
@@ -490,6 +492,7 @@ function App() {
               learnedSkillsArray={learnedSkillsArray}
               featArray={featArray}
               spellArray={spellArray}
+              baseAttack={baseAttack}
             />
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>

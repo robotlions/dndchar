@@ -15,6 +15,13 @@
   src: url(../public/assets/fonts/EagleLake-Regular.ttf);
 }
 
+@media print {
+  .pagebreak {
+      clear: both;
+      page-break-after: always;
+  }
+}
+
 .font-standard {
   font-family: gotham-book, sans-serif;
 }

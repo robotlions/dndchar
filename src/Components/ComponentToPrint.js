@@ -311,17 +311,21 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                   />
       </div>
       <div className="col-3">
-      blah
+        <h6>Base Attack</h6>
+      <p>{props.baseAttack}</p>
       </div>
       </div>
       <div className="row">
         <h5>Armor</h5>
         {armorHeaderDisplay()}
       </div>
+<div className="pagebreak"></div>
+
       <div className="row">
         <h5>Weapons</h5>
         {weaponHeaderDisplay()}
       </div>
+
       <div className="row">
         <h5>Skills</h5>
         {props.learnedSkillsArray.length > 0 && (
@@ -355,7 +359,6 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                   <div key={index}>{item.featName}</div>
                 ))}
       </div>
-
       <div className="row d-flex flex-row flex-wrap">
         <h5>Spells</h5>
       {showSpells()}

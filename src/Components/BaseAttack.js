@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import * as BaseAttackTables from '../Classes/BaseAttackTables';
 
 export const BaseAttack = (props) => {
@@ -5,6 +6,10 @@ export const BaseAttack = (props) => {
     function calculateModifier(abil){
         return -5 + Math.floor(1*(abil/2))
       }
+
+useEffect(()=>{
+    props.setBaseAttack(BaseAttackTables[props.selectedClass][props.level]+attackMod)
+},[props.selectedClass, props.str, props.level])
 
 const attackMod = calculateModifier(props.str)
 
