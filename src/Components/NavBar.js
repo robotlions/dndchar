@@ -24,7 +24,7 @@ export const TopNav = (props) => {
   function handleMunchkinSwitch(event) {
     if (event.target.checked === true) {
       props.setMunchkinMode(true);
-      alert("Munchkin Mode allows you to manually set the level, money and ability scores. Warning: this generator is meant for level one characters. At higher levels, things get unreliable.");
+      alert("Munchkin Mode allows you to manually set the character's level and ability scores and it sets the money to a million silver. Warning: this generator is meant for level one characters. At higher levels, things get unreliable.");
     } else {
       props.setMunchkinMode(false);
     }
