@@ -20,33 +20,34 @@ export const ComponentToPrint = forwardRef((props, ref) => {
     let armorSet = [...new Set(props.armorArray)];
 
     return armorSet.map((item, index) => (
-      <div className="row" key={index}>
-        <div className="col">
-          <p style={{ fontWeight: "bold" }}>
+      <div style={{fontSize: "x-small"}}className="row" key={index}>
+        
+          <div className="col" style={{ fontWeight: "bold" }}>
             {counts[item.armorName] > 1 && counts[item.armorName]}{" "}
             {item.armorName}
-          </p>
-        </div>
+          </div>
+        
 
         <div className="col">
-          <p>Armor Bonus: {item.armorBonus}</p>
+          Armor Bonus: {item.armorBonus}
         </div>
         <div className="col">
-          <p>Max Dex Bonus: {item.maxDexBonus}</p>
+          Max Dex Bonus: {item.maxDexBonus}
         </div>
         <div className="col">
-          <p>Armor Check: {item.armorCheck}</p>
+          Armor Check: {item.armorCheck}
         </div>
         <div className="col">
-          <p>Spell Fail: {item.spellFail}</p>
+          Spell Fail: {item.spellFail}
         </div>
         <div className="col">
-          <p>Speed 30': {item.speed30}</p>
+          Speed 30': {item.speed30}
         </div>
         <div className="col">
-          <p>Speed 20': {item.speed20}</p>
+          Speed 20': {item.speed20}
         </div>
-      </div>
+        </div>
+        
     ));
   }
 
@@ -58,25 +59,25 @@ export const ComponentToPrint = forwardRef((props, ref) => {
     let weaponSet = [...new Set(props.weaponArray)];
 
     return weaponSet.map((item, index) => (
-      <div className="row" key={index}>
+      <div style={{fontSize: "x-small"}} className="row" key={index}>
         <div className="col" style={{ fontWeight: "bold" }}>
           {counts[item.weaponName] > 1 && counts[item.weaponName]}{" "}
           {item.weaponName}
         </div>
         <div className="col">
-          <p>Damage, Small: {item.dmgS}</p>
+          Damage, Small: {item.dmgS}
         </div>
         <div className="col">
-          <p>Damage, Medium: {item.dmgM}</p>
+          Damage, Medium: {item.dmgM}
         </div>
         <div className="col">
-          <p>Critical: {item.critical}</p>
+          Critical: {item.critical}
         </div>
         <div className="col">
-          <p>Range: {item.range}</p>
+          Range: {item.range}
         </div>
         <div className="col">
-          <p>Type: {item.type}</p>
+          Type: {item.type}
         </div>
       </div>
     ));
@@ -185,27 +186,27 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       <div className="row">
         <div
           className="col-12"
-          style={{ textAlign: "center", marginBottom: 20, paddingTop: 50 }}
+          style={{ textAlign: "center", marginBottom: 10, paddingTop: 20 }}
         >
           <img
             alt="vintage d&d logo"
-            style={{ maxWidth: "40%" }}
+            style={{ maxWidth: "30%" }}
             src={dndLogo}
           ></img>
           <h4 style={{ marginTop: 10 }}>Character Record Sheet</h4>
         </div>
       </div>
-      <div className="row">
+      <div className="row" style={{fontSize: "small"}}>
         <div className="col-4">Name: {props.charName}</div>
         <div className="col-4">Class: {props.selectedClass}</div>
         <div className="col-4">Race: {RaceInfo[props.selectedRace].raceName}</div>
       </div>
-      <div className="row" style={{ marginBottom: 20 }}>
+      <div className="row" style={{ fontSize: "small", marginBottom: 10 }}>
         <div className="col-4">Alignment: {props.alignment}</div>
         <div className="col-4">Hit Points: {props.hp}</div>
         <div className="col-4">Level: {props.level}</div>
       </div>
-      <div className="row">
+      <div className="row" style={{fontSize: "small"}}>
         <div className="col-6">
       <table>
         <thead>
@@ -293,13 +294,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </tr>
         </tbody>
       </table>
-      <div className="row" style={{ marginTop: 10 }}>
-        <div className="col">
-          <p>
-            <span style={{ fontSize: 20 }}>Silver:</span> {props.silver}
-          </p>
-        </div>
-      </div>
+     
       </div>
       <div className="col-3">
       <CharInfo.SavingThrows
@@ -310,24 +305,30 @@ export const ComponentToPrint = forwardRef((props, ref) => {
                     wis={props.wis}
                   />
       </div>
-      <div className="col-3">
+      <div style={{textAlign: "center"}}className="col-3">
         <h6>Base Attack</h6>
       <p>{props.baseAttack}</p>
       </div>
       </div>
-      <div className="row">
-        <h5>Armor</h5>
+      <div className="row" style={{ fontSize:"small", marginTop: 10 }}>
+        <div className="col">
+            <span style={{ fontSize: 20 }}>Silver:</span> {props.silver}
+        </div>
+      </div>
+      <h5>Armor</h5>
+
+      <div className="row inventoryBox">
         {armorHeaderDisplay()}
       </div>
-<div className="pagebreak"></div>
+      <h5>Weapons</h5>
 
-      <div className="row">
-        <h5>Weapons</h5>
+      <div className="row inventoryBox">
         {weaponHeaderDisplay()}
       </div>
+      <div className="pagebreak"></div>
+      <h5>Skills</h5>
 
-      <div className="row">
-        <h5>Skills</h5>
+      <div className="row skillsBox">
         {props.learnedSkillsArray.length > 0 && (
           <div>
             <div>
@@ -353,8 +354,9 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </div>
         )}
       </div>
-      <div className="row">
-        <h5>Feats</h5>
+      <h5>Feats</h5>
+
+      <div className="row skillsBox">
         {props.featArray.map((item, index) => (
                   <div key={index}>{item.featName}</div>
                 ))}
