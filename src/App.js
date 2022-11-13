@@ -495,15 +495,17 @@ function App() {
               spellArray={spellArray}
               baseAttack={baseAttack}
             />
+          </div>
+<div style={{textAlign: "center"}}>
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>
                 {({ handlePrint }) => (
-                  <Button onClick={handlePrint}>Print</Button>
+                  <p><Button variant="secondary" onClick={handlePrint}>Print</Button></p>
                 )}
               </PrintContextConsumer>
             </ReactToPrint>
+          <p><Button variant="secondary" onClick={handleClose}>Close</Button></p>
           </div>
-          <Button onClick={handleClose}>Close</Button>
         </Modal.Body>
       </Modal>
     </>
