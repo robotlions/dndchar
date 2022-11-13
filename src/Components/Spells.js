@@ -142,13 +142,24 @@ export const SpellsMain = (props) => {
 
 
   useEffect(() => {
-    let mod = calculateModifier(props.int);
+    // let mod = calculateModifier(props.int);
+    let classMod;
     if (
       props.selectedClass !== "Barbarian" &&
       props.selectedClass !== "Monk" &&
       props.selectedClass !== "Rogue" &&
       props.selectedClass !== "Fighter"
     ) {
+      if(props.selectedClass==="Sorcerer" || props.selectedClass==="Bard"){
+        classMod=props.chr
+      }
+      if(props.selectedClass==="Wizard"){
+        classMod=props.int
+      }
+      if(props.selectedClass==="Cleric" || props.selectedClass==="Druid" || props.selectedClass==="Paladin" || props.selectedClass==="Ranger"){
+classMod=props.wis
+      }
+      let mod = calculateModifier(classMod)
       Object.entries(
         KnownSpells[props.selectedClass][props.level]
       ).map(([key, value], index) =>

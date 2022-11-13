@@ -449,6 +449,7 @@ function App() {
                   setSpellArray={setSpellArray}
                   int={int}
                   wis={wis}
+                  chr={chr}
                   // spellCaster={spellCaster}
                 />
               ) : (
