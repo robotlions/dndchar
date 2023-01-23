@@ -57,11 +57,14 @@ function App() {
   ReactGA.initialize([{trackingId: "G-XFYYE6YFJB"}]);
 
   //this reports the user clicking on the 'print character' button as a Google Analytics custom event
-  const tagPrintButton = () => ReactGA.event({
-    category: "button_press",
-    action: "print_character_button_press",
-    label: "printButtonPress"
+  function tagButtonEvent(e){
+    ReactGA.event({
+    category: e.target.name,
+    action: e.target.name,
   });
+}
+
+  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -465,7 +468,9 @@ function App() {
         </Accordion>
         <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
           <div className="col-md-12">
-            <Button variant="secondary" onClick={()=>{tagPrintButton();handleShow()}}>
+            <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{tagButtonEvent(e);handleShow()}}>
+            {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
+              
               View and Print Character
             </Button>
           </div>
