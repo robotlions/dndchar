@@ -1,6 +1,8 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReactGA from "react-ga4";
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
@@ -55,6 +57,20 @@ function App() {
 
   
   ReactGA.initialize([{trackingId: "G-XFYYE6YFJB"}]);
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
+    authDomain: "dnd35charactergenerator.firebaseapp.com",
+    projectId: "dnd35charactergenerator",
+    storageBucket: "dnd35charactergenerator.appspot.com",
+    messagingSenderId: "505264646208",
+    appId: "1:505264646208:web:e9888e241db95ebea0d7a5",
+    measurementId: "G-GP3E2PN6X6"
+  };
+  
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
 
   //this reports the user clicking on the 'print character' button as a Google Analytics custom event
   function tagButtonEvent(e){
