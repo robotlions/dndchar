@@ -53,20 +53,10 @@ function App() {
   const [show, setShow] = useState(false);
   const [baseAttack, setBaseAttack] = useState(0);
 
-  // window.dataLayer = window.dataLayer || [];
-  // function gtag(){dataLayer.push(arguments);}
-  // gtag('js', new Date());
-
-  // gtag('config', 'G-XFYYE6YFJB');
-
-  // const tagPrintButton = () => gtag('event', 'Print button click', {
-  //   'app_name': 'DND35CharGen',
-  //   'screen_name': 'AppJS'
-  // });
-
-  // const TRACKING_ID = "G-XFYYE6YFJB";
+  
   ReactGA.initialize([{trackingId: "G-XFYYE6YFJB"}]);
 
+  //this reports the user clicking on the 'print character' button as a Google Analytics custom event
   const tagPrintButton = () => ReactGA.event({
     category: "button_press",
     action: "print_character_button_press",
@@ -81,10 +71,6 @@ function App() {
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
 
   
-
-  // useEffect(() => {
-  //   setUpdated(!updated);
-  // }, [setLearnedSkillsArray, learnedSkillsArray, updated]);
 
   useEffect(() => {
     if (
