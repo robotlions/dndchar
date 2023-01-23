@@ -53,6 +53,26 @@ function App() {
   const [show, setShow] = useState(false);
   const [baseAttack, setBaseAttack] = useState(0);
 
+  // window.dataLayer = window.dataLayer || [];
+  // function gtag(){dataLayer.push(arguments);}
+  // gtag('js', new Date());
+
+  // gtag('config', 'G-XFYYE6YFJB');
+
+  // const tagPrintButton = () => gtag('event', 'Print button click', {
+  //   'app_name': 'DND35CharGen',
+  //   'screen_name': 'AppJS'
+  // });
+
+  // const TRACKING_ID = "G-XFYYE6YFJB";
+  ReactGA.initialize([{trackingId: "G-XFYYE6YFJB"}]);
+
+  const tagPrintButton = () => ReactGA.event({
+    category: "button_press",
+    action: "print_character_button_press",
+    label: "printButtonPress"
+  });
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const ref = useRef();
@@ -60,8 +80,7 @@ function App() {
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
 
-  const TRACKING_ID = "G-XFYYE6YFJB";
-  ReactGA.initialize(TRACKING_ID);
+  
 
   // useEffect(() => {
   //   setUpdated(!updated);
@@ -460,7 +479,7 @@ function App() {
         </Accordion>
         <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
           <div className="col-md-12">
-            <Button variant="secondary" onClick={handleShow}>
+            <Button variant="secondary" onClick={()=>{tagPrintButton();handleShow()}}>
               View and Print Character
             </Button>
           </div>
