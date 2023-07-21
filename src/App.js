@@ -1,6 +1,5 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactGA from "react-ga4";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useEffect, useState, useRef } from "react";
@@ -56,7 +55,6 @@ function App() {
   const [baseAttack, setBaseAttack] = useState(0);
 
   
-  ReactGA.initialize([{trackingId: "G-XFYYE6YFJB"}]);
 
   const firebaseConfig = {
     apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
@@ -72,14 +70,7 @@ function App() {
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
 
-  //this reports the user clicking on the 'print character' button as a Google Analytics custom event
-  function tagButtonEvent(e){
-    ReactGA.event({
-    category: e.target.name,
-    action: e.target.name,
-  });
-}
-
+ 
   
 
   const handleClose = () => setShow(false);
@@ -484,7 +475,7 @@ function App() {
         </Accordion>
         <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
           <div className="col-md-12">
-            <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{tagButtonEvent(e);handleShow()}}>
+            <Button name="printCharacterButton" variant="secondary" onClick={(e)=>handleShow()}>
             {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
               
               View and Print Character
