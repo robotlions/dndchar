@@ -49,8 +49,8 @@ export const TopNav = (props) => {
           <Navbar.Collapse   style={{textAlign: "right"}} id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link onClick={() => handleShow()}>About</Nav.Link>
-              <Nav.Link href="https://www.robotlions.com" target="_blank">
-                robotlions.com
+              <Nav.Link href="https://chadmusick.com" target="_blank">
+                chadmusick.com
               </Nav.Link>
 
               <NavDropdown title="Options" id="basic-nav-dropdown">
@@ -103,7 +103,7 @@ export const TopNav = (props) => {
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body style={{ textAlign: "center" }}>
           <h5>Character Generator for Dungeons and Dragons edition 3.5</h5>
-          <p>Copyright 2022 by Robot Lions</p>
+          <p>Copyright 2023 by Chad Musick</p>
           <br />
           <p>
             Based on Dungeons and Dragons Players Handbook
