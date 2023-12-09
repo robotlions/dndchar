@@ -42,7 +42,7 @@ export const TopNav = (props) => {
           >
             <img alt="modern dnd logo" src={dndModLogo} style={{maxWidth:"30%"}}></img>
             <h3 style={{ fontFamily: fontCheck }}>
-              3.5 Edition<br/>Character Generator
+              3.5 Edition<br/>Character Creator
             </h3>
           </Navbar.Brand>
           <Navbar.Toggle className="ms-auto" aria-controls="basic-navbar-nav" />
@@ -102,7 +102,7 @@ export const TopNav = (props) => {
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body style={{ textAlign: "center" }}>
-          <h5>Character Generator for Dungeons and Dragons edition 3.5</h5>
+          <h5>Character Creator for Dungeons and Dragons edition 3.5</h5>
           <p>Copyright 2023 by Chad Musick</p>
           <br />
           <p>
