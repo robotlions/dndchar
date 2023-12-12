@@ -46,7 +46,7 @@ export const TopNav = (props) => {
             </h3>
           </Navbar.Brand>
           <Navbar.Toggle className="ms-auto" aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse   style={{textAlign: "right"}} id="basic-navbar-nav">
+          <Navbar.Collapse   style={{textAlign: "center"}} id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link onClick={() => handleShow()}>About</Nav.Link>
               <Nav.Link href="https://chadmusick.com" target="_blank">
