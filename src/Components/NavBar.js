@@ -31,6 +31,8 @@ export const TopNav = (props) => {
   }
 
   const fontCheck = props.fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
+  const currentDate = new Date();
+  let currentYear = currentDate.getFullYear()
 
   return (
     <>
@@ -103,7 +105,7 @@ export const TopNav = (props) => {
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body style={{ textAlign: "center" }}>
           <h5>Character Creator for Dungeons and Dragons edition 3.5</h5>
-          <p>Copyright 2024 by Chad Musick</p>
+          <p>Copyright {currentYear} by Chad Musick</p>
           <br />
           <p>
             Based on Dungeons and Dragons Players Handbook
