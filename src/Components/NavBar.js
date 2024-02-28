@@ -103,7 +103,7 @@ export const TopNav = (props) => {
         <Modal.Header closeButton></Modal.Header>
         <Modal.Body style={{ textAlign: "center" }}>
           <h5>Character Creator for Dungeons and Dragons edition 3.5</h5>
-          <p>Copyright 2023 by Chad Musick</p>
+          <p>Copyright 2024 by Chad Musick</p>
           <br />
           <p>
             Based on Dungeons and Dragons Players Handbook
@@ -121,11 +121,7 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
-          <h5>
-            <em>
-              This is a work in progress. Some features are not yet functional.
-            </em>
-          </h5>
+          
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
