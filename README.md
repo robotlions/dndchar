@@ -12,8 +12,8 @@ This assumes that you have Node installed.
 
 Clone this repository then add all dependencies with:
 
-* * npm install
+*npm install*
 
 To run:
 
-* * npm run start
+*npm run start*
