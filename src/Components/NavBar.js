@@ -5,7 +5,8 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import {useState } from "react";
-import dndModLogo from "../images/dndModLogo.png";
+// import dndModLogo from "../images/dndModLogo.png";
+import dnd2000Logo from "../images/dnd2000Logo.png";
 
 export const TopNav = (props) => {
   const [show, setShow] = useState(false);
@@ -42,7 +43,7 @@ export const TopNav = (props) => {
             style={{ textAlign: "center", whiteSpace: "normal" }}
             href="#home"
           >
-            <img alt="modern dnd logo" src={dndModLogo} style={{maxWidth:"30%"}}></img>
+            <img alt="modern dnd logo" src={dnd2000Logo} style={{maxWidth:"30%"}}></img>
             <h3 style={{ fontFamily: fontCheck }}>
               3.5 Edition<br/>Character Creator
             </h3>
