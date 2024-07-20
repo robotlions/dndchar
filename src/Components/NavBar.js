@@ -58,7 +58,7 @@ export const TopNav = (props) => {
 
               <NavDropdown title="Options" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1">
-                  <div className="form-check form-switch">
+                  {/* <div className="form-check form-switch">
                     <input
                       className="form-check-input"
                       type="checkbox"
@@ -72,7 +72,7 @@ export const TopNav = (props) => {
                     >
                       Munchkin Mode
                     </label>
-                  </div>
+                  </div> */}
                 </NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
                   <div className="form-check form-switch">

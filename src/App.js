@@ -20,6 +20,7 @@ import Modal from "react-bootstrap/Modal";
 import { BaseAttack } from "./Components/BaseAttack";
 
 function App() {
+  const [modeChosen, setModeChosen] = useState(false);
   const [selectedRace, setSelectedRace] = useState("human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(10);
@@ -54,8 +55,6 @@ function App() {
   const [show, setShow] = useState(false);
   const [baseAttack, setBaseAttack] = useState(0);
 
-  
-
   const firebaseConfig = {
     apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
     authDomain: "dnd35charactergenerator.firebaseapp.com",
@@ -63,15 +62,12 @@ function App() {
     storageBucket: "dnd35charactergenerator.appspot.com",
     messagingSenderId: "505264646208",
     appId: "1:505264646208:web:e9888e241db95ebea0d7a5",
-    measurementId: "G-GP3E2PN6X6"
+    measurementId: "G-GP3E2PN6X6",
   };
-  
+
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
-
- 
-  
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -79,8 +75,6 @@ function App() {
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
-
-  
 
   useEffect(() => {
     if (
@@ -136,6 +130,55 @@ function App() {
         </p>
       </div>
     ));
+  }
+  if (modeChosen === false) {
+    return (
+      <>
+        <TopNav
+          fontThemeFantasy={fontThemeFantasy}
+          setFontThemeFantasy={setFontThemeFantasy}
+          setMunchkinMode={setMunchkinMode}
+        />
+        <div className={
+          fontThemeFantasy === false
+            ? "container font-standard"
+            : "container font-fantasy"
+        } style={{ textAlign: "center" }}>
+         <h5 style={{paddingTop:"20px",marginBottom:"20px"}}>Would you like to create your Dungeons and Dragons 3.5 character in <strong>lawful mode</strong> or <strong>chaotic mode</strong>?
+         </h5>
+        
+          <div className="row">
+            <div className="col-lg-6" style={{marginBottom: "10px"}}>
+         <p><h4 style={{ fontFamily: fontCheck }}>Lawful</h4>Roll random ability scores and create a first-level character in accordance with the 2003 <em>Player's Handbook</em>.</p>
+<div className="row">
+  <div className="col">
+              <Button
+                variant="secondary"
+                onClick={() => setModeChosen(true)}
+              >Lawful</Button>
+              </div>
+              </div>
+              </div>
+             
+              <div className="col-lg-6">
+         <p><h4 style={{ fontFamily: fontCheck }}>Chaotic</h4> Manually set level and ability scores. Start with a million silver. We disavow all characters made this way.</p>
+         <div className="row">
+         <div className="col">
+              <Button
+                variant="secondary"
+                onClick={() => {
+                  setMunchkinMode(true);
+                  setModeChosen(true);
+                }}
+              >
+                Chaotic
+              </Button>
+              </div></div>
+              </div>
+          </div>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -226,10 +269,14 @@ function App() {
                   {/* the disabled component allows for changing the level, but it's deactivated for now because
           I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
                   Level
-                  {munchkinMode===true ? <CharInfo.Level
-                    setBasicEdited={setBasicEdited}
-                    setLevel={setLevel}
-                  /> : <p>1</p>}
+                  {munchkinMode === true ? (
+                    <CharInfo.Level
+                      setBasicEdited={setBasicEdited}
+                      setLevel={setLevel}
+                    />
+                  ) : (
+                    <p>1</p>
+                  )}
                 </div>
                 <div className="col">
                   Hit Points
@@ -475,9 +522,12 @@ function App() {
         </Accordion>
         <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
           <div className="col-md-12">
-            <Button name="printCharacterButton" variant="secondary" onClick={(e)=>handleShow()}>
-            {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
-              
+            <Button
+              name="printCharacterButton"
+              variant="secondary"
+              onClick={(e) => handleShow()}
+            >
+              {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
               View and Print Character
             </Button>
           </div>
@@ -513,15 +563,23 @@ function App() {
               baseAttack={baseAttack}
             />
           </div>
-<div style={{textAlign: "center"}}>
+          <div style={{ textAlign: "center" }}>
             <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
               <PrintContextConsumer>
                 {({ handlePrint }) => (
-                  <p><Button variant="secondary" onClick={handlePrint}>Print</Button></p>
+                  <p>
+                    <Button variant="secondary" onClick={handlePrint}>
+                      Print
+                    </Button>
+                  </p>
                 )}
               </PrintContextConsumer>
             </ReactToPrint>
-          <p><Button variant="secondary" onClick={handleClose}>Close</Button></p>
+            <p>
+              <Button variant="secondary" onClick={handleClose}>
+                Close
+              </Button>
+            </p>
           </div>
         </Modal.Body>
       </Modal>
