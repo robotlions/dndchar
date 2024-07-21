@@ -22,6 +22,10 @@
   }
 }
 
+a.nav-link.active{
+  color: rgb(102, 108, 109) !important
+}
+
 a {
   text-decoration: none;
   color: rgb(102, 108, 109);

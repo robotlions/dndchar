@@ -102,6 +102,7 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
+          <p>Logo copyright by Wizards of the Coast, Inc</p>
           <p>
             Email: <a href="mailto:info@robotlions.com">info@robotlions.com</a>
           </p>
