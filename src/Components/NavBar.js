@@ -41,7 +41,7 @@ export const TopNav = (props) => {
         <Container>
           <Navbar.Brand
             style={{ textAlign: "center", whiteSpace: "normal" }}
-            href="#home"
+           
           >
             <img alt="modern dnd logo" src={dnd2000Logo} style={{maxWidth:"30%"}}></img>
             <h3 style={{ fontFamily: fontCheck }}>
@@ -52,8 +52,8 @@ export const TopNav = (props) => {
           <Navbar.Collapse   style={{textAlign: "center"}} id="basic-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link onClick={() => handleShow()}>About</Nav.Link>
-              <Nav.Link href="https://chadmusick.com" target="_blank">
-                chadmusick.com
+              <Nav.Link href="https://robotlions.com" target="_blank">
+                robotlions.com
               </Nav.Link>
 
               <NavDropdown title="Options" id="basic-nav-dropdown">
