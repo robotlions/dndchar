@@ -17,7 +17,10 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import {BottomNav} from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
+
+
 
 function App() {
   const [modeChosen, setModeChosen] = useState(false);
@@ -75,6 +78,8 @@ function App() {
 
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
+
+  
 
   useEffect(() => {
     if (
@@ -192,6 +197,7 @@ function App() {
               </div>
             </div>
           </div>
+          <BottomNav />
         </div>
       </>
     );
@@ -605,6 +611,8 @@ function App() {
           </div>
         </Modal.Body>
       </Modal>
+      <BottomNav />
+    
     </>
   );
 }

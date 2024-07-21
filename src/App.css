@@ -22,6 +22,45 @@
   }
 }
 
+a {
+  text-decoration: none;
+  color: rgb(102, 108, 109);
+}
+
+a:link {
+  color: rgb(102, 108, 109);
+}
+
+a:visited {
+  color: rgb(102, 108, 109);
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+
+
+.brandRow {
+  background-color: white;
+  height: 80px;
+  padding-right: 75px;
+  padding-top: 20px;
+}
+
+
+
+.attInput{
+  text-align: center;
+  width: 3rem;
+}
+
+.btn {
+  box-shadow: 2px 2px 2px lightgray;
+  /* border-radius: 5px!important; */
+}
+
 .font-standard {
   font-family: gotham-book, sans-serif;
 }
@@ -30,29 +69,14 @@
   font-family: eagle-lake, fantasy, sans-serif;
 }
 
-/* .container{
-  font-family: fantasy
-} */
-
-table {
-  width: 100%;
-  text-align: center;
-}
-
-/* .accTitle{
-  width: 100%;
-  text-align: left;
-  
-} */
-
-.attInput{
-  text-align: center;
-  width: 3rem;
-}
-
 .inventoryBox{
   border: 1px solid black;
   min-height: 200px;
+}
+
+.linkLogos {
+  font-size: 40px;
+  color: rgb(223, 227, 228);
 }
 
 .listFrame {
@@ -81,7 +105,25 @@ table {
   background-color: aquamarine;
 }
 
-.btn {
-  box-shadow: 2px 2px 2px lightgray;
-  /* border-radius: 5px!important; */
+
+
+#gitLogo:hover {
+  color: black;
+}
+
+#mailLogo:hover {
+  color: black;
+}
+
+#standardLogo{
+  max-width: 50%;
+  margin-top: 20px;
+  margin-bottom:50px;
+}
+
+@media (max-width: 760px) {
+ 
+  .brandRow {
+    padding-right: 30px;
+  }
 }

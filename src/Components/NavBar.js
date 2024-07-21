@@ -124,6 +124,8 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
+          <p>Email: <a href="mailto:info@robotlions.com">info@robotlions.com</a></p>
+          <p>Website: <a href="https://robotlions.com/">robotlions.com</a></p>
           
         </Modal.Body>
         <Modal.Footer>
