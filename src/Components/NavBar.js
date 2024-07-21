@@ -4,7 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
-import {useState } from "react";
+import { useState } from "react";
 import dnd2000Logo from "../images/dnd2000Logo.png";
 
 export const TopNav = (props) => {
@@ -21,19 +21,15 @@ export const TopNav = (props) => {
     }
   }
 
-
-  const fontCheck = props.fontThemeFantasy===true ? "eagle-lake" : "gotham-black"
+  const fontCheck =
+    props.fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
   const currentDate = new Date();
-  let currentYear = currentDate.getFullYear()
+  let currentYear = currentDate.getFullYear();
 
   return (
     <>
-    
-           
-          
       <Navbar bg="light" expand="lg">
         <Container>
-          
           <Navbar.Toggle className="ml-auto" aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav>
@@ -41,37 +37,48 @@ export const TopNav = (props) => {
               <Nav.Link href="https://robotlions.com" target="_blank">
                 robotlions.com
               </Nav.Link>
-              <Nav.Item>
-              <div className="form-check form-switch" style={{paddingTop:"8px"}}>
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      role="switch"
-                      onChange={(event) => handleFontSwitch(event)}
-                      id="flexSwitchCheckFont"
-                    />
-                    <label
-                    style={{color: "rgb(102, 108, 109)"}}
-                      className="form-check-label"
-                      htmlFor="flexSwitchCheckFont"
-                    >
-                      Rad fantasy font
-                    </label>
-                  </div>
-              </Nav.Item>
-
-
             </Nav>
+            <div className="d-flex" style={{marginLeft:"auto"}}>
+              <div
+                className="form-check form-switch"
+                
+              >
+                <label
+                  style={{ color: "rgb(102, 108, 109)" }}
+                  className="form-check-label"
+                  htmlFor="flexSwitchCheckFont"
+                >
+                  Rad fantasy font
+                </label>
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  role="switch"
+                  onChange={(event) => handleFontSwitch(event)}
+                  id="flexSwitchCheckFont"
+                />
+              </div>
+            </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <img alt="modern dnd logo" src={dnd2000Logo} style={{display: "block",
-  marginLeft: "auto", marginRight: "auto",maxWidth:"50%"}}></img>
-  <div style={{textAlign:"center"}}>
-            <h3 style={{ fontFamily: fontCheck }}>
-              3.5 Edition<br/>Character Creator
-            </h3>
-            </div>
+      <img
+        alt="modern dnd logo"
+        src={dnd2000Logo}
+        style={{
+          display: "block",
+          marginLeft: "auto",
+          marginRight: "auto",
+          maxWidth: "50%",
+        }}
+      ></img>
+      <div style={{ textAlign: "center" }}>
+        <h3 style={{ fontFamily: fontCheck }}>
+          3.5 Edition
+          <br />
+          Character Creator
+        </h3>
+      </div>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton></Modal.Header>
@@ -95,9 +102,12 @@ export const TopNav = (props) => {
             <br />
             created by E. Gary Gygax and Dave Arneson
           </p>
-          <p>Email: <a href="mailto:info@robotlions.com">info@robotlions.com</a></p>
-          <p>Website: <a href="https://robotlions.com/">robotlions.com</a></p>
-          
+          <p>
+            Email: <a href="mailto:info@robotlions.com">info@robotlions.com</a>
+          </p>
+          <p>
+            Website: <a href="https://robotlions.com/">robotlions.com</a>
+          </p>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
