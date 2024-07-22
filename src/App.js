@@ -19,7 +19,6 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {BottomNav} from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
-import { LawOrChaos } from "./Components/LawOrChaos";
 
 
 function App() {
