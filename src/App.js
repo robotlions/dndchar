@@ -19,7 +19,7 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {BottomNav} from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
-
+import { LawOrChaos } from "./Components/LawOrChaos";
 
 
 function App() {
@@ -160,7 +160,7 @@ function App() {
           <div className="row">
             <div className="col-lg-6" style={{ marginBottom: "10px" }}>
               <p>
-                <h4 style={{ fontFamily: fontCheck }}>Lawful</h4>Roll random
+                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>Roll random
                 ability scores and create a first-level character in accordance
                 with the 2003 <em>Player's Handbook</em>.
               </p>
@@ -178,7 +178,7 @@ function App() {
 
             <div className="col-lg-6">
               <p>
-                <h4 style={{ fontFamily: fontCheck }}>Chaotic</h4> Manually set
+                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode</h4> Manually set
                 level and ability scores. Start with a million silver. We
                 disavow all characters made this way.
               </p>
