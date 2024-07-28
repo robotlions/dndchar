@@ -159,8 +159,7 @@ function App() {
           <div className="row">
             <div className="col-lg-6" style={{ marginBottom: "10px" }}>
               <p>
-                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>Roll random
-                ability scores and create a first-level character in accordance
+                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>By-the-book. Create a first-level character in accordance
                 with the 2003 <em>Player's Handbook</em>.
               </p>
               <div className="row">
