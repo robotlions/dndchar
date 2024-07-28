@@ -17,6 +17,7 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import Card from "react-bootstrap/Card"
 import {BottomNav} from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
 
@@ -78,6 +79,7 @@ function App() {
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
 
+  
   
 
   useEffect(() => {
@@ -159,8 +161,8 @@ function App() {
           <div className="row">
             <div className="col-lg-6" style={{ marginBottom: "10px" }}>
               <p>
-                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>By-the-book. Create a first-level character in accordance
-                with the 2003 <em>Player's Handbook</em>.
+                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>Create a first-level character in accordance
+                with the <em>Player's Handbook</em>.
               </p>
               <div className="row">
                 <div className="col">
@@ -176,9 +178,8 @@ function App() {
 
             <div className="col-lg-6">
               <p>
-                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode</h4> Manually set
-                level and ability scores. Start with a million silver. We
-                disavow all characters made this way.
+                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode</h4>Manually set
+                level and ability scores and start with a million silver.
               </p>
               <div className="row">
                 <div className="col">
