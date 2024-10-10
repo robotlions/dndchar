@@ -27,6 +27,10 @@ export const SkillEntry = (props) => {
   const [skillRank, setSkillRank] = useState(0);
 
   function addSkillRank() {
+    if (props.skillPoints === 0) {
+      return alert("Not enough skill points");
+    }
+
     if (skillRank === 0) {
       learnedSkills.push(props.item);
       props.triggerArray();
@@ -40,9 +44,7 @@ export const SkillEntry = (props) => {
       return alert("This skill is maxed out.");
     }
 
-    if (props.skillPoints === 0) {
-      return alert("Not enough skill points");
-    }
+   
     if (props.skillPoints <= -1) {
       return alert(
         "Not enough skill points. Did you remember to roll your character's abilities?"
@@ -161,15 +163,19 @@ export const SkillsMain = (props) => {
 
   return (
     <>
-      <div>Skill Points: {skillPoints}</div>
-
+      <div style={{fontSize:"large",fontWeight:"bold"}}>Skill Points Remaining: {skillPoints}</div>
+<br/>
       <h5>
-        Class Skills - <em>1 point</em>
+        Class Skills <em>(Spend 1 point)</em>
       </h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayClass}</div>
+      <br/>
       <h5>
-        Cross-Class Skills - <em>2 points</em>
+        Cross-Class Skills <em>(Spend 2 points)</em>
       </h5>
+      <br/>
+      <div style={{fontSize:"large",fontWeight:"bold"}}>Skill Points Remaining: {skillPoints}</div>
+      <br/>
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
     </>
   );
