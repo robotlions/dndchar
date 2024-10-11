@@ -290,8 +290,7 @@ function App() {
                 className="row justify-content-evenly"
               >
                 <div className="col">
-                  {/* the disabled component allows for changing the level, but it's deactivated for now because
-          I don't plan to build out all of the tables necessary to make a character beyond level 1 */}
+                
                   Level
                   {munchkinMode === true ? (
                     <CharInfo.Level

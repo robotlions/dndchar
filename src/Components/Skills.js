@@ -31,11 +31,6 @@ export const SkillEntry = (props) => {
       return alert("Not enough skill points");
     }
 
-    if (skillRank === 0) {
-      learnedSkills.push(props.item);
-      props.triggerArray();
-    }
-
     if (classSkill === true && skillRank === props.level + 3) {
       return alert("This skill is maxed out.");
     }
@@ -44,12 +39,17 @@ export const SkillEntry = (props) => {
       return alert("This skill is maxed out.");
     }
 
-   
     if (props.skillPoints <= -1) {
       return alert(
         "Not enough skill points. Did you remember to roll your character's abilities?"
       );
     }
+
+    if (skillRank === 0) {
+      learnedSkills.push(props.item);
+      props.triggerArray();
+    }
+   
     if (classSkill === true) {
       let iOfA = learnedSkills.indexOf(props.item);
 
