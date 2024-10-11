@@ -31,6 +31,10 @@ export const SkillEntry = (props) => {
       return alert("Not enough skill points");
     }
 
+    if (props.skillPoints < 2 && classSkill === false){
+      return alert("Not enough skill points")
+    }
+
     if (classSkill === true && skillRank === props.level + 3) {
       return alert("This skill is maxed out.");
     }
