@@ -10,6 +10,7 @@ import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
 import * as Skills from "./Components/Skills";
 import { TopNav } from "./Components/NavBar";
+import { QuickScores } from "./Components/QuickScores";
 import { Accordion } from "react-bootstrap";
 import * as Feats from "./Components/Feats";
 import * as Spells from "./Components/Spells";
@@ -24,6 +25,7 @@ import { BaseAttack } from "./Components/BaseAttack";
 
 function App() {
   const [modeChosen, setModeChosen] = useState(false);
+  const [quickMode, setQuickMode] = useState(false);
   const [selectedRace, setSelectedRace] = useState("human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
   const [con, setCon] = useState(10);
@@ -58,19 +60,19 @@ function App() {
   const [show, setShow] = useState(false);
   const [baseAttack, setBaseAttack] = useState(0);
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
-    authDomain: "dnd35charactergenerator.firebaseapp.com",
-    projectId: "dnd35charactergenerator",
-    storageBucket: "dnd35charactergenerator.appspot.com",
-    messagingSenderId: "505264646208",
-    appId: "1:505264646208:web:e9888e241db95ebea0d7a5",
-    measurementId: "G-GP3E2PN6X6",
-  };
+  // const firebaseConfig = {
+  //   apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
+  //   authDomain: "dnd35charactergenerator.firebaseapp.com",
+  //   projectId: "dnd35charactergenerator",
+  //   storageBucket: "dnd35charactergenerator.appspot.com",
+  //   messagingSenderId: "505264646208",
+  //   appId: "1:505264646208:web:e9888e241db95ebea0d7a5",
+  //   measurementId: "G-GP3E2PN6X6",
+  // };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  // const app = initializeApp(firebaseConfig);
+  // const analytics = getAnalytics(app);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -137,9 +139,87 @@ function App() {
       </div>
     ));
   }
+
+  function rando(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+  }
+
+
+  function quickRollStats(){
+    let statArray = [];
+    let largestInt;
+    let abilFunc;
+    let abilArray=[setStr, setInt, setWis, setDex, setCon, setChr];
+    for(let i=0;i<6;i++){
+      let x = rando(3,6) + rando(3,6) + rando(3,6);
+      statArray.push(Number(x))
+    }
+    largestInt = Math.max(...statArray);
+    // console.log(largestInt)
+
+    // console.log(statArray)
+    
+    // if(selectedClass==="Fighter"){
+    //   abilFunc = setStr
+    // }
+
+    if(["Fighter", "Ranger", "Paladain", "Barbarian"].includes(selectedClass)){
+      abilFunc = setStr
+    }
+    else if(["Monk", "Rogue"].includes(selectedClass)){
+      abilFunc = setDex
+    }
+    else if(["Sorcerer, Bard"].includes(selectedClass)){
+      abilFunc = setChr
+    }
+    else if(["Druid", "Cleric"].includes(selectedClass)){
+      abilFunc = setWis
+    }
+    else if(["Wizard"].includes(selectedClass)){
+      abilFunc = setInt
+    }
+    else{
+      abilFunc = setCon
+    }
+    
+
+    abilFunc(largestInt)
+    statArray.splice(statArray.indexOf(largestInt), 1);
+    abilArray.splice(abilArray.indexOf(abilFunc), 1);
+
+    
+
+    for(let i=0;i<abilArray.length;i++){
+      let r = rando(0,abilArray.length-1);
+      abilFunc = abilArray[r];
+      abilFunc(statArray[0]);
+      statArray.splice(0,1)
+      abilArray.splice(abilArray.indexOf(abilFunc), 1);
+    }
+    
+    
+  }
+
+function createInstantCharacter(){
+  setLevel(1);
+  setCharName("Chuckles");
+  setStr(10+(rando(1,6)) + (["Fighter", "Ranger", "Paladin", "Barbarian"].includes(selectedClass) ? 2 : 0));
+  setInt(10+(rando(1,6)) + (["Wizard"].includes(selectedClass) ? 2 : 0));
+  setWis(10+(rando(1,6)) + (["Cleric", "Druid"].includes(selectedClass) ? 2 : 0));
+  setDex(10+(rando(1,6)) + (["Rogue", "Monk"].includes(selectedClass) ? 2 : 0));
+  setCon(10+(rando(1,6)) + (["Barbarian"].includes(selectedClass) ? 2 : 0));
+  setChr(10+(rando(1,6)) + (["Bard", "Sorcerer"].includes(selectedClass) ? 2 : 0));
+
+  
+
+
+
+}
+
+
   if (modeChosen === false) {
     return (
-      <>
+      <div style={{minHeight:1000}}>
         <TopNav
           fontThemeFantasy={fontThemeFantasy}
           setFontThemeFantasy={setFontThemeFantasy}
@@ -153,17 +233,15 @@ function App() {
           }
           style={{ textAlign: "center" }}
         >
-          <h5 style={{ paddingTop: "20px", marginBottom: "20px" }}>
-            Would you like to create your Dungeons and Dragons 3.5 character in{" "}
-            <strong>lawful mode</strong> or <strong>chaotic mode</strong>?
+          <h5 style={{ paddingTop: "20px", marginBottom: "50px" }}>
+           How would you like to create your Dungeons and Dragons 3.5 character?
           </h5>
-
           <div className="row">
-            <div className="col-lg-6" style={{ marginBottom: "10px" }}>
-              <p>
-                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode</h4>Create a first-level character in accordance
+            <div className="col-lg-4" style={{ marginBottom: "10px" }}>
+              <div>
+                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode<br/>(Standard)</h4>Roll up a first-level character in accordance
                 with the <em>Player's Handbook</em>.
-              </p>
+              </div>
               <div className="row">
                 <div className="col">
                   <Button
@@ -175,12 +253,30 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="col-lg-4" style={{ marginBottom: "10px" }}>
+              <div>
+                <h4 style={{ fontFamily: fontCheck }}>Neutral Mode<br/>(Quick)</h4>Instantly create a randomized character with the touch of a button.
+              </div>
+              <div className="row">
+                <div className="col">
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      setQuickMode(true);
+                      setModeChosen(true);
+                    }}
+                  >
+                    Neutral Mode
+                  </Button>
+                </div>
+              </div>
+            </div>
 
-            <div className="col-lg-6">
-              <p>
-                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode</h4>Manually set
+            <div className="col-lg-4">
+              <div>
+                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode<br/>(Custom)</h4>Manually set
                 level and ability scores and start with a million silver.
-              </p>
+              </div>
               <div className="row">
                 <div className="col">
                   <Button
@@ -196,10 +292,84 @@ function App() {
               </div>
             </div>
           </div>
+          <br/>
+          
           <BottomNav />
         </div>
-      </>
+      </div>
     );
+  }
+
+  if (modeChosen===true && quickMode===true){
+    return(<>
+      <div className="row">
+        <div className="col-1">
+                  <RaceSelectDropdown
+                    setBasicEdited={setBasicEdited}
+                    setSelectedRace={setSelectedRace}
+                  />
+                </div>
+                <div className="col-1">
+                  <ClassSelectDropdown
+                    setBasicEdited={setBasicEdited}
+                    setSelectedClass={setSelectedClass}
+                  />
+                </div>
+                <div className="col-1">
+                  <CharInfo.AlignmentSelect
+                    setBasicEdited={setBasicEdited}
+                    setAlignment={setAlignment}
+                  />
+                </div>
+                <div className="row">
+                  <div className="col-1">
+                    <button onClick={()=>createInstantCharacter()}>Create!</button>
+                  </div>
+                  <div className="col-1">
+                    <button onClick={()=>quickRollStats()}>Quick Roll</button>
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-2">
+          <p>Name: {charName!=="Basic Info" ? charName : ""}</p>
+                  </div>
+                  <div className="col-2">
+          <p>Level: {level}</p>
+                  </div>
+                  <div className="col-2">
+          <p>Race: {selectedRace.charAt(0).toUpperCase()+selectedRace.slice(1)}</p>
+                  </div>
+                  <div className="col-2">
+          <p>Class: {selectedClass}</p>
+                  </div>
+                  <div className="col-2">
+          <p>Alignment: {alignment}</p>
+                  </div>
+                </div>
+              
+      </div>
+      <div className="row">
+     
+                  <QuickScores
+                  str={str}
+                  chr={chr}
+                  int={int}
+                  wis={wis}
+                  dex={dex}
+                  con={con}
+                    setStr={setStr}
+                    setChr={setChr}
+                    setInt={setInt}
+                    setWis={setWis}
+                    setDex={setDex}
+                    setCon={setCon}
+                    selectedRace={selectedRace}
+                    setRolled={setRolled}
+                    munchkinMode={munchkinMode}
+                  />
+      </div>
+  </>
+    )
   }
 
   return (
