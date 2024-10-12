@@ -31,7 +31,7 @@ export const QuickScores = (props) => {
   }
 
   return (
-    <div>
+    <div style={{fontSize:"small"}}>
       <table>
         <thead>
           <tr>

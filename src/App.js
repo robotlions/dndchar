@@ -203,13 +203,7 @@ function App() {
 function createInstantCharacter(){
   setLevel(1);
   setCharName("Chuckles");
-  setStr(10+(rando(1,6)) + (["Fighter", "Ranger", "Paladin", "Barbarian"].includes(selectedClass) ? 2 : 0));
-  setInt(10+(rando(1,6)) + (["Wizard"].includes(selectedClass) ? 2 : 0));
-  setWis(10+(rando(1,6)) + (["Cleric", "Druid"].includes(selectedClass) ? 2 : 0));
-  setDex(10+(rando(1,6)) + (["Rogue", "Monk"].includes(selectedClass) ? 2 : 0));
-  setCon(10+(rando(1,6)) + (["Barbarian"].includes(selectedClass) ? 2 : 0));
-  setChr(10+(rando(1,6)) + (["Bard", "Sorcerer"].includes(selectedClass) ? 2 : 0));
-
+  
   
 
 
@@ -266,7 +260,7 @@ function createInstantCharacter(){
                       setModeChosen(true);
                     }}
                   >
-                    Neutral Mode
+                    Neutral
                   </Button>
                 </div>
               </div>
@@ -303,6 +297,11 @@ function createInstantCharacter(){
   if (modeChosen===true && quickMode===true){
     return(<>
       <div className="row">
+        <div className="col-6">
+        <h5>Choose your race, class and alignment, then hit Go!</h5>
+       </div>
+       </div>
+       <div className="row">
         <div className="col-1">
                   <RaceSelectDropdown
                     setBasicEdited={setBasicEdited}
@@ -322,9 +321,7 @@ function createInstantCharacter(){
                   />
                 </div>
                 <div className="row">
-                  <div className="col-1">
-                    <button onClick={()=>createInstantCharacter()}>Create!</button>
-                  </div>
+                 
                   <div className="col-1">
                     <button onClick={()=>quickRollStats()}>Quick Roll</button>
                   </div>
@@ -349,7 +346,7 @@ function createInstantCharacter(){
               
       </div>
       <div className="row">
-     
+     <div className="col-md-3">
                   <QuickScores
                   str={str}
                   chr={chr}
@@ -367,6 +364,45 @@ function createInstantCharacter(){
                     setRolled={setRolled}
                     munchkinMode={munchkinMode}
                   />
+      </div>
+      <div className="col-md-1">
+        <p>second column</p>
+      </div>
+      <div className="col-md-1" style={{textAlign:"center"}}>
+        
+        <span style={{fontWeight:"bold"}}>Hit Points:</span>
+        <CharInfo.HitPoints
+                    setHP={setHP}
+                    level={level}
+                    selectedClass={selectedClass}
+                    con={con}
+                    setCon={setCon}
+                    selectedRace={selectedRace}
+                    featArray={featArray}
+                  />
+                  <br/>
+                  <span style={{fontWeight:"bold"}}>Armor Class:</span>
+                  <CharInfo.ArmorClass
+                    setAC={setAC}
+                    armorBonusTotal={armorBonusTotal}
+                    setBaseAC={setBaseAC}
+                    dex={dex}
+                    selectedRace={selectedRace}
+                  />
+                
+      </div>
+      <div className="col-md-7">
+        
+        fourth column
+                
+      </div>
+      </div>
+      <div className="row">
+        <div className="col">
+        <div className="col-1">
+                    <button onClick={()=>createInstantCharacter()}>Create!</button>
+                  </div>
+        </div>
       </div>
   </>
     )
