@@ -58,6 +58,7 @@ function App() {
   const [spellCaster, setSpellCaster] = useState(false);
   const [show, setShow] = useState(false);
   const [baseAttack, setBaseAttack] = useState(0);
+  const [quickCreate, setQuickCreate] = useState(false);
 
   // const firebaseConfig = {
   //   apiKey: "AIzaSyBSuAK85OYWD-ABAyXvlu1CNmlI1z-Mkb8",
@@ -159,14 +160,14 @@ function App() {
     // }
 
     if (
-      ["Fighter", "Ranger", "Paladain", "Barbarian"].includes(selectedClass)
+      ["Fighter", "Paladain", "Barbarian"].includes(selectedClass)
     ) {
       abilFunc = setStr;
-    } else if (["Monk", "Rogue"].includes(selectedClass)) {
+    } else if (["Rogue", "Ranger"].includes(selectedClass)) {
       abilFunc = setDex;
     } else if (["Sorcerer, Bard"].includes(selectedClass)) {
       abilFunc = setChr;
-    } else if (["Druid", "Cleric"].includes(selectedClass)) {
+    } else if (["Druid", "Cleric", "Monk"].includes(selectedClass)) {
       abilFunc = setWis;
     } else if (["Wizard"].includes(selectedClass)) {
       abilFunc = setInt;
@@ -190,6 +191,8 @@ function App() {
   function createInstantCharacter() {
     setLevel(1);
     setCharName("Chuckles");
+    quickRollStats();
+   setQuickCreate(true);
   }
 
   if (modeChosen === false) {
@@ -322,7 +325,7 @@ function App() {
         </div>
         <div className="row">
           <div className="col-1">
-            <button onClick={() => quickRollStats()}>Quick Roll</button>
+            <button onClick={() => quickRollStats()}>Roll Again</button>
           </div>
         </div>
         <div className="row">
@@ -418,7 +421,7 @@ function App() {
         <div className="row">
         <div className="col-4">
           <p style={{fontWeight:"bold"}}>Weapons and Armor</p>
-        <Inventory.ArmorQuick
+        <Inventory.WeaponsAndArmorQuick
                 setArmorBonusTotal={setArmorBonusTotal}
                 totalSilver={totalSilver}
                 setArmorMoney={setArmorMoney}
@@ -426,7 +429,13 @@ function App() {
                 setUpdated={setUpdated}
                 setArmorArray={setArmorArray}
                 weaponsMoney={weaponsMoney}
+                weaponArray={weaponArray}
+                setWeaponArray={setWeaponArray}
+                selectedClass={selectedClass}
+                quickCreate={quickCreate}
+                setQuickCreate={setQuickCreate}
               />
+             
         </div>
         <div className="col-4">
           <p style={{fontWeight:"bold"}}>Skills</p>

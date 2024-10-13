@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { ArmorTable } from "../Equipment/ArmorTables";
 import { ShieldTable } from "../Equipment/ArmorTables";
+import { ArmorTest } from "../Equipment/ArmorTables";
 import * as WeaponTables from "../Equipment/WeaponTables";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -475,11 +476,11 @@ if(props.munchkinMode===true){
 };
 
 
-export const ArmorQuick = (props) => {
+export const WeaponsAndArmorQuick = (props) => {
   const [show, setShow] = useState(false);
 
  function buyArmor(){
-  Object.values(ArmorTable).filter((item)=>item.armorName==="Leather").map((item, index) => (armorArray.push(item)
+  Object.values(ArmorTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
   ))
   setShow(!show);
   console.log(armorArray)
@@ -488,14 +489,14 @@ export const ArmorQuick = (props) => {
 
   const purchasedArmor = armorArray.map((item, index) => (
     <div key={index} className="row" style={{fontSize:"small"}}>
-      <div className="col">
+      <div className="col-4">
         <p style={{fontWeight: "bold"}}>{item.armorName}</p>
       </div>
-      <div className="col">
+      <div className="col-4">
         <p>Armor Bonus: {item.armorBonus}</p>
       </div>
      
-      <div className="col">
+      <div className="col-4">
         <p>Armor Check: {item.armorCheck}</p>
       </div>
      
@@ -503,20 +504,40 @@ export const ArmorQuick = (props) => {
     </div>
   ));
 
+  const purchasedWeapons = weaponArray.map((item, index) => (
+    <div key={index} className="row" style={{fontSize:"small"}}>
+      <div className="col-4">
+        <p style={{fontWeight: "bold"}}>{item.weaponName}</p>
+      </div>
+      <div className="col-4">
+        <p>Damage: {item.dmgM}</p>
+      </div>
+      <div className="col-4">
+        <p>Type: {item.type}</p>
+      </div>
+      
+    </div>
+  ));
 
 
 useEffect(()=>{ 
-  props.setArmorArray(armorArray)
-}, [props]);
+  if(props.quickCreate===true){
+  Object.values(ArmorTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
+))
+Object.values(WeaponTables.weaponsList).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (weaponArray.push(item)
+   
+))
+  props.setArmorArray(armorArray);
+  props.setWeaponArray(weaponArray)
+}
+}, [props.quickCreate]);
   
 
   return (
     <>
-     <button onClick={()=>buyArmor()}>buy thing</button>
       <div>{purchasedArmor}</div>
-     
-
-      
+      <div>{purchasedWeapons}</div> 
     </>
   );
 };
+
