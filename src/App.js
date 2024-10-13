@@ -18,10 +18,9 @@ import ReactToPrint, { PrintContextConsumer } from "react-to-print";
 import { ComponentToPrint } from "./Components/ComponentToPrint";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import Card from "react-bootstrap/Card"
-import {BottomNav} from "./Components/BottomNav";
+import Card from "react-bootstrap/Card";
+import { BottomNav } from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
-
 
 function App() {
   const [modeChosen, setModeChosen] = useState(false);
@@ -81,9 +80,6 @@ function App() {
   const nameCheck = charName !== "" ? charName : "Basic Info";
   const fontCheck = fontThemeFantasy === true ? "eagle-lake" : "gotham-black";
 
-  
-  
-
   useEffect(() => {
     if (
       selectedClass === "Wizard" ||
@@ -141,79 +137,64 @@ function App() {
   }
 
   function rando(min, max) {
-    return Math.floor(Math.random() * (max - min + 1) ) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-
-  function quickRollStats(){
+  function quickRollStats() {
     let statArray = [];
     let largestInt;
     let abilFunc;
-    let abilArray=[setStr, setInt, setWis, setDex, setCon, setChr];
-    for(let i=0;i<6;i++){
-      let x = rando(3,6) + rando(3,6) + rando(3,6);
-      statArray.push(Number(x))
+    let abilArray = [setStr, setInt, setWis, setDex, setCon, setChr];
+    for (let i = 0; i < 6; i++) {
+      let x = rando(3, 6) + rando(3, 6) + rando(3, 6);
+      statArray.push(Number(x));
     }
     largestInt = Math.max(...statArray);
     // console.log(largestInt)
 
     // console.log(statArray)
-    
+
     // if(selectedClass==="Fighter"){
     //   abilFunc = setStr
     // }
 
-    if(["Fighter", "Ranger", "Paladain", "Barbarian"].includes(selectedClass)){
-      abilFunc = setStr
+    if (
+      ["Fighter", "Ranger", "Paladain", "Barbarian"].includes(selectedClass)
+    ) {
+      abilFunc = setStr;
+    } else if (["Monk", "Rogue"].includes(selectedClass)) {
+      abilFunc = setDex;
+    } else if (["Sorcerer, Bard"].includes(selectedClass)) {
+      abilFunc = setChr;
+    } else if (["Druid", "Cleric"].includes(selectedClass)) {
+      abilFunc = setWis;
+    } else if (["Wizard"].includes(selectedClass)) {
+      abilFunc = setInt;
+    } else {
+      abilFunc = setCon;
     }
-    else if(["Monk", "Rogue"].includes(selectedClass)){
-      abilFunc = setDex
-    }
-    else if(["Sorcerer, Bard"].includes(selectedClass)){
-      abilFunc = setChr
-    }
-    else if(["Druid", "Cleric"].includes(selectedClass)){
-      abilFunc = setWis
-    }
-    else if(["Wizard"].includes(selectedClass)){
-      abilFunc = setInt
-    }
-    else{
-      abilFunc = setCon
-    }
-    
 
-    abilFunc(largestInt)
+    abilFunc(largestInt);
     statArray.splice(statArray.indexOf(largestInt), 1);
     abilArray.splice(abilArray.indexOf(abilFunc), 1);
 
-    
-
-    for(let i=0;i<abilArray.length;i++){
-      let r = rando(0,abilArray.length-1);
+    for (let i = 0; i < abilArray.length; i++) {
+      let r = rando(0, abilArray.length - 1);
       abilFunc = abilArray[r];
       abilFunc(statArray[0]);
-      statArray.splice(0,1)
+      statArray.splice(0, 1);
       abilArray.splice(abilArray.indexOf(abilFunc), 1);
     }
-    
-    
   }
 
-function createInstantCharacter(){
-  setLevel(1);
-  setCharName("Chuckles");
-  
-  
-
-
-
-}
-
+  function createInstantCharacter() {
+    setLevel(1);
+    setCharName("Chuckles");
+  }
 
   if (modeChosen === false) {
     return (
-      <div style={{minHeight:1000}}>
+      <div style={{ minHeight: 1000 }}>
         <TopNav
           fontThemeFantasy={fontThemeFantasy}
           setFontThemeFantasy={setFontThemeFantasy}
@@ -228,13 +209,19 @@ function createInstantCharacter(){
           style={{ textAlign: "center" }}
         >
           <h5 style={{ paddingTop: "20px", marginBottom: "50px" }}>
-           How would you like to create your Dungeons and Dragons 3.5 character?
+            How would you like to create your Dungeons and Dragons 3.5
+            character?
           </h5>
           <div className="row">
             <div className="col-lg-4" style={{ marginBottom: "10px" }}>
               <div>
-                <h4 style={{ fontFamily: fontCheck }}>Lawful Mode<br/>(Standard)</h4>Roll up a first-level character in accordance
-                with the <em>Player's Handbook</em>.
+                <h4 style={{ fontFamily: fontCheck }}>
+                  Lawful Mode
+                  <br />
+                  (Standard)
+                </h4>
+                Roll up a first-level character in accordance with the{" "}
+                <em>Player's Handbook</em>.
               </div>
               <div className="row">
                 <div className="col">
@@ -249,7 +236,13 @@ function createInstantCharacter(){
             </div>
             <div className="col-lg-4" style={{ marginBottom: "10px" }}>
               <div>
-                <h4 style={{ fontFamily: fontCheck }}>Neutral Mode<br/>(Quick)</h4>Instantly create a randomized character with the touch of a button.
+                <h4 style={{ fontFamily: fontCheck }}>
+                  Neutral Mode
+                  <br />
+                  (Quick)
+                </h4>
+                Instantly create a randomized character with the touch of a
+                button.
               </div>
               <div className="row">
                 <div className="col">
@@ -268,8 +261,13 @@ function createInstantCharacter(){
 
             <div className="col-lg-4">
               <div>
-                <h4 style={{ fontFamily: fontCheck }}>Chaotic Mode<br/>(Custom)</h4>Manually set
-                level and ability scores and start with a million silver.
+                <h4 style={{ fontFamily: fontCheck }}>
+                  Chaotic Mode
+                  <br />
+                  (Custom)
+                </h4>
+                Manually set level and ability scores and start with a million
+                silver.
               </div>
               <div className="row">
                 <div className="col">
@@ -286,126 +284,161 @@ function createInstantCharacter(){
               </div>
             </div>
           </div>
-          <br/>
-          
+          <br />
+
           <BottomNav />
         </div>
       </div>
     );
   }
 
-  if (modeChosen===true && quickMode===true){
-    return(<>
-      <div className="row">
-        <div className="col-6">
-        <h5>Choose your race, class and alignment, then hit Go!</h5>
-       </div>
-       </div>
-       <div className="row">
-        <div className="col-1">
-                  <RaceSelectDropdown
-                    setBasicEdited={setBasicEdited}
-                    setSelectedRace={setSelectedRace}
-                  />
-                </div>
-                <div className="col-1">
-                  <ClassSelectDropdown
-                    setBasicEdited={setBasicEdited}
-                    setSelectedClass={setSelectedClass}
-                  />
-                </div>
-                <div className="col-1">
-                  <CharInfo.AlignmentSelect
-                    setBasicEdited={setBasicEdited}
-                    setAlignment={setAlignment}
-                  />
-                </div>
-                <div className="row">
-                 
-                  <div className="col-1">
-                    <button onClick={()=>quickRollStats()}>Quick Roll</button>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col-2">
-          <p>Name: {charName!=="Basic Info" ? charName : ""}</p>
-                  </div>
-                  <div className="col-2">
-          <p>Level: {level}</p>
-                  </div>
-                  <div className="col-2">
-          <p>Race: {selectedRace.charAt(0).toUpperCase()+selectedRace.slice(1)}</p>
-                  </div>
-                  <div className="col-2">
-          <p>Class: {selectedClass}</p>
-                  </div>
-                  <div className="col-2">
-          <p>Alignment: {alignment}</p>
-                  </div>
-                </div>
-              
-      </div>
-      <div className="row">
-     <div className="col-md-3">
-                  <QuickScores
-                  str={str}
-                  chr={chr}
-                  int={int}
-                  wis={wis}
-                  dex={dex}
-                  con={con}
-                    setStr={setStr}
-                    setChr={setChr}
-                    setInt={setInt}
-                    setWis={setWis}
-                    setDex={setDex}
-                    setCon={setCon}
-                    selectedRace={selectedRace}
-                    setRolled={setRolled}
-                    munchkinMode={munchkinMode}
-                  />
-      </div>
-      <div className="col-md-1">
-        <p>second column</p>
-      </div>
-      <div className="col-md-1" style={{textAlign:"center"}}>
-        
-        <span style={{fontWeight:"bold"}}>Hit Points:</span>
-        <CharInfo.HitPoints
-                    setHP={setHP}
-                    level={level}
-                    selectedClass={selectedClass}
-                    con={con}
-                    setCon={setCon}
-                    selectedRace={selectedRace}
-                    featArray={featArray}
-                  />
-                  <br/>
-                  <span style={{fontWeight:"bold"}}>Armor Class:</span>
-                  <CharInfo.ArmorClass
-                    setAC={setAC}
-                    armorBonusTotal={armorBonusTotal}
-                    setBaseAC={setBaseAC}
-                    dex={dex}
-                    selectedRace={selectedRace}
-                  />
-                
-      </div>
-      <div className="col-md-7">
-        
-        fourth column
-                
-      </div>
-      </div>
-      <div className="row">
-        <div className="col">
-        <div className="col-1">
-                    <button onClick={()=>createInstantCharacter()}>Create!</button>
-                  </div>
+  if (modeChosen === true && quickMode === true) {
+    return (
+      <>
+        <div className="row">
+          <div className="col-12" style={{textAlign:"center"}}>
+            <h5>Choose your race, class and alignment, then hit Go!</h5>
+          </div>
         </div>
-      </div>
-  </>
-    )
+        <div className="row justify-content-center">
+          <div className="col-auto">
+            <RaceSelectDropdown
+              setBasicEdited={setBasicEdited}
+              setSelectedRace={setSelectedRace}
+            />
+          </div>
+          <div className="col-auto">
+            <ClassSelectDropdown
+              setBasicEdited={setBasicEdited}
+              setSelectedClass={setSelectedClass}
+            />
+          </div>
+          <div className="col-auto">
+            <CharInfo.AlignmentSelect
+              setBasicEdited={setBasicEdited}
+              setAlignment={setAlignment}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-1">
+            <button onClick={() => quickRollStats()}>Quick Roll</button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-2">
+            <p>Name: {charName !== "Basic Info" ? charName : ""}</p>
+          </div>
+          <div className="col-2">
+            <p>Level: {level}</p>
+          </div>
+          <div className="col-2">
+            <p>
+              Race:{" "}
+              {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}
+            </p>
+          </div>
+          <div className="col-2">
+            <p>Class: {selectedClass}</p>
+          </div>
+          <div className="col-2">
+            <p>Alignment: {alignment}</p>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-md-3">
+            <QuickScores
+              str={str}
+              chr={chr}
+              int={int}
+              wis={wis}
+              dex={dex}
+              con={con}
+              setStr={setStr}
+              setChr={setChr}
+              setInt={setInt}
+              setWis={setWis}
+              setDex={setDex}
+              setCon={setCon}
+              selectedRace={selectedRace}
+              setRolled={setRolled}
+              munchkinMode={munchkinMode}
+            />
+          </div>
+          <div className="col-md-1">
+            <p></p>
+          </div>
+          <div className="col-md-1" style={{ textAlign: "center" }}>
+            <span style={{ fontWeight: "bold" }}>Hit Points:</span>
+            <CharInfo.HitPoints
+              setHP={setHP}
+              level={level}
+              selectedClass={selectedClass}
+              con={con}
+              setCon={setCon}
+              selectedRace={selectedRace}
+              featArray={featArray}
+            />
+            <br />
+            <span style={{ fontWeight: "bold" }}>Armor Class:</span>
+            <CharInfo.ArmorClass
+              setAC={setAC}
+              armorBonusTotal={armorBonusTotal}
+              setBaseAC={setBaseAC}
+              dex={dex}
+              selectedRace={selectedRace}
+            />
+          </div>
+          <div className="col-md-2" style={{ textAlign: "center" }}>
+            <CharInfo.SavingThrows
+              level={level}
+              selectedClass={selectedClass}
+              dex={dex}
+              con={con}
+              wis={wis}
+            />
+          </div>
+          <div className="col-md-1" style={{ textAlign: "center" }}>
+            <BaseAttack
+              str={str}
+              level={level}
+              selectedClass={selectedClass}
+              setBaseAttack={setBaseAttack}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <div className="col-1">
+              <button onClick={() => createInstantCharacter()}>Create!</button>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+        <div className="col-4">
+          <p style={{fontWeight:"bold"}}>Weapons and Armor</p>
+        <Inventory.ArmorQuick
+                setArmorBonusTotal={setArmorBonusTotal}
+                totalSilver={totalSilver}
+                setArmorMoney={setArmorMoney}
+                updated={updated}
+                setUpdated={setUpdated}
+                setArmorArray={setArmorArray}
+                weaponsMoney={weaponsMoney}
+              />
+        </div>
+        <div className="col-4">
+          <p style={{fontWeight:"bold"}}>Skills</p>
+       
+        </div>
+        <div className="col-4">
+          <p style={{fontWeight:"bold"}}>Feats</p>
+        
+        </div>
+        </div>
+      </>
+    );
   }
 
   return (
@@ -423,10 +456,12 @@ function createInstantCharacter(){
           setFontThemeFantasy={setFontThemeFantasy}
           setMunchkinMode={setMunchkinMode}
         />
-        <div style={{textAlign:"center"}}>
-          <br/>
-<Button variant="secondary" onClick={()=>window.location.reload()}>Start Over</Button>
-</div>
+        <div style={{ textAlign: "center" }}>
+          <br />
+          <Button variant="secondary" onClick={() => window.location.reload()}>
+            Start Over
+          </Button>
+        </div>
         <br />
         {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
         <Accordion alwaysOpen>
@@ -496,7 +531,6 @@ function createInstantCharacter(){
                 className="row justify-content-evenly"
               >
                 <div className="col">
-                
                   Level
                   {munchkinMode === true ? (
                     <CharInfo.Level
@@ -759,9 +793,14 @@ function createInstantCharacter(){
               {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
               View and Print Character
             </Button>
-            <br/><br/>
-<Button variant="secondary" onClick={()=>window.location.reload()}>Start Over</Button>
-
+            <br />
+            <br />
+            <Button
+              variant="secondary"
+              onClick={() => window.location.reload()}
+            >
+              Start Over
+            </Button>
           </div>
         </div>
       </div>
@@ -816,7 +855,6 @@ function createInstantCharacter(){
         </Modal.Body>
       </Modal>
       <BottomNav />
-    
     </>
   );
 }

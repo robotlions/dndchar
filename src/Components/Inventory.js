@@ -475,3 +475,48 @@ if(props.munchkinMode===true){
 };
 
 
+export const ArmorQuick = (props) => {
+  const [show, setShow] = useState(false);
+
+ function buyArmor(){
+  Object.values(ArmorTable).filter((item)=>item.armorName==="Leather").map((item, index) => (armorArray.push(item)
+  ))
+  setShow(!show);
+  console.log(armorArray)
+ }
+
+
+  const purchasedArmor = armorArray.map((item, index) => (
+    <div key={index} className="row" style={{fontSize:"small"}}>
+      <div className="col">
+        <p style={{fontWeight: "bold"}}>{item.armorName}</p>
+      </div>
+      <div className="col">
+        <p>Armor Bonus: {item.armorBonus}</p>
+      </div>
+     
+      <div className="col">
+        <p>Armor Check: {item.armorCheck}</p>
+      </div>
+     
+      
+    </div>
+  ));
+
+
+
+useEffect(()=>{ 
+  props.setArmorArray(armorArray)
+}, [props]);
+  
+
+  return (
+    <>
+     <button onClick={()=>buyArmor()}>buy thing</button>
+      <div>{purchasedArmor}</div>
+     
+
+      
+    </>
+  );
+};
