@@ -180,3 +180,28 @@ export const SkillsMain = (props) => {
     </>
   );
 };
+
+export const SkillsQuick = (props) => {
+ 
+
+  useEffect(()=>{ 
+    if(props.quickCreate===true){
+     learnedSkills=[];
+     props.setLearnedSkillsArray([]);
+    Object.values(skillTables).filter((item)=>item.startingSkill.includes(props.selectedClass)).map((item, index) => (learnedSkills.push(item)
+  ))
+  
+    props.setLearnedSkillsArray(learnedSkills);
+  }
+  }, [props.quickCreate, props.selectedClass]);
+ 
+
+  const quickSkillsDisplay = learnedSkills.map((item, index)=> (<p>{item.skillName}</p>))
+ 
+
+  return(
+    <>
+    {quickSkillsDisplay}
+    </>
+  )
+};

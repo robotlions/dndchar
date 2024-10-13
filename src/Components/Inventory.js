@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArmorTable } from "../Equipment/ArmorTables";
 import { ShieldTable } from "../Equipment/ArmorTables";
-import { ArmorTest } from "../Equipment/ArmorTables";
 import * as WeaponTables from "../Equipment/WeaponTables";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -504,6 +503,8 @@ export const WeaponsAndArmorQuick = (props) => {
     </div>
   ));
 
+  
+
   const purchasedWeapons = weaponArray.map((item, index) => (
     <div key={index} className="row" style={{fontSize:"small"}}>
       <div className="col-4">
@@ -522,15 +523,22 @@ export const WeaponsAndArmorQuick = (props) => {
 
 useEffect(()=>{ 
   if(props.quickCreate===true){
+    armorArray=[];
+    weaponArray=[];
+    props.setArmorArray([]);
+    props.setWeaponArray([]);
   Object.values(ArmorTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
 ))
 Object.values(WeaponTables.weaponsList).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (weaponArray.push(item)
    
 ))
+Object.values(ShieldTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
+   
+))
   props.setArmorArray(armorArray);
   props.setWeaponArray(weaponArray)
 }
-}, [props.quickCreate]);
+}, [props.quickCreate, props.selectedClass]);
   
 
   return (

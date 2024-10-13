@@ -159,9 +159,7 @@ function App() {
     //   abilFunc = setStr
     // }
 
-    if (
-      ["Fighter", "Paladain", "Barbarian"].includes(selectedClass)
-    ) {
+    if (["Fighter", "Paladain", "Barbarian"].includes(selectedClass)) {
       abilFunc = setStr;
     } else if (["Rogue", "Ranger"].includes(selectedClass)) {
       abilFunc = setDex;
@@ -192,7 +190,7 @@ function App() {
     setLevel(1);
     setCharName("Chuckles");
     quickRollStats();
-   setQuickCreate(true);
+    setQuickCreate(true);
   }
 
   if (modeChosen === false) {
@@ -299,7 +297,7 @@ function App() {
     return (
       <>
         <div className="row">
-          <div className="col-12" style={{textAlign:"center"}}>
+          <div className="col-12" style={{ textAlign: "center" }}>
             <h5>Choose your race, class and alignment, then hit Go!</h5>
           </div>
         </div>
@@ -372,7 +370,7 @@ function App() {
           <div className="col-md-1">
             <p></p>
           </div>
-          <div className="col-md-1" style={{ textAlign: "center" }}>
+          <div className="col-md-2" style={{ textAlign: "center" }}>
             <span style={{ fontWeight: "bold" }}>Hit Points:</span>
             <CharInfo.HitPoints
               setHP={setHP}
@@ -384,7 +382,13 @@ function App() {
               featArray={featArray}
             />
             <br />
-            <span style={{ fontWeight: "bold" }}>Armor Class:</span>
+            <span style={{ fontWeight: "bold" }}>
+              Base Armor Class:
+              <br />
+              <span style={{ fontWeight: "normal" }}>
+                (not inluding armor bonuses)
+              </span>
+            </span>
             <CharInfo.ArmorClass
               setAC={setAC}
               armorBonusTotal={armorBonusTotal}
@@ -419,32 +423,36 @@ function App() {
           </div>
         </div>
         <div className="row">
-        <div className="col-4">
-          <p style={{fontWeight:"bold"}}>Weapons and Armor</p>
-        <Inventory.WeaponsAndArmorQuick
-                setArmorBonusTotal={setArmorBonusTotal}
-                totalSilver={totalSilver}
-                setArmorMoney={setArmorMoney}
-                updated={updated}
-                setUpdated={setUpdated}
-                setArmorArray={setArmorArray}
-                weaponsMoney={weaponsMoney}
-                weaponArray={weaponArray}
-                setWeaponArray={setWeaponArray}
-                selectedClass={selectedClass}
-                quickCreate={quickCreate}
-                setQuickCreate={setQuickCreate}
-              />
-             
-        </div>
-        <div className="col-4">
-          <p style={{fontWeight:"bold"}}>Skills</p>
-       
-        </div>
-        <div className="col-4">
-          <p style={{fontWeight:"bold"}}>Feats</p>
-        
-        </div>
+          <div className="col-4">
+            <p style={{ fontWeight: "bold" }}>Weapons and Armor</p>
+            <Inventory.WeaponsAndArmorQuick
+              setArmorBonusTotal={setArmorBonusTotal}
+              totalSilver={totalSilver}
+              setArmorMoney={setArmorMoney}
+              updated={updated}
+              setUpdated={setUpdated}
+              setArmorArray={setArmorArray}
+              weaponsMoney={weaponsMoney}
+              weaponArray={weaponArray}
+              setWeaponArray={setWeaponArray}
+              selectedClass={selectedClass}
+              quickCreate={quickCreate}
+              setQuickCreate={setQuickCreate}
+            />
+          </div>
+          <div className="col-4">
+            <p style={{ fontWeight: "bold" }}>Skills</p>
+            <Skills.SkillsQuick 
+            learnedSkillsArray={learnedSkillsArray}
+            setLearnedSkillsArray={setLearnedSkillsArray}
+            selectedClass={selectedClass}
+            quickCreate={quickCreate}
+            setQuickCreate={setQuickCreate}
+            />
+          </div>
+          <div className="col-4">
+            <p style={{ fontWeight: "bold" }}>Feats</p>
+          </div>
         </div>
       </>
     );

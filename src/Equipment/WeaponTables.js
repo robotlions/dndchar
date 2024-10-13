@@ -21,7 +21,7 @@ export const weaponsList = {
     weight: 1,
     type: "P or S",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Barbarian", "Rogue"],
   },
 
   daggerPunching: {
@@ -86,7 +86,7 @@ export const weaponsList = {
     weight: 3,
     type: "B",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Druid"],
   },
 
   maceHeavy: {
@@ -99,7 +99,7 @@ export const weaponsList = {
     weight: 8,
     type: "B",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Cleric"],
   },
 
   morningstar: {
@@ -125,7 +125,7 @@ export const weaponsList = {
     weight: 3,
     type: "P",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Sorcerer"],
   },
 
   longspear: {
@@ -151,7 +151,7 @@ export const weaponsList = {
     weight: 4,
     type: "B",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Monk", "Wizard"],
   },
 
   spear: {
@@ -190,7 +190,7 @@ export const weaponsList = {
     weight: 4,
     type: "P",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Bard", "Cleric", "Sorcerer", "Wizard"],
   },
 
   dart: {
@@ -229,7 +229,7 @@ export const weaponsList = {
     weight: 0,
     type: "B",
     cat: "simple",
-    startingEquipment: [],
+    startingEquipment: ["Monk"],
   },
 
   axeThrowing: {
@@ -359,7 +359,7 @@ export const weaponsList = {
     weight: 2,
     type: "P",
     cat: "martial",
-    startingEquipment: [],
+    startingEquipment: ["Ranger", "Rogue"],
   },
 
   battleAxe: {
@@ -398,7 +398,7 @@ export const weaponsList = {
     weight: 4,
     type: "S",
     cat: "martial",
-    startingEquipment: ["Fighter"],
+    startingEquipment: ["Bard", "Paladin", "Ranger"],
   },
 
   pickHeavy: {
@@ -437,7 +437,7 @@ export const weaponsList = {
     weight: 4,
     type: "S",
     cat: "martial",
-    startingEquipment: [],
+    startingEquipment: ["Druid"],
   },
 
   shieldHeavy: {
@@ -567,7 +567,7 @@ export const weaponsList = {
     weight: 8,
     type: "S",
     cat: "martial",
-    startingEquipment: [],
+    startingEquipment: ["Fighter"],
   },
 
   guisarme: {
@@ -671,7 +671,7 @@ export const weaponsList = {
     weight: 2,
     type: "P",
     cat: "martial",
-    startingEquipment: [],
+    startingEquipment: ["Barbarian", "Fighter", "Paladin", "Rogue"],
   },
 
   shortbowComposite: {
