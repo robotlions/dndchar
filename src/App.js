@@ -302,6 +302,7 @@ function App() {
             <h5>Choose your race, class and alignment, then hit Go!</h5>
           </div>
         </div>
+        <br/>
         <div className="row justify-content-center">
           <div className="col-auto">
             <RaceSelectDropdown
@@ -321,12 +322,19 @@ function App() {
               setAlignment={setAlignment}
             />
           </div>
+          <div className="col-auto">
+              <Button className="btn btn-primary" onClick={() => createInstantCharacter()}>Create!</Button>
+           
         </div>
-        <div className="row">
+        
+        </div>
+        
+        {/* <div className="row">
           <div className="col-1">
             <button onClick={() => quickRollStats()}>Roll Again</button>
           </div>
-        </div>
+        </div> */}
+        <br/>
         <div className="row">
           <div className="col-2">
             <p>Name: {charName !== "Basic Info" ? charName : ""}</p>
@@ -347,7 +355,7 @@ function App() {
             <p>Alignment: {alignment}</p>
           </div>
         </div>
-
+<br/>
         <div className="row">
           <div className="col-md-3">
             <QuickScores
@@ -368,10 +376,8 @@ function App() {
               munchkinMode={munchkinMode}
             />
           </div>
-          <div className="col-md-1">
-            <p></p>
-          </div>
-          <div className="col-md-2" style={{ textAlign: "center" }}>
+          
+          <div className="col-2 col-md-2" style={{ textAlign: "center" }}>
             <span style={{ fontWeight: "bold" }}>Hit Points:</span>
             <CharInfo.HitPoints
               setHP={setHP}
@@ -382,14 +388,11 @@ function App() {
               selectedRace={selectedRace}
               featArray={featArray}
             />
-            <br />
+            </div>
+            <div className="col-3 col-md-2" style={{ textAlign: "center" }}>
             <span style={{ fontWeight: "bold" }}>
               Base Armor Class:
-              <br />
-              <span style={{ fontWeight: "normal" }}>
-                (not inluding armor bonuses)
-              </span>
-            </span>
+             </span>
             <CharInfo.ArmorClass
               setAC={setAC}
               armorBonusTotal={armorBonusTotal}
@@ -398,7 +401,7 @@ function App() {
               selectedRace={selectedRace}
             />
           </div>
-          <div className="col-md-2" style={{ textAlign: "center" }}>
+          <div className="col-4 col-md-2" style={{ textAlign: "center" }}>
             <CharInfo.SavingThrows
               level={level}
               selectedClass={selectedClass}
@@ -407,7 +410,7 @@ function App() {
               wis={wis}
             />
           </div>
-          <div className="col-md-1" style={{ textAlign: "center" }}>
+          <div className="col-3 col-md-1" style={{ textAlign: "center" }}>
             <BaseAttack
               str={str}
               level={level}
@@ -416,15 +419,9 @@ function App() {
             />
           </div>
         </div>
+        <br/>
         <div className="row">
-          <div className="col">
-            <div className="col-1">
-              <button onClick={() => createInstantCharacter()}>Create!</button>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-4">
+          <div className="col-md-4">
             <p style={{ fontWeight: "bold" }}>Weapons and Armor</p>
             <Inventory.WeaponsAndArmorQuick
               setArmorBonusTotal={setArmorBonusTotal}
@@ -505,7 +502,7 @@ function App() {
                   <div>
                     <p style={{ fontWeight: "bold" }}>
                       {alignment}{" "}
-                      {selectedRace.charAt(0).toUpperCase() +
+                      {selectedRace !="select" && selectedRace.charAt(0).toUpperCase() +
                         selectedRace.slice(1)}{" "}
                       {selectedClass}
                     </p>
