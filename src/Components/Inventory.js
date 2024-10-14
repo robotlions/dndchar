@@ -487,7 +487,7 @@ export const WeaponsAndArmorQuick = (props) => {
 
 
   const purchasedArmor = armorArray.map((item, index) => (
-    <div key={index} className="row" style={{fontSize:"small"}}>
+    <div key={index} className="row" style={{fontSize:"small",lineHeight:.9}}>
       <div className="col-4">
         <p style={{fontWeight: "bold"}}>{item.armorName}</p>
       </div>
@@ -506,7 +506,7 @@ export const WeaponsAndArmorQuick = (props) => {
   
 
   const purchasedWeapons = weaponArray.map((item, index) => (
-    <div key={index} className="row" style={{fontSize:"small"}}>
+    <div key={index} className="row" style={{fontSize:"small",lineHeight:.9}}>
       <div className="col-4">
         <p style={{fontWeight: "bold"}}>{item.weaponName}</p>
       </div>

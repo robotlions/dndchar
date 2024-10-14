@@ -296,6 +296,7 @@ function App() {
   if (modeChosen === true && quickMode === true) {
     return (
       <>
+      <div className="container">
         <div className="row">
           <div className="col-12" style={{ textAlign: "center" }}>
             <h5>Choose your race, class and alignment, then hit Go!</h5>
@@ -440,7 +441,8 @@ function App() {
               setQuickCreate={setQuickCreate}
             />
           </div>
-          <div className="col-4">
+          <div className="col-1"></div>
+          <div className="col-2">
             <p style={{ fontWeight: "bold" }}>Skills</p>
             <Skills.SkillsQuick 
             learnedSkillsArray={learnedSkillsArray}
@@ -448,11 +450,17 @@ function App() {
             selectedClass={selectedClass}
             quickCreate={quickCreate}
             setQuickCreate={setQuickCreate}
+            int={int}
+            selectedRace={selectedRace}
             />
           </div>
-          <div className="col-4">
+          <div className="col-2">
             <p style={{ fontWeight: "bold" }}>Feats</p>
           </div>
+          <div className="col-3">
+            <p style={{ fontWeight: "bold" }}>Spells</p>
+          </div>
+        </div>
         </div>
       </>
     );

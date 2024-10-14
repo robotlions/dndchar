@@ -82,7 +82,7 @@ export const skillTables = {
     Rogue: false,
     Sorcerer: true,
     Wizard: true,
-    startingSkill: [],
+    startingSkill: ["Cleric"],
   },
   craft: {
     skillName: "Craft",
@@ -116,7 +116,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: true,
-    startingSkill: [],
+    startingSkill: ["Bard"],
   },
   diplomacy: {
     skillName: "Diplomacy",
@@ -133,7 +133,8 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard", "Cleric", 
+    ],
   },
   disable: {
     skillName: "Disable Device",
@@ -167,7 +168,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard"],
   },
   escapeArtist: {
     skillName: "Escape Artist",
@@ -218,7 +219,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard", "Cleric"],
   },
   handleAnimal: {
     skillName: "Handle Animal",
@@ -252,7 +253,7 @@ export const skillTables = {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Cleric"],
   },
   hide: {
     skillName: "Hide",
@@ -286,7 +287,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Barbarian"],
   },
   jump: {
     skillName: "Jump",
@@ -463,7 +464,7 @@ export const skillTables = {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-    startingSkill: [],
+    startingSkill: ["Cleric"],
   },
 
   knowledgePlanes: {
@@ -499,7 +500,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: ["Barbarian"],
+    startingSkill: ["Barbarian", "Bard"],
   },
 
   moveSilently: {
@@ -553,7 +554,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard"],
   },
 
   profession: {
@@ -589,7 +590,7 @@ export const skillTables = {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Barbarian"],
   },
 
   search: {
@@ -643,7 +644,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard"],
   },
 
   speakLanguage: {
@@ -679,7 +680,7 @@ export const skillTables = {
     Rogue: false,
     Sorcerer: true,
     Wizard: true,
-    startingSkill: [],
+    startingSkill: ["Bard", "Cleric"],
   },
 
   spot: {
@@ -733,7 +734,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Barbarian"],
   },
 
   tumble: {
@@ -769,7 +770,7 @@ export const skillTables = {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-    startingSkill: [],
+    startingSkill: ["Bard"],
   },
 
   useRope: {
