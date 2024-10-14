@@ -227,8 +227,9 @@ function App() {
               <div className="row">
                 <div className="col">
                   <Button
-                    variant="secondary"
+                    variant="secondary rounded-0"
                     onClick={() => setModeChosen(true)}
+                    style={{ marginTop: 20 }}
                   >
                     Lawful
                   </Button>
@@ -242,17 +243,18 @@ function App() {
                   <br />
                   (Quick)
                 </h4>
-                Instantly create a randomized character with the touch of a
-                button.
+                Instantly create a randomized first-level character with the
+                touch of a button.
               </div>
               <div className="row">
                 <div className="col">
                   <Button
-                    variant="secondary"
+                    variant="secondary rounded-0"
                     onClick={() => {
                       setQuickMode(true);
                       setModeChosen(true);
                     }}
+                    style={{ marginTop: 20 }}
                   >
                     Neutral
                   </Button>
@@ -273,11 +275,12 @@ function App() {
               <div className="row">
                 <div className="col">
                   <Button
-                    variant="secondary"
+                    variant="secondary rounded-0"
                     onClick={() => {
                       setMunchkinMode(true);
                       setModeChosen(true);
                     }}
+                    style={{ marginTop: 20 }}
                   >
                     Chaotic
                   </Button>
@@ -296,168 +299,209 @@ function App() {
   if (modeChosen === true && quickMode === true) {
     return (
       <>
-      <div className="container">
-        <div className="row">
-          <div className="col-12" style={{ textAlign: "center" }}>
-            <h5>Choose your race, class and alignment, then hit Go!</h5>
-          </div>
-        </div>
-        <br/>
-        <div className="row justify-content-center">
-          <div className="col-auto">
-            <RaceSelectDropdown
-              setBasicEdited={setBasicEdited}
-              setSelectedRace={setSelectedRace}
-            />
-          </div>
-          <div className="col-auto">
-            <ClassSelectDropdown
-              setBasicEdited={setBasicEdited}
-              setSelectedClass={setSelectedClass}
-            />
-          </div>
-          <div className="col-auto">
-            <CharInfo.AlignmentSelect
-              setBasicEdited={setBasicEdited}
-              setAlignment={setAlignment}
-            />
-          </div>
-          <div className="col-auto">
-              <Button className="btn btn-primary" onClick={() => createInstantCharacter()}>Create!</Button>
-           
-        </div>
         
-        </div>
-        
-        {/* <div className="row">
-          <div className="col-1">
-            <button onClick={() => quickRollStats()}>Roll Again</button>
-          </div>
-        </div> */}
-        <br/>
-        <div className="row">
-          <div className="col-2">
-            <p>Name: {charName !== "Basic Info" ? charName : ""}</p>
-          </div>
-          <div className="col-2">
-            <p>Level: {level}</p>
-          </div>
-          <div className="col-2">
-            <p>
-              Race:{" "}
-              {selectedRace.charAt(0).toUpperCase() + selectedRace.slice(1)}
-            </p>
-          </div>
-          <div className="col-2">
-            <p>Class: {selectedClass}</p>
-          </div>
-          <div className="col-2">
-            <p>Alignment: {alignment}</p>
-          </div>
-        </div>
-<br/>
-        <div className="row">
-          <div className="col-md-3">
-            <QuickScores
-              str={str}
-              chr={chr}
-              int={int}
-              wis={wis}
-              dex={dex}
-              con={con}
-              setStr={setStr}
-              setChr={setChr}
-              setInt={setInt}
-              setWis={setWis}
-              setDex={setDex}
-              setCon={setCon}
-              selectedRace={selectedRace}
-              setRolled={setRolled}
-              munchkinMode={munchkinMode}
-            />
-          </div>
-          
-          <div className="col-2 col-md-2" style={{ textAlign: "center" }}>
-            <span style={{ fontWeight: "bold" }}>Hit Points:</span>
-            <CharInfo.HitPoints
-              setHP={setHP}
-              level={level}
-              selectedClass={selectedClass}
-              con={con}
-              setCon={setCon}
-              selectedRace={selectedRace}
-              featArray={featArray}
-            />
+          <TopNav
+            fontThemeFantasy={fontThemeFantasy}
+            setFontThemeFantasy={setFontThemeFantasy}
+            setMunchkinMode={setMunchkinMode}
+          />
+          <div  className={
+            fontThemeFantasy === false
+              ? "container font-standard"
+              : "container font-fantasy"
+          } style={{ paddingBottom: 150 }}>
+          <div className="row" style={{marginTop:30}}>
+            <div className="col-12">
+              <h5>Choose your race, class and alignment, then hit Go!</h5>
             </div>
-            <div className="col-3 col-md-2" style={{ textAlign: "center" }}>
-            <span style={{ fontWeight: "bold" }}>
-              Base Armor Class:
-             </span>
-            <CharInfo.ArmorClass
-              setAC={setAC}
-              armorBonusTotal={armorBonusTotal}
-              setBaseAC={setBaseAC}
-              dex={dex}
-              selectedRace={selectedRace}
-            />
           </div>
-          <div className="col-4 col-md-2" style={{ textAlign: "center" }}>
-            <CharInfo.SavingThrows
-              level={level}
-              selectedClass={selectedClass}
-              dex={dex}
-              con={con}
-              wis={wis}
-            />
+          <br />
+          <div className="row">
+            <div className="col-auto">
+              <RaceSelectDropdown
+                setBasicEdited={setBasicEdited}
+                setSelectedRace={setSelectedRace}
+              />
+            </div>
+            <div className="col-auto">
+              <ClassSelectDropdown
+                setBasicEdited={setBasicEdited}
+                setSelectedClass={setSelectedClass}
+              />
+            </div>
+            <div className="col-auto">
+              <CharInfo.AlignmentSelect
+                setBasicEdited={setBasicEdited}
+                setAlignment={setAlignment}
+              />
+            </div>
+            <div className="col-auto">
+              {quickCreate === false && (
+                <Button
+                  className="btn btn-primary rounded-0"
+                  onClick={() => createInstantCharacter()}
+                  style={{paddingLeft:30,paddingRight:30}}
+                >
+                  Go!
+                </Button>
+              )}
+            </div>
           </div>
-          <div className="col-3 col-md-1" style={{ textAlign: "center" }}>
-            <BaseAttack
-              str={str}
-              level={level}
-              selectedClass={selectedClass}
-              setBaseAttack={setBaseAttack}
-            />
-          </div>
-        </div>
-        <br/>
-        <div className="row">
-          <div className="col-md-4">
-            <p style={{ fontWeight: "bold" }}>Weapons and Armor</p>
-            <Inventory.WeaponsAndArmorQuick
-              setArmorBonusTotal={setArmorBonusTotal}
-              totalSilver={totalSilver}
-              setArmorMoney={setArmorMoney}
-              updated={updated}
-              setUpdated={setUpdated}
-              setArmorArray={setArmorArray}
-              weaponsMoney={weaponsMoney}
-              weaponArray={weaponArray}
-              setWeaponArray={setWeaponArray}
-              selectedClass={selectedClass}
-              quickCreate={quickCreate}
-              setQuickCreate={setQuickCreate}
-            />
-          </div>
-          <div className="col-1"></div>
-          <div className="col-2">
-            <p style={{ fontWeight: "bold" }}>Skills</p>
-            <Skills.SkillsQuick 
-            learnedSkillsArray={learnedSkillsArray}
-            setLearnedSkillsArray={setLearnedSkillsArray}
-            selectedClass={selectedClass}
-            quickCreate={quickCreate}
-            setQuickCreate={setQuickCreate}
-            int={int}
-            selectedRace={selectedRace}
-            />
-          </div>
-          <div className="col-2">
-            <p style={{ fontWeight: "bold" }}>Feats</p>
-          </div>
-          <div className="col-3">
-            <p style={{ fontWeight: "bold" }}>Spells</p>
-          </div>
-        </div>
+          <br />
+          {quickCreate === true && (
+            <>
+              <div className="row">
+                <div className="col-2">
+                  <p>Name: {charName !== "Basic Info" ? charName : ""}</p>
+                </div>
+                <div className="col-2">
+                  <p>Level: {level}</p>
+                </div>
+                <div className="col-2">
+                  <p>
+                    Race:{" "}
+                    {selectedRace.charAt(0).toUpperCase() +
+                      selectedRace.slice(1)}
+                  </p>
+                </div>
+                <div className="col-2">
+                  <p>Class: {selectedClass}</p>
+                </div>
+                <div className="col-2">
+                  <p>Alignment: {alignment}</p>
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-md-3">
+                  <QuickScores
+                    str={str}
+                    chr={chr}
+                    int={int}
+                    wis={wis}
+                    dex={dex}
+                    con={con}
+                    setStr={setStr}
+                    setChr={setChr}
+                    setInt={setInt}
+                    setWis={setWis}
+                    setDex={setDex}
+                    setCon={setCon}
+                    selectedRace={selectedRace}
+                    setRolled={setRolled}
+                    munchkinMode={munchkinMode}
+                  />
+                  <div style={{textAlign:"center",marginTop:20}}>
+                  <Button
+                    className="btn btn-secondary rounded-0"
+                    onClick={() => quickRollStats()}
+                  >
+                    Reroll Stats
+                  </Button>
+                </div>
+                </div>
+
+                <div className="col-2 col-md-2" style={{ textAlign: "center" }}>
+                  <span style={{ fontWeight: "bold" }}>Hit Points:</span>
+                  <CharInfo.HitPoints
+                    setHP={setHP}
+                    level={level}
+                    selectedClass={selectedClass}
+                    con={con}
+                    setCon={setCon}
+                    selectedRace={selectedRace}
+                    featArray={featArray}
+                  />
+                </div>
+                <div className="col-3 col-md-2" style={{ textAlign: "center" }}>
+                  <span style={{ fontWeight: "bold" }}>Base Armor Class:</span>
+                  <CharInfo.ArmorClass
+                    setAC={setAC}
+                    armorBonusTotal={armorBonusTotal}
+                    setBaseAC={setBaseAC}
+                    dex={dex}
+                    selectedRace={selectedRace}
+                  />
+                </div>
+                <div className="col-4 col-md-2" style={{ textAlign: "center" }}>
+                  <CharInfo.SavingThrows
+                    level={level}
+                    selectedClass={selectedClass}
+                    dex={dex}
+                    con={con}
+                    wis={wis}
+                  />
+                </div>
+                <div className="col-3 col-md-1" style={{ textAlign: "center" }}>
+                  <BaseAttack
+                    str={str}
+                    level={level}
+                    selectedClass={selectedClass}
+                    setBaseAttack={setBaseAttack}
+                  />
+                </div>
+              </div>
+              <br />
+              <div className="row">
+                <div className="col-md-4">
+                  <p style={{ fontWeight: "bold" }}>Weapons and Armor</p>
+                  <Inventory.WeaponsAndArmorQuick
+                    setArmorBonusTotal={setArmorBonusTotal}
+                    totalSilver={totalSilver}
+                    setArmorMoney={setArmorMoney}
+                    updated={updated}
+                    setUpdated={setUpdated}
+                    setArmorArray={setArmorArray}
+                    weaponsMoney={weaponsMoney}
+                    weaponArray={weaponArray}
+                    setWeaponArray={setWeaponArray}
+                    selectedClass={selectedClass}
+                    quickCreate={quickCreate}
+                    setQuickCreate={setQuickCreate}
+                  />
+                </div>
+                <div className="col-1"></div>
+                <div className="col-2">
+                  <p style={{ fontWeight: "bold" }}>Skills</p>
+                  <Skills.SkillsQuick
+                    learnedSkillsArray={learnedSkillsArray}
+                    setLearnedSkillsArray={setLearnedSkillsArray}
+                    selectedClass={selectedClass}
+                    quickCreate={quickCreate}
+                    setQuickCreate={setQuickCreate}
+                    int={int}
+                    selectedRace={selectedRace}
+                  />
+                </div>
+                <div className="col-2">
+                  <p style={{ fontWeight: "bold" }}>Feats</p>
+                  <Feats.FeatsQuick
+                    featArray={featArray}
+                    setFeatArray={setFeatArray}
+                    selectedClass={selectedClass}
+                    quickCreate={quickCreate}
+                    setQuickCreate={setQuickCreate}
+                    selectedRace={selectedRace}
+                  />
+                </div>
+                <div className="col-3">
+                  <p style={{ fontWeight: "bold" }}>Spells</p>
+                </div>
+              </div>
+              <div className="row justify-content-center" style={{marginTop:20}}>
+                
+                <div className="col-auto">
+                  <Button
+                    variant="secondary rounded-0"
+                    onClick={() => window.location.reload()}
+                  >
+                    Start Over
+                  </Button>
+                </div>
+              </div>
+            </>
+          )}
+          <BottomNav />
         </div>
       </>
     );
@@ -480,7 +524,7 @@ function App() {
         />
         <div style={{ textAlign: "center" }}>
           <br />
-          <Button variant="secondary" onClick={() => window.location.reload()}>
+          <Button variant="secondary rounded-0" onClick={() => window.location.reload()}>
             Start Over
           </Button>
         </div>
@@ -502,8 +546,9 @@ function App() {
                   <div>
                     <p style={{ fontWeight: "bold" }}>
                       {alignment}{" "}
-                      {selectedRace !="select" && selectedRace.charAt(0).toUpperCase() +
-                        selectedRace.slice(1)}{" "}
+                      {selectedRace != "select" &&
+                        selectedRace.charAt(0).toUpperCase() +
+                          selectedRace.slice(1)}{" "}
                       {selectedClass}
                     </p>
                     <div>
@@ -809,16 +854,16 @@ function App() {
           <div className="col-md-12">
             <Button
               name="printCharacterButton"
-              variant="secondary"
+              variant="secondary rounded-0"
               onClick={(e) => handleShow()}
             >
-              {/* <Button name="printCharacterButton" variant="secondary" onClick={(e)=>{console.log(e)}}> */}
+              {/* <Button name="printCharacterButton" variant="secondary rounded-0" onClick={(e)=>{console.log(e)}}> */}
               View and Print Character
             </Button>
             <br />
             <br />
             <Button
-              variant="secondary"
+              variant="secondary rounded-0"
               onClick={() => window.location.reload()}
             >
               Start Over
@@ -861,7 +906,7 @@ function App() {
               <PrintContextConsumer>
                 {({ handlePrint }) => (
                   <p>
-                    <Button variant="secondary" onClick={handlePrint}>
+                    <Button variant="secondary rounded-0" onClick={handlePrint}>
                       Print
                     </Button>
                   </p>
@@ -869,7 +914,7 @@ function App() {
               </PrintContextConsumer>
             </ReactToPrint>
             <p>
-              <Button variant="secondary" onClick={handleClose}>
+              <Button variant="secondary rounded-0" onClick={handleClose}>
                 Close
               </Button>
             </p>

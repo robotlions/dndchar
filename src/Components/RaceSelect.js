@@ -11,7 +11,7 @@ import { RaceInfo } from '../Races/RaceTables';
   
   return(
     <Dropdown onSelect={(eventKey) => {props.setBasicEdited(true); setThisState(eventKey); props.setSelectedRace(eventKey)}}>
-    <DropdownButton variant="secondary" title={RaceInfo[thisState].raceName}>
+    <DropdownButton variant="secondary rounded-0" title={RaceInfo[thisState].raceName}>
       <Dropdown.Item eventKey="human">Human</Dropdown.Item>
       <Dropdown.Item eventKey="dwarf">Dwarf</Dropdown.Item>
       <Dropdown.Item eventKey="elf">Elf</Dropdown.Item>

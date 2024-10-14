@@ -15,7 +15,7 @@ export const QuickScores = (props) => {
  const [netRoll, setNewRoll] = useState(false);
 
   const rerollButton = (
-    <Button variant="secondary" onClick={() => rollButton()}>
+    <Button variant="secondary rounded-0" onClick={() => rollButton()}>
       Roll Abilities
     </Button>
   );

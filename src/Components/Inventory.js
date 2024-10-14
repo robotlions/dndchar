@@ -198,7 +198,7 @@ useEffect(()=>{
       <div>{purchasedArmor}</div>
      
 
-      <Button variant="secondary" onClick={handleShow}>
+      <Button variant="secondary rounded-0" onClick={handleShow}>
         Buy Armor and Shields
       </Button>
 
@@ -238,7 +238,7 @@ useEffect(()=>{
           {shieldDisplay}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary rounded-0" onClick={handleClose}>
             Close
           </Button>
          
@@ -361,7 +361,7 @@ return(
       <div>{purchasedWeapons}</div>
      
 
-      <Button variant="secondary" onClick={handleShow}>
+      <Button variant="secondary rounded-0" onClick={handleShow}>
         Buy Weapons
       </Button>
 
@@ -401,7 +401,7 @@ return(
           {weaponDisplay("ammunition")}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary rounded-0" onClick={handleClose}>
             Close
           </Button>
          
@@ -426,12 +426,12 @@ export const StartingSilver = (props) => {
   }
 
   const normalMoney = props.totalSilver === 0 ? (
-    <Button variant="secondary" onClick={() => genSilver()}>
+    <Button variant="secondary rounded-0" onClick={() => genSilver()}>
       Roll Starting Money
     </Button>
   ) : (
     <Button
-      variant="secondary"
+      variant="secondary rounded-0"
       onClick={() => {
         props.setTotalSilver(0);
         props.setArmorMoney(0);
@@ -453,12 +453,12 @@ if(props.munchkinMode===true){
     <>
     {!props.munchkinMode && normalMoney}
       {/* {props.totalSilver === 0 ? (
-        <Button variant="secondary" onClick={() => genSilver()}>
+        <Button variant="secondary rounded-0" onClick={() => genSilver()}>
           Roll Starting Money
         </Button>
       ) : (
         <Button
-          variant="secondary"
+          variant="secondary rounded-0"
           onClick={() => {
             props.setTotalSilver(0);
             props.setArmorMoney(0);
