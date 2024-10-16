@@ -486,6 +486,17 @@ function App() {
                 </div>
                 <div className="col-3">
                   <p style={{ fontWeight: "bold" }}>Spells</p>
+                  <Spells.QuickSpellsMain
+                  level={level}
+                  updated={updated}
+                  setUpdated={setUpdated}
+                  selectedClass={selectedClass}
+                  setSpellArray={setSpellArray}
+                  int={int}
+                  wis={wis}
+                  chr={chr}
+                  // spellCaster={spellCaster}
+                />
                 </div>
               </div>
               <div className="row justify-content-center" style={{marginTop:20}}>

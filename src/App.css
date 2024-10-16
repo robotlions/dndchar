@@ -62,6 +62,7 @@ table {
 
 .btn {
   box-shadow: 2px 2px 2px lightgray;
+  min-width:150px;
 }
 
 .font-standard {
