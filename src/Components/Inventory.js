@@ -71,14 +71,15 @@ export const ArmorMain = (props) => {
         <p>Speed 20': {item.speed20}</p>
       </div>
       <div className="col">
-        <Button variant="warning" onClick={() => removeItem(index)}>Remove</Button>
+        <Button variant="warning" onClick={() => removeItem(item, index)}>Remove</Button>
       </div>
     </div>
   ));
 
-  function removeItem(index){
+  function removeItem(item, index){
     armorArray.splice(index, 1);
-    props.setArmorMoney(armorCost());
+    props.setArmorMoney(props.armorMoney-item.cost);
+    props.setTotalSilver(props.totalSilver+item.cost);
     props.setArmorBonusTotal(armorBonusTotal())
   }
 
@@ -97,18 +98,22 @@ export const ArmorMain = (props) => {
     if (event.target.checked === true) {
       if(item.cost < props.totalSilver){
         armorArray.push(item);
-        props.setArmorMoney(armorCost());
+        props.setArmorMoney(props.armorMoney+item.cost);
+        props.setTotalSilver(props.totalSilver-item.cost);
         props.setArmorBonusTotal(armorBonusTotal());
         }
         else{
-          alert("Not enough money, chump!")
-          event.target.checked = false;
+          return(
+          alert("Not enough money, chump!"),
+          event.target.checked = false
+          )
         }
   }
   if(event.target.checked===false){
     let i = armorArray.indexOf(item);
     armorArray.splice(i, 1);
-    props.setArmorMoney(armorCost());
+    props.setArmorMoney(props.armorMoney-item.cost);
+    props.setTotalSilver(props.totalSilver+item.cost);
     props.setArmorBonusTotal(armorBonusTotal())
   }
 }
@@ -208,7 +213,7 @@ useEffect(()=>{
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <div>Silver: {props.totalSilver-props.weaponsMoney-armorCost()}</div>
+            <div>Silver: {props.totalSilver}</div>
           <div className="col-1">
               
             </div>
@@ -258,17 +263,21 @@ export const WeaponsMain = (props) => {
     if (event.target.checked === true) {
       if(item.cost < props.totalSilver){
         weaponArray.push(item);
-        props.setWeaponsMoney(weaponCost());
+        props.setWeaponsMoney(props.weaponsMoney+item.cost);
+        props.setTotalSilver(props.totalSilver-item.cost);
         }
         else{
-          alert("Not enough money, chump!")
-          event.target.checked = false;
+          return(
+          alert("Not enough money, chump!"),
+          event.target.checked = false
+          )
         }
   }
   if(event.target.checked===false){
     let i = weaponArray.indexOf(item);
     weaponArray.splice(i, 1);
-    props.setWeaponsMoney(weaponCost());
+    props.setWeaponsMoney(props.weaponsMoney-item.cost);
+    props.setTotalSilver(props.totalSilver+item.cost);
   }
   }
 
@@ -294,14 +303,15 @@ export const WeaponsMain = (props) => {
       </div>
       
       <div className="col">
-        <Button variant="warning" onClick={() => removeItem(index)}>Remove</Button>
+        <Button variant="warning" onClick={() => removeItem(item, index)}>Remove</Button>
       </div>
     </div>
   ));
 
-  function removeItem(index){
+  function removeItem(item, index){
     weaponArray.splice(index, 1);
-    props.setWeaponsMoney(weaponCost());
+    props.setWeaponsMoney(props.weaponsMoney-item.cost);
+    props.setTotalSilver(props.totalSilver+item.cost);
   }
 
   // function addItem(item){
@@ -371,7 +381,7 @@ return(
         </Modal.Header>
         <Modal.Body>
           <div className="row">
-            <div>Silver: {props.totalSilver-props.armorMoney-weaponCost()}</div>
+            <div>Silver: {props.totalSilver}</div>
           <div className="col-1">
               
             </div>

@@ -766,12 +766,12 @@ function App() {
               <div className="accTitle">
                 <h2 style={{ fontFamily: fontCheck }}>Money</h2>
                 {totalSilver > 0 && (
-                  <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
+                  <div>{totalSilver} silver</div>
                 )}
               </div>
             </Accordion.Header>
             <Accordion.Body>
-              <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
+              <p>Silver: {totalSilver}</p>
               <Inventory.StartingSilver
                 setWeaponsMoney={setWeaponsMoney}
                 setArmorMoney={setArmorMoney}
@@ -803,6 +803,7 @@ function App() {
               <Inventory.ArmorMain
                 setArmorBonusTotal={setArmorBonusTotal}
                 totalSilver={totalSilver}
+                setTotalSilver={setTotalSilver}
                 setArmorMoney={setArmorMoney}
                 updated={updated}
                 setUpdated={setUpdated}
@@ -831,6 +832,7 @@ function App() {
             <Accordion.Body>
               <Inventory.WeaponsMain
                 totalSilver={totalSilver}
+                setTotalSilver={setTotalSilver}
                 setWeaponsMoney={setWeaponsMoney}
                 updated={updated}
                 setUpdated={setUpdated}
