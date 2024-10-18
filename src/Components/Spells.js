@@ -262,7 +262,7 @@ export const QuickSpellsMain = (props) => {
 
   const spellDisplay = spArray.map((item, index) => (
     <div style={{ fontSize: "small" }} key={index}>
-      {item.spellName} -&nbsp;
+      {item.spellName}({item.level}) -&nbsp;
     </div>
   ));
 

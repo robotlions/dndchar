@@ -208,22 +208,22 @@ function App() {
               ? "container font-standard"
               : "container font-fantasy"
           }
-          style={{ textAlign: "center" }}
+          style={{ textAlign: "center",paddingBottom:200 }}
         >
           <h5 style={{ paddingTop: "20px", marginBottom: "50px" }}>
             How would you like to create your Dungeons and Dragons 3.5
             character?
           </h5>
           <div className="row">
-            <div className="col-lg-4" style={{ marginBottom: "10px" }}>
+            <div className="col-lg-4" style={{ marginBottom: "30px" }}>
               <div>
-                <h4 style={{ fontFamily: fontCheck }}>
+                <h4 style={{ fontFamily: fontCheck}}>
                   Lawful Mode
                   <br />
                   (Standard)
                 </h4>
-                Roll up a first-level character in accordance with the{" "}
-                <em>Player's Handbook</em>.
+                <p style={{minHeight:60}}>Roll up a first-level character in accordance with the{" "}
+                <em>Player's Handbook</em>.</p>
               </div>
               <div className="row">
                 <div className="col">
@@ -237,15 +237,15 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4" style={{ marginBottom: "10px" }}>
+            <div className="col-lg-4" style={{ marginBottom: "30px" }}>
               <div>
                 <h4 style={{ fontFamily: fontCheck }}>
                   Neutral Mode
                   <br />
                   (Quick)
                 </h4>
-                Instantly create a randomized first-level character with the
-                touch of a button.
+                <p style={{minHeight:60}}>Instantly create a randomized first-level character with the
+                touch of a button.</p>
               </div>
               <div className="row">
                 <div className="col">
@@ -270,8 +270,8 @@ function App() {
                   <br />
                   (Custom)
                 </h4>
-                Manually set level and ability scores and start with a million
-                silver.
+                <p style={{minHeight:60}}>Manually set level and ability scores and start with a million
+                silver.</p>
               </div>
               <div className="row">
                 <div className="col">
@@ -485,7 +485,7 @@ function App() {
                   />
                 </div>
                 <div className="col-3">
-                  <p style={{ fontWeight: "bold" }}>Spells</p>
+                  <p style={{ fontWeight: "bold" }}>Spells(level)</p>
                   <Spells.QuickSpellsMain
                     level={level}
                     selectedClass={selectedClass}
