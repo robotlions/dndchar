@@ -652,7 +652,7 @@ function App() {
               </div>
             </Accordion.Header>
             <Accordion.Body>
-              <div className="row justify-content-evenly">
+              <div className="row">
                 <div className="col-md-6">
                   <CharInfo.CharName
                     basicEdited={basicEdited}
@@ -660,29 +660,35 @@ function App() {
                     setCharName={setCharName}
                   />
                 </div>
-                <div className="col-auto col" style={{marginBottom:5}}>
+                <div className="col-md-6">
+                <div className="row justify-content-center">
+                <div className="col-auto" style={{marginBottom:5}}>
                   <RaceSelectDropdown
                     setBasicEdited={setBasicEdited}
                     setSelectedRace={setSelectedRace}
                   />
                 </div>
-                <div className="col-auto col" style={{marginBottom:5}}>
+                <div className="col-auto" style={{marginBottom:5}}>
                   <ClassSelectDropdown
                     setBasicEdited={setBasicEdited}
                     setSelectedClass={setSelectedClass}
                   />
                 </div>
-                <div className="col-auto col" style={{marginBottom:5}}>
+                <div className="col-auto" style={{marginBottom:5}}>
                   <CharInfo.AlignmentSelect
                     setBasicEdited={setBasicEdited}
                     setAlignment={setAlignment}
                   />
                 </div>
+                </div>
+              </div>
               </div>
               <div
                 style={{ textAlign: "center" }}
-                className="row justify-content-evenly"
+                className="row"
               >
+                <div className="col-md-6">
+                  <div className="row justify-content-evenly">
                 <div className="col">
                   Level
                   {munchkinMode === true ? (
@@ -715,6 +721,8 @@ function App() {
                     dex={dex}
                     selectedRace={selectedRace}
                   />
+                </div>
+                </div>
                 </div>
               </div>
             </Accordion.Body>
