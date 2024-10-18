@@ -208,21 +208,23 @@ function App() {
             How would you like to create your Dungeons and Dragons 3.5
             character?
           </h5>
-          <div className="row">
-            <div className="col-lg-4" style={{ marginBottom: "30px" }}>
-              <div>
-                <h4 style={{ fontFamily: fontCheck }}>
-                  Lawful Mode
-                  <br />
-                  (Standard)
-                </h4>
-                <p style={{ minHeight: 60 }}>
-                  Roll up a first-level character in accordance with the{" "}
-                  <em>Player's Handbook</em>.
-                </p>
-              </div>
-              <div className="row">
-                <div className="col">
+          <div className="row justify-content-center">
+            <div
+              className="col-lg-3 d-flex justify-content-center"
+              style={{ marginBottom: 10 }}
+            >
+              <div className="card" style={{ width: "20rem" }}>
+                <div className="card-body">
+                  <h4 className="card-title" style={{ fontFamily: fontCheck }}>
+                    Lawful Mode
+                  </h4>
+                  <h6 className="card-subtitle mb-2 text-body-secondary">
+                    (Standard)
+                  </h6>
+                  <p className="card-text">
+                    Roll up a first-level character in accordance with the{" "}
+                    <em>Player's Handbook.</em>
+                  </p>
                   <Button
                     variant="secondary rounded-0"
                     onClick={() => setModeChosen(true)}
@@ -233,20 +235,22 @@ function App() {
                 </div>
               </div>
             </div>
-            <div className="col-lg-4" style={{ marginBottom: "30px" }}>
-              <div>
-                <h4 style={{ fontFamily: fontCheck }}>
-                  Neutral Mode
-                  <br />
-                  (Quick)
-                </h4>
-                <p style={{ minHeight: 60 }}>
-                  Instantly create a randomized first-level character with the
-                  touch of a button.
-                </p>
-              </div>
-              <div className="row">
-                <div className="col">
+            <div
+              className="col-lg-3 d-flex justify-content-center"
+              style={{ marginBottom: 10 }}
+            >
+              <div className="card" style={{ width: "20rem" }}>
+                <div className="card-body">
+                  <h4 className="card-title" style={{ fontFamily: fontCheck }}>
+                    Neutral Mode
+                  </h4>
+                  <h6 className="card-subtitle mb-2 text-body-secondary">
+                    (Quick)
+                  </h6>
+                  <p className="card-text">
+                    Instantly create a randomized first-level character with the
+                    touch of a button.
+                  </p>
                   <Button
                     variant="secondary rounded-0"
                     onClick={() => {
@@ -261,20 +265,22 @@ function App() {
               </div>
             </div>
 
-            <div className="col-lg-4">
-              <div>
-                <h4 style={{ fontFamily: fontCheck }}>
-                  Chaotic Mode
-                  <br />
-                  (Custom)
-                </h4>
-                <p style={{ minHeight: 60 }}>
-                  Manually set level and ability scores and start with a million
-                  silver.
-                </p>
-              </div>
-              <div className="row">
-                <div className="col">
+            <div
+              className="col-lg-3 d-flex justify-content-center"
+              style={{ marginBottom: 10 }}
+            >
+              <div className="card" style={{ width: "20rem" }}>
+                <div className="card-body">
+                  <h4 className="card-title" style={{ fontFamily: fontCheck }}>
+                    Chaotic Mode
+                  </h4>
+                  <h6 className="card-subtitle mb-2 text-body-secondary">
+                    (Custom)
+                  </h6>
+                  <p className="card-text">
+                    Manually set level and ability scores and start with a
+                    million silver.
+                  </p>
                   <Button
                     variant="secondary rounded-0"
                     onClick={() => {
@@ -473,7 +479,7 @@ function App() {
                     quickCreate={quickCreate}
                   />
                 </div>
-                
+
                 <div className="col-2">
                   <p style={{ fontWeight: "bold" }}>Skills</p>
                   <Skills.SkillsQuick
