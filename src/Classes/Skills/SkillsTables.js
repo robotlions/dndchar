@@ -1,6 +1,5 @@
-
 export const skillTables = {
-appraise: {
+  appraise: {
     skillName: "Appraise",
     ability: "Int",
     untrained: true,
@@ -15,8 +14,9 @@ appraise: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-balance: {
+    startingSkill: [],
+  },
+  balance: {
     skillName: "Balance",
     ability: "Dex",
     untrained: true,
@@ -31,8 +31,9 @@ balance: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-bluff: {
+    startingSkill: [],
+  },
+  bluff: {
     skillName: "Bluff",
     ability: "Cha",
     untrained: true,
@@ -47,8 +48,9 @@ bluff: {
     Rogue: true,
     Sorcerer: true,
     Wizard: false,
-},
-climb: {
+    startingSkill: [],
+  },
+  climb: {
     skillName: "Climb",
     ability: "Str",
     untrained: true,
@@ -63,8 +65,9 @@ climb: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-concentraion: {
+    startingSkill: ["Barbarian"],
+  },
+  concentraion: {
     skillName: "Concentration",
     ability: "Con",
     untrained: true,
@@ -79,8 +82,9 @@ concentraion: {
     Rogue: false,
     Sorcerer: true,
     Wizard: true,
-},
-craft: {
+    startingSkill: ["Cleric"],
+  },
+  craft: {
     skillName: "Craft",
     ability: "Int",
     untrained: true,
@@ -95,8 +99,9 @@ craft: {
     Rogue: true,
     Sorcerer: true,
     Wizard: true,
-},
-decipher: {
+    startingSkill: [],
+  },
+  decipher: {
     skillName: "Decipher Script",
     ability: "Int",
     untrained: false,
@@ -111,8 +116,9 @@ decipher: {
     Rogue: true,
     Sorcerer: false,
     Wizard: true,
-},
-diplomacy: {
+    startingSkill: ["Bard"],
+  },
+  diplomacy: {
     skillName: "Diplomacy",
     ability: "Cha",
     untrained: true,
@@ -127,8 +133,10 @@ diplomacy: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-disable: {
+    startingSkill: ["Bard", "Cleric", 
+    ],
+  },
+  disable: {
     skillName: "Disable Device",
     ability: "Int",
     untrained: false,
@@ -143,8 +151,9 @@ disable: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-disguise: {
+    startingSkill: [],
+  },
+  disguise: {
     skillName: "Disguise",
     ability: "Cha",
     untrained: true,
@@ -159,8 +168,9 @@ disguise: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-escapeArtist: {
+    startingSkill: ["Bard"],
+  },
+  escapeArtist: {
     skillName: "Escape Artist",
     ability: "Dex",
     untrained: true,
@@ -175,8 +185,9 @@ escapeArtist: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-forgery: {
+    startingSkill: [],
+  },
+  forgery: {
     skillName: "Forgery",
     ability: "Int",
     untrained: true,
@@ -191,8 +202,9 @@ forgery: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-gatherInformation: {
+    startingSkill: [],
+  },
+  gatherInformation: {
     skillName: "Gather Information",
     ability: "Cha",
     untrained: true,
@@ -207,8 +219,9 @@ gatherInformation: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-handleAnimal: {
+    startingSkill: ["Bard", "Cleric"],
+  },
+  handleAnimal: {
     skillName: "Handle Animal",
     ability: "Cha",
     untrained: false,
@@ -223,8 +236,9 @@ handleAnimal: {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-},
-heal: {
+    startingSkill: [],
+  },
+  heal: {
     skillName: "Heal",
     ability: "Wis",
     untrained: true,
@@ -239,8 +253,9 @@ heal: {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-},
-hide: {
+    startingSkill: ["Cleric"],
+  },
+  hide: {
     skillName: "Hide",
     ability: "Dex",
     untrained: true,
@@ -255,8 +270,9 @@ hide: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-intimidate: {
+    startingSkill: [],
+  },
+  intimidate: {
     skillName: "Intimidate",
     ability: "Cha",
     untrained: true,
@@ -271,8 +287,9 @@ intimidate: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-jump: {
+    startingSkill: ["Barbarian"],
+  },
+  jump: {
     skillName: "Jump",
     ability: "Str",
     untrained: true,
@@ -287,8 +304,9 @@ jump: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-knowledgeArcana: {
+    startingSkill: ["Barbarian"],
+  },
+  knowledgeArcana: {
     skillName: "Knowledge (arcana)",
     ability: "Int",
     untrained: false,
@@ -303,8 +321,9 @@ knowledgeArcana: {
     Rogue: false,
     Sorcerer: true,
     Wizard: true,
-},
-knowledgeArchitect: {
+    startingSkill: [],
+  },
+  knowledgeArchitect: {
     skillName: "Knowledge (architecture and engineering)",
     ability: "Int",
     untrained: false,
@@ -319,9 +338,10 @@ knowledgeArchitect: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeDungeon: {
+  knowledgeDungeon: {
     skillName: "Knowledge (dungeoneering)",
     ability: "Int",
     untrained: false,
@@ -336,9 +356,10 @@ knowledgeDungeon: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeGeography: {
+  knowledgeGeography: {
     skillName: "Knowledge (geography)",
     ability: "Int",
     untrained: false,
@@ -353,9 +374,10 @@ knowledgeGeography: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeHistory: {
+  knowledgeHistory: {
     skillName: "Knowledge (history)",
     ability: "Int",
     untrained: false,
@@ -370,9 +392,10 @@ knowledgeHistory: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgelocal: {
+  knowledgelocal: {
     skillName: "Knowledge (local)",
     ability: "Int",
     untrained: false,
@@ -387,9 +410,10 @@ knowledgelocal: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeNature: {
+  knowledgeNature: {
     skillName: "Knowledge (nature)",
     ability: "Int",
     untrained: false,
@@ -404,9 +428,10 @@ knowledgeNature: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeNobility: {
+  knowledgeNobility: {
     skillName: "Knowledge (nobility and royalty)",
     ability: "Int",
     untrained: false,
@@ -421,9 +446,10 @@ knowledgeNobility: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-knowledgeReligion: {
+  knowledgeReligion: {
     skillName: "Knowledge (religion)",
     ability: "Int",
     untrained: false,
@@ -438,9 +464,10 @@ knowledgeReligion: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: ["Cleric"],
+  },
 
-knowledgePlanes: {
+  knowledgePlanes: {
     skillName: "Knowledge (the planes)",
     ability: "Int",
     untrained: false,
@@ -455,9 +482,10 @@ knowledgePlanes: {
     Rogue: false,
     Sorcerer: false,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-listen: {
+  listen: {
     skillName: "Listen",
     ability: "Wis",
     untrained: true,
@@ -472,9 +500,10 @@ listen: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Barbarian", "Bard"],
+  },
 
-moveSilently: {
+  moveSilently: {
     skillName: "Move Silently",
     ability: "Dex",
     untrained: true,
@@ -489,9 +518,10 @@ moveSilently: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-openLock: {
+  openLock: {
     skillName: "Open Lock",
     ability: "Dex",
     untrained: false,
@@ -506,9 +536,10 @@ openLock: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-perform: {
+  perform: {
     skillName: "Perform",
     ability: "Dex",
     untrained: true,
@@ -523,9 +554,10 @@ perform: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Bard"],
+  },
 
-profession: {
+  profession: {
     skillName: "Profession",
     ability: "Wis",
     untrained: false,
@@ -540,9 +572,10 @@ profession: {
     Rogue: true,
     Sorcerer: true,
     Wizard: true,
-},
+    startingSkill: [],
+  },
 
-ride: {
+  ride: {
     skillName: "Ride",
     ability: "Dex",
     untrained: true,
@@ -557,9 +590,10 @@ ride: {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Barbarian"],
+  },
 
-search: {
+  search: {
     skillName: "Search",
     ability: "Int",
     untrained: true,
@@ -574,9 +608,10 @@ search: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-senseMotive: {
+  senseMotive: {
     skillName: "Sense Motive",
     ability: "Int",
     untrained: true,
@@ -591,9 +626,10 @@ senseMotive: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-sleightHand: {
+  sleightHand: {
     skillName: "Sleight of Hand",
     ability: "Dex",
     untrained: false,
@@ -608,9 +644,10 @@ sleightHand: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Bard"],
+  },
 
-speakLanguage: {
+  speakLanguage: {
     skillName: "Speak Language",
     ability: null,
     untrained: false,
@@ -625,9 +662,10 @@ speakLanguage: {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-spellcraft: {
+  spellcraft: {
     skillName: "Spellcraft",
     ability: "Int",
     untrained: false,
@@ -642,9 +680,10 @@ spellcraft: {
     Rogue: false,
     Sorcerer: true,
     Wizard: true,
-},
+    startingSkill: ["Bard", "Cleric"],
+  },
 
-spot: {
+  spot: {
     skillName: "Spot",
     ability: "Wis",
     untrained: true,
@@ -659,9 +698,10 @@ spot: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-survival: {
+  survival: {
     skillName: "Survival",
     ability: "Wis",
     untrained: true,
@@ -676,9 +716,10 @@ survival: {
     Rogue: false,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Barbarian"],
+  },
 
-swim: {
+  swim: {
     skillName: "Swim",
     ability: "Str",
     untrained: true,
@@ -693,9 +734,10 @@ swim: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Barbarian"],
+  },
 
-tumble: {
+  tumble: {
     skillName: "Tumble",
     ability: "Dex",
     untrained: false,
@@ -710,9 +752,10 @@ tumble: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: [],
+  },
 
-useMagicDevice: {
+  useMagicDevice: {
     skillName: "Use Magic Device",
     ability: "Cha",
     untrained: false,
@@ -727,9 +770,10 @@ useMagicDevice: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
+    startingSkill: ["Bard"],
+  },
 
-useRope: {
+  useRope: {
     skillName: "Use Rope",
     ability: "Dex",
     untrained: true,
@@ -744,5 +788,6 @@ useRope: {
     Rogue: true,
     Sorcerer: false,
     Wizard: false,
-},
-}
+    startingSkill: [],
+  },
+};

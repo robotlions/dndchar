@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 
 let spArray = [];
 
-function calculateModifier(abil){
-  return -5 + Math.floor(1*(abil/2))
+function calculateModifier(abil) {
+  return -5 + Math.floor(1 * (abil / 2));
+}
+
+function rando(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 export const SpellListing = (props) => {
@@ -17,7 +21,7 @@ export const SpellListing = (props) => {
 
     if (event.target.checked === true) {
       if (tar === 0) {
-        return (event.preventDefault(), alert("No more spell slots"));
+        return event.preventDefault(), alert("No more spell slots");
       } else {
         func(tar - 1);
         spArray.push(item);
@@ -31,6 +35,7 @@ export const SpellListing = (props) => {
 
   let lvlCheck = KnownSpells[props.selectedClass][props.level];
   let spellObject = SpellLists[props.selectedClass];
+
   function displayList(lvlFilter) {
     return Object.values(spellObject)
       .filter((item) => lvlCheck[item.level] > 0)
@@ -140,7 +145,6 @@ export const SpellsMain = (props) => {
     props.setUpdated(!props.updated);
   }
 
-
   useEffect(() => {
     // let mod = calculateModifier(props.int);
     let classMod;
@@ -150,20 +154,27 @@ export const SpellsMain = (props) => {
       props.selectedClass !== "Rogue" &&
       props.selectedClass !== "Fighter"
     ) {
-      if(props.selectedClass==="Sorcerer" || props.selectedClass==="Bard"){
-        classMod=props.chr
+      if (
+        props.selectedClass === "Sorcerer" ||
+        props.selectedClass === "Bard"
+      ) {
+        classMod = props.chr;
       }
-      if(props.selectedClass==="Wizard"){
-        classMod=props.int
+      if (props.selectedClass === "Wizard") {
+        classMod = props.int;
       }
-      if(props.selectedClass==="Cleric" || props.selectedClass==="Druid" || props.selectedClass==="Paladin" || props.selectedClass==="Ranger"){
-classMod=props.wis
+      if (
+        props.selectedClass === "Cleric" ||
+        props.selectedClass === "Druid" ||
+        props.selectedClass === "Paladin" ||
+        props.selectedClass === "Ranger"
+      ) {
+        classMod = props.wis;
       }
-      let mod = calculateModifier(classMod)
-      Object.entries(
-        KnownSpells[props.selectedClass][props.level]
-      ).map(([key, value], index) =>
-        value != null && setSpellSlotsInState(`setLevel${key}`, value+mod)
+      let mod = calculateModifier(classMod);
+      Object.entries(KnownSpells[props.selectedClass][props.level]).map(
+        ([key, value], index) =>
+          value != null && setSpellSlotsInState(`setLevel${key}`, value + mod)
       );
     }
   }, [props.level, props.selectedClass, props.int]);
@@ -215,4 +226,77 @@ classMod=props.wis
       </div>
     </div>
   );
+};
+
+export const QuickSpellsMain = (props) => {
+  const [loaded, setLoaded] = useState(false);
+  let classMod;
+
+  function calculateModifier() {
+    return -5 + Math.floor(1 * (classMod / 2));
+  }
+
+  useEffect(() => {
+    // let mod = calculateModifier(props.int);
+    if (
+      !["Barbarian", "Monk", "Rogue", "Fighter"].includes(props.selectedClass)
+    ) {
+      if (["Sorcerer", "Bard"].includes(props.selectedClass)) {
+        classMod = props.chr;
+      } else if (props.selectedClass === "Wizard") {
+        classMod = props.int;
+      } else if (
+        ["Cleric", "Druid", "Paladin", "Ranger"].includes(props.selectedClass)
+      ) {
+        classMod = props.wis;
+      }
+    }
+  }, [props.level, props.selectedClass, props.int, props.wis, props.chr]);
+
+  useEffect(() => {
+    let tempArray = [];
+    spArray = [];
+    if (
+      ["Fighter", "Monk", "Barbarian", "Rogue"].includes(props.selectedClass)
+    ) {
+      return;
+    } else {
+      let spellSlots = KnownSpells[props.selectedClass][props.level];
+      let spellObject = SpellLists[props.selectedClass];
+      Object.entries(spellSlots).forEach(([key, value]) => {
+        if (value != null) {
+          Object.values(spellObject)
+            .filter((item) => item.level === Number(key))
+            .map((item) => tempArray.push(item));
+          if (
+            ["Bard", "Wizard", "Sorcerer", "Ranger", "Paladin"].includes(
+              props.selectedClass
+            )
+          ) {
+            let difference =
+              tempArray.length - (Number(value) + calculateModifier());
+            for (let i = 0; i < difference; i++) {
+              let x = rando(0, difference.length - 1);
+              tempArray.splice(x, 1);
+            }
+          }
+          tempArray.forEach((item) => spArray.push(item));
+        }
+      });
+      props.setSpellArray(spArray);
+      setLoaded(true);
+    }
+  }, [props.selectedClass, props.wis, props.chr, props.int]);
+
+  const spellDisplay = spArray.map((item, index) => (
+    <div style={{ fontSize: "small" }} key={index}>
+      {item.spellName}({item.level}) -&nbsp;
+    </div>
+  ));
+
+  if (loaded) {
+    return <div className="d-flex flex-row flex-wrap">{spellDisplay}</div>;
+  } else {
+    return <div></div>;
+  }
 };

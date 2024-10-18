@@ -3,11 +3,11 @@ import * as RaceBonuses from "../Races/AbilBonuses";
 import { Button } from "react-bootstrap";
 
 function rando(min, max) {
-  return Math.floor(Math.random() * max) + min;
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
 function roll() {
-  return [rando(1, 6), rando(1, 6), rando(1, 6), rando(1, 6)]
+  return [rando(2, 6), rando(2, 6), rando(2, 6), rando(2, 6)]
     .sort((a, b) => a - b)
     .slice(1)
     .reduce((a, b) => a + b, 0);
@@ -51,7 +51,7 @@ export const NewScores = (props) => {
   const [chr, setChr] = useState(10);
 
   const rerollButton = (
-    <Button variant="secondary" onClick={() => rollButton()}>
+    <Button variant="secondary rounded-0" onClick={() => rollButton()}>
       Roll Abilities
     </Button>
   );

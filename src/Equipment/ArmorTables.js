@@ -9,7 +9,8 @@ export const ArmorTable = {
     speed30: 30,
     speed20: 20,
     weight: 10,
-    cat: "light"
+    cat: "light",
+    startingEquipment: [],
   },
   leather:{
     armorName: "Leather",
@@ -21,7 +22,8 @@ export const ArmorTable = {
     speed30: 30,
     speed20: 20,
     weight: 15,
-    cat: "light"
+    cat: "light",
+    startingEquipment: ["Rogue"],
 
   },
   studdedLeather:{
@@ -35,6 +37,7 @@ export const ArmorTable = {
     speed20: 20,
     weight: 15,
     cat: "light",
+    startingEquipment: ["Barbarian", "Bard", "Ranger"],
   },
 
   chainShirt:{
@@ -48,6 +51,7 @@ export const ArmorTable = {
     speed20: 20,
     weight: 25,
     cat: "light",
+    startingEquipment:[]
   },
   hide:{
     armorName: "Hide",
@@ -59,7 +63,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 25,
-    cat: "medium"
+    cat: "medium",
+    startingEquipment: ["Druid"],
   },
   scale:{
     armorName: "Scale Mail",
@@ -71,7 +76,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 30,
-    cat: "medium"
+    cat: "medium",
+    startingEquipment: ["Cleric", "Fighter", "Paladin"],
   },
   chainMail:{
     armorName: "Chainmail",
@@ -83,7 +89,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 40,
-    cat: "medium"
+    cat: "medium",
+    startingEquipment: [],
   },
   breastPlate:{
     armorName: "Breastplate",
@@ -95,7 +102,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 30,
-    cat: "medium"
+    cat: "medium",
+    startingEquipment: [],
   },
   splintMail:{
     armorName: "Splint Mail",
@@ -107,7 +115,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 45,
-    cat: "heavy"
+    cat: "heavy",
+    startingEquipment: [],
   },
   bandedMail:{
     armorName: "Banded Mail",
@@ -119,7 +128,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 35,
-    cat: "heavy"
+    cat: "heavy",
+    startingEquipment: [],
   },
   halfPlate:{
     armorName: "Half Plate",
@@ -131,7 +141,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 50,
-    cat: "heavy"
+    cat: "heavy",
+    startingEquipment: [],
   },
   fullPlate:{
     armorName: "Full Plate",
@@ -143,7 +154,8 @@ export const ArmorTable = {
     speed30: 20,
     speed20: 15,
     weight: 50,
-    cat: "heavy"
+    cat: "heavy",
+    startingEquipment: [],
   },
 };
 
@@ -156,6 +168,7 @@ export const ShieldTable = {
     armorCheck: -1,
     spellFail: 5,
     weight: 5,
+    startingEquipment: [],
   },
   lightWood: {
     armorName: "Shield, light wooden",
@@ -165,6 +178,7 @@ export const ShieldTable = {
     armorCheck: -1,
     spellFail: 5,
     weight: 5,
+    startingEquipment: [],
   },
   lightSteel: {
     armorName: "Shield, light steel",
@@ -174,6 +188,7 @@ export const ShieldTable = {
     armorCheck: -1,
     spellFail: 5,
     weight: 6,
+    startingEquipment: [],
   },
   heavyWood: {
     armorName: "Shield, heavy wooden",
@@ -183,6 +198,7 @@ export const ShieldTable = {
     armorCheck: -2,
     spellFail: 15,
     weight: 10,
+    startingEquipment: ["Cleric", "Paladin"],
   },
   heavySteel: {
     armorName: "Shield, heavy steel",
@@ -192,6 +208,7 @@ export const ShieldTable = {
     armorCheck: -2,
     spellFail: 15,
     weight: 15,
+    startingEquipment: [],
   },
   tower: {
     armorName: "Shield, tower",
@@ -201,5 +218,7 @@ export const ShieldTable = {
     armorCheck: -10,
     spellFail: 50,
     weight: 45,
+    startingEquipment: [],
   },
 };
+

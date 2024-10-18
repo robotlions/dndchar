@@ -92,3 +92,38 @@ export const FeatsMain = (props) => {
     </div>
   );
 };
+
+export const FeatsQuick = (props) => {
+  function rando(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+
+  useEffect(() => {
+    if (props.quickCreate === true) {
+      featArray = [];
+      props.setFeatArray([]);
+      Object.values(featsTable)
+        .filter((item) =>item.startingFeat.includes(props.selectedClass))
+        .map((item, index) => featArray.push(item));
+        let featSlots = props.selectedRace==="human" ? 2 : 1
+      let difference =
+        featArray.length - featSlots
+      for (let i = 0; i < difference; i++) {
+        let v = rando(0, featArray.length - 1);
+        featArray.splice(v, 1);
+      }
+
+      props.setFeatArray(featArray);
+    }
+  }, [props.quickCreate, props.selectedClass, props.selectedRace, props.int]);
+
+  const quickSkillsDisplay = featArray.map((item, index) => (
+    <span style={{fontSize:"small"}} key={index}>
+      {item.featName}<br/>
+    </span>
+  ));
+
+  return <>{quickSkillsDisplay}</>;
+};
+

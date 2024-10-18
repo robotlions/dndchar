@@ -198,7 +198,7 @@ useEffect(()=>{
       <div>{purchasedArmor}</div>
      
 
-      <Button variant="secondary" onClick={handleShow}>
+      <Button variant="secondary rounded-0" onClick={handleShow}>
         Buy Armor and Shields
       </Button>
 
@@ -238,7 +238,7 @@ useEffect(()=>{
           {shieldDisplay}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary rounded-0" onClick={handleClose}>
             Close
           </Button>
          
@@ -361,7 +361,7 @@ return(
       <div>{purchasedWeapons}</div>
      
 
-      <Button variant="secondary" onClick={handleShow}>
+      <Button variant="secondary rounded-0" onClick={handleShow}>
         Buy Weapons
       </Button>
 
@@ -401,7 +401,7 @@ return(
           {weaponDisplay("ammunition")}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+          <Button variant="secondary rounded-0" onClick={handleClose}>
             Close
           </Button>
          
@@ -426,12 +426,12 @@ export const StartingSilver = (props) => {
   }
 
   const normalMoney = props.totalSilver === 0 ? (
-    <Button variant="secondary" onClick={() => genSilver()}>
+    <Button variant="secondary rounded-0" onClick={() => genSilver()}>
       Roll Starting Money
     </Button>
   ) : (
     <Button
-      variant="secondary"
+      variant="secondary rounded-0"
       onClick={() => {
         props.setTotalSilver(0);
         props.setArmorMoney(0);
@@ -453,12 +453,12 @@ if(props.munchkinMode===true){
     <>
     {!props.munchkinMode && normalMoney}
       {/* {props.totalSilver === 0 ? (
-        <Button variant="secondary" onClick={() => genSilver()}>
+        <Button variant="secondary rounded-0" onClick={() => genSilver()}>
           Roll Starting Money
         </Button>
       ) : (
         <Button
-          variant="secondary"
+          variant="secondary rounded-0"
           onClick={() => {
             props.setTotalSilver(0);
             props.setArmorMoney(0);
@@ -474,4 +474,78 @@ if(props.munchkinMode===true){
   );
 };
 
+
+export const WeaponsAndArmorQuick = (props) => {
+  const [show, setShow] = useState(false);
+
+ function buyArmor(){
+  Object.values(ArmorTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
+  ))
+  setShow(!show);
+  console.log(armorArray)
+ }
+
+
+  const purchasedArmor = armorArray.map((item, index) => (
+    <div key={index} className="row" style={{fontSize:"small",lineHeight:.9}}>
+      <div className="col-4">
+        <p style={{fontWeight: "bold"}}>{item.armorName}</p>
+      </div>
+      <div className="col-4">
+        <p>Armor Bonus: {item.armorBonus}</p>
+      </div>
+     
+      <div className="col-4">
+        <p>Armor Check: {item.armorCheck}</p>
+      </div>
+     
+      
+    </div>
+  ));
+
+  
+
+  const purchasedWeapons = weaponArray.map((item, index) => (
+    <div key={index} className="row" style={{fontSize:"small",lineHeight:.9}}>
+      <div className="col-4">
+        <p style={{fontWeight: "bold"}}>{item.weaponName}</p>
+      </div>
+      <div className="col-4">
+        <p>Damage: {item.dmgM}</p>
+      </div>
+      <div className="col-4">
+        <p>Type: {item.type}</p>
+      </div>
+      
+    </div>
+  ));
+
+
+useEffect(()=>{ 
+  if(props.quickCreate===true){
+    armorArray=[];
+    weaponArray=[];
+    props.setArmorArray([]);
+    props.setWeaponArray([]);
+  Object.values(ArmorTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
+))
+Object.values(WeaponTables.weaponsList).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (weaponArray.push(item)
+   
+))
+Object.values(ShieldTable).filter((item)=>item.startingEquipment.includes(props.selectedClass)).map((item, index) => (armorArray.push(item)
+   
+))
+  props.setArmorArray(armorArray);
+  props.setWeaponArray(weaponArray)
+}
+}, [props.quickCreate, props.selectedClass]);
+  
+
+  return (
+    <>
+      <div>{purchasedArmor}</div>
+      <div>{purchasedWeapons}</div> 
+    </>
+  );
+};
 

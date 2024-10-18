@@ -1,11 +1,27 @@
 import { useEffect, useState } from "react";
 import Button from "react-bootstrap/Button";
 import { skillTables } from "../Classes/Skills/SkillsTables";
+import * as RaceBonuses from "../Races/AbilBonuses";
+
 
 const classSkillPoints = {
   Barbarian: 4,
   Bard: 6,
   Cleric: 2,
+  Druid: 4,
+  Fighter: 2,
+  Monk: 4,
+  Paladin: 2,
+  Ranger: 6,
+  Rogue: 8,
+  Sorcerer: 2,
+  Wizard: 2,
+};
+
+const quickClassSkillPoints = {
+  Barbarian: 4,
+  Bard: 6,
+  Cleric: 3,
   Druid: 4,
   Fighter: 2,
   Monk: 4,
@@ -53,7 +69,7 @@ export const SkillEntry = (props) => {
       learnedSkills.push(props.item);
       props.triggerArray();
     }
-   
+
     if (classSkill === true) {
       let iOfA = learnedSkills.indexOf(props.item);
 
@@ -94,7 +110,6 @@ export const SkillEntry = (props) => {
     }
   }
 
-
   return (
     <div style={{ fontSize: "small" }}>
       <Button variant="light" onClick={() => addSkillRank()}>
@@ -119,10 +134,18 @@ export const SkillsMain = (props) => {
   useEffect(() => {
     setSkillPoints(
       4 *
-        ((classSkillPoints[props.selectedClass] + calculateModifier(props.int))*props.level) +
+        ((classSkillPoints[props.selectedClass] +
+          calculateModifier(props.int)) *
+          props.level) +
         raceSkillBonus
     );
-  }, [props.int, props.selectedClass, props.selectedRace, raceSkillBonus, props.level]);
+  }, [
+    props.int,
+    props.selectedClass,
+    props.selectedRace,
+    raceSkillBonus,
+    props.level,
+  ]);
 
   useEffect(() => {
     props.setSkillPoints(skillPoints);
@@ -167,20 +190,60 @@ export const SkillsMain = (props) => {
 
   return (
     <>
-      <div style={{fontSize:"large",fontWeight:"bold"}}>Skill Points Remaining: {skillPoints}</div>
-<br/>
+      <div style={{ fontSize: "large", fontWeight: "bold" }}>
+        Skill Points Remaining: {skillPoints}
+      </div>
+      <br />
       <h5>
         Class Skills <em>(Spend 1 point)</em>
       </h5>
       <div className="d-flex flex-row flex-wrap">{skillDisplayClass}</div>
-      <br/>
+      <br />
       <h5>
         Cross-Class Skills <em>(Spend 2 points)</em>
       </h5>
-      <br/>
-      <div style={{fontSize:"large",fontWeight:"bold"}}>Skill Points Remaining: {skillPoints}</div>
-      <br/>
+      <br />
+      <div style={{ fontSize: "large", fontWeight: "bold" }}>
+        Skill Points Remaining: {skillPoints}
+      </div>
+      <br />
       <div className="d-flex flex-row flex-wrap">{skillDisplayCrossClass}</div>
     </>
   );
+};
+
+export const SkillsQuick = (props) => {
+  function rando(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  const racialBonus = RaceBonuses[props.selectedRace];
+
+  useEffect(() => {
+    if (props.quickCreate === true) {
+      learnedSkills = [];
+      props.setLearnedSkillsArray([]);
+      Object.values(skillTables)
+        // .filter((item) => item.startingSkill.includes(props.selectedClass))
+        .filter((item) =>item[props.selectedClass]===true)
+        .map((item, index) => learnedSkills.push(item));
+      learnedSkills.map((item) => (item.skillLevel = 4));
+      let difference =
+        learnedSkills.length - (quickClassSkillPoints[props.selectedClass]+ calculateModifier(props.int + racialBonus.bonusInt));
+      for (let i = 0; i < difference; i++) {
+        let v = rando(0, learnedSkills.length - 1);
+        learnedSkills.splice(v, 1);
+      }
+
+      props.setLearnedSkillsArray(learnedSkills);
+    }
+  }, [props.quickCreate, props.selectedClass, props.selectedRace, props.int]);
+
+  const quickSkillsDisplay = learnedSkills.map((item, index) => (
+    <span style={{fontSize:"small"}} key={index}>
+      {item.skillName} ({item.skillLevel})<br/>
+    </span>
+  ));
+
+  return <>{quickSkillsDisplay}</>;
 };
