@@ -5,6 +5,7 @@ import { getAnalytics } from "firebase/analytics";
 import { useEffect, useState, useRef } from "react";
 import { RaceSelectDropdown } from "./Components/RaceSelect";
 import { ClassSelectDropdown } from "./Components/ClassSelect";
+import { SecondClassSelectDropdown } from "./Components/ClassSelect";
 import * as CharInfo from "./Components/CharInfo";
 import * as Inventory from "./Components/Inventory";
 import { NewScores } from "./Components/AbilityScores";
@@ -28,6 +29,7 @@ function App() {
   const [quickMode, setQuickMode] = useState(false);
   const [selectedRace, setSelectedRace] = useState("human");
   const [selectedClass, setSelectedClass] = useState("Fighter");
+  const [selectedSecondClass, setSelectedSecondClass] = useState("select");
   const [con, setCon] = useState(10);
   const [dex, setDex] = useState(10);
   const [wis, setWis] = useState(10);
@@ -36,6 +38,7 @@ function App() {
   const [chr, setChr] = useState(10);
   const [charName, setCharName] = useState("Basic Info");
   const [level, setLevel] = useState(1);
+  const [levelSecondClass, setLevelSecondClass] = useState(0);
   const [totalSilver, setTotalSilver] = useState(0);
   const [updated, setUpdated] = useState(false);
   const [armorMoney, setArmorMoney] = useState(0);
@@ -117,6 +120,7 @@ function App() {
       </div>
     ));
   }
+
 
   function armorHeaderDisplay() {
     let counts = {};
@@ -625,7 +629,7 @@ function App() {
                       {selectedRace != "select" &&
                         selectedRace.charAt(0).toUpperCase() +
                           selectedRace.slice(1)}{" "}
-                      {selectedClass}
+                      {selectedClass} {selectedSecondClass != "select" && `/ ${selectedSecondClass}`}
                     </p>
                     <div>
                       <span style={{ fontWeight: "bold" }}>Level: </span>
@@ -650,6 +654,8 @@ function App() {
                     setCharName={setCharName}
                   />
                 </div>
+                <div className="col-md-6">
+                  <div className="row">
                 <div className="col-auto col" style={{marginBottom:5}}>
                   <RaceSelectDropdown
                     setBasicEdited={setBasicEdited}
@@ -662,13 +668,39 @@ function App() {
                     setSelectedClass={setSelectedClass}
                   />
                 </div>
+               
                 <div className="col-auto col" style={{marginBottom:5}}>
                   <CharInfo.AlignmentSelect
                     setBasicEdited={setBasicEdited}
                     setAlignment={setAlignment}
                   />
                 </div>
-              </div>
+                </div>
+              
+              <div className="row">
+              {munchkinMode && (
+                <div className="col-auto col" style={{marginBottom:5}}>
+                  <SecondClassSelectDropdown
+                    setBasicEdited={setBasicEdited}
+                    setSelectedSecondClass={setSelectedSecondClass}
+                    selectedClass={selectedClass}
+                  />
+                </div>
+              )}
+              {munchkinMode && (
+                <div className="col-auto col">
+                 
+                    <CharInfo.LevelSecondClass
+                      setBasicEdited={setBasicEdited}
+                      setLevelSecondClass={setLevelSecondClass}
+                      level={level}
+                    />
+                
+                </div>
+              )}
+                </div>
+                </div>
+                </div>
               <div
                 style={{ textAlign: "center" }}
                 className="row justify-content-evenly"
@@ -766,12 +798,12 @@ function App() {
               <div className="accTitle">
                 <h2 style={{ fontFamily: fontCheck }}>Money</h2>
                 {totalSilver > 0 && (
-                  <div>{totalSilver - armorMoney - weaponsMoney} silver</div>
+                  <div>{totalSilver} silver</div>
                 )}
               </div>
             </Accordion.Header>
             <Accordion.Body>
-              <p>Silver: {totalSilver - armorMoney - weaponsMoney}</p>
+              <p>Silver: {totalSilver}</p>
               <Inventory.StartingSilver
                 setWeaponsMoney={setWeaponsMoney}
                 setArmorMoney={setArmorMoney}
@@ -803,6 +835,7 @@ function App() {
               <Inventory.ArmorMain
                 setArmorBonusTotal={setArmorBonusTotal}
                 totalSilver={totalSilver}
+                setTotalSilver={setTotalSilver}
                 setArmorMoney={setArmorMoney}
                 updated={updated}
                 setUpdated={setUpdated}
@@ -831,6 +864,7 @@ function App() {
             <Accordion.Body>
               <Inventory.WeaponsMain
                 totalSilver={totalSilver}
+                setTotalSilver={setTotalSilver}
                 setWeaponsMoney={setWeaponsMoney}
                 updated={updated}
                 setUpdated={setUpdated}

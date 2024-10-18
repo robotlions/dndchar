@@ -98,7 +98,9 @@ export const ArmorMain = (props) => {
       if(item.cost < props.totalSilver){
         armorArray.push(item);
         props.setArmorMoney(armorCost());
+        props.setTotalSilver(props.totalSilver-armorCost());
         props.setArmorBonusTotal(armorBonusTotal());
+        console.log(`money from armor function: ${props.totalSilver} armor cost function: ${armorCost()}`)
         }
         else{
           alert("Not enough money, chump!")
@@ -259,6 +261,8 @@ export const WeaponsMain = (props) => {
       if(item.cost < props.totalSilver){
         weaponArray.push(item);
         props.setWeaponsMoney(weaponCost());
+        props.setTotalSilver(props.totalSilver-weaponCost());
+        console.log(`totalSilver: ${props.totalSilver}`)
         }
         else{
           alert("Not enough money, chump!")
