@@ -119,7 +119,7 @@ export const FeatsQuick = (props) => {
   }, [props.quickCreate, props.selectedClass, props.selectedRace, props.int]);
 
   const quickSkillsDisplay = featArray.map((item, index) => (
-    <span style={{fontSize:"small"}}>
+    <span style={{fontSize:"small"}} key={index}>
       {item.featName}<br/>
     </span>
   ));

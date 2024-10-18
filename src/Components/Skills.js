@@ -236,7 +236,7 @@ export const SkillsQuick = (props) => {
   }, [props.quickCreate, props.selectedClass, props.selectedRace, props.int]);
 
   const quickSkillsDisplay = learnedSkills.map((item, index) => (
-    <span style={{fontSize:"small"}}>
+    <span style={{fontSize:"small"}} key={index}>
       {item.skillName} ({item.skillLevel})<br/>
     </span>
   ));

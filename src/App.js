@@ -191,6 +191,7 @@ function App() {
     setCharName("Chuckles");
     quickRollStats();
     setQuickCreate(true);
+    setTotalSilver(500);
   }
 
   if (modeChosen === false) {
@@ -296,27 +297,29 @@ function App() {
     );
   }
 
-  if (modeChosen === true && quickMode === true) {
+  else if (modeChosen === true && quickMode === true) {
     return (
       <>
-        
-          <TopNav
-            fontThemeFantasy={fontThemeFantasy}
-            setFontThemeFantasy={setFontThemeFantasy}
-            setMunchkinMode={setMunchkinMode}
-          />
-          <div  className={
+        <TopNav
+          fontThemeFantasy={fontThemeFantasy}
+          setFontThemeFantasy={setFontThemeFantasy}
+          setMunchkinMode={setMunchkinMode}
+        />
+        <div
+          className={
             fontThemeFantasy === false
               ? "container font-standard"
               : "container font-fantasy"
-          } style={{ paddingBottom: 150 }}>
-          <div className="row" style={{marginTop:30}}>
-            <div className="col-12">
+          }
+          style={{ paddingBottom: 150 }}
+        >
+          <div className="row justify-content-center" style={{ marginTop: 30 }}>
+            <div className="col-auto">
               <h5>Choose your race, class and alignment, then hit Go!</h5>
             </div>
           </div>
           <br />
-          <div className="row">
+          <div className="row justify-content-center">
             <div className="col-auto">
               <RaceSelectDropdown
                 setBasicEdited={setBasicEdited}
@@ -340,7 +343,7 @@ function App() {
                 <Button
                   className="btn btn-primary rounded-0"
                   onClick={() => createInstantCharacter()}
-                  style={{paddingLeft:30,paddingRight:30}}
+                  style={{ paddingLeft: 30, paddingRight: 30 }}
                 >
                   Go!
                 </Button>
@@ -391,14 +394,14 @@ function App() {
                     setRolled={setRolled}
                     munchkinMode={munchkinMode}
                   />
-                  <div style={{textAlign:"center",marginTop:20}}>
-                  <Button
-                    className="btn btn-secondary rounded-0"
-                    onClick={() => quickRollStats()}
-                  >
-                    Reroll Stats
-                  </Button>
-                </div>
+                  <div style={{ textAlign: "center", marginTop: 20 }}>
+                    <Button
+                      className="btn btn-secondary rounded-0"
+                      onClick={() => quickRollStats()}
+                    >
+                      Reroll Stats
+                    </Button>
+                  </div>
                 </div>
 
                 <div className="col-2 col-md-2" style={{ textAlign: "center" }}>
@@ -457,7 +460,6 @@ function App() {
                     setWeaponArray={setWeaponArray}
                     selectedClass={selectedClass}
                     quickCreate={quickCreate}
-                    setQuickCreate={setQuickCreate}
                   />
                 </div>
                 <div className="col-1"></div>
@@ -468,7 +470,6 @@ function App() {
                     setLearnedSkillsArray={setLearnedSkillsArray}
                     selectedClass={selectedClass}
                     quickCreate={quickCreate}
-                    setQuickCreate={setQuickCreate}
                     int={int}
                     selectedRace={selectedRace}
                   />
@@ -480,28 +481,34 @@ function App() {
                     setFeatArray={setFeatArray}
                     selectedClass={selectedClass}
                     quickCreate={quickCreate}
-                    setQuickCreate={setQuickCreate}
                     selectedRace={selectedRace}
                   />
                 </div>
                 <div className="col-3">
                   <p style={{ fontWeight: "bold" }}>Spells</p>
                   <Spells.QuickSpellsMain
-                  level={level}
-                  updated={updated}
-                  setUpdated={setUpdated}
-                  selectedClass={selectedClass}
-                  setSpellArray={setSpellArray}
-                  int={int}
-                  wis={wis}
-                  chr={chr}
-                  // spellCaster={spellCaster}
-                />
+                    level={level}
+                    selectedClass={selectedClass}
+                    spellArray={spellArray}
+                    int={int}
+                    wis={wis}
+                    chr={chr}
+                  />
                 </div>
               </div>
-              <div className="row justify-content-center" style={{marginTop:20}}>
-                
+              <div
+                className="row justify-content-center"
+                style={{ marginTop: 20 }}
+              >
                 <div className="col-auto">
+                  <Button
+                    name="printCharacterButton"
+                    variant="secondary rounded-0"
+                    onClick={(e) => handleShow()}
+                  >
+                    {/* <Button name="printCharacterButton" variant="secondary rounded-0" onClick={(e)=>{console.log(e)}}> */}
+                    View and Print Character
+                  </Button>
                   <Button
                     variant="secondary rounded-0"
                     onClick={() => window.location.reload()}
@@ -512,13 +519,65 @@ function App() {
               </div>
             </>
           )}
+          <Modal size="xl" show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+              <Modal.Title>Print Character</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div>
+                <ComponentToPrint
+                  ref={ref}
+                  charName={charName}
+                  selectedClass={selectedClass}
+                  selectedRace={selectedRace}
+                  level={level}
+                  str={str}
+                  int={int}
+                  wis={wis}
+                  dex={dex}
+                  con={con}
+                  chr={chr}
+                  alignment={alignment}
+                  hp={hp}
+                  silver={totalSilver - weaponsMoney - armorMoney}
+                  armorArray={armorArray}
+                  weaponArray={weaponArray}
+                  learnedSkillsArray={learnedSkillsArray}
+                  featArray={featArray}
+                  spellArray={spellArray}
+                  baseAttack={baseAttack}
+                />
+              </div>
+              <div style={{ textAlign: "center" }}>
+                <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
+                  <PrintContextConsumer>
+                    {({ handlePrint }) => (
+                      <p>
+                        <Button
+                          variant="secondary rounded-0"
+                          onClick={handlePrint}
+                        >
+                          Print
+                        </Button>
+                      </p>
+                    )}
+                  </PrintContextConsumer>
+                </ReactToPrint>
+                <p>
+                  <Button variant="secondary rounded-0" onClick={handleClose}>
+                    Close
+                  </Button>
+                </p>
+              </div>
+            </Modal.Body>
+          </Modal>
           <BottomNav />
         </div>
       </>
     );
   }
 
-  return (
+  else return (
     <>
       <div
         style={{ marginBottom: 100 }}
@@ -535,7 +594,10 @@ function App() {
         />
         <div style={{ textAlign: "center" }}>
           <br />
-          <Button variant="secondary rounded-0" onClick={() => window.location.reload()}>
+          <Button
+            variant="secondary rounded-0"
+            onClick={() => window.location.reload()}
+          >
             Start Over
           </Button>
         </div>
