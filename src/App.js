@@ -971,7 +971,7 @@ function App() {
               chr={chr}
               alignment={alignment}
               hp={hp}
-              silver={totalSilver - weaponsMoney - armorMoney}
+              silver={totalSilver}
               armorArray={armorArray}
               weaponArray={weaponArray}
               learnedSkillsArray={learnedSkillsArray}
