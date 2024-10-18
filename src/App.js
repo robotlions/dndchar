@@ -286,6 +286,7 @@ function App() {
                     onClick={() => {
                       setMunchkinMode(true);
                       setModeChosen(true);
+                      setTotalSilver(1000000);
                     }}
                     style={{ marginTop: 20 }}
                   >

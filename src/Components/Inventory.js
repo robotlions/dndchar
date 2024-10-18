@@ -454,9 +454,9 @@ export const StartingSilver = (props) => {
     </Button>
   );
 
-if(props.munchkinMode===true){
-  props.setTotalSilver(1000000)
-};
+// if(props.munchkinMode===true){
+//   props.setTotalSilver(1000000)
+// };
 
 
   return (
