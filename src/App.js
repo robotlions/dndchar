@@ -457,7 +457,7 @@ function App() {
               </div>
               <br />
               <div className="row">
-                <div className="col-md-4">
+                <div className="col-md-3">
                   <p style={{ fontWeight: "bold" }}>Weapons and Armor</p>
                   <Inventory.WeaponsAndArmorQuick
                     setArmorBonusTotal={setArmorBonusTotal}
@@ -473,7 +473,7 @@ function App() {
                     quickCreate={quickCreate}
                   />
                 </div>
-                <div className="col-1"></div>
+                
                 <div className="col-2">
                   <p style={{ fontWeight: "bold" }}>Skills</p>
                   <Skills.SkillsQuick
@@ -485,7 +485,7 @@ function App() {
                     selectedRace={selectedRace}
                   />
                 </div>
-                <div className="col-2">
+                <div className="col-1">
                   <p style={{ fontWeight: "bold" }}>Feats</p>
                   <Feats.FeatsQuick
                     featArray={featArray}
@@ -495,7 +495,7 @@ function App() {
                     selectedRace={selectedRace}
                   />
                 </div>
-                <div className="col-3">
+                <div className="col-6">
                   <p style={{ fontWeight: "bold" }}>Spells(level)</p>
                   <Spells.QuickSpellsMain
                     level={level}

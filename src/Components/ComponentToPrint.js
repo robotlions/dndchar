@@ -115,7 +115,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
   ) {
     return(
 
-  <div>
+  <div style={{fontSize:"small"}}>
       {displayList(0).length > 0 && (
         <>
       <h6>Level 0</h6>
@@ -124,54 +124,63 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       )}
       {displayList(1).length > 0 && (
         <>
+        <br/>
           <h6>Level 1</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(1)}</div>
         </>
       )}
       {displayList(2).length > 0 && (
         <>
+        <br/>
           <h6>Level 2</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(2)}</div>
         </>
       )}
       {displayList(3).length > 0 && (
         <>
+        <br/>
           <h6>Level 3</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(3)}</div>
         </>
       )}
       {displayList(4).length > 0 && (
         <>
+        <br/>
           <h6>Level 4</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(4)}</div>
         </>
       )}
       {displayList(5).length > 0 && (
         <>
+        <br/>
           <h6>Level 5</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(5)}</div>
         </>
       )}
       {displayList(6).length > 0 && (
         <>
+        <br/>
           <h6>Level 6</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(6)}</div>
         </>
       )}
       {displayList(7).length > 0 && (
         <>
+        <br/>
           <h6>Level 7</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(7)}</div>
         </>
       )}
       {displayList(8).length > 0 && (
         <>
+        <br/>
           <h6>Level 8</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(8)}</div>
         </>
       )}
       {displayList(9).length > 0 && (
         <>
+        <br/>
           <h6>Level 9</h6>
           <div className="d-flex flex-row flex-wrap">{displayList(9)}</div>
         </>
@@ -314,21 +323,22 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       </div>
       <div className="row" style={{ fontSize:"small", marginTop: 10 }}>
         <div className="col">
-            <span style={{ fontSize: 20 }}>Silver:</span> {props.silver}
+            <span><span style={{fontSize:"1rem",fontWeight:700}}>Silver:</span> {props.silver}</span>
         </div>
       </div>
-      <h5>Armor</h5>
+      <br/>
+      <h6>Armor</h6>
 
       <div className="row inventoryBox">
         {armorHeaderDisplay()}
       </div>
-      <h5>Weapons</h5>
+      <h6>Weapons</h6>
 
       <div className="row inventoryBox">
         {weaponHeaderDisplay()}
       </div>
       <div className="pagebreak"></div>
-      <h5>Skills</h5>
+      <h6>Skills</h6>
 
       <div className="row skillsBox">
         {props.learnedSkillsArray.length > 0 && (
@@ -340,7 +350,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
               {props.learnedSkillsArray
                 .filter((item) => item[props.selectedClass] === true)
                 .map((item, index) => (
-                  <span key={index}> - {item.skillName} ({item.skillLevel})</span>
+                  <span style={{fontSize:"small"}}key={index}> - {item.skillName} ({item.skillLevel})</span>
                 ))}
             </div>
             <div>
@@ -356,15 +366,15 @@ export const ComponentToPrint = forwardRef((props, ref) => {
           </div>
         )}
       </div>
-      <h5>Feats</h5>
+      <h6>Feats</h6>
 
       <div className="row skillsBox">
         {props.featArray.map((item, index) => (
-                  <div key={index}>{item.featName}</div>
+                  <div style={{fontSize:"small"}}key={index}>{item.featName}</div>
                 ))}
       </div>
       <div className="row d-flex flex-row flex-wrap">
-        <h5>Spells</h5>
+        <h6>Spells</h6>
       {showSpells()}
     </div>
     </div>

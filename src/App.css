@@ -39,6 +39,10 @@ a:visited {
   color: rgb(102, 108, 109);
 }
 
+h6{
+  font-weight:700 !important;
+}
+
 table {
   width: 100%;
   text-align: center;
@@ -85,7 +89,7 @@ table {
 
 .inventoryBox{
   border: 1px solid black;
-  min-height: 200px;
+  min-height: 150px;
 }
 
 .linkLogos {
