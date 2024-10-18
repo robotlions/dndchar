@@ -278,7 +278,7 @@ function App() {
                     (Custom)
                   </h6>
                   <p className="card-text">
-                    Manually set level and ability scores and start with a
+                    Manually set character's level and ability scores and start with a
                     million silver.
                   </p>
                   <Button
