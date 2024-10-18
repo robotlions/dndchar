@@ -21,6 +21,7 @@ import Modal from "react-bootstrap/Modal";
 import Card from "react-bootstrap/Card";
 import { BottomNav } from "./Components/BottomNav";
 import { BaseAttack } from "./Components/BaseAttack";
+import { charNames } from "./Data/CharNames";
 
 function App() {
   const [modeChosen, setModeChosen] = useState(false);
@@ -151,13 +152,7 @@ function App() {
       statArray.push(Number(x));
     }
     largestInt = Math.max(...statArray);
-    // console.log(largestInt)
-
-    // console.log(statArray)
-
-    // if(selectedClass==="Fighter"){
-    //   abilFunc = setStr
-    // }
+    
 
     if (["Fighter", "Paladain", "Barbarian"].includes(selectedClass)) {
       abilFunc = setStr;
@@ -188,7 +183,7 @@ function App() {
 
   function createInstantCharacter() {
     setLevel(1);
-    setCharName("Chuckles");
+    setCharName(charNames[rando(0, charNames.length-1)]);
     quickRollStats();
     setQuickCreate(true);
     setTotalSilver(500);
@@ -305,20 +300,25 @@ function App() {
           setFontThemeFantasy={setFontThemeFantasy}
           setMunchkinMode={setMunchkinMode}
         />
+        
         <div
           className={
             fontThemeFantasy === false
               ? "container font-standard"
               : "container font-fantasy"
           }
-          style={{ paddingBottom: 150 }}
+          style={{ paddingBottom: 400 }}
         >
+           
           <div className="row justify-content-center" style={{ marginTop: 30 }}>
             <div className="col-auto">
+            {quickCreate === false && (
               <h5>Choose your race, class and alignment, then hit Go!</h5>
+            )}
             </div>
           </div>
           <br />
+          {quickCreate === false && (
           <div className="row justify-content-center">
             <div className="col-auto">
               <RaceSelectDropdown
@@ -339,7 +339,7 @@ function App() {
               />
             </div>
             <div className="col-auto">
-              {quickCreate === false && (
+             
                 <Button
                   className="btn btn-primary rounded-0"
                   onClick={() => createInstantCharacter()}
@@ -347,9 +347,10 @@ function App() {
                 >
                   Go!
                 </Button>
-              )}
+              
             </div>
           </div>
+          )}
           <br />
           {quickCreate === true && (
             <>
@@ -509,6 +510,7 @@ function App() {
                     {/* <Button name="printCharacterButton" variant="secondary rounded-0" onClick={(e)=>{console.log(e)}}> */}
                     View and Print Character
                   </Button>
+                  &nbsp;
                   <Button
                     variant="secondary rounded-0"
                     onClick={() => window.location.reload()}
@@ -531,6 +533,7 @@ function App() {
                   selectedClass={selectedClass}
                   selectedRace={selectedRace}
                   level={level}
+                  ac={ac}
                   str={str}
                   int={int}
                   wis={wis}
@@ -647,19 +650,19 @@ function App() {
                     setCharName={setCharName}
                   />
                 </div>
-                <div className="col">
+                <div className="col-auto col" style={{marginBottom:5}}>
                   <RaceSelectDropdown
                     setBasicEdited={setBasicEdited}
                     setSelectedRace={setSelectedRace}
                   />
                 </div>
-                <div className="col">
+                <div className="col-auto col" style={{marginBottom:5}}>
                   <ClassSelectDropdown
                     setBasicEdited={setBasicEdited}
                     setSelectedClass={setSelectedClass}
                   />
                 </div>
-                <div className="col">
+                <div className="col-auto col" style={{marginBottom:5}}>
                   <CharInfo.AlignmentSelect
                     setBasicEdited={setBasicEdited}
                     setAlignment={setAlignment}
@@ -956,6 +959,7 @@ function App() {
               charName={charName}
               selectedClass={selectedClass}
               selectedRace={selectedRace}
+              ac={ac}
               level={level}
               str={str}
               int={int}

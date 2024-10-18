@@ -241,21 +241,17 @@ export const QuickSpellsMain = (props) => {
     if (
       !["Barbarian", "Monk", "Rogue", "Fighter"].includes(props.selectedClass)
     ) {
-      if (
-       ["Sorcerer", "Bard"].includes(props.selectedClass)
-      ) {
+      if (["Sorcerer", "Bard"].includes(props.selectedClass)) {
         classMod = props.chr;
-      }
-      else if (props.selectedClass === "Wizard") {
+      } else if (props.selectedClass === "Wizard") {
         classMod = props.int;
-      }
-      else if (
-       ["Cleric", "Druid", "Paladin", "Ranger"].includes(props.selectedClass)
+      } else if (
+        ["Cleric", "Druid", "Paladin", "Ranger"].includes(props.selectedClass)
       ) {
         classMod = props.wis;
       }
-    }},
-      [props.level, props.selectedClass, props.int, props.wis, props.chr]);
+    }
+  }, [props.level, props.selectedClass, props.int, props.wis, props.chr]);
 
   useEffect(() => {
     let tempArray = [];
@@ -272,17 +268,23 @@ export const QuickSpellsMain = (props) => {
           Object.values(spellObject)
             .filter((item) => item.level === Number(key))
             .map((item) => tempArray.push(item));
-          let difference = tempArray.length - (Number(value)+calculateModifier());
-          for (let i = 0; i < difference; i++) {
-            let x = rando(0, difference.length - 1);
-            tempArray.splice(x, 1);
+          if (
+            ["Bard", "Wizard", "Sorcerer", "Ranger", "Paladin"].includes(
+              props.selectedClass
+            )
+          ) {
+            let difference =
+              tempArray.length - (Number(value) + calculateModifier());
+            for (let i = 0; i < difference; i++) {
+              let x = rando(0, difference.length - 1);
+              tempArray.splice(x, 1);
+            }
           }
           tempArray.forEach((item) => spArray.push(item));
         }
       });
-      props.setSpellArray(spArray)
+      props.setSpellArray(spArray);
       setLoaded(true);
-      
     }
   }, [props.selectedClass, props.wis, props.chr, props.int]);
 
@@ -295,6 +297,6 @@ export const QuickSpellsMain = (props) => {
   if (loaded) {
     return <div className="d-flex flex-row flex-wrap">{spellDisplay}</div>;
   } else {
-    return <div>not loaded</div>;
+    return <div></div>;
   }
 };

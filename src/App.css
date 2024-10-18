@@ -60,7 +60,7 @@ table {
   width: 3rem;
 }
 
-.btn {
+.btn-secondary{
   box-shadow: 2px 2px 2px lightgray;
   min-width:150px;
 }
