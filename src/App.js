@@ -152,7 +152,6 @@ function App() {
       statArray.push(Number(x));
     }
     largestInt = Math.max(...statArray);
-    
 
     if (["Fighter", "Paladain", "Barbarian"].includes(selectedClass)) {
       abilFunc = setStr;
@@ -183,7 +182,7 @@ function App() {
 
   function createInstantCharacter() {
     setLevel(1);
-    setCharName(charNames[rando(0, charNames.length-1)]);
+    setCharName(charNames[rando(0, charNames.length - 1)]);
     quickRollStats();
     setQuickCreate(true);
     setTotalSilver(500);
@@ -203,7 +202,7 @@ function App() {
               ? "container font-standard"
               : "container font-fantasy"
           }
-          style={{ textAlign: "center",paddingBottom:200 }}
+          style={{ textAlign: "center", paddingBottom: 200 }}
         >
           <h5 style={{ paddingTop: "20px", marginBottom: "50px" }}>
             How would you like to create your Dungeons and Dragons 3.5
@@ -212,13 +211,15 @@ function App() {
           <div className="row">
             <div className="col-lg-4" style={{ marginBottom: "30px" }}>
               <div>
-                <h4 style={{ fontFamily: fontCheck}}>
+                <h4 style={{ fontFamily: fontCheck }}>
                   Lawful Mode
                   <br />
                   (Standard)
                 </h4>
-                <p style={{minHeight:60}}>Roll up a first-level character in accordance with the{" "}
-                <em>Player's Handbook</em>.</p>
+                <p style={{ minHeight: 60 }}>
+                  Roll up a first-level character in accordance with the{" "}
+                  <em>Player's Handbook</em>.
+                </p>
               </div>
               <div className="row">
                 <div className="col">
@@ -239,8 +240,10 @@ function App() {
                   <br />
                   (Quick)
                 </h4>
-                <p style={{minHeight:60}}>Instantly create a randomized first-level character with the
-                touch of a button.</p>
+                <p style={{ minHeight: 60 }}>
+                  Instantly create a randomized first-level character with the
+                  touch of a button.
+                </p>
               </div>
               <div className="row">
                 <div className="col">
@@ -265,8 +268,10 @@ function App() {
                   <br />
                   (Custom)
                 </h4>
-                <p style={{minHeight:60}}>Manually set level and ability scores and start with a million
-                silver.</p>
+                <p style={{ minHeight: 60 }}>
+                  Manually set level and ability scores and start with a million
+                  silver.
+                </p>
               </div>
               <div className="row">
                 <div className="col">
@@ -290,9 +295,7 @@ function App() {
         </div>
       </div>
     );
-  }
-
-  else if (modeChosen === true && quickMode === true) {
+  } else if (modeChosen === true && quickMode === true) {
     return (
       <>
         <TopNav
@@ -300,7 +303,7 @@ function App() {
           setFontThemeFantasy={setFontThemeFantasy}
           setMunchkinMode={setMunchkinMode}
         />
-        
+
         <div
           className={
             fontThemeFantasy === false
@@ -309,37 +312,35 @@ function App() {
           }
           style={{ paddingBottom: 400 }}
         >
-           
           <div className="row justify-content-center" style={{ marginTop: 30 }}>
             <div className="col-auto">
-            {quickCreate === false && (
-              <h5>Choose your race, class and alignment, then hit Go!</h5>
-            )}
+              {quickCreate === false && (
+                <h5>Choose your race, class and alignment, then hit Go!</h5>
+              )}
             </div>
           </div>
           <br />
           {quickCreate === false && (
-          <div className="row justify-content-center">
-            <div className="col-auto">
-              <RaceSelectDropdown
-                setBasicEdited={setBasicEdited}
-                setSelectedRace={setSelectedRace}
-              />
-            </div>
-            <div className="col-auto">
-              <ClassSelectDropdown
-                setBasicEdited={setBasicEdited}
-                setSelectedClass={setSelectedClass}
-              />
-            </div>
-            <div className="col-auto">
-              <CharInfo.AlignmentSelect
-                setBasicEdited={setBasicEdited}
-                setAlignment={setAlignment}
-              />
-            </div>
-            <div className="col-auto">
-             
+            <div className="row justify-content-center">
+              <div className="col-auto">
+                <RaceSelectDropdown
+                  setBasicEdited={setBasicEdited}
+                  setSelectedRace={setSelectedRace}
+                />
+              </div>
+              <div className="col-auto">
+                <ClassSelectDropdown
+                  setBasicEdited={setBasicEdited}
+                  setSelectedClass={setSelectedClass}
+                />
+              </div>
+              <div className="col-auto">
+                <CharInfo.AlignmentSelect
+                  setBasicEdited={setBasicEdited}
+                  setAlignment={setAlignment}
+                />
+              </div>
+              <div className="col-auto">
                 <Button
                   className="btn btn-primary rounded-0"
                   onClick={() => createInstantCharacter()}
@@ -347,20 +348,19 @@ function App() {
                 >
                   Go!
                 </Button>
-              
+              </div>
+            </div>
+          )}
+          <div className="row justify-content-center" style={{ marginTop: 30 }}>
+            <div className="col-auto col">
+              <Button
+                variant="info rounded-0"
+                onClick={() => window.location.reload()}
+              >
+                Start Over
+              </Button>
             </div>
           </div>
-          )}
-          <div className="row justify-content-center" style={{marginTop:30}}>
-  <div className="col-auto col">
-<Button
-                    variant="info rounded-0"
-                    onClick={() => window.location.reload()}
-                  >
-                    Start Over
-                  </Button>
-                  </div>
-</div>
           <br />
           {quickCreate === true && (
             <>
@@ -588,223 +588,224 @@ function App() {
         </div>
       </>
     );
-  }
-
-  else return (
-    <>
-      <div
-        style={{ marginBottom: 100 }}
-        className={
-          fontThemeFantasy === false
-            ? "container font-standard"
-            : "container font-fantasy"
-        }
-      >
-        <TopNav
-          fontThemeFantasy={fontThemeFantasy}
-          setFontThemeFantasy={setFontThemeFantasy}
-          setMunchkinMode={setMunchkinMode}
-        />
-        <div style={{ textAlign: "center" }}>
+  } else
+    return (
+      <>
+        <div
+          style={{ marginBottom: 100 }}
+          className={
+            fontThemeFantasy === false
+              ? "container font-standard"
+              : "container font-fantasy"
+          }
+        >
+          <TopNav
+            fontThemeFantasy={fontThemeFantasy}
+            setFontThemeFantasy={setFontThemeFantasy}
+            setMunchkinMode={setMunchkinMode}
+          />
+          <div style={{ textAlign: "center" }}>
+            <br />
+            <Button
+              variant="info rounded-0"
+              onClick={() => window.location.reload()}
+            >
+              Start Over
+            </Button>
+          </div>
           <br />
-          <Button
-            variant="info rounded-0"
-            onClick={() => window.location.reload()}
-          >
-            Start Over
-          </Button>
-        </div>
-        <br />
-        {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
-        <Accordion alwaysOpen>
-          <Accordion.Item
-            onClick={() => {
-              if (charName !== "Basic Info") {
-                setBasicEdited(true);
-              }
-            }}
-            eventKey="0"
-          >
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>{nameCheck}</h2>
-                {basicEdited === true && (
-                  <div>
-                    <p style={{ fontWeight: "bold" }}>
-                      {alignment}{" "}
-                      {selectedRace != "select" &&
-                        selectedRace.charAt(0).toUpperCase() +
-                          selectedRace.slice(1)}{" "}
-                      {selectedClass}
-                    </p>
+          {/* <Accordion defaultActiveKey={['0']} alwaysOpen> */}
+          <Accordion alwaysOpen>
+            <Accordion.Item
+              onClick={() => {
+                if (charName !== "Basic Info") {
+                  setBasicEdited(true);
+                }
+              }}
+              eventKey="0"
+            >
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>{nameCheck}</h2>
+                  {basicEdited === true && (
                     <div>
-                      <span style={{ fontWeight: "bold" }}>Level: </span>
-                      <span style={{ marginRight: 10 }}>{level}</span>
+                      <p style={{ fontWeight: "bold" }}>
+                        {alignment}{" "}
+                        {selectedRace != "select" &&
+                          selectedRace.charAt(0).toUpperCase() +
+                            selectedRace.slice(1)}{" "}
+                        {selectedClass}
+                      </p>
+                      <div>
+                        <span style={{ fontWeight: "bold" }}>Level: </span>
+                        <span style={{ marginRight: 10 }}>{level}</span>
 
-                      <span style={{ fontWeight: "bold" }}>Hit Points: </span>
-                      <span style={{ marginRight: 10 }}>{hp}</span>
+                        <span style={{ fontWeight: "bold" }}>Hit Points: </span>
+                        <span style={{ marginRight: 10 }}>{hp}</span>
 
-                      <span style={{ fontWeight: "bold" }}>Armor Class: </span>
-                      {ac}
+                        <span style={{ fontWeight: "bold" }}>
+                          Armor Class:{" "}
+                        </span>
+                        {ac}
+                      </div>
                     </div>
-                  </div>
-                )}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="row">
-                <div className="col-md-6">
-                  <CharInfo.CharName
-                    basicEdited={basicEdited}
-                    setBasicEdited={setBasicEdited}
-                    setCharName={setCharName}
-                  />
-                </div>
-                <div className="col-md-6">
-                <div className="row justify-content-center">
-                <div className="col-auto" style={{marginBottom:5}}>
-                  <RaceSelectDropdown
-                    setBasicEdited={setBasicEdited}
-                    setSelectedRace={setSelectedRace}
-                  />
-                </div>
-                <div className="col-auto" style={{marginBottom:5}}>
-                  <ClassSelectDropdown
-                    setBasicEdited={setBasicEdited}
-                    setSelectedClass={setSelectedClass}
-                  />
-                </div>
-                <div className="col-auto" style={{marginBottom:5}}>
-                  <CharInfo.AlignmentSelect
-                    setBasicEdited={setBasicEdited}
-                    setAlignment={setAlignment}
-                  />
-                </div>
-                </div>
-              </div>
-              </div>
-              <div
-                style={{ textAlign: "center" }}
-                className="row"
-              >
-                <div className="col-md-6">
-                  <div className="row justify-content-evenly">
-                <div className="col">
-                  Level
-                  {munchkinMode === true ? (
-                    <CharInfo.Level
-                      setBasicEdited={setBasicEdited}
-                      setLevel={setLevel}
-                    />
-                  ) : (
-                    <p>1</p>
                   )}
                 </div>
-                <div className="col">
-                  Hit Points
-                  <CharInfo.HitPoints
-                    setHP={setHP}
-                    level={level}
-                    selectedClass={selectedClass}
-                    con={con}
-                    setCon={setCon}
-                    selectedRace={selectedRace}
-                    featArray={featArray}
-                  />
-                </div>
-                <div className="col">
-                  Armor Class
-                  <CharInfo.ArmorClass
-                    setAC={setAC}
-                    armorBonusTotal={armorBonusTotal}
-                    setBaseAC={setBaseAC}
-                    dex={dex}
-                    selectedRace={selectedRace}
-                  />
-                </div>
-                </div>
-                </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="1">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Abilities and Saves</h2>
-                {rolled === true && (
-                  <div>
-                    <span style={{ fontWeight: "bold" }}>Str </span>
-                    {str} <span style={{ fontWeight: "bold" }}>Int </span>
-                    {int} <span style={{ fontWeight: "bold" }}>Wis </span>
-                    {wis} <span style={{ fontWeight: "bold" }}>Dex </span>
-                    {dex} <span style={{ fontWeight: "bold" }}>Con </span>
-                    {con} <span style={{ fontWeight: "bold" }}>Chr </span>
-                    {chr}
+              </Accordion.Header>
+              <Accordion.Body>
+                <div className="row">
+                  <div className="col-md-6">
+                    <CharInfo.CharName
+                      basicEdited={basicEdited}
+                      setBasicEdited={setBasicEdited}
+                      setCharName={setCharName}
+                    />
                   </div>
-                )}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <div className="row justify-content-evenly">
-                <div className="col">
-                  <NewScores
-                    setStr={setStr}
-                    setChr={setChr}
-                    setInt={setInt}
-                    setWis={setWis}
-                    setDex={setDex}
-                    setCon={setCon}
-                    selectedRace={selectedRace}
-                    setRolled={setRolled}
-                    munchkinMode={munchkinMode}
-                  />
+                  <div className="col-md-6">
+                    <div className="row justify-content-center">
+                      <div className="col-auto" style={{ marginBottom: 5 }}>
+                        <RaceSelectDropdown
+                          setBasicEdited={setBasicEdited}
+                          setSelectedRace={setSelectedRace}
+                        />
+                      </div>
+                      <div className="col-auto" style={{ marginBottom: 5 }}>
+                        <ClassSelectDropdown
+                          setBasicEdited={setBasicEdited}
+                          setSelectedClass={setSelectedClass}
+                        />
+                      </div>
+                      <div className="col-auto" style={{ marginBottom: 5 }}>
+                        <CharInfo.AlignmentSelect
+                          setBasicEdited={setBasicEdited}
+                          setAlignment={setAlignment}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="col">
-                  <CharInfo.SavingThrows
-                    level={level}
-                    selectedClass={selectedClass}
-                    dex={dex}
-                    con={con}
-                    wis={wis}
-                  />
+                <div style={{ textAlign: "center" }} className="row">
+                  <div className="col-md-6">
+                    <div className="row justify-content-evenly">
+                      <div className="col">
+                        Level
+                        {munchkinMode === true ? (
+                          <CharInfo.Level
+                            setBasicEdited={setBasicEdited}
+                            setLevel={setLevel}
+                          />
+                        ) : (
+                          <p>1</p>
+                        )}
+                      </div>
+                      <div className="col">
+                        Hit Points
+                        <CharInfo.HitPoints
+                          setHP={setHP}
+                          level={level}
+                          selectedClass={selectedClass}
+                          con={con}
+                          setCon={setCon}
+                          selectedRace={selectedRace}
+                          featArray={featArray}
+                        />
+                      </div>
+                      <div className="col">
+                        Armor Class
+                        <CharInfo.ArmorClass
+                          setAC={setAC}
+                          armorBonusTotal={armorBonusTotal}
+                          setBaseAC={setBaseAC}
+                          dex={dex}
+                          selectedRace={selectedRace}
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="col">
-                  <BaseAttack
-                    str={str}
-                    level={level}
-                    selectedClass={selectedClass}
-                    setBaseAttack={setBaseAttack}
-                  />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="1">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Abilities and Saves</h2>
+                  {rolled === true && (
+                    <div>
+                      <span style={{ fontWeight: "bold" }}>Str </span>
+                      {str}&nbsp;
+                      <span style={{ fontWeight: "bold" }}>Dex </span>
+                      {dex}&nbsp;
+                      <span style={{ fontWeight: "bold" }}>Con </span>
+                      {con}&nbsp;
+                      <span style={{ fontWeight: "bold" }}>Int </span>
+                      {int}&nbsp;
+                      <span style={{ fontWeight: "bold" }}>Wis </span>
+                      {wis}&nbsp;
+                      <span style={{ fontWeight: "bold" }}>Chr </span>
+                      {chr}&nbsp;
+                    </div>
+                  )}
                 </div>
-              </div>
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="2">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Money</h2>
-                {totalSilver > 0 && (
-                  <div>{totalSilver} silver</div>
-                )}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <p>Silver: {totalSilver}</p>
-              <Inventory.StartingSilver
-                setWeaponsMoney={setWeaponsMoney}
-                setArmorMoney={setArmorMoney}
-                totalSilver={totalSilver}
-                selectedClass={selectedClass}
-                setTotalSilver={setTotalSilver}
-                munchkinMode={munchkinMode}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="3">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Armor</h2>
-                {/* {armorArray.map((item, index) => (
+              </Accordion.Header>
+              <Accordion.Body>
+                <div className="row justify-content-evenly">
+                  <div className="col">
+                    <NewScores
+                      setStr={setStr}
+                      setChr={setChr}
+                      setInt={setInt}
+                      setWis={setWis}
+                      setDex={setDex}
+                      setCon={setCon}
+                      selectedRace={selectedRace}
+                      setRolled={setRolled}
+                      munchkinMode={munchkinMode}
+                    />
+                  </div>
+                  <div className="col">
+                    <CharInfo.SavingThrows
+                      level={level}
+                      selectedClass={selectedClass}
+                      dex={dex}
+                      con={con}
+                      wis={wis}
+                    />
+                  </div>
+                  <div className="col">
+                    <BaseAttack
+                      str={str}
+                      level={level}
+                      selectedClass={selectedClass}
+                      setBaseAttack={setBaseAttack}
+                    />
+                  </div>
+                </div>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="2">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Money</h2>
+                  {totalSilver > 0 && <div>{totalSilver} silver</div>}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                <p>Silver: {totalSilver}</p>
+                <Inventory.StartingSilver
+                  setWeaponsMoney={setWeaponsMoney}
+                  setArmorMoney={setArmorMoney}
+                  totalSilver={totalSilver}
+                  selectedClass={selectedClass}
+                  setTotalSilver={setTotalSilver}
+                  munchkinMode={munchkinMode}
+                />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="3">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Armor</h2>
+                  {/* {armorArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
                     {item.armorName} -{" "}
@@ -814,27 +815,27 @@ function App() {
                   </p>
                 </div>
               ))} */}
-                {armorHeaderDisplay()}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <Inventory.ArmorMain
-                setArmorBonusTotal={setArmorBonusTotal}
-                totalSilver={totalSilver}
-                setTotalSilver={setTotalSilver}
-                setArmorMoney={setArmorMoney}
-                updated={updated}
-                setUpdated={setUpdated}
-                setArmorArray={setArmorArray}
-                weaponsMoney={weaponsMoney}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="4">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Weapons</h2>
-                {/* {weaponArray.map((item, index) => (
+                  {armorHeaderDisplay()}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                <Inventory.ArmorMain
+                  setArmorBonusTotal={setArmorBonusTotal}
+                  totalSilver={totalSilver}
+                  setTotalSilver={setTotalSilver}
+                  setArmorMoney={setArmorMoney}
+                  updated={updated}
+                  setUpdated={setUpdated}
+                  setArmorArray={setArmorArray}
+                  weaponsMoney={weaponsMoney}
+                />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="4">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Weapons</h2>
+                  {/* {weaponArray.map((item, index) => (
                 <div key={index}>
                   <p style={{ fontWeight: "bold" }}>
                     {item.weaponName} -{" "}
@@ -844,183 +845,186 @@ function App() {
                   </p>
                 </div>
               ))} */}
-                {weaponHeaderDisplay()}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <Inventory.WeaponsMain
-                totalSilver={totalSilver}
-                setTotalSilver={setTotalSilver}
-                setWeaponsMoney={setWeaponsMoney}
-                updated={updated}
-                setUpdated={setUpdated}
-                setWeaponArray={setWeaponArray}
-                armorMoney={armorMoney}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="5">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Skills</h2>
-
-                {learnedSkillsArray.length > 0 && (
-                  <div>
-                    <div>
-                      <span>
-                        <em>Class</em>
-                      </span>
-                      {learnedSkillsArray
-                        .filter((item) => item[selectedClass] === true)
-                        .map((item, index) => (
-                          <span key={index}> - {item.skillName}</span>
-                        ))}
-                    </div>
-                    <div>
-                      <span>
-                        <em>Cross-class</em>
-                      </span>
-                      {learnedSkillsArray
-                        .filter((item) => item[selectedClass] === false)
-                        .map((item, index) => (
-                          <span key={index}> - {item.skillName}</span>
-                        ))}
-                    </div>
-                  </div>
-                )}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <Skills.SkillsMain
-                level={level}
-                int={int}
-                selectedRace={selectedRace}
-                selectedClass={selectedClass}
-                setLearnedSkillsArray={setLearnedSkillsArray}
-                setSkillPoints={setSkillPoints}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="6">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Feats</h2>
-                {featArray.map((item, index) => (
-                  <div key={index}>{item.featName}</div>
-                ))}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              <Feats.FeatsMain
-                featsSlots={featSlots}
-                setFeatSlots={setFeatSlots}
-                setFeatArray={setFeatArray}
-                selectedRace={selectedRace}
-                level={level}
-              />
-            </Accordion.Body>
-          </Accordion.Item>
-          <Accordion.Item eventKey="7">
-            <Accordion.Header>
-              <div className="accTitle">
-                <h2 style={{ fontFamily: fontCheck }}>Spells</h2>
-                {/* {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)} */}
-              </div>
-            </Accordion.Header>
-            <Accordion.Body>
-              {spellCaster === true ? (
-                <Spells.SpellsMain
-                  level={level}
+                  {weaponHeaderDisplay()}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                <Inventory.WeaponsMain
+                  totalSilver={totalSilver}
+                  setTotalSilver={setTotalSilver}
+                  setWeaponsMoney={setWeaponsMoney}
                   updated={updated}
                   setUpdated={setUpdated}
-                  selectedClass={selectedClass}
-                  setSpellArray={setSpellArray}
-                  int={int}
-                  wis={wis}
-                  chr={chr}
-                  // spellCaster={spellCaster}
+                  setWeaponArray={setWeaponArray}
+                  armorMoney={armorMoney}
                 />
-              ) : (
-                `${selectedClass} is not a spellcasting class.`
-              )}
-            </Accordion.Body>
-          </Accordion.Item>
-        </Accordion>
-        <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
-          <div className="col-md-12">
-            <Button
-              name="printCharacterButton"
-              variant="secondary rounded-0"
-              onClick={(e) => handleShow()}
-            >
-              {/* <Button name="printCharacterButton" variant="secondary rounded-0" onClick={(e)=>{console.log(e)}}> */}
-              View and Print Character
-            </Button>
-            <br />
-            <br />
-            <Button
-              variant="info rounded-0"
-              onClick={() => window.location.reload()}
-            >
-              Start Over
-            </Button>
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="5">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Skills</h2>
+
+                  {learnedSkillsArray.length > 0 && (
+                    <div>
+                      <div>
+                        <span>
+                          <em>Class</em>
+                        </span>
+                        {learnedSkillsArray
+                          .filter((item) => item[selectedClass] === true)
+                          .map((item, index) => (
+                            <span key={index}> - {item.skillName}</span>
+                          ))}
+                      </div>
+                      <div>
+                        <span>
+                          <em>Cross-class</em>
+                        </span>
+                        {learnedSkillsArray
+                          .filter((item) => item[selectedClass] === false)
+                          .map((item, index) => (
+                            <span key={index}> - {item.skillName}</span>
+                          ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                <Skills.SkillsMain
+                  level={level}
+                  int={int}
+                  selectedRace={selectedRace}
+                  selectedClass={selectedClass}
+                  setLearnedSkillsArray={setLearnedSkillsArray}
+                  setSkillPoints={setSkillPoints}
+                />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="6">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Feats</h2>
+                  {featArray.map((item, index) => (
+                    <div key={index}>{item.featName}</div>
+                  ))}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                <Feats.FeatsMain
+                  featsSlots={featSlots}
+                  setFeatSlots={setFeatSlots}
+                  setFeatArray={setFeatArray}
+                  selectedRace={selectedRace}
+                  level={level}
+                />
+              </Accordion.Body>
+            </Accordion.Item>
+            <Accordion.Item eventKey="7">
+              <Accordion.Header>
+                <div className="accTitle">
+                  <h2 style={{ fontFamily: fontCheck }}>Spells</h2>
+                  {/* {spellArray.map((item, index)=><p key={index}>{item.spellName}</p>)} */}
+                </div>
+              </Accordion.Header>
+              <Accordion.Body>
+                {spellCaster === true ? (
+                  <Spells.SpellsMain
+                    level={level}
+                    updated={updated}
+                    setUpdated={setUpdated}
+                    selectedClass={selectedClass}
+                    setSpellArray={setSpellArray}
+                    int={int}
+                    wis={wis}
+                    chr={chr}
+                    // spellCaster={spellCaster}
+                  />
+                ) : (
+                  `${selectedClass} is not a spellcasting class.`
+                )}
+              </Accordion.Body>
+            </Accordion.Item>
+          </Accordion>
+          <div className="row" style={{ textAlign: "center", marginTop: 20 }}>
+            <div className="col-md-12">
+              <Button
+                name="printCharacterButton"
+                variant="secondary rounded-0"
+                onClick={(e) => handleShow()}
+              >
+                {/* <Button name="printCharacterButton" variant="secondary rounded-0" onClick={(e)=>{console.log(e)}}> */}
+                View and Print Character
+              </Button>
+              <br />
+              <br />
+              <Button
+                variant="info rounded-0"
+                onClick={() => window.location.reload()}
+              >
+                Start Over
+              </Button>
+            </div>
           </div>
         </div>
-      </div>
 
-      <Modal size="xl" show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Print Character</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div>
-            <ComponentToPrint
-              ref={ref}
-              charName={charName}
-              selectedClass={selectedClass}
-              selectedRace={selectedRace}
-              ac={ac}
-              level={level}
-              str={str}
-              int={int}
-              wis={wis}
-              dex={dex}
-              con={con}
-              chr={chr}
-              alignment={alignment}
-              hp={hp}
-              silver={totalSilver}
-              armorArray={armorArray}
-              weaponArray={weaponArray}
-              learnedSkillsArray={learnedSkillsArray}
-              featArray={featArray}
-              spellArray={spellArray}
-              baseAttack={baseAttack}
-            />
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
-              <PrintContextConsumer>
-                {({ handlePrint }) => (
-                  <p>
-                    <Button variant="secondary rounded-0" onClick={handlePrint}>
-                      Print
-                    </Button>
-                  </p>
-                )}
-              </PrintContextConsumer>
-            </ReactToPrint>
-            <p>
-              <Button variant="secondary rounded-0" onClick={handleClose}>
-                Close
-              </Button>
-            </p>
-          </div>
-        </Modal.Body>
-      </Modal>
-      <BottomNav />
-    </>
-  );
+        <Modal size="xl" show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Print Character</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div>
+              <ComponentToPrint
+                ref={ref}
+                charName={charName}
+                selectedClass={selectedClass}
+                selectedRace={selectedRace}
+                ac={ac}
+                level={level}
+                str={str}
+                int={int}
+                wis={wis}
+                dex={dex}
+                con={con}
+                chr={chr}
+                alignment={alignment}
+                hp={hp}
+                silver={totalSilver}
+                armorArray={armorArray}
+                weaponArray={weaponArray}
+                learnedSkillsArray={learnedSkillsArray}
+                featArray={featArray}
+                spellArray={spellArray}
+                baseAttack={baseAttack}
+              />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <ReactToPrint bodyClass="pdfWindow" content={() => ref.current}>
+                <PrintContextConsumer>
+                  {({ handlePrint }) => (
+                    <p>
+                      <Button
+                        variant="secondary rounded-0"
+                        onClick={handlePrint}
+                      >
+                        Print
+                      </Button>
+                    </p>
+                  )}
+                </PrintContextConsumer>
+              </ReactToPrint>
+              <p>
+                <Button variant="secondary rounded-0" onClick={handleClose}>
+                  Close
+                </Button>
+              </p>
+            </div>
+          </Modal.Body>
+        </Modal>
+        <BottomNav />
+      </>
+    );
 }
 
 export default App;
