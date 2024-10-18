@@ -351,6 +351,16 @@ function App() {
             </div>
           </div>
           )}
+          <div className="row justify-content-center" style={{marginTop:30}}>
+  <div className="col-auto col">
+<Button
+                    variant="info rounded-0"
+                    onClick={() => window.location.reload()}
+                  >
+                    Start Over
+                  </Button>
+                  </div>
+</div>
           <br />
           {quickCreate === true && (
             <>
@@ -512,7 +522,7 @@ function App() {
                   </Button>
                   &nbsp;
                   <Button
-                    variant="secondary rounded-0"
+                    variant="info rounded-0"
                     onClick={() => window.location.reload()}
                   >
                     Start Over
@@ -542,7 +552,7 @@ function App() {
                   chr={chr}
                   alignment={alignment}
                   hp={hp}
-                  silver={totalSilver - weaponsMoney - armorMoney}
+                  silver={totalSilver}
                   armorArray={armorArray}
                   weaponArray={weaponArray}
                   learnedSkillsArray={learnedSkillsArray}
@@ -598,7 +608,7 @@ function App() {
         <div style={{ textAlign: "center" }}>
           <br />
           <Button
-            variant="secondary rounded-0"
+            variant="info rounded-0"
             onClick={() => window.location.reload()}
           >
             Start Over
@@ -941,7 +951,7 @@ function App() {
             <br />
             <br />
             <Button
-              variant="secondary rounded-0"
+              variant="info rounded-0"
               onClick={() => window.location.reload()}
             >
               Start Over

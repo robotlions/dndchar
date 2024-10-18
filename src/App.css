@@ -60,7 +60,17 @@ table {
   width: 3rem;
 }
 
+.btn-info{
+  box-shadow: 2px 2px 2px lightgray;
+  min-width:150px;
+}
+
 .btn-secondary{
+  box-shadow: 2px 2px 2px lightgray;
+  min-width:150px;
+}
+
+.btn-primary{
   box-shadow: 2px 2px 2px lightgray;
   min-width:150px;
 }
