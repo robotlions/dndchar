@@ -489,7 +489,7 @@ function App() {
                   <Spells.QuickSpellsMain
                     level={level}
                     selectedClass={selectedClass}
-                    spellArray={spellArray}
+                    setSpellArray={setSpellArray}
                     int={int}
                     wis={wis}
                     chr={chr}

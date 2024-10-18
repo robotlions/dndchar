@@ -229,13 +229,11 @@ export const SpellsMain = (props) => {
 };
 
 export const QuickSpellsMain = (props) => {
-  const [classAlert, setClassAlert] = useState("Pending");
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     let tempArray = [];
     spArray = [];
-    setClassAlert(props.selectedClass);
     if (
       ["Fighter", "Monk", "Barbarian", "Rogue"].includes(props.selectedClass)
     ) {
@@ -256,6 +254,7 @@ export const QuickSpellsMain = (props) => {
           tempArray.forEach((item) => spArray.push(item));
         }
       });
+      props.setSpellArray(spArray)
       setLoaded(true);
       
     }
