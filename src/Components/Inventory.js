@@ -546,7 +546,9 @@ Object.values(ShieldTable).filter((item)=>item.startingEquipment.includes(props.
    
 ))
   props.setArmorArray(armorArray);
-  props.setWeaponArray(weaponArray)
+  props.setWeaponArray(weaponArray);
+  props.setArmorBonusTotal(armorBonusTotal());
+
 }
 }, [props.quickCreate, props.selectedClass]);
   

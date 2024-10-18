@@ -428,7 +428,7 @@ function App() {
                   />
                 </div>
                 <div className="col-3 col-md-2" style={{ textAlign: "center" }}>
-                  <span style={{ fontWeight: "bold" }}>Base Armor Class:</span>
+                  <span style={{ fontWeight: "bold" }}>Armor Class:</span>
                   <CharInfo.ArmorClass
                     setAC={setAC}
                     armorBonusTotal={armorBonusTotal}

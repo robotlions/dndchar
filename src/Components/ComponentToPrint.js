@@ -308,7 +308,7 @@ export const ComponentToPrint = forwardRef((props, ref) => {
       <div style={{textAlign: "center"}}className="col-3">
         <h6>Base Attack</h6>
       <p>{props.baseAttack}</p>
-      <h6>Base Armor Class</h6>
+      <h6>Armor Class</h6>
       <p>{props.ac}</p>
       </div>
       </div>
