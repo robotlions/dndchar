@@ -65,13 +65,24 @@ table {
 }
 
 .btn-info{
+  background-color: #3e8559 !important;
   box-shadow: 2px 2px 2px lightgray;
   min-width:150px;
+  color: white !important;
+  border: 1px solid gray !important;
+}
+
+.btn-alert{
+  box-shadow: 2px 2px 2px lightgray;
+  min-width:150px;
+  background-color: #b89737 !important;
+  border: 2px solid black !important;
 }
 
 .btn-secondary{
   box-shadow: 2px 2px 2px lightgray;
   min-width:150px;
+  background-color: #779241 !important;
 }
 
 .btn-primary{

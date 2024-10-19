@@ -213,7 +213,7 @@ function App() {
               className="col-lg-3 d-flex justify-content-center"
               style={{ marginBottom: 10 }}
             >
-              <div className="card" style={{ width: "20rem" }}>
+              <div className="card shadow-sm" style={{ width: "20rem" }}>
                 <div className="card-body">
                   <h4 className="card-title" style={{ fontFamily: fontCheck }}>
                     Lawful Mode
@@ -239,7 +239,7 @@ function App() {
               className="col-lg-3 d-flex justify-content-center"
               style={{ marginBottom: 10 }}
             >
-              <div className="card" style={{ width: "20rem" }}>
+              <div className="card shadow-sm" style={{ width: "20rem" }}>
                 <div className="card-body">
                   <h4 className="card-title" style={{ fontFamily: fontCheck }}>
                     Neutral Mode
@@ -269,7 +269,7 @@ function App() {
               className="col-lg-3 d-flex justify-content-center"
               style={{ marginBottom: 10 }}
             >
-              <div className="card" style={{ width: "20rem" }}>
+              <div className="card shadow-sm" style={{ width: "20rem" }}>
                 <div className="card-body">
                   <h4 className="card-title" style={{ fontFamily: fontCheck }}>
                     Chaotic Mode
@@ -349,9 +349,9 @@ function App() {
               </div>
               <div className="col-auto">
                 <Button
-                  className="btn btn-primary rounded-0"
+                  variant="alert rounded-0"
                   onClick={() => createInstantCharacter()}
-                  style={{ paddingLeft: 30, paddingRight: 30 }}
+                  style={{ paddingLeft: 30, paddingRight: 30}}
                 >
                   Go!
                 </Button>
